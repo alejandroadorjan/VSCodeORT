@@ -39,62 +39,62 @@ const chartDur = __chartDur__;
 	const tickDark = (cs.getPropertyValue('--dashboard-tick-dark') || '#666').trim();
 
 	const tsEl = document.getElementById('timestamp');
-	if (tsEl) tsEl.textContent = new Date().toLocaleTimeString();
+	if (tsEl) {tsEl.textContent = new Date().toLocaleTimeString();}
 
 	if (inp > 0) {
 		const pill = document.getElementById('ip-pill');
-		if (pill) pill.classList.remove('hidden');
+		if (pill) {pill.classList.remove('hidden');}
 		const ipCount = document.getElementById('ip-count');
-		if (ipCount) ipCount.textContent = inp;
+		if (ipCount) {ipCount.textContent = inp;}
 	}
 
 	const runsDetail = document.getElementById('runs-detail');
-	if (runsDetail) runsDetail.textContent = `${succ} ok · ${fail} failed`;
+	if (runsDetail) {runsDetail.textContent = `${succ} ok · ${fail} failed`;}
 
 	const avgFormatted = avgD >= 60
 		? `${Math.floor(avgD / 60)}m ${avgD % 60}s`
 		: `${avgD}s`;
 	const avgEl = document.getElementById('avg-dur-val');
-	if (avgEl) avgEl.textContent = avgFormatted;
+	if (avgEl) {avgEl.textContent = avgFormatted;}
 
 	const bsub = document.getElementById('build-sub');
 	if (bsub) {
-		if (avgD < 120) bsub.innerHTML = '<span class="badge badge-green">Fast</span>';
-		else if (avgD < 300) bsub.innerHTML = '<span class="badge badge-blue">Moderate</span>';
-		else bsub.innerHTML = '<span class="badge badge-amber">Slow</span>';
+		if (avgD < 120) {bsub.innerHTML = '<span class="badge badge-green">Fast</span>';}
+		else if (avgD < 300) {bsub.innerHTML = '<span class="badge badge-blue">Moderate</span>';}
+		else {bsub.innerHTML = '<span class="badge badge-amber">Slow</span>';}
 	}
 
 	const hb = document.getElementById('health-badge');
 	if (hb) {
-		if (hs > 85) hb.className = 'badge badge-green', hb.textContent = 'Excellent';
-		else if (hs > 65) hb.className = 'badge badge-amber', hb.textContent = 'Fair';
-		else hb.className = 'badge badge-red', hb.textContent = 'At risk';
+		if (hs > 85) {hb.className = 'badge badge-green', hb.textContent = 'Excellent';}
+		else if (hs > 65) {hb.className = 'badge badge-amber', hb.textContent = 'Fair';}
+		else {hb.className = 'badge badge-red', hb.textContent = 'At risk';}
 	}
 
 	const mb = document.getElementById('mttr-badge');
 	if (mb) {
-		if (mttr === 0) mb.className = 'badge badge-blue', mb.textContent = 'No data';
-		else if (mttr < 60) mb.className = 'badge badge-green', mb.textContent = 'Elite';
-		else if (mttr < 120) mb.className = 'badge badge-blue', mb.textContent = 'High';
-		else mb.className = 'badge badge-amber', mb.textContent = 'Medium';
+		if (mttr === 0) {mb.className = 'badge badge-blue', mb.textContent = 'No data';}
+		else if (mttr < 60) {mb.className = 'badge badge-green', mb.textContent = 'Elite';}
+		else if (mttr < 120) {mb.className = 'badge badge-blue', mb.textContent = 'High';}
+		else {mb.className = 'badge badge-amber', mb.textContent = 'Medium';}
 	}
 
 	const cb = document.getElementById('cfr-badge');
 	if (cb) {
-		if (cfr < 5) cb.className = 'badge badge-green', cb.textContent = 'Elite';
-		else if (cfr < 15) cb.className = 'badge badge-blue', cb.textContent = 'High';
-		else cb.className = 'badge badge-amber', cb.textContent = 'Medium';
+		if (cfr < 5) {cb.className = 'badge badge-green', cb.textContent = 'Elite';}
+		else if (cfr < 15) {cb.className = 'badge badge-blue', cb.textContent = 'High';}
+		else {cb.className = 'badge badge-amber', cb.textContent = 'Medium';}
 	}
 
 	const otherPct = Math.max(0, 100 - sp - fp);
 	const otherEl = document.getElementById('other-pct');
-	if (otherEl) otherEl.textContent = otherPct + '%';
+	if (otherEl) {otherEl.textContent = otherPct + '%';}
 
 	const setBar = (id, count, variantClass) => {
 		const el = document.getElementById(id);
 		if (el) {
 			el.style.width = Math.round((count / tot) * 100) + '%';
-			if (variantClass) el.classList.add(variantClass);
+			if (variantClass) {el.classList.add(variantClass);}
 		}
 	};
 	setBar('bar-success', succ, 'success');
@@ -103,7 +103,7 @@ const chartDur = __chartDur__;
 	setBar('bar-inprogress', inp, 'inprogress');
 
 	// set success progress fill
-	const pf = document.querySelector('.progress-fill'); if (pf) pf.style.width = sr + '%';
+	const pf = document.querySelector('.progress-fill'); if (pf) {pf.style.width = sr + '%';}
 
 	const gc = document.getElementById('gauge');
 	if (gc && gc.getContext) {
@@ -188,12 +188,12 @@ const chartDur = __chartDur__;
 	const ul = document.getElementById('issueList');
 	if (ul) {
 		ul.querySelectorAll('li').forEach(li => {
-			if (li.classList.contains('no-data')) return;
+			if (li.classList.contains('no-data')) {return;}
 			li.classList.add('issue-list-item');
 			const title = li.querySelector('.issue-title');
 			const right = li.querySelector('.issue-right');
-			if (title) title.classList.add('issue-title');
-			if (right) right.classList.add('issue-right');
+			if (title) {title.classList.add('issue-title');}
+			if (right) {right.classList.add('issue-right');}
 		});
 	}
 })();
