@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VSCode Knowledge Map</title>
+  <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #loading {
+      position: absolute;
+      inset: 0;
+      background: #0d1117;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 10;
+      transition: opacity 0.4s;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid #30363d;
+      border-top-color: #F85149;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #loading p { font-size: 13px; color: #8b949e; }
+
+    #header {
+      padding: 10px 16px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    #header h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e6edf3;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+    .btn {
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: .8; }
+    .btn-all     { background: #21262d; border-color: #30363d; color: #e6edf3; }
+    .btn-release { background: #F85149; border-color: #A40E26; color: #fff; }
+    .btn-pr      { background: #1D9E75; border-color: #0F6E56; color: #fff; }
+    .btn-issue   { background: #D85A30; border-color: #993C1D; color: #fff; }
+    #stats { margin-left: auto; font-size: 11px; color: #8b949e; white-space: nowrap; }
+
+    #main { display: flex; flex: 1; overflow: hidden; }
+    #graph { flex: 1; background: #0d1117; }
+
+    #sidebar {
+      width: 270px;
+      min-width: 270px;
+      background: #161b22;
+      border-left: 1px solid #30363d;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #legend {
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid #30363d;
+      flex-shrink: 0;
+    }
+    #legend h3 { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 10px; }
+    .legend-item { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: 12px; color: #c9d1d9; }
+    .legend-icon { width: 14px; height: 14px; flex-shrink: 0; }
+    .li-release    { background: #F85149; border-radius: 2px; }
+    .li-pr         { background: #1D9E75; border-radius: 50%; }
+    .li-issue      { background: #D85A30; border-radius: 2px; }
+    .li-pr-open    { background: #0d4a35; border: 2px dashed #1D9E75; border-radius: 50%; }
+    .li-issue-open { background: #4a2010; border: 2px dashed #D85A30; border-radius: 2px; }
+    .legend-edge { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; font-size: 12px; color: #8b949e; }
+    .edge-line { width: 20px; height: 2px; background: #30363d; position: relative; }
+    .edge-line::after { content: '▶'; position: absolute; right: -8px; top: -6px; font-size: 9px; color: #30363d; }
+    .edge-dashed { background: repeating-linear-gradient(90deg, #1D9E75 0px, #1D9E75 4px, transparent 4px, transparent 7px); }
+
+    #node-detail { padding: 14px 16px; flex: 1; overflow-y: auto; }
+    #node-detail h3 { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 12px; }
+    #node-detail-content { font-size: 13px; color: #8b949e; line-height: 1.5; }
+
+    .detail-type {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      margin-bottom: 10px;
+    }
+    .dt-release { background: rgba(248,81,73,.15); color: #F85149; }
+    .dt-pr      { background: rgba(29,158,117,.15);  color: #5DCAA5; }
+    .dt-issue   { background: rgba(216,90,48,.15);   color: #F0997B; }
+
+    .detail-title { font-size: 13px; color: #e6edf3; font-weight: 500; margin-bottom: 12px; line-height: 1.5; }
+    .detail-row { margin-bottom: 5px; font-size: 12px; }
+    .detail-row .lbl { color: #8b949e; }
+    .detail-row .val { color: #c9d1d9; font-weight: 500; }
+
+    .chip {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      margin: 2px 2px 0 0;
+    }
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      padding: 6px 12px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #58a6ff;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .detail-link:hover { background: #30363d; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <h2>VSCode Knowledge Map</h2>
+  <button class="btn btn-all"     onclick="filter('all')">Todos</button>
+  <button class="btn btn-release" onclick="filter('release')">◆ Releases</button>
+  <button class="btn btn-pr"      onclick="filter('pr')">● Pull Requests</button>
+  <button class="btn btn-issue"   onclick="filter('issue')">■ Issues</button>
+  <span id="stats"></span>
+</div>
+
+<div id="main" style="position:relative">
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Calculando posiciones del grafo...</p>
+  </div>
+  <div id="graph"></div>
+  <div id="sidebar">
+
+    <div id="legend">
+      <h3>Leyenda</h3>
+      <div class="legend-item"><div class="legend-icon li-release"></div> Release</div>
+      <div class="legend-item"><div class="legend-icon li-pr"></div> Pull Request mergeado</div>
+      <div class="legend-item"><div class="legend-icon li-issue"></div> Issue cerrado</div>
+      <div class="legend-item"><div class="legend-icon li-pr-open"></div> Pull Request pendiente</div>
+      <div class="legend-item"><div class="legend-icon li-issue-open"></div> Issue abierto</div>
+      <div style="margin-top:10px; margin-bottom:4px; font-size:11px; color:#8b949e">Relaciones</div>
+      <div class="legend-edge"><div class="edge-line edge-dashed"></div> Release → PR</div>
+      <div class="legend-edge"><div class="edge-line"></div> PR → Issue</div>
+    </div>
+
+    <div id="node-detail">
+      <h3>Detalle del nodo</h3>
+      <div id="node-detail-content">
+        Hacé click en un nodo para ver su información.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const COLORS = {
+  release: {
+    background: '#F85149', border: '#A40E26',
+    highlight: { background: '#FF7B72', border: '#7A0C1E' },
+    hover:     { background: '#FF7B72', border: '#7A0C1E' }
+  },
+  pr: {
+    background: '#1D9E75', border: '#0F6E56',
+    highlight: { background: '#5DCAA5', border: '#085041' },
+    hover:     { background: '#5DCAA5', border: '#085041' }
+  },
+  pr_open: {
+    background: '#0d4a35', border: '#1D9E75',
+    highlight: { background: '#1D9E75', border: '#5DCAA5' },
+    hover:     { background: '#1D9E75', border: '#5DCAA5' }
+  },
+  issue: {
+    background: '#D85A30', border: '#993C1D',
+    highlight: { background: '#F0997B', border: '#712B13' },
+    hover:     { background: '#F0997B', border: '#712B13' }
+  },
+  issue_open: {
+    background: '#4a2010', border: '#D85A30',
+    highlight: { background: '#D85A30', border: '#F0997B' },
+    hover:     { background: '#D85A30', border: '#F0997B' }
+  }
+}
+
+let allNodes = [], allEdges = [], network
+
+fetch('graph.json')
+  .then(r => r.json())
+  .then(graph => {
+    const connectedIds = new Set()
+    graph.edges.forEach(e => { connectedIds.add(e.from); connectedIds.add(e.to) })
+
+    allNodes = graph.nodes
+      .filter(n => connectedIds.has(n.id))
+      .map(n => {
+        const isRelease = n.type === 'release'
+        const isPR      = n.type === 'pr'
+        const label = isRelease
+          ? `v${n.title}`
+          : `#${n.number}\n${trunc(n.title, 30)}`
+
+        const isPending = n.state === 'open'
+        const colorKey = isPending
+          ? (isPR ? 'pr_open' : 'issue_open')
+          : n.type
+
+        return {
+          id:           n.id,
+          label,
+          color:        COLORS[colorKey],
+          type:         n.type,
+          state:        n.state,
+          raw:          n,
+          x:            n.x,
+          y:            n.y,
+          fixed:        { x: true, y: true },
+          shape:        isRelease ? 'box' : isPR ? 'ellipse' : 'box',
+          font: {
+            size:  isRelease ? 18 : 11,
+            color: isPending ? '#aaa' : '#fff',
+            face:  'sans-serif',
+            bold:  isRelease,
+            multi: !isRelease,
+          },
+          size:            isPR ? 22 : 18,
+          widthConstraint: isRelease ? { minimum: 140 } : { maximum: 140 },
+          margin:          isRelease ? 16 : 6,
+          mass:            isRelease ? 8 : isPR ? 2 : 1,
+          borderWidth:     isPending ? 2 : isRelease ? 3 : 2,
+          borderDashes:    isPending ? [6, 3] : false,
+        }
+      })
+
+    allEdges = graph.edges.map((e, i) => ({
+      id:     i,
+      from:   e.from,
+      to:     e.to,
+      label:  e.label,
+      state:  e.state,
+      arrows: { to: { enabled: true, scaleFactor: 0.65 } },
+      color:  e.state === 'open'
+        ? { color: '#1D9E75', highlight: '#5DCAA5', hover: '#5DCAA5', opacity: 0.5 }
+        : { color: '#30363d', highlight: '#58a6ff', hover: '#58a6ff' },
+      font:   { size: 10, color: '#8b949e', align: 'middle', background: '#161b22' },
+      smooth: { type: 'continuous' },
+      dashes: e.state === 'open' || e.label === 'incluye'
+    }))
+
+    updateStats(allNodes, allEdges)
+    render(allNodes, allEdges)
+  })
+
+function trunc(s, n) {
+  return s && s.length > n ? s.slice(0, n) + '…' : (s || '')
+}
+
+function render(nodes, edges) {
+  const container = document.getElementById('graph')
+
+  const options = {
+    physics: { enabled: false },
+    layout:  { improvedLayout: false },
+    interaction: {
+      hover:             true,
+      tooltipDelay:      80,
+      navigationButtons: true,
+      keyboard:          { enabled: true },
+      zoomView:          true
+    },
+    nodes: {
+      borderWidth:         2,
+      borderWidthSelected: 3,
+      shadow: { enabled: true, size: 10, x: 2, y: 3, color: 'rgba(0,0,0,0.5)' }
+    },
+    edges: {
+      width:          1.2,
+      selectionWidth: 3,
+      smooth: { type: 'continuous' }
+    }
+  }
+
+  if (network) network.destroy()
+  network = new vis.Network(
+    container,
+    { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) },
+    options
+  )
+
+  network.on('click', params => {
+    if (params.nodes.length) {
+      const node = nodes.find(n => n.id === params.nodes[0])
+      if (node?.raw) showDetail(node.raw)
+    } else {
+      document.getElementById('node-detail-content').textContent =
+        'Hacé click en un nodo para ver su información.'
+    }
+  })
+
+  const el = document.getElementById('loading')
+  el.classList.add('hidden')
+  setTimeout(() => el.style.display = 'none', 400)
+  network.fit()
+}
+
+function showDetail(n) {
+  const typeLabel = { release: 'Release', pr: 'Pull Request', issue: 'Issue' }
+  const dtClass   = { release: 'dt-release', pr: 'dt-pr', issue: 'dt-issue' }
+
+  const rawDate = n.date || n.merged_at || n.closed_at || null
+  const dateLbl = n.type === 'release' ? 'Publicado' : n.type === 'pr' ? 'Mergeado' : 'Cerrado'
+  const dateStr = rawDate
+    ? new Date(rawDate).toLocaleDateString('es-UY', { day: '2-digit', month: 'short', year: 'numeric' })
+    : null
+
+  const stateMap = { closed: 'cerrado', merged: 'mergeado', open: 'abierto' }
+  const stateStr = stateMap[n.state] || n.state
+
+  const labels = (n.labels || [])
+    .map(l => `<span class="chip">${l}</span>`)
+    .join('')
+
+  document.getElementById('node-detail-content').innerHTML = `
+    <span class="detail-type ${dtClass[n.type]}">${typeLabel[n.type]}</span>
+    <div class="detail-title">${n.title}</div>
+    ${n.number ? `<div class="detail-row"><span class="lbl">Número </span><span class="val">#${n.number}</span></div>` : ''}
+    ${dateStr  ? `<div class="detail-row"><span class="lbl">${dateLbl} </span><span class="val">${dateStr}</span></div>` : ''}
+    ${n.state  ? `<div class="detail-row"><span class="lbl">Estado </span><span class="val">${stateStr}</span></div>` : ''}
+    ${labels   ? `<div style="margin-top:8px">${labels}</div>` : ''}
+    <br><a class="detail-link" href="${n.url}" target="_blank">Ver en GitHub ↗</a>
+  `
+}
+
+function updateStats(nodes, edges) {
+  const c = { release: 0, pr: 0, issue: 0 }
+  nodes.forEach(n => c[n.type]++)
+  document.getElementById('stats').textContent =
+    `${nodes.length} nodos · ${edges.length} relaciones (${c.release} rel · ${c.pr} PRs · ${c.issue} issues)`
+}
+
+function filter(type) {
+  if (type === 'all') {
+    updateStats(allNodes, allEdges)
+    render(allNodes, allEdges)
+    return
+  }
+  const filtered    = allNodes.filter(n => n.type === type)
+  const filteredIds = new Set(filtered.map(n => n.id))
+  const filteredEdges = allEdges.filter(e => filteredIds.has(e.from) && filteredIds.has(e.to))
+  updateStats(filtered, filteredEdges)
+  render(filtered, filteredEdges)
+}
+</script>
+</body>
+</html>
