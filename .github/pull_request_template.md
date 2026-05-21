@@ -5,3 +5,19 @@
 * Ensure that the code is up-to-date with the `main` branch.
 * Include a description of the proposed changes and how to test them.
 -->
+
+
+## Qué cambia
+Breve descripción
+
+## Tipo
+- Feature
+- Fix
+- Refactor
+- Docs
+
+## Evidencia
+- Capturas
+- Video
+- Tests ejecutados
+
