@@ -159,6 +159,10 @@
   <button class="btn btn-release" onclick="filter('release')">◆ Releases</button>
   <button class="btn btn-pr"      onclick="filter('pr')">● Pull Requests</button>
   <button class="btn btn-issue"   onclick="filter('issue')">■ Issues</button>
+  <div style="display:flex; align-items:center; gap:8px; margin-left:8px">
+    <input id="search-input" placeholder="Buscar por título, número o label..." style="background:#0d1117; color:#e6edf3; border:1px solid #30363d; padding:6px 8px; border-radius:6px; font-size:13px; width:320px" />
+    <button id="search-clear" class="btn btn-all" style="padding:6px 8px; font-size:12px">Limpiar</button>
+  </div>
   <span id="stats"></span>
 </div>
 
@@ -222,6 +226,8 @@ const COLORS = {
 }
 
 let allNodes = [], allEdges = [], network
+let currentTypeFilter = 'all'
+let currentSearchTerm = ''
 
 fetch('graph.json')
   .then(r => r.json())
@@ -376,17 +382,72 @@ function updateStats(nodes, edges) {
     `${nodes.length} nodos · ${edges.length} relaciones (${c.release} rel · ${c.pr} PRs · ${c.issue} issues)`
 }
 
-function filter(type) {
-  if (type === 'all') {
-    updateStats(allNodes, allEdges)
-    render(allNodes, allEdges)
-    return
-  }
-  const filtered    = allNodes.filter(n => n.type === type)
+function normalize(s) {
+  return (s || '').toString().toLowerCase()
+}
+
+function applyFilters() {
+  const term = normalize(currentSearchTerm).trim()
+
+  let filtered = allNodes.filter(n => {
+    if (currentTypeFilter && currentTypeFilter !== 'all' && n.type !== currentTypeFilter) return false
+
+    if (!term) return true
+
+    const title = normalize(n.raw && n.raw.title)
+    const number = n.raw && n.raw.number != null ? n.raw.number.toString() : ''
+    const labels = normalize((n.raw && n.raw.labels || []).join(' '))
+    const type = normalize(n.type)
+    const state = normalize(n.state)
+    const id = normalize(n.id)
+    const numericTerm = term.replace(/^#/, '')
+
+    return (
+      (title && title.includes(term)) ||
+      (number && number.includes(numericTerm)) ||
+      (labels && labels.includes(term)) ||
+      (type && type.includes(term)) ||
+      (state && state.includes(term)) ||
+      (id && id.includes(numericTerm))
+    )
+  })
+
   const filteredIds = new Set(filtered.map(n => n.id))
   const filteredEdges = allEdges.filter(e => filteredIds.has(e.from) && filteredIds.has(e.to))
+
   updateStats(filtered, filteredEdges)
   render(filtered, filteredEdges)
+
+  if (filtered.length === 1) {
+    const nid = filtered[0].id
+    setTimeout(() => {
+      try { if (network && network.selectNodes) network.selectNodes([nid]) } catch (e) {}
+      try { if (network && network.focus) network.focus(nid, { scale: 1.2, animation: { duration: 300 } }) } catch (e) {}
+      try { showDetail(filtered[0].raw) } catch (e) {}
+    }, 60)
+  }
+}
+
+function filter(type) {
+  currentTypeFilter = type
+  applyFilters()
+}
+
+// wire up search input and clear button
+const _si = document.getElementById('search-input')
+if (_si) {
+  _si.addEventListener('input', (e) => {
+    currentSearchTerm = e.target.value || ''
+    applyFilters()
+  })
+}
+const _sc = document.getElementById('search-clear')
+if (_sc) {
+  _sc.addEventListener('click', () => {
+    if (_si) { _si.value = ''; _si.focus() }
+    currentSearchTerm = ''
+    applyFilters()
+  })
 }
 </script>
 </body>

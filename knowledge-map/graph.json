@@ -1,13 +1,23 @@
 {
   "nodes": [
     {
+      "id": "release-325804905",
+      "type": "release",
+      "state": "closed",
+      "title": "1.121.0",
+      "url": "https://github.com/microsoft/vscode/releases/tag/1.121.0",
+      "date": "2026-05-20T09:41:43Z",
+      "x": 8800,
+      "y": 0
+    },
+    {
       "id": "release-321722534",
       "type": "release",
       "state": "closed",
       "title": "1.120.0",
       "url": "https://github.com/microsoft/vscode/releases/tag/1.120.0",
       "date": "2026-05-13T08:18:42Z",
-      "x": 8800,
+      "x": 6600,
       "y": 0
     },
     {
@@ -17,7 +27,7 @@
       "title": "1.119.1",
       "url": "https://github.com/microsoft/vscode/releases/tag/1.119.1",
       "date": "2026-05-12T18:39:30Z",
-      "x": 6600,
+      "x": 4400,
       "y": 0
     },
     {
@@ -27,7 +37,7 @@
       "title": "1.119.0",
       "url": "https://github.com/microsoft/vscode/releases/tag/1.119.0",
       "date": "2026-05-06T07:47:39Z",
-      "x": 4400,
+      "x": 2200,
       "y": 0
     },
     {
@@ -37,16 +47,6 @@
       "title": "1.118.1",
       "url": "https://github.com/microsoft/vscode/releases/tag/1.118.1",
       "date": "2026-04-30T19:05:15Z",
-      "x": 2200,
-      "y": 0
-    },
-    {
-      "id": "release-315116361",
-      "type": "release",
-      "state": "closed",
-      "title": "1.118.0",
-      "url": "https://github.com/microsoft/vscode/releases/tag/1.118.0",
-      "date": "2026-04-29T10:25:58Z",
       "x": 0,
       "y": 0
     },
@@ -59,7 +59,7 @@
       "number": 315905,
       "merged_at": "2026-05-13T00:39:45Z",
       "labels": [],
-      "x": 8230,
+      "x": 6030,
       "y": 400
     },
     {
@@ -71,7 +71,7 @@
       "number": 314881,
       "merged_at": "2026-05-07T01:47:19Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 400
     },
     {
@@ -83,7 +83,7 @@
       "number": 314885,
       "merged_at": "2026-05-07T01:47:38Z",
       "labels": [],
-      "x": 6410,
+      "x": 4210,
       "y": 400
     },
     {
@@ -95,7 +95,7 @@
       "number": 315400,
       "merged_at": "2026-05-09T00:35:26Z",
       "labels": [],
-      "x": 6790,
+      "x": 4590,
       "y": 400
     },
     {
@@ -107,7 +107,7 @@
       "number": 314890,
       "merged_at": "2026-05-07T06:08:14Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 400
     },
     {
@@ -119,20 +119,8 @@
       "number": 315410,
       "merged_at": "2026-05-11T06:02:14Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 880
-    },
-    {
-      "id": "pr-313362",
-      "type": "pr",
-      "state": "merged",
-      "title": "Fix `try agents` centering",
-      "url": "https://github.com/microsoft/vscode/pull/313362",
-      "number": 313362,
-      "merged_at": "2026-04-29T22:59:53Z",
-      "labels": [],
-      "x": 1630,
-      "y": 400
     },
     {
       "id": "pr-314901",
@@ -143,20 +131,8 @@
       "number": 314901,
       "merged_at": "2026-05-07T03:53:37Z",
       "labels": [],
-      "x": 6410,
+      "x": 4210,
       "y": 880
-    },
-    {
-      "id": "pr-313365",
-      "type": "pr",
-      "state": "merged",
-      "title": "Add groups for md extension configuration",
-      "url": "https://github.com/microsoft/vscode/pull/313365",
-      "number": 313365,
-      "merged_at": "2026-04-29T23:58:53Z",
-      "labels": [],
-      "x": 2010,
-      "y": 400
     },
     {
       "id": "pr-313369",
@@ -169,7 +145,7 @@
       "labels": [
         "on-testplan"
       ],
-      "x": 2390,
+      "x": -570,
       "y": 400
     },
     {
@@ -181,7 +157,7 @@
       "number": 313374,
       "merged_at": "2026-04-29T23:41:29Z",
       "labels": [],
-      "x": 2770,
+      "x": -190,
       "y": 400
     },
     {
@@ -193,7 +169,7 @@
       "number": 315424,
       "merged_at": "2026-05-09T07:09:54Z",
       "labels": [],
-      "x": 6790,
+      "x": 4590,
       "y": 880
     },
     {
@@ -205,7 +181,7 @@
       "number": 314935,
       "merged_at": "2026-05-07T08:34:28Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 880
     },
     {
@@ -217,7 +193,7 @@
       "number": 313912,
       "merged_at": "2026-05-03T16:58:50Z",
       "labels": [],
-      "x": 3830,
+      "x": 1630,
       "y": 400
     },
     {
@@ -229,7 +205,7 @@
       "number": 315961,
       "merged_at": "2026-05-12T10:53:41Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 1360
     },
     {
@@ -241,7 +217,7 @@
       "number": 315453,
       "merged_at": "2026-05-19T12:58:36Z",
       "labels": [],
-      "x": 8610,
+      "x": 8230,
       "y": 400
     },
     {
@@ -253,8 +229,8 @@
       "number": 313414,
       "merged_at": "2026-04-30T03:10:14Z",
       "labels": [],
-      "x": 1630,
-      "y": 880
+      "x": 190,
+      "y": 400
     },
     {
       "id": "pr-316495",
@@ -265,7 +241,7 @@
       "number": 316495,
       "merged_at": "2026-05-14T21:14:59Z",
       "labels": [],
-      "x": 8990,
+      "x": 8610,
       "y": 400
     },
     {
@@ -277,8 +253,8 @@
       "number": 313425,
       "merged_at": "2026-04-30T05:06:32Z",
       "labels": [],
-      "x": 2010,
-      "y": 880
+      "x": 570,
+      "y": 400
     },
     {
       "id": "pr-313428",
@@ -289,7 +265,7 @@
       "number": 313428,
       "merged_at": "2026-04-30T05:21:45Z",
       "labels": [],
-      "x": 2390,
+      "x": -570,
       "y": 880
     },
     {
@@ -304,7 +280,7 @@
         "install-update",
         "agents-window"
       ],
-      "x": 2770,
+      "x": -190,
       "y": 880
     },
     {
@@ -318,8 +294,8 @@
       "labels": [
         "install-update"
       ],
-      "x": 1630,
-      "y": 1360
+      "x": 190,
+      "y": 880
     },
     {
       "id": "pr-313436",
@@ -330,8 +306,8 @@
       "number": 313436,
       "merged_at": "2026-04-30T06:00:09Z",
       "labels": [],
-      "x": 2010,
-      "y": 1360
+      "x": 570,
+      "y": 880
     },
     {
       "id": "pr-315485",
@@ -342,7 +318,7 @@
       "number": 315485,
       "merged_at": "2026-05-11T16:55:59Z",
       "labels": [],
-      "x": 6410,
+      "x": 4210,
       "y": 1360
     },
     {
@@ -354,7 +330,7 @@
       "number": 315487,
       "merged_at": "2026-05-09T19:25:50Z",
       "labels": [],
-      "x": 6790,
+      "x": 4590,
       "y": 1360
     },
     {
@@ -368,7 +344,7 @@
       "labels": [
         "install-update"
       ],
-      "x": 2390,
+      "x": -570,
       "y": 1360
     },
     {
@@ -380,7 +356,7 @@
       "number": 316524,
       "merged_at": "2026-05-15T17:06:05Z",
       "labels": [],
-      "x": 9370,
+      "x": 8990,
       "y": 400
     },
     {
@@ -392,7 +368,7 @@
       "number": 313453,
       "merged_at": "2026-04-30T20:24:49Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 400
     },
     {
@@ -404,34 +380,8 @@
       "number": 315503,
       "merged_at": "2026-05-10T01:08:33Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 1360
-    },
-    {
-      "id": "pr-312951",
-      "type": "pr",
-      "state": "merged",
-      "title": "On agent mode change, ignore stateful marker",
-      "url": "https://github.com/microsoft/vscode/pull/312951",
-      "number": 312951,
-      "merged_at": "2026-04-28T22:19:22Z",
-      "labels": [],
-      "x": -570,
-      "y": 400
-    },
-    {
-      "id": "pr-312975",
-      "type": "pr",
-      "state": "merged",
-      "title": "inlineChat: make status placeholder registration a singleton",
-      "url": "https://github.com/microsoft/vscode/pull/312975",
-      "number": 312975,
-      "merged_at": "2026-04-28T10:37:06Z",
-      "labels": [
-        "release-cherry-pick"
-      ],
-      "x": -190,
-      "y": 400
     },
     {
       "id": "pr-313490",
@@ -442,7 +392,7 @@
       "number": 313490,
       "merged_at": "2026-05-03T19:27:42Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 400
     },
     {
@@ -454,7 +404,19 @@
       "number": 313491,
       "merged_at": "2026-05-03T18:16:37Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
+      "y": 400
+    },
+    {
+      "id": "pr-317594",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix sudo -S sensitive input detection",
+      "url": "https://github.com/microsoft/vscode/pull/317594",
+      "number": 317594,
+      "merged_at": "2026-05-20T20:09:55Z",
+      "labels": [],
+      "x": 9370,
       "y": 400
     },
     {
@@ -466,7 +428,7 @@
       "number": 314523,
       "merged_at": "2026-05-05T19:48:38Z",
       "labels": [],
-      "x": 3830,
+      "x": 1630,
       "y": 880
     },
     {
@@ -478,7 +440,7 @@
       "number": 315549,
       "merged_at": "2026-05-10T17:37:06Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 1840
     },
     {
@@ -490,7 +452,7 @@
       "number": 315555,
       "merged_at": "2026-05-10T18:23:18Z",
       "labels": [],
-      "x": 6410,
+      "x": 4210,
       "y": 1840
     },
     {
@@ -514,22 +476,32 @@
       "number": 314535,
       "merged_at": "2026-05-06T15:58:36Z",
       "labels": [],
-      "x": 6790,
+      "x": 4590,
       "y": 1840
     },
     {
-      "id": "pr-313000",
+      "id": "pr-317615",
       "type": "pr",
       "state": "merged",
-      "title": "[cherry-pick] inlineChat: make status placeholder registration a singleton",
-      "url": "https://github.com/microsoft/vscode/pull/313000",
-      "number": 313000,
-      "merged_at": "2026-04-28T12:00:15Z",
-      "labels": [
-        "cherry-pick-artifact"
-      ],
-      "x": 190,
-      "y": 400
+      "title": "sessions: don't reorder session list when find widget opens",
+      "url": "https://github.com/microsoft/vscode/pull/317615",
+      "number": 317615,
+      "merged_at": "2026-05-20T22:48:32Z",
+      "labels": [],
+      "x": 8610,
+      "y": 880
+    },
+    {
+      "id": "pr-317617",
+      "type": "pr",
+      "state": "merged",
+      "title": "Add new VS Code theme for mermaid diagrams",
+      "url": "https://github.com/microsoft/vscode/pull/317617",
+      "number": 317617,
+      "merged_at": "2026-05-20T22:17:21Z",
+      "labels": [],
+      "x": 8990,
+      "y": 880
     },
     {
       "id": "pr-317107",
@@ -540,7 +512,7 @@
       "number": 317107,
       "merged_at": "2026-05-18T18:33:14Z",
       "labels": [],
-      "x": 8610,
+      "x": 9370,
       "y": 880
     },
     {
@@ -552,7 +524,7 @@
       "number": 313531,
       "merged_at": "2026-05-02T12:56:46Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 880
     },
     {
@@ -564,8 +536,8 @@
       "number": 317122,
       "merged_at": "2026-05-18T19:34:01Z",
       "labels": [],
-      "x": 8990,
-      "y": 880
+      "x": 8230,
+      "y": 1360
     },
     {
       "id": "pr-316107",
@@ -576,8 +548,8 @@
       "number": 316107,
       "merged_at": "2026-05-12T20:54:15Z",
       "labels": [],
-      "x": 9370,
-      "y": 880
+      "x": 6410,
+      "y": 400
     },
     {
       "id": "pr-313549",
@@ -590,7 +562,19 @@
       "labels": [
         "install-update"
       ],
-      "x": 2770,
+      "x": -190,
+      "y": 1360
+    },
+    {
+      "id": "pr-317646",
+      "type": "pr",
+      "state": "merged",
+      "title": "Chronicle: handle policy-blocked and rate-limited responses gracefully",
+      "url": "https://github.com/microsoft/vscode/pull/317646",
+      "number": 317646,
+      "merged_at": "2026-05-21T00:32:52Z",
+      "labels": [],
+      "x": 8610,
       "y": 1360
     },
     {
@@ -602,7 +586,7 @@
       "number": 315089,
       "merged_at": "2026-05-08T03:37:37Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 1840
     },
     {
@@ -614,7 +598,7 @@
       "number": 314577,
       "merged_at": "2026-05-06T01:01:46Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 880
     },
     {
@@ -626,8 +610,8 @@
       "number": 316115,
       "merged_at": "2026-05-12T21:12:36Z",
       "labels": [],
-      "x": 8230,
-      "y": 1360
+      "x": 6790,
+      "y": 400
     },
     {
       "id": "pr-314581",
@@ -638,7 +622,7 @@
       "number": 314581,
       "merged_at": "2026-05-05T23:45:48Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
       "y": 880
     },
     {
@@ -652,7 +636,7 @@
       "labels": [
         "release-cherry-pick"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 1360
     },
     {
@@ -664,7 +648,19 @@
       "number": 313557,
       "merged_at": "2026-04-30T21:27:09Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
+      "y": 1360
+    },
+    {
+      "id": "pr-317656",
+      "type": "pr",
+      "state": "merged",
+      "title": "Only surface \"sort imports\" and \"remove unused imports\" when TS client is running/useTsgo is not active",
+      "url": "https://github.com/microsoft/vscode/pull/317656",
+      "number": 317656,
+      "merged_at": "2026-05-21T00:32:30Z",
+      "labels": [],
+      "x": 8990,
       "y": 1360
     },
     {
@@ -676,7 +672,7 @@
       "number": 314585,
       "merged_at": "2026-05-05T23:56:17Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 1360
     },
     {
@@ -688,7 +684,7 @@
       "number": 315100,
       "merged_at": "2026-05-07T21:13:02Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 2320
     },
     {
@@ -700,7 +696,7 @@
       "number": 314588,
       "merged_at": "2026-05-06T01:03:36Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
       "y": 1360
     },
     {
@@ -712,7 +708,19 @@
       "number": 316126,
       "merged_at": "2026-05-12T23:07:57Z",
       "labels": [],
-      "x": 8610,
+      "x": 7170,
+      "y": 400
+    },
+    {
+      "id": "pr-317663",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix(otel): deduplicate system prompt between gen_ai.system_instructions and gen_ai.input.messages",
+      "url": "https://github.com/microsoft/vscode/pull/317663",
+      "number": 317663,
+      "merged_at": "2026-05-21T06:00:15Z",
+      "labels": [],
+      "x": 9370,
       "y": 1360
     },
     {
@@ -726,7 +734,31 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 3830,
+      "x": 1630,
+      "y": 1840
+    },
+    {
+      "id": "pr-317669",
+      "type": "pr",
+      "state": "merged",
+      "title": "Integrating MXC for windows sandboxing",
+      "url": "https://github.com/microsoft/vscode/pull/317669",
+      "number": 317669,
+      "merged_at": "2026-05-21T20:17:10Z",
+      "labels": [],
+      "x": 8230,
+      "y": 1840
+    },
+    {
+      "id": "pr-317670",
+      "type": "pr",
+      "state": "merged",
+      "title": "Chronicle: Circuit breaker improvement and empty result hint",
+      "url": "https://github.com/microsoft/vscode/pull/317670",
+      "number": 317670,
+      "merged_at": "2026-05-21T01:56:07Z",
+      "labels": [],
+      "x": 8610,
       "y": 1840
     },
     {
@@ -739,7 +771,7 @@
       "merged_at": "2026-05-13T18:11:47Z",
       "labels": [],
       "x": 8990,
-      "y": 1360
+      "y": 1840
     },
     {
       "id": "pr-315626",
@@ -752,32 +784,8 @@
       "labels": [
         "release-cherry-pick"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 2320
-    },
-    {
-      "id": "pr-313068",
-      "type": "pr",
-      "state": "merged",
-      "title": "Don't throw in setRequestTools when agent is gone",
-      "url": "https://github.com/microsoft/vscode/pull/313068",
-      "number": 313068,
-      "merged_at": "2026-04-28T18:25:45Z",
-      "labels": [],
-      "x": 570,
-      "y": 400
-    },
-    {
-      "id": "pr-313071",
-      "type": "pr",
-      "state": "merged",
-      "title": "[release/1.118] On agent mode change, ignore stateful marker",
-      "url": "https://github.com/microsoft/vscode/pull/313071",
-      "number": 313071,
-      "merged_at": "2026-04-28T22:54:22Z",
-      "labels": [],
-      "x": -570,
-      "y": 880
     },
     {
       "id": "pr-315632",
@@ -790,7 +798,7 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 2320
     },
     {
@@ -802,7 +810,7 @@
       "number": 314609,
       "merged_at": "2026-05-06T01:42:24Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 1840
     },
     {
@@ -814,7 +822,7 @@
       "number": 314610,
       "merged_at": "2026-05-06T01:57:05Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 1840
     },
     {
@@ -827,18 +835,6 @@
       "merged_at": "2026-05-13T17:34:54Z",
       "labels": [],
       "x": 9370,
-      "y": 1360
-    },
-    {
-      "id": "pr-313080",
-      "type": "pr",
-      "state": "merged",
-      "title": "trackIdleOnPrompt logging",
-      "url": "https://github.com/microsoft/vscode/pull/313080",
-      "number": 313080,
-      "merged_at": "2026-04-29T15:12:16Z",
-      "labels": [],
-      "x": 1630,
       "y": 1840
     },
     {
@@ -851,7 +847,19 @@
       "merged_at": "2026-05-18T22:32:49Z",
       "labels": [],
       "x": 8230,
-      "y": 1840
+      "y": 2320
+    },
+    {
+      "id": "pr-314635",
+      "type": "pr",
+      "state": "merged",
+      "title": "Guard splice(indexOf()) against -1 to prevent silent removal of wrong element",
+      "url": "https://github.com/microsoft/vscode/pull/314635",
+      "number": 314635,
+      "merged_at": "2026-05-20T09:59:21Z",
+      "labels": [],
+      "x": 8610,
+      "y": 2320
     },
     {
       "id": "pr-314636",
@@ -862,7 +870,7 @@
       "number": 314636,
       "merged_at": "2026-05-12T09:03:39Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 2320
     },
     {
@@ -874,8 +882,22 @@
       "number": 317198,
       "merged_at": "2026-05-19T08:07:01Z",
       "labels": [],
-      "x": 8610,
-      "y": 1840
+      "x": 8990,
+      "y": 2320
+    },
+    {
+      "id": "pr-317199",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Reverting fetch web tool changes for sandboxing",
+      "url": "https://github.com/microsoft/vscode/pull/317199",
+      "number": 317199,
+      "merged_at": "2026-05-21T20:34:51Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "x": 9370,
+      "y": 2320
     },
     {
       "id": "pr-313630",
@@ -886,7 +908,7 @@
       "number": 313630,
       "merged_at": "2026-05-01T04:54:37Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
       "y": 1840
     },
     {
@@ -898,8 +920,8 @@
       "number": 316191,
       "merged_at": "2026-05-13T07:07:16Z",
       "labels": [],
-      "x": 8990,
-      "y": 1840
+      "x": 6030,
+      "y": 880
     },
     {
       "id": "pr-316706",
@@ -910,8 +932,8 @@
       "number": 316706,
       "merged_at": "2026-05-15T21:57:19Z",
       "labels": [],
-      "x": 9370,
-      "y": 1840
+      "x": 8230,
+      "y": 2800
     },
     {
       "id": "pr-315178",
@@ -924,8 +946,20 @@
       "labels": [
         "snippets"
       ],
-      "x": 8230,
-      "y": 2320
+      "x": 8610,
+      "y": 2800
+    },
+    {
+      "id": "pr-317227",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: don't rebuild tab model on EDITORS_SELECTION event",
+      "url": "https://github.com/microsoft/vscode/pull/317227",
+      "number": 317227,
+      "merged_at": "2026-05-20T12:20:32Z",
+      "labels": [],
+      "x": 8990,
+      "y": 2800
     },
     {
       "id": "pr-313646",
@@ -936,20 +970,8 @@
       "number": 313646,
       "merged_at": "2026-05-01T20:17:08Z",
       "labels": [],
-      "x": 3830,
+      "x": 1630,
       "y": 2320
-    },
-    {
-      "id": "pr-313138",
-      "type": "pr",
-      "state": "merged",
-      "title": "OTel: include tool parameters and emit tool definitions on child chat spans",
-      "url": "https://github.com/microsoft/vscode/pull/313138",
-      "number": 313138,
-      "merged_at": "2026-04-29T02:28:08Z",
-      "labels": [],
-      "x": -190,
-      "y": 880
     },
     {
       "id": "pr-315705",
@@ -960,7 +982,7 @@
       "number": 315705,
       "merged_at": "2026-05-11T16:48:20Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 2800
     },
     {
@@ -972,8 +994,20 @@
       "number": 313658,
       "merged_at": "2026-05-01T06:32:20Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 2320
+    },
+    {
+      "id": "pr-317244",
+      "type": "pr",
+      "state": "merged",
+      "title": "Make sure we show full mermaid diagram when opened in new editor",
+      "url": "https://github.com/microsoft/vscode/pull/317244",
+      "number": 317244,
+      "merged_at": "2026-05-20T06:27:21Z",
+      "labels": [],
+      "x": 9370,
+      "y": 2800
     },
     {
       "id": "pr-315206",
@@ -986,7 +1020,7 @@
       "labels": [
         "snippets"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 2800
     },
     {
@@ -1001,8 +1035,8 @@
         "install-update",
         "windows"
       ],
-      "x": 8610,
-      "y": 2320
+      "x": 8230,
+      "y": 3280
     },
     {
       "id": "pr-313678",
@@ -1013,7 +1047,7 @@
       "number": 313678,
       "merged_at": "2026-05-08T05:21:18Z",
       "labels": [],
-      "x": 6790,
+      "x": 4590,
       "y": 2800
     },
     {
@@ -1025,7 +1059,7 @@
       "number": 314713,
       "merged_at": "2026-05-08T17:54:55Z",
       "labels": [],
-      "x": 7170,
+      "x": 4970,
       "y": 2800
     },
     {
@@ -1037,8 +1071,35 @@
       "number": 314201,
       "merged_at": "2026-05-04T21:36:47Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 2320
+    },
+    {
+      "id": "pr-317791",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: guard _resize against disposed _resizeDebouncer (fixes #317787)",
+      "url": "https://github.com/microsoft/vscode/pull/317791",
+      "number": 317791,
+      "merged_at": "2026-05-21T17:21:29Z",
+      "labels": [
+        "errors-fix",
+        "*error-fix-driving"
+      ],
+      "x": 8610,
+      "y": 3280
+    },
+    {
+      "id": "pr-317792",
+      "type": "pr",
+      "state": "merged",
+      "title": "cli: skip bare top-level directory entries when extracting archives",
+      "url": "https://github.com/microsoft/vscode/pull/317792",
+      "number": 317792,
+      "merged_at": "2026-05-21T18:19:06Z",
+      "labels": [],
+      "x": 8990,
+      "y": 3280
     },
     {
       "id": "pr-317286",
@@ -1049,8 +1110,8 @@
       "number": 317286,
       "merged_at": "2026-05-19T14:08:45Z",
       "labels": [],
-      "x": 8990,
-      "y": 2320
+      "x": 9370,
+      "y": 3280
     },
     {
       "id": "pr-315241",
@@ -1061,7 +1122,7 @@
       "number": 315241,
       "merged_at": "2026-05-08T12:19:49Z",
       "labels": [],
-      "x": 6030,
+      "x": 3830,
       "y": 3280
     },
     {
@@ -1075,7 +1136,7 @@
       "labels": [
         "release-cherry-pick"
       ],
-      "x": 4970,
+      "x": 2770,
       "y": 2320
     },
     {
@@ -1087,8 +1148,8 @@
       "number": 316267,
       "merged_at": "2026-05-13T17:01:44Z",
       "labels": [],
-      "x": 9370,
-      "y": 2320
+      "x": 8230,
+      "y": 3760
     },
     {
       "id": "pr-316269",
@@ -1099,44 +1160,8 @@
       "number": 316269,
       "merged_at": "2026-05-13T20:00:41Z",
       "labels": [],
-      "x": 8230,
-      "y": 2800
-    },
-    {
-      "id": "pr-313197",
-      "type": "pr",
-      "state": "merged",
-      "title": "Strip codicons from terminal quickpick filter matching",
-      "url": "https://github.com/microsoft/vscode/pull/313197",
-      "number": 313197,
-      "merged_at": "2026-05-08T16:49:15Z",
-      "labels": [],
-      "x": 6410,
-      "y": 3280
-    },
-    {
-      "id": "pr-313200",
-      "type": "pr",
-      "state": "merged",
-      "title": "Fix deleting sub-session when it is not active",
-      "url": "https://github.com/microsoft/vscode/pull/313200",
-      "number": 313200,
-      "merged_at": "2026-04-29T15:08:21Z",
-      "labels": [],
-      "x": 2010,
-      "y": 1840
-    },
-    {
-      "id": "pr-313205",
-      "type": "pr",
-      "state": "merged",
-      "title": "Fix deleting forked session showing wrong confirmation dialog",
-      "url": "https://github.com/microsoft/vscode/pull/313205",
-      "number": 313205,
-      "merged_at": "2026-04-29T12:53:38Z",
-      "labels": [],
-      "x": 2390,
-      "y": 1840
+      "x": 8610,
+      "y": 3760
     },
     {
       "id": "pr-316278",
@@ -1147,8 +1172,8 @@
       "number": 316278,
       "merged_at": "2026-05-13T18:53:05Z",
       "labels": [],
-      "x": 8610,
-      "y": 2800
+      "x": 8990,
+      "y": 3760
     },
     {
       "id": "pr-314231",
@@ -1161,7 +1186,7 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 2800
     },
     {
@@ -1173,8 +1198,20 @@
       "number": 314230,
       "merged_at": "2026-05-04T22:38:27Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 2800
+    },
+    {
+      "id": "pr-317308",
+      "type": "pr",
+      "state": "merged",
+      "title": "Re-introduce model visibility control for chat window model picker",
+      "url": "https://github.com/microsoft/vscode/pull/317308",
+      "number": 317308,
+      "merged_at": "2026-05-19T18:54:25Z",
+      "labels": [],
+      "x": 9370,
+      "y": 3760
     },
     {
       "id": "pr-315263",
@@ -1185,7 +1222,7 @@
       "number": 315263,
       "merged_at": "2026-05-08T14:16:11Z",
       "labels": [],
-      "x": 6790,
+      "x": 4210,
       "y": 3280
     },
     {
@@ -1197,7 +1234,7 @@
       "number": 313730,
       "merged_at": "2026-05-01T17:48:39Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 2800
     },
     {
@@ -1211,7 +1248,7 @@
       "labels": [
         "release-cherry-pick"
       ],
-      "x": 7170,
+      "x": 4590,
       "y": 3280
     },
     {
@@ -1223,7 +1260,7 @@
       "number": 314250,
       "merged_at": "2026-05-05T00:51:23Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
       "y": 2800
     },
     {
@@ -1235,7 +1272,7 @@
       "number": 313740,
       "merged_at": "2026-05-01T16:03:04Z",
       "labels": [],
-      "x": 3830,
+      "x": 1630,
       "y": 3280
     },
     {
@@ -1247,8 +1284,8 @@
       "number": 314770,
       "merged_at": "2026-05-07T16:13:31Z",
       "labels": [],
-      "x": 6030,
-      "y": 3760
+      "x": 4970,
+      "y": 3280
     },
     {
       "id": "pr-314259",
@@ -1259,7 +1296,7 @@
       "number": 314259,
       "merged_at": "2026-05-05T00:33:11Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 3280
     },
     {
@@ -1271,7 +1308,7 @@
       "number": 314260,
       "merged_at": "2026-05-04T22:49:52Z",
       "labels": [],
-      "x": 4590,
+      "x": 2390,
       "y": 3280
     },
     {
@@ -1285,8 +1322,8 @@
       "labels": [
         "snippets"
       ],
-      "x": 8990,
-      "y": 2800
+      "x": 8230,
+      "y": 4240
     },
     {
       "id": "pr-316824",
@@ -1299,22 +1336,8 @@
       "labels": [
         "snippets"
       ],
-      "x": 9370,
-      "y": 2800
-    },
-    {
-      "id": "pr-313244",
-      "type": "pr",
-      "state": "merged",
-      "title": "Detect chevron-style interactive prompts and fix indefinite foreground hang on unrecognised prompts",
-      "url": "https://github.com/microsoft/vscode/pull/313244",
-      "number": 313244,
-      "merged_at": "2026-04-29T16:04:03Z",
-      "labels": [
-        "on-testplan"
-      ],
-      "x": 2770,
-      "y": 1840
+      "x": 8610,
+      "y": 4240
     },
     {
       "id": "pr-314270",
@@ -1325,7 +1348,7 @@
       "number": 314270,
       "merged_at": "2026-05-04T23:24:24Z",
       "labels": [],
-      "x": 4970,
+      "x": 2770,
       "y": 3280
     },
     {
@@ -1337,7 +1360,7 @@
       "number": 314271,
       "merged_at": "2026-05-04T23:28:31Z",
       "labels": [],
-      "x": 3830,
+      "x": 1630,
       "y": 3760
     },
     {
@@ -1349,8 +1372,8 @@
       "number": 316321,
       "merged_at": "2026-05-13T22:44:46Z",
       "labels": [],
-      "x": 8230,
-      "y": 3280
+      "x": 8990,
+      "y": 4240
     },
     {
       "id": "pr-315809",
@@ -1363,7 +1386,7 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 6410,
+      "x": 3830,
       "y": 3760
     },
     {
@@ -1375,22 +1398,8 @@
       "number": 314275,
       "merged_at": "2026-05-04T23:35:17Z",
       "labels": [],
-      "x": 4210,
+      "x": 2010,
       "y": 3760
-    },
-    {
-      "id": "pr-313249",
-      "type": "pr",
-      "state": "merged",
-      "title": "Fix RunInTerminalTool hang when shell exits before/during execute()",
-      "url": "https://github.com/microsoft/vscode/pull/313249",
-      "number": 313249,
-      "merged_at": "2026-04-29T16:19:31Z",
-      "labels": [
-        "on-testplan"
-      ],
-      "x": 1630,
-      "y": 2320
     },
     {
       "id": "pr-315302",
@@ -1401,20 +1410,8 @@
       "number": 315302,
       "merged_at": "2026-05-08T17:50:28Z",
       "labels": [],
-      "x": 6790,
+      "x": 4210,
       "y": 3760
-    },
-    {
-      "id": "pr-313256",
-      "type": "pr",
-      "state": "merged",
-      "title": "Support prompting the user to share an existing browser tab",
-      "url": "https://github.com/microsoft/vscode/pull/313256",
-      "number": 313256,
-      "merged_at": "2026-04-29T16:58:46Z",
-      "labels": [],
-      "x": 2010,
-      "y": 2320
     },
     {
       "id": "pr-316329",
@@ -1425,20 +1422,8 @@
       "number": 316329,
       "merged_at": "2026-05-13T23:09:59Z",
       "labels": [],
-      "x": 8610,
-      "y": 3280
-    },
-    {
-      "id": "pr-313259",
-      "type": "pr",
-      "state": "merged",
-      "title": "Fix freeze in keyboard shortcuts search when query contains '.' (#309582)",
-      "url": "https://github.com/microsoft/vscode/pull/313259",
-      "number": 313259,
-      "merged_at": "2026-05-01T08:39:09Z",
-      "labels": [],
-      "x": 4590,
-      "y": 3760
+      "x": 9370,
+      "y": 4240
     },
     {
       "id": "pr-316332",
@@ -1449,8 +1434,8 @@
       "number": 316332,
       "merged_at": "2026-05-15T20:12:01Z",
       "labels": [],
-      "x": 8990,
-      "y": 3280
+      "x": 8230,
+      "y": 4720
     },
     {
       "id": "pr-314289",
@@ -1461,7 +1446,7 @@
       "number": 314289,
       "merged_at": "2026-05-05T16:04:43Z",
       "labels": [],
-      "x": 4970,
+      "x": 2390,
       "y": 3760
     },
     {
@@ -1473,7 +1458,7 @@
       "number": 315828,
       "merged_at": "2026-05-12T01:12:38Z",
       "labels": [],
-      "x": 7170,
+      "x": 4590,
       "y": 3760
     },
     {
@@ -1485,8 +1470,8 @@
       "number": 315317,
       "merged_at": "2026-05-18T15:54:22Z",
       "labels": [],
-      "x": 9370,
-      "y": 3280
+      "x": 8610,
+      "y": 4720
     },
     {
       "id": "pr-314805",
@@ -1497,8 +1482,8 @@
       "number": 314805,
       "merged_at": "2026-05-06T21:07:45Z",
       "labels": [],
-      "x": 6030,
-      "y": 4240
+      "x": 4970,
+      "y": 3760
     },
     {
       "id": "pr-315320",
@@ -1509,7 +1494,7 @@
       "number": 315320,
       "merged_at": "2026-05-08T17:54:58Z",
       "labels": [],
-      "x": 6410,
+      "x": 3830,
       "y": 4240
     },
     {
@@ -1523,7 +1508,7 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 4240
     },
     {
@@ -1538,20 +1523,8 @@
         "install-update",
         "windows"
       ],
-      "x": 7170,
+      "x": 4590,
       "y": 4240
-    },
-    {
-      "id": "pr-313280",
-      "type": "pr",
-      "state": "merged",
-      "title": "Specify max chars in askQuestions tool description, don't truncate",
-      "url": "https://github.com/microsoft/vscode/pull/313280",
-      "number": 313280,
-      "merged_at": "2026-04-29T18:25:15Z",
-      "labels": [],
-      "x": 2390,
-      "y": 2320
     },
     {
       "id": "pr-314308",
@@ -1562,8 +1535,8 @@
       "number": 314308,
       "merged_at": "2026-05-05T01:50:03Z",
       "labels": [],
-      "x": 3830,
-      "y": 4240
+      "x": 2770,
+      "y": 3760
     },
     {
       "id": "pr-314826",
@@ -1574,8 +1547,8 @@
       "number": 314826,
       "merged_at": "2026-05-06T21:25:34Z",
       "labels": [],
-      "x": 6030,
-      "y": 4720
+      "x": 4970,
+      "y": 4240
     },
     {
       "id": "pr-315342",
@@ -1586,7 +1559,7 @@
       "number": 315342,
       "merged_at": "2026-05-08T19:38:10Z",
       "labels": [],
-      "x": 6410,
+      "x": 3830,
       "y": 4720
     },
     {
@@ -1598,7 +1571,7 @@
       "number": 313807,
       "merged_at": "2026-05-04T20:38:53Z",
       "labels": [],
-      "x": 4210,
+      "x": 1630,
       "y": 4240
     },
     {
@@ -1610,7 +1583,7 @@
       "number": 313810,
       "merged_at": "2026-05-04T15:40:43Z",
       "labels": [],
-      "x": 4590,
+      "x": 2010,
       "y": 4240
     },
     {
@@ -1622,7 +1595,7 @@
       "number": 313814,
       "merged_at": "2026-05-05T06:29:53Z",
       "labels": [],
-      "x": 4970,
+      "x": 2390,
       "y": 4240
     },
     {
@@ -1634,8 +1607,8 @@
       "number": 314328,
       "merged_at": "2026-05-05T06:30:07Z",
       "labels": [],
-      "x": 3830,
-      "y": 4720
+      "x": 2770,
+      "y": 4240
     },
     {
       "id": "pr-313817",
@@ -1646,7 +1619,7 @@
       "number": 313817,
       "merged_at": "2026-05-04T20:20:55Z",
       "labels": [],
-      "x": 4210,
+      "x": 1630,
       "y": 4720
     },
     {
@@ -1658,34 +1631,8 @@
       "number": 313820,
       "merged_at": "2026-05-04T23:38:11Z",
       "labels": [],
-      "x": 4590,
+      "x": 2010,
       "y": 4720
-    },
-    {
-      "id": "pr-313308",
-      "type": "pr",
-      "state": "merged",
-      "title": "Enable external ingest for non-file resources too",
-      "url": "https://github.com/microsoft/vscode/pull/313308",
-      "number": 313308,
-      "merged_at": "2026-04-29T20:42:20Z",
-      "labels": [],
-      "x": 2770,
-      "y": 2320
-    },
-    {
-      "id": "pr-313313",
-      "type": "pr",
-      "state": "merged",
-      "title": "Remove set -e guidance from all shells and prevent reusing dead terminals",
-      "url": "https://github.com/microsoft/vscode/pull/313313",
-      "number": 313313,
-      "merged_at": "2026-04-29T20:41:50Z",
-      "labels": [
-        "on-testplan"
-      ],
-      "x": 1630,
-      "y": 2800
     },
     {
       "id": "pr-316386",
@@ -1696,8 +1643,8 @@
       "number": 316386,
       "merged_at": "2026-05-14T10:40:54Z",
       "labels": [],
-      "x": 8230,
-      "y": 3760
+      "x": 8990,
+      "y": 4720
     },
     {
       "id": "pr-316900",
@@ -1708,8 +1655,8 @@
       "number": 316900,
       "merged_at": "2026-05-17T23:32:25Z",
       "labels": [],
-      "x": 8610,
-      "y": 3760
+      "x": 9370,
+      "y": 4720
     },
     {
       "id": "pr-315365",
@@ -1720,7 +1667,7 @@
       "number": 315365,
       "merged_at": "2026-05-11T15:38:05Z",
       "labels": [],
-      "x": 6790,
+      "x": 4210,
       "y": 4720
     },
     {
@@ -1732,7 +1679,7 @@
       "number": 315880,
       "merged_at": "2026-05-11T22:12:25Z",
       "labels": [],
-      "x": 7170,
+      "x": 4590,
       "y": 4720
     },
     {
@@ -1744,8 +1691,8 @@
       "number": 315885,
       "merged_at": "2026-05-12T20:14:14Z",
       "labels": [],
-      "x": 8990,
-      "y": 3760
+      "x": 6410,
+      "y": 880
     },
     {
       "id": "pr-315888",
@@ -1756,8 +1703,8 @@
       "number": 315888,
       "merged_at": "2026-05-12T18:36:20Z",
       "labels": [],
-      "x": 6030,
-      "y": 5200
+      "x": 4970,
+      "y": 4720
     },
     {
       "id": "pr-315889",
@@ -1768,7 +1715,21 @@
       "number": 315889,
       "merged_at": "2026-05-11T22:45:58Z",
       "labels": [],
-      "x": 6410,
+      "x": 3830,
+      "y": 5200
+    },
+    {
+      "id": "pr-317428",
+      "type": "pr",
+      "state": "merged",
+      "title": "Enable BYOK in air-gapped scenarios/without GitHub auth",
+      "url": "https://github.com/microsoft/vscode/pull/317428",
+      "number": 317428,
+      "merged_at": "2026-05-21T00:01:01Z",
+      "labels": [
+        "model-byok"
+      ],
+      "x": 8230,
       "y": 5200
     },
     {
@@ -1780,8 +1741,8 @@
       "number": 316917,
       "merged_at": "2026-05-17T23:41:18Z",
       "labels": [],
-      "x": 9370,
-      "y": 3760
+      "x": 8610,
+      "y": 5200
     },
     {
       "id": "pr-314870",
@@ -1792,7 +1753,7 @@
       "number": 314870,
       "merged_at": "2026-05-06T22:56:00Z",
       "labels": [],
-      "x": 6790,
+      "x": 4210,
       "y": 5200
     },
     {
@@ -1806,8 +1767,8 @@
       "labels": [
         "cherry-pick-artifact"
       ],
-      "x": 8230,
-      "y": 4240
+      "x": 6790,
+      "y": 880
     },
     {
       "id": "pr-315897",
@@ -1818,7 +1779,7 @@
       "number": 315897,
       "merged_at": "2026-05-12T02:05:18Z",
       "labels": [],
-      "x": 7170,
+      "x": 4590,
       "y": 5200
     },
     {
@@ -1830,54 +1791,19 @@
       "number": 314876,
       "merged_at": "2026-05-07T00:25:58Z",
       "labels": [],
-      "x": 6030,
-      "y": 5680
+      "x": 4970,
+      "y": 5200
     },
     {
-      "id": "pr-317058",
+      "id": "pr-317707",
       "type": "pr",
       "state": "open",
-      "title": "Fix PHP highlighting for comment-like strings",
-      "url": "https://github.com/microsoft/vscode/pull/317058",
-      "number": 317058,
-      "labels": [],
-      "x": 8610,
-      "y": 4240
-    },
-    {
-      "id": "pr-316678",
-      "type": "pr",
-      "state": "open",
-      "title": "aux window - anchor context menus to the originating window",
-      "url": "https://github.com/microsoft/vscode/pull/316678",
-      "number": 316678,
+      "title": "Scope tool search to request tools and tighten deferred tool handling",
+      "url": "https://github.com/microsoft/vscode/pull/317707",
+      "number": 317707,
       "labels": [],
       "x": 8990,
-      "y": 4240
-    },
-    {
-      "id": "pr-317199",
-      "type": "pr",
-      "state": "open",
-      "title": "[cherry-pick] Reverting fetch web tool changes for sandboxing",
-      "url": "https://github.com/microsoft/vscode/pull/317199",
-      "number": 317199,
-      "labels": [
-        "cherry-pick-artifact"
-      ],
-      "x": 9370,
-      "y": 4240
-    },
-    {
-      "id": "pr-316818",
-      "type": "pr",
-      "state": "open",
-      "title": "Show progress for pending agent host sessions",
-      "url": "https://github.com/microsoft/vscode/pull/316818",
-      "number": 316818,
-      "labels": [],
-      "x": 8230,
-      "y": 4720
+      "y": 5200
     },
     {
       "id": "pr-317333",
@@ -1887,19 +1813,52 @@
       "url": "https://github.com/microsoft/vscode/pull/317333",
       "number": 317333,
       "labels": [],
-      "x": 8610,
-      "y": 4720
+      "x": 9370,
+      "y": 5200
     },
     {
-      "id": "pr-316951",
+      "id": "pr-317464",
       "type": "pr",
       "state": "open",
-      "title": "Drop stale wheel events after focus return",
-      "url": "https://github.com/microsoft/vscode/pull/316951",
-      "number": 316951,
+      "title": "Ignore queued wheel events from before window focus",
+      "url": "https://github.com/microsoft/vscode/pull/317464",
+      "number": 317464,
+      "labels": [],
+      "x": 8230,
+      "y": 5680
+    },
+    {
+      "id": "pr-317465",
+      "type": "pr",
+      "state": "open",
+      "title": "Drop wheel events queued before window focus",
+      "url": "https://github.com/microsoft/vscode/pull/317465",
+      "number": 317465,
+      "labels": [],
+      "x": 8610,
+      "y": 5680
+    },
+    {
+      "id": "pr-317732",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: allow localhost in chat.agent.allowedNetworkDomains",
+      "url": "https://github.com/microsoft/vscode/pull/317732",
+      "number": 317732,
       "labels": [],
       "x": 8990,
-      "y": 4720
+      "y": 5680
+    },
+    {
+      "id": "pr-317477",
+      "type": "pr",
+      "state": "open",
+      "title": "Fix editor scroll jumping randomly after window refocus (#28795)",
+      "url": "https://github.com/microsoft/vscode/pull/317477",
+      "number": 317477,
+      "labels": [],
+      "x": 9370,
+      "y": 5680
     },
     {
       "id": "pr-317225",
@@ -1909,8 +1868,8 @@
       "url": "https://github.com/microsoft/vscode/pull/317225",
       "number": 317225,
       "labels": [],
-      "x": 9370,
-      "y": 4720
+      "x": 8230,
+      "y": 6160
     },
     {
       "id": "pr-317226",
@@ -1920,19 +1879,8 @@
       "url": "https://github.com/microsoft/vscode/pull/317226",
       "number": 317226,
       "labels": [],
-      "x": 8230,
-      "y": 5200
-    },
-    {
-      "id": "pr-317227",
-      "type": "pr",
-      "state": "open",
-      "title": "fix: don't rebuild tab model on EDITORS_SELECTION event",
-      "url": "https://github.com/microsoft/vscode/pull/317227",
-      "number": 317227,
-      "labels": [],
       "x": 8610,
-      "y": 5200
+      "y": 6160
     },
     {
       "id": "pr-317228",
@@ -1943,129 +1891,50 @@
       "number": 317228,
       "labels": [],
       "x": 8990,
-      "y": 5200
-    },
-    {
-      "id": "pr-316843",
-      "type": "pr",
-      "state": "open",
-      "title": "Fix language model picker visibility",
-      "url": "https://github.com/microsoft/vscode/pull/316843",
-      "number": 316843,
-      "labels": [
-        "model-byok"
-      ],
-      "x": 9370,
-      "y": 5200
-    },
-    {
-      "id": "pr-316725",
-      "type": "pr",
-      "state": "open",
-      "title": "fix(search): alternative Go to Symbol in Workspace shortcut on web",
-      "url": "https://github.com/microsoft/vscode/pull/316725",
-      "number": 316725,
-      "labels": [],
-      "x": 8230,
-      "y": 5680
-    },
-    {
-      "id": "pr-316728",
-      "type": "pr",
-      "state": "open",
-      "title": "extensions: disable Disable Globally when extension is workspace-enabled only",
-      "url": "https://github.com/microsoft/vscode/pull/316728",
-      "number": 316728,
-      "labels": [],
-      "x": 8610,
-      "y": 5680
-    },
-    {
-      "id": "pr-317244",
-      "type": "pr",
-      "state": "open",
-      "title": "Make sure we show full mermaid diagram when opened in new editor",
-      "url": "https://github.com/microsoft/vscode/pull/317244",
-      "number": 317244,
-      "labels": [],
-      "x": 8990,
-      "y": 5680
-    },
-    {
-      "id": "pr-316868",
-      "type": "pr",
-      "state": "open",
-      "title": "fix(extensions): hide Disable dropdown when extension is globally disabled but workspace-enabled",
-      "url": "https://github.com/microsoft/vscode/pull/316868",
-      "number": 316868,
-      "labels": [],
-      "x": 9370,
-      "y": 5680
-    },
-    {
-      "id": "pr-316876",
-      "type": "pr",
-      "state": "open",
-      "title": "Preserve selected Agent Host model for new Copilot CLI sessions in Agents window",
-      "url": "https://github.com/microsoft/vscode/pull/316876",
-      "number": 316876,
-      "labels": [],
-      "x": 8230,
       "y": 6160
     },
     {
-      "id": "pr-316878",
+      "id": "pr-317874",
       "type": "pr",
       "state": "open",
-      "title": "Support tsserver offset diagnostics in simulation validation",
-      "url": "https://github.com/microsoft/vscode/pull/316878",
-      "number": 316878,
-      "labels": [],
-      "x": 8610,
-      "y": 6160
-    },
-    {
-      "id": "pr-316755",
-      "type": "pr",
-      "state": "open",
-      "title": "Don't override include/exclude defaults with false on remove",
-      "url": "https://github.com/microsoft/vscode/pull/316755",
-      "number": 316755,
-      "labels": [],
-      "x": 8990,
-      "y": 6160
-    },
-    {
-      "id": "pr-316756",
-      "type": "pr",
-      "state": "open",
-      "title": "Markdown preview: refresh on file-system change even when document is open",
-      "url": "https://github.com/microsoft/vscode/pull/316756",
-      "number": 316756,
+      "title": "cli: do not block control server startup on agent host supervisor",
+      "url": "https://github.com/microsoft/vscode/pull/317874",
+      "number": 317874,
       "labels": [],
       "x": 9370,
       "y": 6160
     },
     {
-      "id": "pr-316763",
+      "id": "pr-317776",
       "type": "pr",
       "state": "open",
-      "title": "Trim surrounding whitespace from line comment token",
-      "url": "https://github.com/microsoft/vscode/pull/316763",
-      "number": 316763,
+      "title": "Allow sending chat requests with attachments only",
+      "url": "https://github.com/microsoft/vscode/pull/317776",
+      "number": 317776,
       "labels": [],
       "x": 8230,
       "y": 6640
     },
     {
-      "id": "pr-316893",
+      "id": "pr-317395",
       "type": "pr",
       "state": "open",
-      "title": "Add TS server node path picker",
-      "url": "https://github.com/microsoft/vscode/pull/316893",
-      "number": 316893,
+      "title": "fix: preserve gallery field in MCP protocol install fallback path",
+      "url": "https://github.com/microsoft/vscode/pull/317395",
+      "number": 317395,
       "labels": [],
       "x": 8610,
+      "y": 6640
+    },
+    {
+      "id": "pr-317780",
+      "type": "pr",
+      "state": "open",
+      "title": "fix(terminal): catch ENOPRO in getCwdResource when file:// provider absent in VS Code web",
+      "url": "https://github.com/microsoft/vscode/pull/317780",
+      "number": 317780,
+      "labels": [],
+      "x": 8990,
       "y": 6640
     },
     {
@@ -2076,7 +1945,7 @@
       "url": "https://github.com/microsoft/vscode/pull/317163",
       "number": 317163,
       "labels": [],
-      "x": 8990,
+      "x": 9370,
       "y": 6640
     },
     {
@@ -2087,8 +1956,8 @@
       "url": "https://github.com/microsoft/vscode/pull/317292",
       "number": 317292,
       "labels": [],
-      "x": 9370,
-      "y": 6640
+      "x": 8230,
+      "y": 7120
     },
     {
       "id": "pr-317164",
@@ -2100,29 +1969,29 @@
       "labels": [
         "snippets"
       ],
-      "x": 8230,
-      "y": 7120
-    },
-    {
-      "id": "pr-317045",
-      "type": "pr",
-      "state": "open",
-      "title": "Add notebook commands to collapse code cell inputs",
-      "url": "https://github.com/microsoft/vscode/pull/317045",
-      "number": 317045,
-      "labels": [],
       "x": 8610,
       "y": 7120
     },
     {
-      "id": "pr-316792",
+      "id": "pr-317551",
       "type": "pr",
       "state": "open",
-      "title": "Extension Bisect: keep eliminated extensions disabled",
-      "url": "https://github.com/microsoft/vscode/pull/316792",
-      "number": 316792,
+      "title": "chat: recover from log files missing initial snapshot entry",
+      "url": "https://github.com/microsoft/vscode/pull/317551",
+      "number": 317551,
       "labels": [],
       "x": 8990,
+      "y": 7120
+    },
+    {
+      "id": "pr-317552",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: update github-issues notebooks to use OR between repo filters",
+      "url": "https://github.com/microsoft/vscode/pull/317552",
+      "number": 317552,
+      "labels": [],
+      "x": 9370,
       "y": 7120
     },
     {
@@ -2132,17 +2001,6 @@
       "title": "Fix Copilot CLI sessions hanging on patch apply after stream close",
       "url": "https://github.com/microsoft/vscode/pull/317307",
       "number": 317307,
-      "labels": [],
-      "x": 9370,
-      "y": 7120
-    },
-    {
-      "id": "pr-317308",
-      "type": "pr",
-      "state": "open",
-      "title": "Re-introduce model visibility control for chat window model picker",
-      "url": "https://github.com/microsoft/vscode/pull/317308",
-      "number": 317308,
       "labels": [],
       "x": 8230,
       "y": 7600
@@ -2159,8 +2017,8 @@
         "install-update",
         "windows"
       ],
-      "x": 7490,
-      "y": 2600
+      "x": 7110,
+      "y": 3560
     },
     {
       "id": "issue-315408",
@@ -2173,8 +2031,8 @@
         "bug",
         "insiders-released"
       ],
-      "x": 8910,
-      "y": 2120
+      "x": 5950,
+      "y": 1160
     },
     {
       "id": "issue-314897",
@@ -2190,40 +2048,8 @@
         "engineering",
         "insiders-released"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 1160
-    },
-    {
-      "id": "issue-313361",
-      "type": "issue",
-      "state": "closed",
-      "title": "`Try new agents app` isn't centered ",
-      "url": "https://github.com/microsoft/vscode/issues/313361",
-      "number": 313361,
-      "labels": [
-        "bug",
-        "verified",
-        "insiders-released"
-      ],
-      "x": 1630,
-      "y": 680
-    },
-    {
-      "id": "issue-313363",
-      "type": "issue",
-      "state": "closed",
-      "title": "Organize markdown settings",
-      "url": "https://github.com/microsoft/vscode/issues/313363",
-      "number": 313363,
-      "labels": [
-        "feature-request",
-        "verified",
-        "markdown-ext",
-        "verification-needed",
-        "insiders-released"
-      ],
-      "x": 2010,
-      "y": 680
     },
     {
       "id": "issue-313368",
@@ -2237,7 +2063,7 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 2390,
+      "x": -570,
       "y": 680
     },
     {
@@ -2250,7 +2076,7 @@
       "labels": [
         "bug"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 680
     },
     {
@@ -2266,7 +2092,7 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 2770,
+      "x": -190,
       "y": 680
     },
     {
@@ -2281,7 +2107,7 @@
         "verified",
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 1160
     },
     {
@@ -2294,7 +2120,7 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 4970,
+      "x": 2390,
       "y": 4040
     },
     {
@@ -2307,22 +2133,34 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 8610,
-      "y": 1640
+      "x": 7170,
+      "y": 680
     },
     {
-      "id": "issue-237092",
+      "id": "issue-317478",
       "type": "issue",
       "state": "open",
-      "title": "Extension Bisect should not re-enable most extensions throughout the process",
-      "url": "https://github.com/microsoft/vscode/issues/237092",
-      "number": 237092,
-      "labels": [
-        "feature-request",
-        "extensions"
-      ],
+      "title": "Chat session cannot be opened - log/transcript missing an initial entry",
+      "url": "https://github.com/microsoft/vscode/issues/317478",
+      "number": 317478,
+      "labels": [],
       "x": 8990,
       "y": 7400
+    },
+    {
+      "id": "issue-316968",
+      "type": "issue",
+      "state": "closed",
+      "title": "Diagrams don't respond to theme changes",
+      "url": "https://github.com/microsoft/vscode/issues/316968",
+      "number": 316968,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "mermaid"
+      ],
+      "x": 8990,
+      "y": 1160
     },
     {
       "id": "issue-313899",
@@ -2334,8 +2172,24 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 3080
+    },
+    {
+      "id": "issue-317490",
+      "type": "issue",
+      "state": "closed",
+      "title": "Feature request: add setting to disable sensitive input detection in terminal agent tools",
+      "url": "https://github.com/microsoft/vscode/issues/317490",
+      "number": 317490,
+      "labels": [
+        "feature-request",
+        "verification-needed",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "x": 9370,
+      "y": 680
     },
     {
       "id": "issue-315443",
@@ -2349,7 +2203,7 @@
         "agents-window",
         "agents-app"
       ],
-      "x": 6410,
+      "x": 3830,
       "y": 4040
     },
     {
@@ -2366,8 +2220,8 @@
         "insiders-released",
         "browser-integration"
       ],
-      "x": 8230,
-      "y": 3560
+      "x": 8990,
+      "y": 4520
     },
     {
       "id": "issue-196664",
@@ -2382,7 +2236,7 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 6490,
+      "x": 4290,
       "y": 3080
     },
     {
@@ -2399,7 +2253,7 @@
         "chat-terminal",
         "chat-ask"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 1160
     },
     {
@@ -2412,40 +2266,14 @@
       "labels": [
         "bug",
         "error-telemetry",
-        "unreleased",
+        "insiders-released",
         "recent-regression",
         "stable-anomaly",
         "ai-generated",
         "ai-analyzed"
       ],
-      "x": 8610,
+      "x": 8230,
       "y": 680
-    },
-    {
-      "id": "issue-265277",
-      "type": "issue",
-      "state": "open",
-      "title": "Markdown preview doesn't refresh/reload when the file is overwritten",
-      "url": "https://github.com/microsoft/vscode/issues/265277",
-      "number": 265277,
-      "labels": [
-        "bug",
-        "markdown-ext",
-        "team-low-hanging"
-      ],
-      "x": 9370,
-      "y": 6440
-    },
-    {
-      "id": "issue-316481",
-      "type": "issue",
-      "state": "open",
-      "title": "Large Language Model Selection and Panel Bug",
-      "url": "https://github.com/microsoft/vscode/issues/316481",
-      "number": 316481,
-      "labels": [],
-      "x": 9370,
-      "y": 5480
     },
     {
       "id": "issue-309315",
@@ -2463,8 +2291,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 8930,
-      "y": 2600
+      "x": 8550,
+      "y": 3560
     },
     {
       "id": "issue-309316",
@@ -2478,8 +2306,8 @@
         "install-update",
         "windows"
       ],
-      "x": 9090,
-      "y": 2600
+      "x": 8710,
+      "y": 3560
     },
     {
       "id": "issue-313412",
@@ -2492,8 +2320,8 @@
         "terminal",
         "insiders-released"
       ],
-      "x": 1630,
-      "y": 1160
+      "x": 190,
+      "y": 680
     },
     {
       "id": "issue-56902",
@@ -2510,7 +2338,7 @@
         "insiders-released",
         "settings-search"
       ],
-      "x": 4970,
+      "x": 2770,
       "y": 680
     },
     {
@@ -2526,8 +2354,8 @@
         "insiders-released",
         "agent-plugins"
       ],
-      "x": 6030,
-      "y": 4520
+      "x": 4970,
+      "y": 4040
     },
     {
       "id": "issue-299598",
@@ -2542,8 +2370,24 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7650,
-      "y": 2600
+      "x": 7270,
+      "y": 3560
+    },
+    {
+      "id": "issue-317520",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents: Session list reorders immediately on opening search, causing visual jump",
+      "url": "https://github.com/microsoft/vscode/issues/317520",
+      "number": 317520,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "agents-window",
+        "agents-app"
+      ],
+      "x": 8610,
+      "y": 1160
     },
     {
       "id": "issue-313424",
@@ -2562,8 +2406,8 @@
         "insiders-released",
         "browser-integration"
       ],
-      "x": 2010,
-      "y": 1160
+      "x": 570,
+      "y": 680
     },
     {
       "id": "issue-312403",
@@ -2574,11 +2418,11 @@
       "number": 312403,
       "labels": [
         "bug",
-        "unreleased",
+        "insiders-released",
         "terminal-tabs"
       ],
-      "x": 9370,
-      "y": 3560
+      "x": 8610,
+      "y": 5000
     },
     {
       "id": "issue-315476",
@@ -2593,7 +2437,7 @@
         "insiders-released",
         "chat-terminal-output-monitor"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 1640
     },
     {
@@ -2609,7 +2453,7 @@
         "insiders-released",
         "ai-analyzed"
       ],
-      "x": 9370,
+      "x": 8990,
       "y": 680
     },
     {
@@ -2627,39 +2471,8 @@
         "insiders-released",
         "agents"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 680
-    },
-    {
-      "id": "issue-310886",
-      "type": "issue",
-      "state": "closed",
-      "title": "Long question is truncated",
-      "url": "https://github.com/microsoft/vscode/issues/310886",
-      "number": 310886,
-      "labels": [
-        "bug",
-        "verified",
-        "polish",
-        "insiders-released",
-        "chat-ask"
-      ],
-      "x": 2470,
-      "y": 2600
-    },
-    {
-      "id": "issue-249958",
-      "type": "issue",
-      "state": "open",
-      "title": "Line comment toggling does not work when line comment starts with a whitespace",
-      "url": "https://github.com/microsoft/vscode/issues/249958",
-      "number": 249958,
-      "labels": [
-        "bug",
-        "editor-autoindent"
-      ],
-      "x": 8230,
-      "y": 6920
     },
     {
       "id": "issue-312425",
@@ -2674,8 +2487,22 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 2310,
+      "x": -650,
       "y": 1160
+    },
+    {
+      "id": "issue-293481",
+      "type": "issue",
+      "state": "open",
+      "title": "MCP Server `gallery` Field Not Saved During Protocol Installation",
+      "url": "https://github.com/microsoft/vscode/issues/293481",
+      "number": 293481,
+      "labels": [
+        "feature-request",
+        "chat-mcp-management"
+      ],
+      "x": 8610,
+      "y": 6920
     },
     {
       "id": "issue-316017",
@@ -2687,8 +2514,8 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 9370,
-      "y": 1160
+      "x": 6410,
+      "y": 680
     },
     {
       "id": "issue-312434",
@@ -2703,8 +2530,8 @@
         "install-update",
         "windows"
       ],
-      "x": 9890,
-      "y": 2600
+      "x": 9510,
+      "y": 3560
     },
     {
       "id": "issue-311922",
@@ -2719,8 +2546,22 @@
         "install-update",
         "insiders-released"
       ],
-      "x": 2770,
+      "x": -190,
       "y": 1160
+    },
+    {
+      "id": "issue-313461",
+      "type": "issue",
+      "state": "closed",
+      "title": "Feature Request: Local AI in Offline Networks",
+      "url": "https://github.com/microsoft/vscode/issues/313461",
+      "number": 313461,
+      "labels": [
+        "insiders-released",
+        "model-byok"
+      ],
+      "x": 8310,
+      "y": 5480
     },
     {
       "id": "issue-301686",
@@ -2735,7 +2576,7 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 2470,
+      "x": -490,
       "y": 1160
     },
     {
@@ -2752,7 +2593,7 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 2690,
+      "x": -270,
       "y": 1640
     },
     {
@@ -2769,22 +2610,8 @@
         "electron",
         "upstream-issue-linked"
       ],
-      "x": 8990,
-      "y": 5000
-    },
-    {
-      "id": "issue-316543",
-      "type": "issue",
-      "state": "open",
-      "title": "AgentHost: local AH sessions don't show progress in vscode",
-      "url": "https://github.com/microsoft/vscode/issues/316543",
-      "number": 316543,
-      "labels": [
-        "bug",
-        "agent-host"
-      ],
-      "x": 8230,
-      "y": 5000
+      "x": 9370,
+      "y": 5960
     },
     {
       "id": "issue-315526",
@@ -2798,22 +2625,24 @@
         "verified",
         "insiders-released"
       ],
-      "x": 8230,
-      "y": 1640
+      "x": 6790,
+      "y": 680
     },
     {
-      "id": "issue-316044",
+      "id": "issue-275591",
       "type": "issue",
-      "state": "open",
-      "title": "Model Selection Resets in Agents UX",
-      "url": "https://github.com/microsoft/vscode/issues/316044",
-      "number": 316044,
+      "state": "closed",
+      "title": "vscode.lm.selectChatModels call hangs when GitHub token is invalid",
+      "url": "https://github.com/microsoft/vscode/issues/275591",
+      "number": 275591,
       "labels": [
-        "copilot-cli-agent",
-        "agents-window"
+        "bug",
+        "api",
+        "insiders-released",
+        "model-byok"
       ],
-      "x": 8230,
-      "y": 6440
+      "x": 8150,
+      "y": 5480
     },
     {
       "id": "issue-314000",
@@ -2826,7 +2655,7 @@
         "insiders-released",
         "chat-ext-issue"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 1640
     },
     {
@@ -2843,22 +2672,23 @@
         "windows",
         "insiders-released"
       ],
-      "x": 6850,
+      "x": 4270,
       "y": 4520
     },
     {
       "id": "issue-317075",
       "type": "issue",
-      "state": "open",
+      "state": "closed",
       "title": "Mermaid: hit the \"expand\" button (far right) and the diagram was cut off",
       "url": "https://github.com/microsoft/vscode/issues/317075",
       "number": 317075,
       "labels": [
         "bug",
+        "insiders-released",
         "mermaid"
       ],
-      "x": 8990,
-      "y": 5960
+      "x": 9370,
+      "y": 3080
     },
     {
       "id": "issue-193172",
@@ -2873,7 +2703,7 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 6650,
+      "x": 4450,
       "y": 3080
     },
     {
@@ -2887,8 +2717,8 @@
         "agents-window",
         "agents-app"
       ],
-      "x": 9370,
-      "y": 7400
+      "x": 8230,
+      "y": 7880
     },
     {
       "id": "issue-315548",
@@ -2903,7 +2733,7 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 2120
     },
     {
@@ -2919,8 +2749,8 @@
         "install-update",
         "windows"
       ],
-      "x": 8610,
-      "y": 2600
+      "x": 8230,
+      "y": 3560
     },
     {
       "id": "issue-313501",
@@ -2934,7 +2764,7 @@
         "vscode-build",
         "insiders-released"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 1160
     },
     {
@@ -2946,10 +2776,10 @@
       "number": 317090,
       "labels": [
         "bug",
-        "unreleased"
+        "insiders-released"
       ],
-      "x": 8990,
-      "y": 1160
+      "x": 8230,
+      "y": 1640
     },
     {
       "id": "issue-290467",
@@ -2965,7 +2795,7 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7330,
+      "x": 4750,
       "y": 4520
     },
     {
@@ -2982,8 +2812,8 @@
         "on-testplan",
         "insiders-released"
       ],
-      "x": 8990,
-      "y": 3560
+      "x": 8230,
+      "y": 5000
     },
     {
       "id": "issue-317094",
@@ -2994,9 +2824,9 @@
       "number": 317094,
       "labels": [
         "bug",
-        "unreleased"
+        "insiders-released"
       ],
-      "x": 8610,
+      "x": 9370,
       "y": 1160
     },
     {
@@ -3012,7 +2842,7 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 3560
     },
     {
@@ -3028,24 +2858,22 @@
         "insiders-released",
         "agent-host"
       ],
-      "x": 7170,
+      "x": 4590,
       "y": 5480
     },
     {
-      "id": "issue-311987",
+      "id": "issue-313015",
       "type": "issue",
       "state": "closed",
-      "title": "Agents: Deleting a sub-session doesn't immediately work",
-      "url": "https://github.com/microsoft/vscode/issues/311987",
-      "number": 311987,
+      "title": "git tag failed: unable to access .gitconfig",
+      "url": "https://github.com/microsoft/vscode/issues/313015",
+      "number": 313015,
       "labels": [
-        "bug",
-        "verified",
         "insiders-released",
-        "agents-window"
+        "agent-sandbox"
       ],
-      "x": 2010,
-      "y": 2120
+      "x": 8990,
+      "y": 2600
     },
     {
       "id": "issue-299703",
@@ -3062,22 +2890,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
-      "x": 7810,
-      "y": 2600
-    },
-    {
-      "id": "issue-313015",
-      "type": "issue",
-      "state": "closed",
-      "title": "git tag failed: unable to access .gitconfig",
-      "url": "https://github.com/microsoft/vscode/issues/313015",
-      "number": 313015,
-      "labels": [
-        "unreleased",
-        "agent-sandbox"
-      ],
-      "x": 8610,
-      "y": 2120
+      "x": 7430,
+      "y": 3560
     },
     {
       "id": "issue-314554",
@@ -3090,8 +2904,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
-      "x": 6030,
-      "y": 5960
+      "x": 4970,
+      "y": 5480
     },
     {
       "id": "issue-312509",
@@ -3106,7 +2920,7 @@
         "good first issue",
         "insiders-released"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 680
     },
     {
@@ -3120,7 +2934,7 @@
         "insiders-released",
         "agent-sandbox"
       ],
-      "x": 4590,
+      "x": 2010,
       "y": 5000
     },
     {
@@ -3132,7 +2946,7 @@
       "number": 294080,
       "labels": [],
       "x": 8990,
-      "y": 5480
+      "y": 6440
     },
     {
       "id": "issue-314052",
@@ -3146,7 +2960,7 @@
         "verified",
         "insiders-released"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 2120
     },
     {
@@ -3162,8 +2976,8 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7170,
-      "y": 2600
+      "x": 6790,
+      "y": 3560
     },
     {
       "id": "issue-314056",
@@ -3176,7 +2990,7 @@
         "insiders-released",
         "agent-sandbox"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 3080
     },
     {
@@ -3192,8 +3006,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 3830,
-      "y": 4520
+      "x": 2770,
+      "y": 4040
     },
     {
       "id": "issue-233163",
@@ -3208,7 +3022,7 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 6330,
+      "x": 4130,
       "y": 3080
     },
     {
@@ -3224,7 +3038,7 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 6170,
+      "x": 3970,
       "y": 3080
     },
     {
@@ -3240,21 +3054,22 @@
         "insiders-released",
         "browser-integration"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 1640
     },
     {
       "id": "issue-316624",
       "type": "issue",
-      "state": "open",
+      "state": "closed",
       "title": "Fetch tool broken in sandbox with no clear way to know it's because sandbox",
       "url": "https://github.com/microsoft/vscode/issues/316624",
       "number": 316624,
       "labels": [
+        "unreleased",
         "agent-sandbox"
       ],
       "x": 9370,
-      "y": 4520
+      "y": 2600
     },
     {
       "id": "issue-313556",
@@ -3269,7 +3084,7 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 2120
     },
     {
@@ -3282,37 +3097,8 @@
       "labels": [
         "bug"
       ],
-      "x": 8990,
+      "x": 9370,
       "y": 6920
-    },
-    {
-      "id": "issue-249049",
-      "type": "issue",
-      "state": "open",
-      "title": "Removing glob from search.exclude in settings UI sets it to false instead of removing it",
-      "url": "https://github.com/microsoft/vscode/issues/249049",
-      "number": 249049,
-      "labels": [
-        "bug",
-        "settings-editor",
-        "confirmed"
-      ],
-      "x": 8990,
-      "y": 6440
-    },
-    {
-      "id": "issue-212186",
-      "type": "issue",
-      "state": "open",
-      "title": "Collapse/expand all code cells in jupyter notebook editor",
-      "url": "https://github.com/microsoft/vscode/issues/212186",
-      "number": 212186,
-      "labels": [
-        "feature-request",
-        "notebook-commands"
-      ],
-      "x": 8610,
-      "y": 7400
     },
     {
       "id": "issue-314587",
@@ -3327,8 +3113,21 @@
         "markdown-ext",
         "insiders-released"
       ],
-      "x": 4970,
+      "x": 2770,
       "y": 1640
+    },
+    {
+      "id": "issue-317660",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remote-SSH server install fails with \"extraction path resolves outside root\" after #317393",
+      "url": "https://github.com/microsoft/vscode/issues/317660",
+      "number": 317660,
+      "labels": [
+        "unreleased"
+      ],
+      "x": 8990,
+      "y": 3560
     },
     {
       "id": "issue-304350",
@@ -3339,11 +3138,12 @@
       "number": 304350,
       "labels": [
         "bug",
+        "verified",
         "install-update",
         "windows"
       ],
-      "x": 8450,
-      "y": 2600
+      "x": 8070,
+      "y": 3560
     },
     {
       "id": "issue-314078",
@@ -3356,7 +3156,7 @@
         "unit-test-failure",
         "insiders-released"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 2120
     },
     {
@@ -3373,24 +3173,7 @@
         "chat-terminal"
       ],
       "x": 8990,
-      "y": 1640
-    },
-    {
-      "id": "issue-153829",
-      "type": "issue",
-      "state": "closed",
-      "title": "Codicons should be excluded from the quick pick's filtering",
-      "url": "https://github.com/microsoft/vscode/issues/153829",
-      "number": 153829,
-      "labels": [
-        "bug",
-        "verified",
-        "confirmed",
-        "insiders-released",
-        "terminal-tabs"
-      ],
-      "x": 6410,
-      "y": 3560
+      "y": 2120
     },
     {
       "id": "issue-315623",
@@ -3405,24 +3188,8 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 2600
-    },
-    {
-      "id": "issue-312554",
-      "type": "issue",
-      "state": "closed",
-      "title": "After Plan mode, agent does not start implementation",
-      "url": "https://github.com/microsoft/vscode/issues/312554",
-      "number": 312554,
-      "labels": [
-        "bug",
-        "verified",
-        "candidate",
-        "insiders-released"
-      ],
-      "x": -570,
-      "y": 1160
     },
     {
       "id": "issue-316140",
@@ -3435,7 +3202,7 @@
         "insiders-released"
       ],
       "x": 9370,
-      "y": 1640
+      "y": 2120
     },
     {
       "id": "issue-313585",
@@ -3451,24 +3218,8 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7490,
+      "x": 4910,
       "y": 4520
-    },
-    {
-      "id": "issue-313074",
-      "type": "issue",
-      "state": "closed",
-      "title": "Shell integration intermittently breaks mid-session in agent terminal commands",
-      "url": "https://github.com/microsoft/vscode/issues/313074",
-      "number": 313074,
-      "labels": [
-        "bug",
-        "verified",
-        "insiders-released",
-        "terminal-shell-integration"
-      ],
-      "x": 1630,
-      "y": 2120
     },
     {
       "id": "issue-260851",
@@ -3482,8 +3233,8 @@
         "git",
         "confirmed"
       ],
-      "x": 8230,
-      "y": 5480
+      "x": 8610,
+      "y": 6440
     },
     {
       "id": "issue-312052",
@@ -3494,22 +3245,26 @@
       "number": 312052,
       "labels": [
         "feature-request",
-        "unreleased",
+        "verification-needed",
+        "insiders-released",
         "agent-host"
       ],
       "x": 8230,
-      "y": 2120
+      "y": 2600
     },
     {
-      "id": "issue-316665",
+      "id": "issue-252667",
       "type": "issue",
       "state": "open",
-      "title": "Right-click in an unfocused window opens the context menu over the focused window",
-      "url": "https://github.com/microsoft/vscode/issues/316665",
-      "number": 316665,
-      "labels": [],
-      "x": 8990,
-      "y": 4520
+      "title": "Update GitHub Issue Notebooks due to GitHub issue query breaking change",
+      "url": "https://github.com/microsoft/vscode/issues/252667",
+      "number": 252667,
+      "labels": [
+        "help wanted",
+        "engineering"
+      ],
+      "x": 9370,
+      "y": 7400
     },
     {
       "id": "issue-299774",
@@ -3523,24 +3278,8 @@
         "verified",
         "insiders-released"
       ],
-      "x": 4970,
-      "y": 1160
-    },
-    {
-      "id": "issue-312576",
-      "type": "issue",
-      "state": "closed",
-      "title": "Terminal stuck forever on sync command",
-      "url": "https://github.com/microsoft/vscode/issues/312576",
-      "number": 312576,
-      "labels": [
-        "bug",
-        "verified",
-        "insiders-released",
-        "chat-terminal"
-      ],
       "x": 2770,
-      "y": 2120
+      "y": 1160
     },
     {
       "id": "issue-65795",
@@ -3557,7 +3296,7 @@
         "insiders-released",
         "settings-search"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 680
     },
     {
@@ -3574,7 +3313,7 @@
         "good first issue",
         "insiders-released"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 3080
     },
     {
@@ -3589,8 +3328,22 @@
         "verified",
         "insiders-released"
       ],
-      "x": 2010,
-      "y": 1640
+      "x": 570,
+      "y": 1160
+    },
+    {
+      "id": "issue-317711",
+      "type": "issue",
+      "state": "closed",
+      "title": "Enable sandboxing in windows using MXC SDK",
+      "url": "https://github.com/microsoft/vscode/issues/317711",
+      "number": 317711,
+      "labels": [
+        "unreleased",
+        "agent-sandbox"
+      ],
+      "x": 8230,
+      "y": 2120
     },
     {
       "id": "issue-313104",
@@ -3604,25 +3357,38 @@
         "install-update",
         "agents-window"
       ],
-      "x": 1630,
-      "y": 1640
+      "x": 190,
+      "y": 1160
+    },
+    {
+      "id": "issue-317714",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remote `ssh` connection fails from Debian -> MacOS",
+      "url": "https://github.com/microsoft/vscode/issues/317714",
+      "number": 317714,
+      "labels": [
+        "bug",
+        "important",
+        "ssh",
+        "new release"
+      ],
+      "x": 9370,
+      "y": 6440
     },
     {
       "id": "issue-300307",
       "type": "issue",
-      "state": "closed",
+      "state": "open",
       "title": "Fish shell integration is broken in 1.111.0 with MSYS2 environment",
       "url": "https://github.com/microsoft/vscode/issues/300307",
       "number": 300307,
       "labels": [
         "bug",
-        "verified",
-        "install-update",
-        "windows",
-        "insiders-released"
+        "windows"
       ],
-      "x": 9410,
-      "y": 2600
+      "x": 9030,
+      "y": 3560
     },
     {
       "id": "issue-316182",
@@ -3636,8 +3402,24 @@
         "verified",
         "insiders-released"
       ],
-      "x": 9070,
-      "y": 2120
+      "x": 6110,
+      "y": 1160
+    },
+    {
+      "id": "issue-246551",
+      "type": "issue",
+      "state": "closed",
+      "title": "Use copilot with local models completely offline",
+      "url": "https://github.com/microsoft/vscode/issues/246551",
+      "number": 246551,
+      "labels": [
+        "feature-request",
+        "verification-needed",
+        "insiders-released",
+        "model-byok"
+      ],
+      "x": 7990,
+      "y": 5480
     },
     {
       "id": "issue-314140",
@@ -3651,21 +3433,21 @@
         "verified",
         "accessibility"
       ],
-      "x": 6030,
-      "y": 4040
+      "x": 4970,
+      "y": 3560
     },
     {
-      "id": "issue-300318",
+      "id": "issue-315167",
       "type": "issue",
       "state": "closed",
-      "title": "Copilot chat OTel tools are missing parameters",
-      "url": "https://github.com/microsoft/vscode/issues/300318",
-      "number": 300318,
+      "title": "splice(indexOf()) without -1 guard silently removes wrong array element in 4 locations",
+      "url": "https://github.com/microsoft/vscode/issues/315167",
+      "number": 315167,
       "labels": [
         "insiders-released"
       ],
-      "x": -270,
-      "y": 1160
+      "x": 8610,
+      "y": 2600
     },
     {
       "id": "issue-315168",
@@ -3678,7 +3460,7 @@
         "bug",
         "verified"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 2600
     },
     {
@@ -3691,7 +3473,7 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 3560
     },
     {
@@ -3708,7 +3490,7 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7170,
+      "x": 4590,
       "y": 4520
     },
     {
@@ -3724,24 +3506,8 @@
         "markdown-ext",
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 680
-    },
-    {
-      "id": "issue-204065",
-      "type": "issue",
-      "state": "open",
-      "title": "Syntax highlighting error in PHP function parameter when string literal contains block comment",
-      "url": "https://github.com/microsoft/vscode/issues/204065",
-      "number": 204065,
-      "labels": [
-        "bug",
-        "help wanted",
-        "languages-basic",
-        "php"
-      ],
-      "x": 8610,
-      "y": 4520
     },
     {
       "id": "issue-315176",
@@ -3754,7 +3520,7 @@
         "bug",
         "verified"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 1640
     },
     {
@@ -3770,8 +3536,8 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 8230,
-      "y": 2600
+      "x": 8610,
+      "y": 3080
     },
     {
       "id": "issue-315690",
@@ -3785,7 +3551,7 @@
         "verified",
         "insiders-released"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 1640
     },
     {
@@ -3801,7 +3567,7 @@
         "accessibility",
         "insiders-released"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 2600
     },
     {
@@ -3817,7 +3583,7 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 2120
     },
     {
@@ -3831,22 +3597,8 @@
         "bug",
         "verified"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 2600
-    },
-    {
-      "id": "issue-247088",
-      "type": "issue",
-      "state": "open",
-      "title": "Allow users to select using `typescript.tsserver.nodePath` after dismissing modal dialog",
-      "url": "https://github.com/microsoft/vscode/issues/247088",
-      "number": 247088,
-      "labels": [
-        "bug",
-        "help wanted"
-      ],
-      "x": 8610,
-      "y": 6920
     },
     {
       "id": "issue-279349",
@@ -3861,8 +3613,8 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 9370,
-      "y": 3080
+      "x": 8610,
+      "y": 4520
     },
     {
       "id": "issue-315702",
@@ -3875,7 +3627,7 @@
         "bug",
         "verified"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 3080
     },
     {
@@ -3890,22 +3642,8 @@
         "verified",
         "insiders-released"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 2600
-    },
-    {
-      "id": "issue-313148",
-      "type": "issue",
-      "state": "open",
-      "title": "Deleting forked session deleted my worktree",
-      "url": "https://github.com/microsoft/vscode/issues/313148",
-      "number": 313148,
-      "labels": [
-        "bug",
-        "agents-window"
-      ],
-      "x": 2390,
-      "y": 2120
     },
     {
       "id": "issue-314173",
@@ -3920,7 +3658,7 @@
         "accessibility",
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 2120
     },
     {
@@ -3935,7 +3673,7 @@
         "verified",
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 3080
     },
     {
@@ -3951,8 +3689,8 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 9530,
-      "y": 4040
+      "x": 8770,
+      "y": 5480
     },
     {
       "id": "issue-315717",
@@ -3966,8 +3704,8 @@
         "verified",
         "insiders-released"
       ],
-      "x": 8230,
-      "y": 4520
+      "x": 6790,
+      "y": 1160
     },
     {
       "id": "issue-314181",
@@ -3979,7 +3717,7 @@
       "labels": [
         "agent-sandbox"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 4040
     },
     {
@@ -3990,7 +3728,7 @@
       "url": "https://github.com/microsoft/vscode/issues/314695",
       "number": 314695,
       "labels": [],
-      "x": 7170,
+      "x": 4590,
       "y": 4040
     },
     {
@@ -4006,8 +3744,8 @@
         "agents-window",
         "agents-app"
       ],
-      "x": 9370,
-      "y": 2120
+      "x": 8230,
+      "y": 3080
     },
     {
       "id": "issue-316747",
@@ -4017,10 +3755,11 @@
       "url": "https://github.com/microsoft/vscode/issues/316747",
       "number": 316747,
       "labels": [
+        "bug",
         "model-byok"
       ],
-      "x": 9370,
-      "y": 6920
+      "x": 8230,
+      "y": 7400
     },
     {
       "id": "issue-314188",
@@ -4036,7 +3775,7 @@
         "insiders-released",
         "browser-integration"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 2600
     },
     {
@@ -4053,21 +3792,22 @@
         "macos",
         "insiders-released"
       ],
-      "x": 2310,
+      "x": -650,
       "y": 1640
     },
     {
-      "id": "issue-309582",
+      "id": "issue-317775",
       "type": "issue",
-      "state": "closed",
-      "title": "Searching with `.` in keyboard shortcut freezes window",
-      "url": "https://github.com/microsoft/vscode/issues/309582",
-      "number": 309582,
+      "state": "open",
+      "title": "Allow sending chat requests with attachments only",
+      "url": "https://github.com/microsoft/vscode/issues/317775",
+      "number": 317775,
       "labels": [
-        "insiders-released"
+        "feature-request",
+        "copilot-chat"
       ],
-      "x": 4590,
-      "y": 4040
+      "x": 8230,
+      "y": 6920
     },
     {
       "id": "issue-314706",
@@ -4079,7 +3819,7 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 5480
     },
     {
@@ -4092,7 +3832,7 @@
       "labels": [
         "agent-sandbox"
       ],
-      "x": 4970,
+      "x": 2770,
       "y": 3080
     },
     {
@@ -4103,10 +3843,10 @@
       "url": "https://github.com/microsoft/vscode/issues/317275",
       "number": 317275,
       "labels": [
-        "unreleased"
+        "insiders-released"
       ],
-      "x": 8990,
-      "y": 2600
+      "x": 9370,
+      "y": 3560
     },
     {
       "id": "issue-315243",
@@ -4121,7 +3861,7 @@
         "markdown-ext",
         "insiders-released"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 5000
     },
     {
@@ -4136,8 +3876,21 @@
         "verified",
         "insiders-released"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 1160
+    },
+    {
+      "id": "issue-316779",
+      "type": "issue",
+      "state": "open",
+      "title": "The target tool appears in the suggestions via toolSearch, but it cannot actually be used (GPT)",
+      "url": "https://github.com/microsoft/vscode/issues/316779",
+      "number": 316779,
+      "labels": [
+        "info-needed"
+      ],
+      "x": 8990,
+      "y": 5480
     },
     {
       "id": "issue-231280",
@@ -4151,8 +3904,8 @@
         "editor-core",
         "confirmed"
       ],
-      "x": 9370,
-      "y": 5000
+      "x": 8230,
+      "y": 6440
     },
     {
       "id": "issue-291188",
@@ -4168,7 +3921,7 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 3080
     },
     {
@@ -4183,7 +3936,7 @@
         "chat-ext-issue",
         "agent-sandbox"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 1160
     },
     {
@@ -4199,7 +3952,7 @@
         "insiders-released",
         "accessibility-sla"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 3560
     },
     {
@@ -4214,7 +3967,7 @@
         "model-byok",
         "model-picker"
       ],
-      "x": 4590,
+      "x": 2390,
       "y": 1160
     },
     {
@@ -4228,7 +3981,7 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 4040
     },
     {
@@ -4244,7 +3997,7 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 6410,
+      "x": 4210,
       "y": 680
     },
     {
@@ -4258,7 +4011,7 @@
         "insiders-released",
         "flaky-test"
       ],
-      "x": 4590,
+      "x": 2010,
       "y": 4520
     },
     {
@@ -4272,7 +4025,7 @@
         "insiders-released",
         "agent-sandbox"
       ],
-      "x": 6790,
+      "x": 4210,
       "y": 4520
     },
     {
@@ -4283,8 +4036,54 @@
       "url": "https://github.com/microsoft/vscode/issues/317329",
       "number": 317329,
       "labels": [],
+      "x": 8990,
+      "y": 6920
+    },
+    {
+      "id": "issue-315282",
+      "type": "issue",
+      "state": "closed",
+      "title": "[Regression] Cannot read properties of undefined (reading 'then') \u2014 terminalProcessManager.setDimensions",
+      "url": "https://github.com/microsoft/vscode/issues/315282",
+      "number": 315282,
+      "labels": [
+        "bug",
+        "error-telemetry",
+        "insiders-released",
+        "recent-regression",
+        "ai-generated",
+        "ai-analyzed"
+      ],
       "x": 8610,
-      "y": 5000
+      "y": 3560
+    },
+    {
+      "id": "issue-317330",
+      "type": "issue",
+      "state": "closed",
+      "title": "Chronicle cloud sync: circuit breaker never recovers within a session",
+      "url": "https://github.com/microsoft/vscode/issues/317330",
+      "number": 317330,
+      "labels": [
+        "bug",
+        "insiders-released"
+      ],
+      "x": 8610,
+      "y": 2120
+    },
+    {
+      "id": "issue-317331",
+      "type": "issue",
+      "state": "closed",
+      "title": "Chronicle cloud sync: createCloudSession should gracefully handle policy-blocked users",
+      "url": "https://github.com/microsoft/vscode/issues/317331",
+      "number": 317331,
+      "labels": [
+        "bug",
+        "insiders-released"
+      ],
+      "x": 8610,
+      "y": 1640
     },
     {
       "id": "issue-311187",
@@ -4299,23 +4098,8 @@
         "install-update",
         "windows"
       ],
-      "x": 9570,
-      "y": 2600
-    },
-    {
-      "id": "issue-312726",
-      "type": "issue",
-      "state": "closed",
-      "title": "Ask questions tool could specify \"max 200 characters\" in tool description to be most explicit about limits",
-      "url": "https://github.com/microsoft/vscode/issues/312726",
-      "number": 312726,
-      "labels": [
-        "polish",
-        "insiders-released",
-        "chat-ask"
-      ],
-      "x": 2310,
-      "y": 2600
+      "x": 9190,
+      "y": 3560
     },
     {
       "id": "issue-299416",
@@ -4329,8 +4113,8 @@
         "install-update",
         "windows"
       ],
-      "x": 7330,
-      "y": 2600
+      "x": 6950,
+      "y": 3560
     },
     {
       "id": "issue-315289",
@@ -4345,7 +4129,7 @@
         "insiders-released",
         "chat-prompts"
       ],
-      "x": 6790,
+      "x": 4590,
       "y": 1640
     },
     {
@@ -4360,7 +4144,7 @@
         "markdown-ext",
         "verification-found"
       ],
-      "x": 4210,
+      "x": 1630,
       "y": 4520
     },
     {
@@ -4376,56 +4160,24 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 8990,
+      "x": 8610,
       "y": 680
     },
     {
-      "id": "issue-297372",
+      "id": "issue-299932",
       "type": "issue",
       "state": "closed",
-      "title": "Allow agent to request access",
-      "url": "https://github.com/microsoft/vscode/issues/297372",
-      "number": 297372,
-      "labels": [
-        "feature-request",
-        "on-testplan",
-        "insiders-released",
-        "browser-integration"
-      ],
-      "x": 2010,
-      "y": 2600
-    },
-    {
-      "id": "issue-299934",
-      "type": "issue",
-      "state": "closed",
-      "title": "Copilot chat OTel child spans are missing tool definitions",
-      "url": "https://github.com/microsoft/vscode/issues/299934",
-      "number": 299934,
+      "title": "Copilot chat OTel includes system instruction in message JSON",
+      "url": "https://github.com/microsoft/vscode/issues/299932",
+      "number": 299932,
       "labels": [
         "bug",
-        "verified",
-        "insiders-released",
+        "verification-found",
+        "unreleased",
         "chat-agent"
       ],
-      "x": -110,
-      "y": 1160
-    },
-    {
-      "id": "issue-313248",
-      "type": "issue",
-      "state": "closed",
-      "title": "RunInTerminalTool hangs for 60min when shell exits before/during execute() (rich strategy)",
-      "url": "https://github.com/microsoft/vscode/issues/313248",
-      "number": 313248,
-      "labels": [
-        "bug",
-        "terminal",
-        "insiders-released",
-        "chat"
-      ],
-      "x": 1630,
-      "y": 2600
+      "x": 9370,
+      "y": 1640
     },
     {
       "id": "issue-302497",
@@ -4440,7 +4192,7 @@
         "install-update",
         "insiders-released"
       ],
-      "x": 2850,
+      "x": -110,
       "y": 1640
     },
     {
@@ -4457,7 +4209,7 @@
         "windows",
         "insiders-released"
       ],
-      "x": 7010,
+      "x": 4430,
       "y": 4520
     },
     {
@@ -4473,8 +4225,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 8230,
-      "y": 3080
+      "x": 8610,
+      "y": 4040
     },
     {
       "id": "issue-316328",
@@ -4491,24 +4243,8 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 8610,
-      "y": 3560
-    },
-    {
-      "id": "issue-244138",
-      "type": "issue",
-      "state": "open",
-      "title": "Disabled and enabled (workspace) extension Disable button dropdown contains both \"Disable\" and \"Disable (Workspace)\" items",
-      "url": "https://github.com/microsoft/vscode/issues/244138",
-      "number": 244138,
-      "labels": [
-        "bug",
-        "help wanted",
-        "good first issue",
-        "extensions"
-      ],
       "x": 9370,
-      "y": 5960
+      "y": 4520
     },
     {
       "id": "issue-303020",
@@ -4524,8 +4260,8 @@
         "windows",
         "insiders-released"
       ],
-      "x": 8130,
-      "y": 2600
+      "x": 7750,
+      "y": 3560
     },
     {
       "id": "issue-303021",
@@ -4539,8 +4275,25 @@
         "install-update",
         "windows"
       ],
-      "x": 8290,
-      "y": 2600
+      "x": 7910,
+      "y": 3560
+    },
+    {
+      "id": "issue-228270",
+      "type": "issue",
+      "state": "closed",
+      "title": "Tab list gets corrupted when a new webview is opened (extension API)",
+      "url": "https://github.com/microsoft/vscode/issues/228270",
+      "number": 228270,
+      "labels": [
+        "bug",
+        "workbench-tabs",
+        "confirmed",
+        "regression",
+        "insiders-released"
+      ],
+      "x": 8990,
+      "y": 3080
     },
     {
       "id": "issue-314796",
@@ -4557,8 +4310,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 6030,
-      "y": 5000
+      "x": 4970,
+      "y": 4520
     },
     {
       "id": "issue-298924",
@@ -4575,24 +4328,8 @@
         "custom-editors",
         "insiders-released"
       ],
-      "x": 4970,
+      "x": 2390,
       "y": 4520
-    },
-    {
-      "id": "issue-228270",
-      "type": "issue",
-      "state": "open",
-      "title": "Tab list gets corrupted when a new webview is opened (extension API)",
-      "url": "https://github.com/microsoft/vscode/issues/228270",
-      "number": 228270,
-      "labels": [
-        "bug",
-        "workbench-tabs",
-        "confirmed",
-        "regression"
-      ],
-      "x": 8610,
-      "y": 5480
     },
     {
       "id": "issue-311734",
@@ -4608,8 +4345,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 9370,
-      "y": 2600
+      "x": 8230,
+      "y": 4040
     },
     {
       "id": "issue-299962",
@@ -4624,8 +4361,8 @@
         "windows",
         "insiders-released"
       ],
-      "x": 10050,
-      "y": 2600
+      "x": 9670,
+      "y": 3560
     },
     {
       "id": "issue-303546",
@@ -4638,7 +4375,7 @@
         "bug",
         "error-telemetry"
       ],
-      "x": 4210,
+      "x": 1630,
       "y": 5000
     },
     {
@@ -4654,8 +4391,8 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 9210,
-      "y": 4040
+      "x": 8450,
+      "y": 5480
     },
     {
       "id": "issue-313276",
@@ -4668,24 +4405,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
-      "x": 3830,
+      "x": 1630,
       "y": 680
-    },
-    {
-      "id": "issue-232381",
-      "type": "issue",
-      "state": "open",
-      "title": "Go to symbol in workspace shortcut in Codespaces (browser) is CTRL-T.",
-      "url": "https://github.com/microsoft/vscode/issues/232381",
-      "number": 232381,
-      "labels": [
-        "help wanted",
-        "feature-request",
-        "good first issue",
-        "quick-open"
-      ],
-      "x": 8230,
-      "y": 5960
     },
     {
       "id": "issue-315840",
@@ -4700,8 +4421,8 @@
         "insiders-released",
         "agents-window"
       ],
-      "x": 9370,
-      "y": 4040
+      "x": 8610,
+      "y": 5480
     },
     {
       "id": "issue-315841",
@@ -4715,23 +4436,8 @@
         "important",
         "extension-host"
       ],
-      "x": 8230,
-      "y": 4040
-    },
-    {
-      "id": "issue-313281",
-      "type": "issue",
-      "state": "open",
-      "title": "Support external ingest for virtual file systems",
-      "url": "https://github.com/microsoft/vscode/issues/313281",
-      "number": 313281,
-      "labels": [
-        "feature-request",
-        "verification-needed",
-        "chat-codebase"
-      ],
-      "x": 2770,
-      "y": 2600
+      "x": 8990,
+      "y": 5000
     },
     {
       "id": "issue-314819",
@@ -4746,7 +4452,7 @@
         "verification-needed",
         "insiders-released"
       ],
-      "x": 7170,
+      "x": 4970,
       "y": 2120
     },
     {
@@ -4759,8 +4465,23 @@
       "labels": [
         "agent-sandbox"
       ],
-      "x": 4970,
+      "x": 2770,
       "y": 3560
+    },
+    {
+      "id": "issue-314825",
+      "type": "issue",
+      "state": "closed",
+      "title": "Not able to hide models from the Manage Models menu anymore",
+      "url": "https://github.com/microsoft/vscode/issues/314825",
+      "number": 314825,
+      "labels": [
+        "verification-needed",
+        "insiders-released",
+        "model-byok"
+      ],
+      "x": 9370,
+      "y": 4040
     },
     {
       "id": "issue-236489",
@@ -4775,8 +4496,24 @@
         "snippets",
         "insiders-released"
       ],
-      "x": 8990,
-      "y": 3080
+      "x": 8230,
+      "y": 4520
+    },
+    {
+      "id": "issue-272843",
+      "type": "issue",
+      "state": "closed",
+      "title": "BYOK internal server CAPI error 500",
+      "url": "https://github.com/microsoft/vscode/issues/272843",
+      "number": 272843,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "model-byok",
+        "capi"
+      ],
+      "x": 8470,
+      "y": 5480
     },
     {
       "id": "issue-302026",
@@ -4791,8 +4528,8 @@
         "install-update",
         "windows"
       ],
-      "x": 7970,
-      "y": 2600
+      "x": 7590,
+      "y": 3560
     },
     {
       "id": "issue-287177",
@@ -4807,8 +4544,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 8610,
-      "y": 3080
+      "x": 8990,
+      "y": 4040
     },
     {
       "id": "issue-314827",
@@ -4823,7 +4560,20 @@
         "insiders-released",
         "agent-host"
       ],
-      "x": 7170,
+      "x": 4590,
+      "y": 5000
+    },
+    {
+      "id": "issue-315855",
+      "type": "issue",
+      "state": "closed",
+      "title": "Display name for `.copilot` plugins is not using the plugin's `name`",
+      "url": "https://github.com/microsoft/vscode/issues/315855",
+      "number": 315855,
+      "labels": [
+        "insiders-released"
+      ],
+      "x": 4970,
       "y": 5000
     },
     {
@@ -4839,61 +4589,8 @@
         "accessibility",
         "insiders-released"
       ],
-      "x": 6410,
+      "x": 3830,
       "y": 5000
-    },
-    {
-      "id": "issue-314825",
-      "type": "issue",
-      "state": "open",
-      "title": "Not able to hide models from the Manage Models menu anymore",
-      "url": "https://github.com/microsoft/vscode/issues/314825",
-      "number": 314825,
-      "labels": [
-        "model-byok"
-      ],
-      "x": 8230,
-      "y": 7880
-    },
-    {
-      "id": "issue-315855",
-      "type": "issue",
-      "state": "closed",
-      "title": "Display name for `.copilot` plugins is not using the plugin's `name`",
-      "url": "https://github.com/microsoft/vscode/issues/315855",
-      "number": 315855,
-      "labels": [
-        "insiders-released"
-      ],
-      "x": 6030,
-      "y": 5480
-    },
-    {
-      "id": "issue-313296",
-      "type": "issue",
-      "state": "closed",
-      "title": "Eval findings - `set -e` hangs benchmarks",
-      "url": "https://github.com/microsoft/vscode/issues/313296",
-      "number": 313296,
-      "labels": [
-        "bug",
-        "verified",
-        "insiders-released",
-        "chat-terminal"
-      ],
-      "x": 1630,
-      "y": 3080
-    },
-    {
-      "id": "issue-316877",
-      "type": "issue",
-      "state": "open",
-      "title": "Copilot simulation TSC diagnostics provider fails on DiagnosticWithLinePosition",
-      "url": "https://github.com/microsoft/vscode/issues/316877",
-      "number": 316877,
-      "labels": [],
-      "x": 8610,
-      "y": 6440
     },
     {
       "id": "issue-314327",
@@ -4909,27 +4606,8 @@
         "custom-editors",
         "insiders-released"
       ],
-      "x": 3830,
-      "y": 5000
-    },
-    {
-      "id": "issue-312792",
-      "type": "issue",
-      "state": "closed",
-      "title": "[Error] unhandlederror-A provider for the command inlineChatWidget.statusPlaceholder and menu [object Object...",
-      "url": "https://github.com/microsoft/vscode/issues/312792",
-      "number": 312792,
-      "labels": [
-        "bug",
-        "error-telemetry",
-        "insiders-released",
-        "inline-chat",
-        "recent-regression",
-        "ai-generated",
-        "ai-analyzed"
-      ],
-      "x": 190,
-      "y": 680
+      "x": 2770,
+      "y": 4520
     },
     {
       "id": "issue-275418",
@@ -4943,7 +4621,7 @@
         "verified",
         "insiders-released"
       ],
-      "x": 4210,
+      "x": 2010,
       "y": 4040
     },
     {
@@ -4962,8 +4640,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
-      "x": 8770,
-      "y": 2600
+      "x": 8390,
+      "y": 3560
     },
     {
       "id": "issue-282081",
@@ -4979,7 +4657,7 @@
         "macos",
         "insiders-released"
       ],
-      "x": 2470,
+      "x": -490,
       "y": 1640
     },
     {
@@ -4996,8 +4674,8 @@
         "suggest",
         "insiders-released"
       ],
-      "x": 8610,
-      "y": 4040
+      "x": 9370,
+      "y": 5000
     },
     {
       "id": "issue-311267",
@@ -5014,27 +4692,35 @@
         "confirmation-pending",
         "insiders-released"
       ],
-      "x": 9250,
-      "y": 2600
+      "x": 8870,
+      "y": 3560
     },
     {
-      "id": "issue-312803",
+      "id": "issue-317413",
       "type": "issue",
       "state": "closed",
-      "title": "[Error] unhandlederror-No activated agent with id \"setup.vscode\"",
-      "url": "https://github.com/microsoft/vscode/issues/312803",
-      "number": 312803,
+      "title": "Only surface \"sort imports\" and \"remove unused imports\" when TS client is running/useTsgo is not active",
+      "url": "https://github.com/microsoft/vscode/issues/317413",
+      "number": 317413,
       "labels": [
         "bug",
-        "error-telemetry",
-        "insiders-released",
-        "recent-regression",
-        "stable-anomaly",
-        "ai-generated",
-        "ai-analyzed"
+        "insiders-released"
       ],
-      "x": 570,
-      "y": 680
+      "x": 8990,
+      "y": 1640
+    },
+    {
+      "id": "issue-314339",
+      "type": "issue",
+      "state": "open",
+      "title": "localhost is always blocked when chat.agent.networkFilter is enabled",
+      "url": "https://github.com/microsoft/vscode/issues/314339",
+      "number": 314339,
+      "labels": [
+        "chat-ext-issue"
+      ],
+      "x": 8990,
+      "y": 5960
     },
     {
       "id": "issue-312295",
@@ -5046,7 +4732,7 @@
       "labels": [
         "insiders-released"
       ],
-      "x": 5050,
+      "x": 2850,
       "y": 2120
     },
     {
@@ -5060,7 +4746,7 @@
         "insiders-released",
         "copilot"
       ],
-      "x": 4890,
+      "x": 2690,
       "y": 2120
     },
     {
@@ -5077,7 +4763,7 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 8230,
+      "x": 6030,
       "y": 680
     },
     {
@@ -5093,8 +4779,8 @@
         "insiders-released",
         "chat-terminal"
       ],
-      "x": 8990,
-      "y": 4040
+      "x": 6410,
+      "y": 1160
     },
     {
       "id": "issue-314867",
@@ -5109,7 +4795,7 @@
         "insiders-released",
         "agent-host"
       ],
-      "x": 6030,
+      "x": 3830,
       "y": 3560
     },
     {
@@ -5127,8 +4813,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
-      "x": 9730,
-      "y": 2600
+      "x": 9350,
+      "y": 3560
     },
     {
       "id": "issue-235515",
@@ -5141,7 +4827,7 @@
         "bug",
         "snippets"
       ],
-      "x": 8230,
+      "x": 8610,
       "y": 7400
     },
     {
@@ -5155,7 +4841,7 @@
         "insiders-released",
         "agent-host"
       ],
-      "x": 6410,
+      "x": 3830,
       "y": 4520
     }
   ],
@@ -5197,20 +4883,8 @@
       "state": "merged"
     },
     {
-      "from": "pr-313362",
-      "to": "issue-313361",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-314901",
       "to": "issue-314897",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313365",
-      "to": "issue-313363",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5347,24 +5021,6 @@
       "state": "merged"
     },
     {
-      "from": "pr-312951",
-      "to": "issue-312554",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-312951",
-      "to": "issue-312554",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-312975",
-      "to": "issue-312792",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-313490",
       "to": "issue-65795",
       "label": "resuelve",
@@ -5373,6 +5029,12 @@
     {
       "from": "pr-313491",
       "to": "issue-56902",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317594",
+      "to": "issue-317490",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5407,8 +5069,14 @@
       "state": "merged"
     },
     {
-      "from": "pr-313000",
-      "to": "issue-312792",
+      "from": "pr-317615",
+      "to": "issue-317520",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317617",
+      "to": "issue-316968",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5449,6 +5117,12 @@
       "state": "merged"
     },
     {
+      "from": "pr-317646",
+      "to": "issue-317331",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-315089",
       "to": "issue-314819",
       "label": "resuelve",
@@ -5485,6 +5159,12 @@
       "state": "merged"
     },
     {
+      "from": "pr-317656",
+      "to": "issue-317413",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-314585",
       "to": "issue-315176",
       "label": "resuelve",
@@ -5509,8 +5189,26 @@
       "state": "merged"
     },
     {
+      "from": "pr-317663",
+      "to": "issue-299932",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-314083",
       "to": "issue-314052",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317669",
+      "to": "issue-317711",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317670",
+      "to": "issue-317330",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5523,18 +5221,6 @@
     {
       "from": "pr-315626",
       "to": "issue-315623",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313068",
-      "to": "issue-312803",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313071",
-      "to": "issue-312554",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5563,14 +5249,14 @@
       "state": "merged"
     },
     {
-      "from": "pr-313080",
-      "to": "issue-313074",
+      "from": "pr-317186",
+      "to": "issue-312052",
       "label": "resuelve",
       "state": "merged"
     },
     {
-      "from": "pr-317186",
-      "to": "issue-312052",
+      "from": "pr-314635",
+      "to": "issue-315167",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5583,6 +5269,12 @@
     {
       "from": "pr-317198",
       "to": "issue-313015",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317199",
+      "to": "issue-316624",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5623,20 +5315,14 @@
       "state": "merged"
     },
     {
+      "from": "pr-317227",
+      "to": "issue-228270",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-313646",
       "to": "issue-313645",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313138",
-      "to": "issue-300318",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313138",
-      "to": "issue-299934",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5649,6 +5335,12 @@
     {
       "from": "pr-313658",
       "to": "issue-313657",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317244",
+      "to": "issue-317075",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5809,6 +5501,18 @@
       "state": "merged"
     },
     {
+      "from": "pr-317791",
+      "to": "issue-315282",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317792",
+      "to": "issue-317660",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-317286",
       "to": "issue-317275",
       "label": "resuelve",
@@ -5839,24 +5543,6 @@
       "state": "merged"
     },
     {
-      "from": "pr-313197",
-      "to": "issue-153829",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313200",
-      "to": "issue-311987",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313205",
-      "to": "issue-313148",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-316278",
       "to": "issue-287177",
       "label": "resuelve",
@@ -5871,6 +5557,12 @@
     {
       "from": "pr-314230",
       "to": "issue-314056",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317308",
+      "to": "issue-314825",
       "label": "resuelve",
       "state": "merged"
     },
@@ -5935,12 +5627,6 @@
       "state": "merged"
     },
     {
-      "from": "pr-313244",
-      "to": "issue-312576",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-314270",
       "to": "issue-313796",
       "label": "resuelve",
@@ -5971,32 +5657,14 @@
       "state": "merged"
     },
     {
-      "from": "pr-313249",
-      "to": "issue-313248",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-315302",
       "to": "issue-315270",
       "label": "resuelve",
       "state": "merged"
     },
     {
-      "from": "pr-313256",
-      "to": "issue-297372",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-316329",
       "to": "issue-316328",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313259",
-      "to": "issue-309582",
       "label": "resuelve",
       "state": "merged"
     },
@@ -6073,18 +5741,6 @@
       "state": "merged"
     },
     {
-      "from": "pr-313280",
-      "to": "issue-312726",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313280",
-      "to": "issue-310886",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-314308",
       "to": "issue-314057",
       "label": "resuelve",
@@ -6139,18 +5795,6 @@
       "state": "merged"
     },
     {
-      "from": "pr-313308",
-      "to": "issue-313281",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
-      "from": "pr-313313",
-      "to": "issue-313296",
-      "label": "resuelve",
-      "state": "merged"
-    },
-    {
       "from": "pr-316386",
       "to": "issue-315841",
       "label": "resuelve",
@@ -6189,6 +5833,30 @@
     {
       "from": "pr-315889",
       "to": "issue-315717",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-246551",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-275591",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-313461",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-272843",
       "label": "resuelve",
       "state": "merged"
     },
@@ -6271,20 +5939,8 @@
       "state": "merged"
     },
     {
-      "from": "release-315998060",
-      "to": "pr-313362",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
       "from": "release-321341220",
       "to": "pr-314901",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313365",
       "label": "incluye",
       "state": "merged"
     },
@@ -6325,7 +5981,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-315453",
       "label": "incluye",
       "state": "merged"
@@ -6337,7 +5993,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316495",
       "label": "incluye",
       "state": "merged"
@@ -6391,7 +6047,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316524",
       "label": "incluye",
       "state": "merged"
@@ -6409,18 +6065,6 @@
       "state": "merged"
     },
     {
-      "from": "release-315116361",
-      "to": "pr-312951",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315116361",
-      "to": "pr-312975",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
       "from": "release-318254349",
       "to": "pr-313490",
       "label": "incluye",
@@ -6429,6 +6073,12 @@
     {
       "from": "release-318254349",
       "to": "pr-313491",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317594",
       "label": "incluye",
       "state": "merged"
     },
@@ -6451,7 +6101,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317095",
       "label": "incluye",
       "state": "merged"
@@ -6463,13 +6113,19 @@
       "state": "merged"
     },
     {
-      "from": "release-315116361",
-      "to": "pr-313000",
+      "from": "release-325804905",
+      "to": "pr-317615",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
+      "to": "pr-317617",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
       "to": "pr-317107",
       "label": "incluye",
       "state": "merged"
@@ -6481,7 +6137,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317122",
       "label": "incluye",
       "state": "merged"
@@ -6495,6 +6151,12 @@
     {
       "from": "release-315998060",
       "to": "pr-313549",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317646",
       "label": "incluye",
       "state": "merged"
     },
@@ -6535,6 +6197,12 @@
       "state": "merged"
     },
     {
+      "from": "release-325804905",
+      "to": "pr-317656",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
       "from": "release-318254349",
       "to": "pr-314585",
       "label": "incluye",
@@ -6559,13 +6227,31 @@
       "state": "merged"
     },
     {
+      "from": "release-325804905",
+      "to": "pr-317663",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
       "from": "release-318254349",
       "to": "pr-314083",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
+      "to": "pr-317669",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317670",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
       "to": "pr-316134",
       "label": "incluye",
       "state": "merged"
@@ -6573,18 +6259,6 @@
     {
       "from": "release-321341220",
       "to": "pr-315626",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315116361",
-      "to": "pr-313068",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315116361",
-      "to": "pr-313071",
       "label": "incluye",
       "state": "merged"
     },
@@ -6607,20 +6281,20 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316147",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-315998060",
-      "to": "pr-313080",
+      "from": "release-325804905",
+      "to": "pr-317186",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-317186",
+      "from": "release-325804905",
+      "to": "pr-314635",
       "label": "incluye",
       "state": "merged"
     },
@@ -6631,8 +6305,14 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317198",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317199",
       "label": "incluye",
       "state": "merged"
     },
@@ -6649,26 +6329,26 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316706",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-315178",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317227",
       "label": "incluye",
       "state": "merged"
     },
     {
       "from": "release-318254349",
       "to": "pr-313646",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315116361",
-      "to": "pr-313138",
       "label": "incluye",
       "state": "merged"
     },
@@ -6685,13 +6365,19 @@
       "state": "merged"
     },
     {
+      "from": "release-325804905",
+      "to": "pr-317244",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
       "from": "release-321341220",
       "to": "pr-315206",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316745",
       "label": "incluye",
       "state": "merged"
@@ -6715,7 +6401,19 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
+      "to": "pr-317791",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317792",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
       "to": "pr-317286",
       "label": "incluye",
       "state": "merged"
@@ -6733,37 +6431,19 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316267",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316269",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321341220",
-      "to": "pr-313197",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313200",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313205",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316278",
       "label": "incluye",
       "state": "merged"
@@ -6777,6 +6457,12 @@
     {
       "from": "release-318254349",
       "to": "pr-314230",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317308",
       "label": "incluye",
       "state": "merged"
     },
@@ -6829,20 +6515,14 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316822",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316824",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313244",
       "label": "incluye",
       "state": "merged"
     },
@@ -6859,7 +6539,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316321",
       "label": "incluye",
       "state": "merged"
@@ -6877,37 +6557,19 @@
       "state": "merged"
     },
     {
-      "from": "release-315998060",
-      "to": "pr-313249",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
       "from": "release-321341220",
       "to": "pr-315302",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-315998060",
-      "to": "pr-313256",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316329",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-318254349",
-      "to": "pr-313259",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316332",
       "label": "incluye",
       "state": "merged"
@@ -6925,7 +6587,7 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-315317",
       "label": "incluye",
       "state": "merged"
@@ -6951,12 +6613,6 @@
     {
       "from": "release-321341220",
       "to": "pr-313791",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313280",
       "label": "incluye",
       "state": "merged"
     },
@@ -7015,25 +6671,13 @@
       "state": "merged"
     },
     {
-      "from": "release-315998060",
-      "to": "pr-313308",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-315998060",
-      "to": "pr-313313",
-      "label": "incluye",
-      "state": "merged"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316386",
       "label": "incluye",
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-316900",
       "label": "incluye",
       "state": "merged"
@@ -7069,7 +6713,13 @@
       "state": "merged"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
+      "to": "pr-317428",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
       "to": "pr-316917",
       "label": "incluye",
       "state": "merged"
@@ -7099,26 +6749,8 @@
       "state": "merged"
     },
     {
-      "from": "pr-317058",
-      "to": "issue-204065",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316678",
-      "to": "issue-316665",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-317199",
-      "to": "issue-316624",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316818",
-      "to": "issue-316543",
+      "from": "pr-317707",
+      "to": "issue-316779",
       "label": "resuelve",
       "state": "open"
     },
@@ -7129,7 +6761,25 @@
       "state": "open"
     },
     {
-      "from": "pr-316951",
+      "from": "pr-317464",
+      "to": "issue-28795",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-317465",
+      "to": "issue-28795",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-317732",
+      "to": "issue-314339",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-317477",
       "to": "issue-28795",
       "label": "resuelve",
       "state": "open"
@@ -7147,80 +6797,32 @@
       "state": "open"
     },
     {
-      "from": "pr-317227",
-      "to": "issue-228270",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
       "from": "pr-317228",
       "to": "issue-294080",
       "label": "resuelve",
       "state": "open"
     },
     {
-      "from": "pr-316843",
-      "to": "issue-316481",
+      "from": "pr-317874",
+      "to": "issue-317714",
       "label": "resuelve",
       "state": "open"
     },
     {
-      "from": "pr-316725",
-      "to": "issue-232381",
+      "from": "pr-317776",
+      "to": "issue-317775",
       "label": "resuelve",
       "state": "open"
     },
     {
-      "from": "pr-316728",
-      "to": "issue-244138",
+      "from": "pr-317395",
+      "to": "issue-293481",
       "label": "resuelve",
       "state": "open"
     },
     {
-      "from": "pr-317244",
-      "to": "issue-317075",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316868",
-      "to": "issue-244138",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316876",
-      "to": "issue-316044",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316878",
-      "to": "issue-316877",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316755",
-      "to": "issue-249049",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316756",
-      "to": "issue-265277",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316763",
-      "to": "issue-249958",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "pr-316893",
-      "to": "issue-247088",
+      "from": "pr-317780",
+      "to": "issue-317329",
       "label": "resuelve",
       "state": "open"
     },
@@ -7243,14 +6845,14 @@
       "state": "open"
     },
     {
-      "from": "pr-317045",
-      "to": "issue-212186",
+      "from": "pr-317551",
+      "to": "issue-317478",
       "label": "resuelve",
       "state": "open"
     },
     {
-      "from": "pr-316792",
-      "to": "issue-237092",
+      "from": "pr-317552",
+      "to": "issue-252667",
       "label": "resuelve",
       "state": "open"
     },
@@ -7261,176 +6863,116 @@
       "state": "open"
     },
     {
-      "from": "pr-317308",
-      "to": "issue-314825",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-317058",
+      "from": "release-325804905",
+      "to": "pr-317707",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316678",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-317199",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316818",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317333",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316951",
+      "from": "release-325804905",
+      "to": "pr-317464",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
+      "to": "pr-317465",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317732",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317477",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-325804905",
       "to": "pr-317225",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317226",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-317227",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317228",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316843",
+      "from": "release-325804905",
+      "to": "pr-317874",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316725",
+      "from": "release-325804905",
+      "to": "pr-317776",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316728",
+      "from": "release-325804905",
+      "to": "pr-317395",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-317244",
+      "from": "release-325804905",
+      "to": "pr-317780",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316868",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316876",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316878",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316755",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316756",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316763",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-316893",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317163",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317292",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317164",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-317045",
+      "from": "release-325804905",
+      "to": "pr-317551",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
-      "to": "pr-316792",
+      "from": "release-325804905",
+      "to": "pr-317552",
       "label": "pendiente",
       "state": "open"
     },
     {
-      "from": "release-321722534",
+      "from": "release-325804905",
       "to": "pr-317307",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-321722534",
-      "to": "pr-317308",
       "label": "pendiente",
       "state": "open"
     }
