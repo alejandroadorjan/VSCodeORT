@@ -78,7 +78,7 @@ Carga el `graph.json` y dibuja el grafo. Las posiciones ya vienen calculadas des
 Desde la interfaz se puede:
 - Filtrar por tipo de nodo (Releases, Pull Requests, Issues).
 - Clickear cualquier nodo para ver su título, número, estado, etiquetas y un link directo a GitHub.
-
+- Buscar nodos por título, número o labels mediante la barra de búsqueda.
 
 ## Cómo correrlo
 
@@ -95,7 +95,7 @@ pip install requests python-dotenv
 
 ### Token de GitHub
 
-La API de GitHub requiere autenticación para hacer más de 60 requests por hora. Para este proyecto que el token es obligatorio.
+La API de GitHub requiere autenticación para realizar más de 60 requests por hora. Como este proyecto hace muchas llamadas a la API, el token es obligatorio.
 
 Para obtenerlo: **GitHub → Settings → Developer settings → Personal access tokens → Generate new token**. Más información: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
@@ -108,6 +108,27 @@ GITHUB_TOKEN=tu_token_aqui
 Este archivo está en `.gitignore` y no se sube al repositorio.
 
 ### Correr
+
+#### Linux / Mac / Git Bash
+
+```bash
+cd knowledge-map
+./start-knowledge-map.sh
+```
+
+#### Windows PowerShell
+
+```powershell
+cd knowledge-map
+.\start-knowledge-map.ps1
+```
+
+Los scripts:
+- Descargan los datos desde GitHub.
+- Construyen el grafo.
+- Levantan automáticamente el servidor local en `http://localhost:8000`.
+
+### Ejecución manual (alternativa)
 
 ```bash
 cd knowledge-map
