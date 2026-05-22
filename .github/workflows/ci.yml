@@ -19,16 +19,14 @@ permissions:
   contents: read
 
 jobs:
-  ubuntu:
-    name: Ubuntu
+  build:
+    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          lfs: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -65,6 +63,48 @@ jobs:
         run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check test-build-scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    needs:
+      - build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+            build-essential \
+            pkg-config \
+            libx11-dev \
+            libx11-xcb-dev \
+            libxkbfile-dev \
+            libnotify-bin \
+            libkrb5-dev \
+            libgbm1 \
+            libgtk-3-0 \
+            xvfb
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install build dependencies
+        run: npm ci
+        working-directory: build
 
       - name: Install Playwright Chromium
         run: npx playwright install chromium
