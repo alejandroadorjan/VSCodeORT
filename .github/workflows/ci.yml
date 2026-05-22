@@ -76,12 +76,19 @@ jobs:
         working-directory: build
 
       - name: Build and typecheck
-        run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check
+        run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check test-build-scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  tests:
-    name: Tests
+      - name: Upload build output
+        uses: actions/upload-artifact@v7
+        with:
+          name: out-build
+          path: out-build
+          if-no-files-found: error
+
+  browser-tests:
+    name: Browser Tests
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -100,13 +107,6 @@ jobs:
         with:
           path: node_modules
           key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
-
-      - name: Restore build node_modules cache
-        id: build-node-modules-cache
-        uses: actions/cache@v5
-        with:
-          path: build/node_modules
-          key: build-node-modules-${{ runner.os }}-${{ hashFiles('build/package-lock.json', '.nvmrc') }}
 
       - name: Restore Playwright browser cache
         id: playwright-cache
@@ -138,11 +138,6 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install build dependencies
-        if: steps.build-node-modules-cache.outputs.cache-hit != 'true'
-        run: npm ci
-        working-directory: build
-
       - name: Install Playwright Chromium
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
@@ -155,5 +150,56 @@ jobs:
         env:
           DEBUG: "*browser*"
 
-      - name: Test build scripts
-        run: npm run test-build-scripts
+  electron-tests:
+    name: Electron Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    needs:
+      - build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore root node_modules cache
+        id: root-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
+      - name: Download build output
+        uses: actions/download-artifact@v7
+        with:
+          name: out-build
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+            build-essential \
+            pkg-config \
+            libx11-dev \
+            libx11-xcb-dev \
+            libxkbfile-dev \
+            libnotify-bin \
+            libkrb5-dev \
+            libgbm1 \
+            libgtk-3-0 \
+            xvfb
+
+      - name: Install dependencies
+        if: steps.root-node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run unit tests (Electron)
+        run: ./scripts/test.sh --build --tfs "Unit Tests"
