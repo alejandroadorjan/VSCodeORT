@@ -33,6 +33,20 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Restore root node_modules cache
+        id: root-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
+      - name: Restore build node_modules cache
+        id: build-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: build/node_modules
+          key: build-node-modules-${{ runner.os }}-${{ hashFiles('build/package-lock.json', '.nvmrc') }}
+
       - name: Install system dependencies
         run: |
           sudo apt update -y
@@ -49,6 +63,7 @@ jobs:
             xvfb
 
       - name: Install dependencies
+        if: steps.root-node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
         env:
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
@@ -56,11 +71,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install build dependencies
+        if: steps.build-node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
         working-directory: build
 
       - name: Build and typecheck
-        run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check test-build-scripts
+        run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -68,8 +84,6 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    needs:
-      - build
 
     steps:
       - name: Checkout
@@ -80,6 +94,27 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Restore root node_modules cache
+        id: root-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
+      - name: Restore build node_modules cache
+        id: build-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: build/node_modules
+          key: build-node-modules-${{ runner.os }}-${{ hashFiles('build/package-lock.json', '.nvmrc') }}
+
+      - name: Restore Playwright browser cache
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
       - name: Install system dependencies
         run: |
           sudo apt update -y
@@ -96,6 +131,7 @@ jobs:
             xvfb
 
       - name: Install dependencies
+        if: steps.root-node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
         env:
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
@@ -103,10 +139,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install build dependencies
+        if: steps.build-node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
         working-directory: build
 
       - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
 
       - name: Run unit tests (node.js)
@@ -116,3 +154,6 @@ jobs:
         run: npm run test-browser-no-install -- --browser chromium --tfs "Browser Unit Tests"
         env:
           DEBUG: "*browser*"
+
+      - name: Test build scripts
+        run: npm run test-build-scripts
