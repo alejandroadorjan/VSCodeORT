@@ -46,6 +46,8 @@
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
+      flex-wrap: nowrap;
+      overflow: hidden;
     }
     #header h2 {
       font-size: 14px;
@@ -69,7 +71,27 @@
     .btn-release { background: #F85149; border-color: #A40E26; color: #fff; }
     .btn-pr      { background: #1D9E75; border-color: #0F6E56; color: #fff; }
     .btn-issue   { background: #D85A30; border-color: #993C1D; color: #fff; }
-    #stats { margin-left: auto; font-size: 11px; color: #8b949e; white-space: nowrap; }
+    #stats { margin-left: 0; font-size: 11px; color: #8b949e; white-space: nowrap; display: none; }
+
+    .search-wrapper {
+      display: flex;
+      align-items: right;
+      gap: 20px;
+      margin-left: auto;
+      flex: 1 1 700px;
+      min-width: 460px;
+    }
+    .search-wrapper #search-input {
+      width: 100%;
+      flex: 1 1 auto;
+      min-width: 420px;
+      padding: 8px 12px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #c9d1d9;
+      font-size: 14px;
+    }
 
     #main { display: flex; flex: 1; overflow: hidden; }
     #graph { flex: 1; background: #0d1117; }
@@ -159,8 +181,8 @@
   <button class="btn btn-release" onclick="filter('release')">◆ Releases</button>
   <button class="btn btn-pr"      onclick="filter('pr')">● Pull Requests</button>
   <button class="btn btn-issue"   onclick="filter('issue')">■ Issues</button>
-  <div style="display:flex; align-items:center; gap:8px; margin-left:8px">
-    <input id="search-input" placeholder="Buscar por título, número o label..." style="background:#0d1117; color:#e6edf3; border:1px solid #30363d; padding:6px 8px; border-radius:6px; font-size:13px; width:320px" />
+  <div class="search-wrapper">
+    <input id="search-input" placeholder="Buscar por título, número o label..." style="background:#0d1117; color:#e6edf3; border:1px solid #30363d; padding:10px 20px; border-radius:6px; font-size:13px;" />
     <button id="search-clear" class="btn btn-all" style="padding:6px 8px; font-size:12px">Limpiar</button>
   </div>
   <span id="stats"></span>
@@ -393,12 +415,7 @@ function showDetail(n) {
 }
 
 function updateStats(nodes, edges, globalStats) {
-  const c = { release: 0, pr: 0, issue: 0 }
-  nodes.forEach(n => c[n.type]++)
-  const statsText = globalStats
-    ? `${c.release} rel · ${globalStats.total_prs_merged} PRs · ${globalStats.total_issues_closed} issues · Promedio merge: ${globalStats.avg_merge_days} días`
-    : `${nodes.length} nodos · ${edges.length} relaciones`
-  document.getElementById('stats').textContent = statsText
+  document.getElementById('stats').textContent = ''
 }
 
 function normalize(s) {
