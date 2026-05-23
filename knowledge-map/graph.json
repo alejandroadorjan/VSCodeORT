@@ -8,7 +8,10 @@
       "url": "https://github.com/microsoft/vscode/releases/tag/1.121.0",
       "date": "2026-05-20T09:41:43Z",
       "x": 8800,
-      "y": 0
+      "y": 0,
+      "metrics": {
+        "prs_included": 61
+      }
     },
     {
       "id": "release-321722534",
@@ -18,7 +21,10 @@
       "url": "https://github.com/microsoft/vscode/releases/tag/1.120.0",
       "date": "2026-05-13T08:18:42Z",
       "x": 6600,
-      "y": 0
+      "y": 0,
+      "metrics": {
+        "prs_included": 7
+      }
     },
     {
       "id": "release-321341220",
@@ -28,7 +34,10 @@
       "url": "https://github.com/microsoft/vscode/releases/tag/1.119.1",
       "date": "2026-05-12T18:39:30Z",
       "x": 4400,
-      "y": 0
+      "y": 0,
+      "metrics": {
+        "prs_included": 44
+      }
     },
     {
       "id": "release-318254349",
@@ -38,7 +47,10 @@
       "url": "https://github.com/microsoft/vscode/releases/tag/1.119.0",
       "date": "2026-05-06T07:47:39Z",
       "x": 2200,
-      "y": 0
+      "y": 0,
+      "metrics": {
+        "prs_included": 38
+      }
     },
     {
       "id": "release-315998060",
@@ -48,7 +60,10 @@
       "url": "https://github.com/microsoft/vscode/releases/tag/1.118.1",
       "date": "2026-04-30T19:05:15Z",
       "x": 0,
-      "y": 0
+      "y": 0,
+      "metrics": {
+        "prs_included": 10
+      }
     },
     {
       "id": "pr-315905",
@@ -59,8 +74,13 @@
       "number": 315905,
       "merged_at": "2026-05-13T00:39:45Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 6030,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314881",
@@ -71,8 +91,13 @@
       "number": 314881,
       "merged_at": "2026-05-07T01:47:19Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 3830,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314885",
@@ -83,8 +108,13 @@
       "number": 314885,
       "merged_at": "2026-05-07T01:47:38Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 4210,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315400",
@@ -95,8 +125,13 @@
       "number": 315400,
       "merged_at": "2026-05-09T00:35:26Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4590,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314890",
@@ -107,8 +142,13 @@
       "number": 314890,
       "merged_at": "2026-05-07T06:08:14Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 4970,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315410",
@@ -119,8 +159,13 @@
       "number": 315410,
       "merged_at": "2026-05-11T06:02:14Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 3830,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314901",
@@ -131,8 +176,13 @@
       "number": 314901,
       "merged_at": "2026-05-07T03:53:37Z",
       "labels": [],
+      "author": "Copilot",
+      "author_avatar": "https://avatars.githubusercontent.com/in/1143301?v=4",
       "x": 4210,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313369",
@@ -145,8 +195,13 @@
       "labels": [
         "on-testplan"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": -570,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313374",
@@ -157,8 +212,13 @@
       "number": 313374,
       "merged_at": "2026-04-29T23:41:29Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": -190,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315424",
@@ -169,8 +229,13 @@
       "number": 315424,
       "merged_at": "2026-05-09T07:09:54Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4590,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314935",
@@ -181,8 +246,13 @@
       "number": 314935,
       "merged_at": "2026-05-07T08:34:28Z",
       "labels": [],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 4970,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313912",
@@ -193,8 +263,13 @@
       "number": 313912,
       "merged_at": "2026-05-03T16:58:50Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 1630,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315961",
@@ -205,8 +280,13 @@
       "number": 315961,
       "merged_at": "2026-05-12T10:53:41Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 3830,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315453",
@@ -217,8 +297,13 @@
       "number": 315453,
       "merged_at": "2026-05-19T12:58:36Z",
       "labels": [],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8230,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313414",
@@ -229,8 +314,13 @@
       "number": 313414,
       "merged_at": "2026-04-30T03:10:14Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 190,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316495",
@@ -241,8 +331,13 @@
       "number": 316495,
       "merged_at": "2026-05-14T21:14:59Z",
       "labels": [],
+      "author": "osortega",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48293249?v=4",
       "x": 8610,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313425",
@@ -253,8 +348,13 @@
       "number": 313425,
       "merged_at": "2026-04-30T05:06:32Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 570,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313428",
@@ -265,8 +365,13 @@
       "number": 313428,
       "merged_at": "2026-04-30T05:21:45Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": -570,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 2
+      }
     },
     {
       "id": "pr-313430",
@@ -280,8 +385,13 @@
         "install-update",
         "agents-window"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": -190,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313435",
@@ -294,8 +404,13 @@
       "labels": [
         "install-update"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 190,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313436",
@@ -306,8 +421,13 @@
       "number": 313436,
       "merged_at": "2026-04-30T06:00:09Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 570,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315485",
@@ -318,8 +438,13 @@
       "number": 315485,
       "merged_at": "2026-05-11T16:55:59Z",
       "labels": [],
+      "author": "ba-work",
+      "author_avatar": "https://avatars.githubusercontent.com/u/61976254?v=4",
       "x": 4210,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315487",
@@ -330,8 +455,13 @@
       "number": 315487,
       "merged_at": "2026-05-09T19:25:50Z",
       "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 4590,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313445",
@@ -344,8 +474,13 @@
       "labels": [
         "install-update"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": -570,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 2
+      }
     },
     {
       "id": "pr-316524",
@@ -356,8 +491,13 @@
       "number": 316524,
       "merged_at": "2026-05-15T17:06:05Z",
       "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
       "x": 8990,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313453",
@@ -368,8 +508,13 @@
       "number": 313453,
       "merged_at": "2026-04-30T20:24:49Z",
       "labels": [],
+      "author": "iideprived",
+      "author_avatar": "https://avatars.githubusercontent.com/u/117201446?v=4",
       "x": 2010,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315503",
@@ -380,8 +525,13 @@
       "number": 315503,
       "merged_at": "2026-05-10T01:08:33Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 4970,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313490",
@@ -392,8 +542,13 @@
       "number": 313490,
       "merged_at": "2026-05-03T19:27:42Z",
       "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
       "x": 2390,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313491",
@@ -404,8 +559,13 @@
       "number": 313491,
       "merged_at": "2026-05-03T18:16:37Z",
       "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
       "x": 2770,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317594",
@@ -416,8 +576,13 @@
       "number": 317594,
       "merged_at": "2026-05-20T20:09:55Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 9370,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314523",
@@ -428,8 +593,13 @@
       "number": 314523,
       "merged_at": "2026-05-05T19:48:38Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 1630,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315549",
@@ -440,8 +610,13 @@
       "number": 315549,
       "merged_at": "2026-05-10T17:37:06Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315555",
@@ -452,8 +627,13 @@
       "number": 315555,
       "merged_at": "2026-05-10T18:23:18Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 4210,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317095",
@@ -464,8 +644,13 @@
       "number": 317095,
       "merged_at": "2026-05-18T23:15:34Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 8230,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314535",
@@ -476,8 +661,13 @@
       "number": 314535,
       "merged_at": "2026-05-06T15:58:36Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 4590,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317615",
@@ -488,8 +678,13 @@
       "number": 317615,
       "merged_at": "2026-05-20T22:48:32Z",
       "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 8610,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317617",
@@ -500,8 +695,13 @@
       "number": 317617,
       "merged_at": "2026-05-20T22:17:21Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 8990,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317107",
@@ -512,8 +712,13 @@
       "number": 317107,
       "merged_at": "2026-05-18T18:33:14Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313531",
@@ -524,8 +729,13 @@
       "number": 313531,
       "merged_at": "2026-05-02T12:56:46Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 2010,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317122",
@@ -536,8 +746,13 @@
       "number": 317122,
       "merged_at": "2026-05-18T19:34:01Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 8230,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316107",
@@ -548,8 +763,13 @@
       "number": 316107,
       "merged_at": "2026-05-12T20:54:15Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 6410,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313549",
@@ -562,8 +782,13 @@
       "labels": [
         "install-update"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": -190,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 2
+      }
     },
     {
       "id": "pr-317646",
@@ -574,8 +799,13 @@
       "number": 317646,
       "merged_at": "2026-05-21T00:32:52Z",
       "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
       "x": 8610,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315089",
@@ -586,8 +816,13 @@
       "number": 315089,
       "merged_at": "2026-05-08T03:37:37Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 4970,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314577",
@@ -598,8 +833,13 @@
       "number": 314577,
       "merged_at": "2026-05-06T01:01:46Z",
       "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
       "x": 2390,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316115",
@@ -610,8 +850,13 @@
       "number": 316115,
       "merged_at": "2026-05-12T21:12:36Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 6790,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314581",
@@ -622,8 +867,13 @@
       "number": 314581,
       "merged_at": "2026-05-05T23:45:48Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314070",
@@ -636,8 +886,13 @@
       "labels": [
         "release-cherry-pick"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 1630,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313557",
@@ -648,8 +903,13 @@
       "number": 313557,
       "merged_at": "2026-04-30T21:27:09Z",
       "labels": [],
+      "author": "kycutler",
+      "author_avatar": "https://avatars.githubusercontent.com/u/67761731?v=4",
       "x": 2010,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317656",
@@ -660,8 +920,13 @@
       "number": 317656,
       "merged_at": "2026-05-21T00:32:30Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 8990,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314585",
@@ -672,8 +937,13 @@
       "number": 314585,
       "merged_at": "2026-05-05T23:56:17Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2390,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315100",
@@ -684,8 +954,13 @@
       "number": 315100,
       "merged_at": "2026-05-07T21:13:02Z",
       "labels": [],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 3830,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314588",
@@ -696,8 +971,13 @@
       "number": 314588,
       "merged_at": "2026-05-06T01:03:36Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316126",
@@ -708,8 +988,13 @@
       "number": 316126,
       "merged_at": "2026-05-12T23:07:57Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 7170,
-      "y": 400
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317663",
@@ -720,8 +1005,13 @@
       "number": 317663,
       "merged_at": "2026-05-21T06:00:15Z",
       "labels": [],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
       "x": 9370,
-      "y": 1360
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314083",
@@ -734,8 +1024,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 1630,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317669",
@@ -746,8 +1041,13 @@
       "number": 317669,
       "merged_at": "2026-05-21T20:17:10Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 8230,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317670",
@@ -758,8 +1058,13 @@
       "number": 317670,
       "merged_at": "2026-05-21T01:56:07Z",
       "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
       "x": 8610,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316134",
@@ -770,8 +1075,13 @@
       "number": 316134,
       "merged_at": "2026-05-13T18:11:47Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 8990,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315626",
@@ -784,8 +1094,13 @@
       "labels": [
         "release-cherry-pick"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 4210,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315632",
@@ -798,8 +1113,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 4590,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314609",
@@ -810,8 +1130,13 @@
       "number": 314609,
       "merged_at": "2026-05-06T01:42:24Z",
       "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 2010,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314610",
@@ -822,8 +1147,13 @@
       "number": 314610,
       "merged_at": "2026-05-06T01:57:05Z",
       "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 2390,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316147",
@@ -834,8 +1164,13 @@
       "number": 316147,
       "merged_at": "2026-05-13T17:34:54Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317186",
@@ -846,8 +1181,13 @@
       "number": 317186,
       "merged_at": "2026-05-18T22:32:49Z",
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 8230,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314635",
@@ -858,8 +1198,13 @@
       "number": 314635,
       "merged_at": "2026-05-20T09:59:21Z",
       "labels": [],
+      "author": "SebTardif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1413412?v=4",
       "x": 8610,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314636",
@@ -870,8 +1215,13 @@
       "number": 314636,
       "merged_at": "2026-05-12T09:03:39Z",
       "labels": [],
+      "author": "SebTardif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1413412?v=4",
       "x": 4970,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317198",
@@ -882,8 +1232,13 @@
       "number": 317198,
       "merged_at": "2026-05-19T08:07:01Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 8990,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317199",
@@ -896,8 +1251,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 9370,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313630",
@@ -908,8 +1268,13 @@
       "number": 313630,
       "merged_at": "2026-05-01T04:54:37Z",
       "labels": [],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 2770,
-      "y": 1840
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 2
+      }
     },
     {
       "id": "pr-316191",
@@ -920,8 +1285,13 @@
       "number": 316191,
       "merged_at": "2026-05-13T07:07:16Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 6030,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 2
+      }
     },
     {
       "id": "pr-316706",
@@ -932,8 +1302,13 @@
       "number": 316706,
       "merged_at": "2026-05-15T21:57:19Z",
       "labels": [],
+      "author": "osortega",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48293249?v=4",
       "x": 8230,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315178",
@@ -946,8 +1321,13 @@
       "labels": [
         "snippets"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8610,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317227",
@@ -958,8 +1338,13 @@
       "number": 317227,
       "merged_at": "2026-05-20T12:20:32Z",
       "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
       "x": 8990,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313646",
@@ -970,8 +1355,13 @@
       "number": 313646,
       "merged_at": "2026-05-01T20:17:08Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 1630,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315705",
@@ -982,8 +1372,13 @@
       "number": 315705,
       "merged_at": "2026-05-11T16:48:20Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313658",
@@ -994,8 +1389,13 @@
       "number": 313658,
       "merged_at": "2026-05-01T06:32:20Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2010,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317244",
@@ -1006,8 +1406,13 @@
       "number": 317244,
       "merged_at": "2026-05-20T06:27:21Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315206",
@@ -1020,8 +1425,13 @@
       "labels": [
         "snippets"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 4210,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 4
+      }
     },
     {
       "id": "pr-316745",
@@ -1035,8 +1445,13 @@
         "install-update",
         "windows"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8230,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 19
+      }
     },
     {
       "id": "pr-313678",
@@ -1047,8 +1462,13 @@
       "number": 313678,
       "merged_at": "2026-05-08T05:21:18Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4590,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314713",
@@ -1059,8 +1479,13 @@
       "number": 314713,
       "merged_at": "2026-05-08T17:54:55Z",
       "labels": [],
+      "author": "Larsjep",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5514373?v=4",
       "x": 4970,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314201",
@@ -1071,8 +1496,13 @@
       "number": 314201,
       "merged_at": "2026-05-04T21:36:47Z",
       "labels": [],
+      "author": "kycutler",
+      "author_avatar": "https://avatars.githubusercontent.com/u/67761731?v=4",
       "x": 2390,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317791",
@@ -1086,8 +1516,13 @@
         "errors-fix",
         "*error-fix-driving"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 8610,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317792",
@@ -1098,8 +1533,13 @@
       "number": 317792,
       "merged_at": "2026-05-21T18:19:06Z",
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 8990,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317286",
@@ -1110,8 +1550,13 @@
       "number": 317286,
       "merged_at": "2026-05-19T14:08:45Z",
       "labels": [],
+      "author": "dbaeumer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1931590?v=4",
       "x": 9370,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315241",
@@ -1122,8 +1567,13 @@
       "number": 315241,
       "merged_at": "2026-05-08T12:19:49Z",
       "labels": [],
+      "author": "aeschli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/6461412?v=4",
       "x": 3830,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314217",
@@ -1136,8 +1586,13 @@
       "labels": [
         "release-cherry-pick"
       ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 2770,
-      "y": 2320
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316267",
@@ -1148,8 +1603,13 @@
       "number": 316267,
       "merged_at": "2026-05-13T17:01:44Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 8230,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316269",
@@ -1160,8 +1620,13 @@
       "number": 316269,
       "merged_at": "2026-05-13T20:00:41Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 8610,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316278",
@@ -1172,8 +1637,13 @@
       "number": 316278,
       "merged_at": "2026-05-13T18:53:05Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 8990,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314231",
@@ -1186,8 +1656,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 1630,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314230",
@@ -1198,8 +1673,13 @@
       "number": 314230,
       "merged_at": "2026-05-04T22:38:27Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 2010,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317308",
@@ -1210,8 +1690,13 @@
       "number": 317308,
       "merged_at": "2026-05-19T18:54:25Z",
       "labels": [],
+      "author": "vritant24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
       "x": 9370,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315263",
@@ -1222,8 +1707,13 @@
       "number": 315263,
       "merged_at": "2026-05-08T14:16:11Z",
       "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 4210,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313730",
@@ -1234,8 +1724,13 @@
       "number": 313730,
       "merged_at": "2026-05-01T17:48:39Z",
       "labels": [],
+      "author": "64johnlee",
+      "author_avatar": "https://avatars.githubusercontent.com/u/208139204?v=4",
       "x": 2390,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315783",
@@ -1248,8 +1743,13 @@
       "labels": [
         "release-cherry-pick"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 4590,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314250",
@@ -1260,8 +1760,13 @@
       "number": 314250,
       "merged_at": "2026-05-05T00:51:23Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 2770,
-      "y": 2800
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313740",
@@ -1272,8 +1777,13 @@
       "number": 313740,
       "merged_at": "2026-05-01T16:03:04Z",
       "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
       "x": 1630,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314770",
@@ -1284,8 +1794,13 @@
       "number": 314770,
       "merged_at": "2026-05-07T16:13:31Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 4970,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314259",
@@ -1296,8 +1811,13 @@
       "number": 314259,
       "merged_at": "2026-05-05T00:33:11Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 2010,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314260",
@@ -1308,8 +1828,13 @@
       "number": 314260,
       "merged_at": "2026-05-04T22:49:52Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 2390,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316822",
@@ -1322,8 +1847,13 @@
       "labels": [
         "snippets"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8230,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316824",
@@ -1336,8 +1866,13 @@
       "labels": [
         "snippets"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8610,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314270",
@@ -1348,8 +1883,13 @@
       "number": 314270,
       "merged_at": "2026-05-04T23:24:24Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 2770,
-      "y": 3280
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314271",
@@ -1360,8 +1900,13 @@
       "number": 314271,
       "merged_at": "2026-05-04T23:28:31Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 1630,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316321",
@@ -1372,8 +1917,13 @@
       "number": 316321,
       "merged_at": "2026-05-13T22:44:46Z",
       "labels": [],
+      "author": "kycutler",
+      "author_avatar": "https://avatars.githubusercontent.com/u/67761731?v=4",
       "x": 8990,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315809",
@@ -1386,8 +1936,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 3830,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314275",
@@ -1398,8 +1953,13 @@
       "number": 314275,
       "merged_at": "2026-05-04T23:35:17Z",
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 2010,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315302",
@@ -1410,8 +1970,13 @@
       "number": 315302,
       "merged_at": "2026-05-08T17:50:28Z",
       "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 4210,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316329",
@@ -1422,8 +1987,13 @@
       "number": 316329,
       "merged_at": "2026-05-13T23:09:59Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316332",
@@ -1434,8 +2004,13 @@
       "number": 316332,
       "merged_at": "2026-05-15T20:12:01Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 8230,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314289",
@@ -1446,8 +2021,13 @@
       "number": 314289,
       "merged_at": "2026-05-05T16:04:43Z",
       "labels": [],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 2390,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315828",
@@ -1458,8 +2038,13 @@
       "number": 315828,
       "merged_at": "2026-05-12T01:12:38Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 4590,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315317",
@@ -1470,8 +2055,13 @@
       "number": 315317,
       "merged_at": "2026-05-18T15:54:22Z",
       "labels": [],
+      "author": "wpfleger96",
+      "author_avatar": "https://avatars.githubusercontent.com/u/15384764?v=4",
       "x": 8610,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314805",
@@ -1482,8 +2072,13 @@
       "number": 314805,
       "merged_at": "2026-05-06T21:07:45Z",
       "labels": [],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 4970,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315320",
@@ -1494,8 +2089,13 @@
       "number": 315320,
       "merged_at": "2026-05-08T17:54:58Z",
       "labels": [],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 3830,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314300",
@@ -1508,8 +2108,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 4210,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313791",
@@ -1523,8 +2128,13 @@
         "install-update",
         "windows"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 4590,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 5
+      }
     },
     {
       "id": "pr-314308",
@@ -1535,8 +2145,13 @@
       "number": 314308,
       "merged_at": "2026-05-05T01:50:03Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 2770,
-      "y": 3760
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314826",
@@ -1547,8 +2162,13 @@
       "number": 314826,
       "merged_at": "2026-05-06T21:25:34Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 4970,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315342",
@@ -1559,8 +2179,13 @@
       "number": 315342,
       "merged_at": "2026-05-08T19:38:10Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 3830,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313807",
@@ -1571,8 +2196,13 @@
       "number": 313807,
       "merged_at": "2026-05-04T20:38:53Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 1630,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313810",
@@ -1583,8 +2213,13 @@
       "number": 313810,
       "merged_at": "2026-05-04T15:40:43Z",
       "labels": [],
+      "author": "ruryu",
+      "author_avatar": "https://avatars.githubusercontent.com/u/228665499?v=4",
       "x": 2010,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313814",
@@ -1595,8 +2230,13 @@
       "number": 313814,
       "merged_at": "2026-05-05T06:29:53Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2390,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314328",
@@ -1607,8 +2247,13 @@
       "number": 314328,
       "merged_at": "2026-05-05T06:30:07Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
-      "y": 4240
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313817",
@@ -1619,8 +2264,13 @@
       "number": 313817,
       "merged_at": "2026-05-04T20:20:55Z",
       "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
       "x": 1630,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-313820",
@@ -1631,8 +2281,13 @@
       "number": 313820,
       "merged_at": "2026-05-04T23:38:11Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 2010,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316386",
@@ -1643,8 +2298,13 @@
       "number": 316386,
       "merged_at": "2026-05-14T10:40:54Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 8990,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-316900",
@@ -1655,8 +2315,13 @@
       "number": 316900,
       "merged_at": "2026-05-17T23:32:25Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 9370,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315365",
@@ -1667,8 +2332,13 @@
       "number": 315365,
       "merged_at": "2026-05-11T15:38:05Z",
       "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4210,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315880",
@@ -1679,8 +2349,13 @@
       "number": 315880,
       "merged_at": "2026-05-11T22:12:25Z",
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 4590,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315885",
@@ -1691,8 +2366,13 @@
       "number": 315885,
       "merged_at": "2026-05-12T20:14:14Z",
       "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 6410,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315888",
@@ -1703,8 +2383,13 @@
       "number": 315888,
       "merged_at": "2026-05-12T18:36:20Z",
       "labels": [],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 4970,
-      "y": 4720
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315889",
@@ -1715,8 +2400,13 @@
       "number": 315889,
       "merged_at": "2026-05-11T22:45:58Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317428",
@@ -1729,8 +2419,13 @@
       "labels": [
         "model-byok"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8230,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 4
+      }
     },
     {
       "id": "pr-316917",
@@ -1741,8 +2436,13 @@
       "number": 316917,
       "merged_at": "2026-05-17T23:41:18Z",
       "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 8610,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 3
+      }
     },
     {
       "id": "pr-314870",
@@ -1753,8 +2453,13 @@
       "number": 314870,
       "merged_at": "2026-05-06T22:56:00Z",
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 4210,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315896",
@@ -1767,8 +2472,13 @@
       "labels": [
         "cherry-pick-artifact"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 6790,
-      "y": 880
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-315897",
@@ -1779,8 +2489,13 @@
       "number": 315897,
       "merged_at": "2026-05-12T02:05:18Z",
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 4590,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-314876",
@@ -1791,8 +2506,13 @@
       "number": 314876,
       "merged_at": "2026-05-07T00:25:58Z",
       "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 4970,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317707",
@@ -1802,8 +2522,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317707",
       "number": 317707,
       "labels": [],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
       "x": 8990,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317333",
@@ -1813,8 +2538,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317333",
       "number": 317333,
       "labels": [],
+      "author": "mutl3y",
+      "author_avatar": "https://avatars.githubusercontent.com/u/7879800?v=4",
       "x": 9370,
-      "y": 5200
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317464",
@@ -1824,8 +2554,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317464",
       "number": 317464,
       "labels": [],
+      "author": "jinyounghub",
+      "author_avatar": "https://avatars.githubusercontent.com/u/275372715?v=4",
       "x": 8230,
-      "y": 5680
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317465",
@@ -1835,8 +2570,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317465",
       "number": 317465,
       "labels": [],
+      "author": "boiledbrian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/285892606?v=4",
       "x": 8610,
-      "y": 5680
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317732",
@@ -1846,8 +2586,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317732",
       "number": 317732,
       "labels": [],
+      "author": "thonhaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5081416?v=4",
       "x": 8990,
-      "y": 5680
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317477",
@@ -1857,8 +2602,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317477",
       "number": 317477,
       "labels": [],
+      "author": "jing11223344",
+      "author_avatar": "https://avatars.githubusercontent.com/u/118464144?v=4",
       "x": 9370,
-      "y": 5680
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317225",
@@ -1868,8 +2618,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317225",
       "number": 317225,
       "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
       "x": 8230,
-      "y": 6160
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317226",
@@ -1879,8 +2634,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317226",
       "number": 317226,
       "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
       "x": 8610,
-      "y": 6160
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317228",
@@ -1890,8 +2650,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317228",
       "number": 317228,
       "labels": [],
+      "author": "NSExceptional",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8371943?v=4",
       "x": 8990,
-      "y": 6160
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317874",
@@ -1901,8 +2666,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317874",
       "number": 317874,
       "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 9370,
-      "y": 6160
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317776",
@@ -1912,8 +2682,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317776",
       "number": 317776,
       "labels": [],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
       "x": 8230,
-      "y": 6640
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317395",
@@ -1923,8 +2698,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317395",
       "number": 317395,
       "labels": [],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 8610,
-      "y": 6640
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317780",
@@ -1934,8 +2714,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317780",
       "number": 317780,
       "labels": [],
+      "author": "mutl3y",
+      "author_avatar": "https://avatars.githubusercontent.com/u/7879800?v=4",
       "x": 8990,
-      "y": 6640
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317163",
@@ -1945,8 +2730,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317163",
       "number": 317163,
       "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 9370,
-      "y": 6640
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317292",
@@ -1956,8 +2746,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317292",
       "number": 317292,
       "labels": [],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
       "x": 8230,
-      "y": 7120
+      "y": 7120,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317164",
@@ -1969,8 +2764,13 @@
       "labels": [
         "snippets"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 8610,
-      "y": 7120
+      "y": 7120,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317551",
@@ -1980,8 +2780,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317551",
       "number": 317551,
       "labels": [],
+      "author": "nitheeshdr",
+      "author_avatar": "https://avatars.githubusercontent.com/u/55043344?v=4",
       "x": 8990,
-      "y": 7120
+      "y": 7120,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317552",
@@ -1991,8 +2796,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317552",
       "number": 317552,
       "labels": [],
+      "author": "haneel-kumar",
+      "author_avatar": "https://avatars.githubusercontent.com/u/216820064?v=4",
       "x": 9370,
-      "y": 7120
+      "y": 7120,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "pr-317307",
@@ -2002,8 +2812,13 @@
       "url": "https://github.com/microsoft/vscode/pull/317307",
       "number": 317307,
       "labels": [],
+      "author": "Chulong-Li",
+      "author_avatar": "https://avatars.githubusercontent.com/u/28891085?v=4",
       "x": 8230,
-      "y": 7600
+      "y": 7600,
+      "metrics": {
+        "issues_closed": 1
+      }
     },
     {
       "id": "issue-299523",
@@ -2017,6 +2832,8 @@
         "install-update",
         "windows"
       ],
+      "author": "SPE-PFAC01",
+      "author_avatar": "https://avatars.githubusercontent.com/u/108084488?v=4",
       "x": 7110,
       "y": 3560
     },
@@ -2031,6 +2848,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 5950,
       "y": 1160
     },
@@ -2048,6 +2867,8 @@
         "engineering",
         "insiders-released"
       ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
       "x": 4210,
       "y": 1160
     },
@@ -2063,6 +2884,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": -570,
       "y": 680
     },
@@ -2076,6 +2899,8 @@
       "labels": [
         "bug"
       ],
+      "author": "wendywilsonPNW",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84543333?v=4",
       "x": 3830,
       "y": 680
     },
@@ -2092,6 +2917,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": -190,
       "y": 680
     },
@@ -2107,6 +2934,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4590,
       "y": 1160
     },
@@ -2120,6 +2949,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "DonJayamanne",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1948812?v=4",
       "x": 2390,
       "y": 4040
     },
@@ -2133,6 +2964,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 7170,
       "y": 680
     },
@@ -2144,6 +2977,8 @@
       "url": "https://github.com/microsoft/vscode/issues/317478",
       "number": 317478,
       "labels": [],
+      "author": "joes",
+      "author_avatar": "https://avatars.githubusercontent.com/u/32820?v=4",
       "x": 8990,
       "y": 7400
     },
@@ -2159,6 +2994,8 @@
         "insiders-released",
         "mermaid"
       ],
+      "author": "alexr00",
+      "author_avatar": "https://avatars.githubusercontent.com/u/38270282?v=4",
       "x": 8990,
       "y": 1160
     },
@@ -2172,6 +3009,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 1630,
       "y": 3080
     },
@@ -2188,6 +3027,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "47494749",
+      "author_avatar": "https://avatars.githubusercontent.com/u/173000819?v=4",
       "x": 9370,
       "y": 680
     },
@@ -2203,6 +3044,8 @@
         "agents-window",
         "agents-app"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
       "y": 4040
     },
@@ -2220,6 +3063,8 @@
         "insiders-released",
         "browser-integration"
       ],
+      "author": "anthonykim1",
+      "author_avatar": "https://avatars.githubusercontent.com/u/62267334?v=4",
       "x": 8990,
       "y": 4520
     },
@@ -2236,6 +3081,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "vscodenpa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/105309205?v=4",
       "x": 4290,
       "y": 3080
     },
@@ -2253,6 +3100,8 @@
         "chat-terminal",
         "chat-ask"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 1630,
       "y": 1160
     },
@@ -2272,6 +3121,8 @@
         "ai-generated",
         "ai-analyzed"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 8230,
       "y": 680
     },
@@ -2291,6 +3142,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "scheilch",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19861673?v=4",
       "x": 8550,
       "y": 3560
     },
@@ -2306,6 +3159,8 @@
         "install-update",
         "windows"
       ],
+      "author": "scheilch",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19861673?v=4",
       "x": 8710,
       "y": 3560
     },
@@ -2320,6 +3175,8 @@
         "terminal",
         "insiders-released"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 190,
       "y": 680
     },
@@ -2338,6 +3195,8 @@
         "insiders-released",
         "settings-search"
       ],
+      "author": "grimcap",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17012744?v=4",
       "x": 2770,
       "y": 680
     },
@@ -2354,6 +3213,8 @@
         "insiders-released",
         "agent-plugins"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 4970,
       "y": 4040
     },
@@ -2370,6 +3231,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "StephanTLavavej",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4231088?v=4",
       "x": 7270,
       "y": 3560
     },
@@ -2386,6 +3249,8 @@
         "agents-window",
         "agents-app"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 8610,
       "y": 1160
     },
@@ -2406,6 +3271,8 @@
         "insiders-released",
         "browser-integration"
       ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 570,
       "y": 680
     },
@@ -2421,6 +3288,8 @@
         "insiders-released",
         "terminal-tabs"
       ],
+      "author": "wpfleger96",
+      "author_avatar": "https://avatars.githubusercontent.com/u/15384764?v=4",
       "x": 8610,
       "y": 5000
     },
@@ -2437,6 +3306,8 @@
         "insiders-released",
         "chat-terminal-output-monitor"
       ],
+      "author": "ba-work",
+      "author_avatar": "https://avatars.githubusercontent.com/u/61976254?v=4",
       "x": 4210,
       "y": 1640
     },
@@ -2453,6 +3324,8 @@
         "insiders-released",
         "ai-analyzed"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 8990,
       "y": 680
     },
@@ -2471,6 +3344,8 @@
         "insiders-released",
         "agents"
       ],
+      "author": "jo-oikawa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/14115185?v=4",
       "x": 4970,
       "y": 680
     },
@@ -2487,6 +3362,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "bbagherian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19957924?v=4",
       "x": -650,
       "y": 1160
     },
@@ -2501,6 +3378,8 @@
         "feature-request",
         "chat-mcp-management"
       ],
+      "author": "abhishekgupta-lab",
+      "author_avatar": "https://avatars.githubusercontent.com/u/11943434?v=4",
       "x": 8610,
       "y": 6920
     },
@@ -2514,6 +3393,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "benibenj",
+      "author_avatar": "https://avatars.githubusercontent.com/u/44439583?v=4",
       "x": 6410,
       "y": 680
     },
@@ -2530,6 +3411,8 @@
         "install-update",
         "windows"
       ],
+      "author": "Lrochefort",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5980343?v=4",
       "x": 9510,
       "y": 3560
     },
@@ -2546,6 +3429,8 @@
         "install-update",
         "insiders-released"
       ],
+      "author": "xtqqczze",
+      "author_avatar": "https://avatars.githubusercontent.com/u/45661989?v=4",
       "x": -190,
       "y": 1160
     },
@@ -2560,6 +3445,8 @@
         "insiders-released",
         "model-byok"
       ],
+      "author": "w-xy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17586945?v=4",
       "x": 8310,
       "y": 5480
     },
@@ -2576,6 +3463,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "paige-clark",
+      "author_avatar": "https://avatars.githubusercontent.com/u/106216824?v=4",
       "x": -490,
       "y": 1160
     },
@@ -2593,6 +3482,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "Rawalanche",
+      "author_avatar": "https://avatars.githubusercontent.com/u/38806207?v=4",
       "x": -270,
       "y": 1640
     },
@@ -2610,6 +3501,8 @@
         "electron",
         "upstream-issue-linked"
       ],
+      "author": "mariusa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1283842?v=4",
       "x": 9370,
       "y": 5960
     },
@@ -2625,6 +3518,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "Quicksaver",
+      "author_avatar": "https://avatars.githubusercontent.com/u/802086?v=4",
       "x": 6790,
       "y": 680
     },
@@ -2641,6 +3536,8 @@
         "insiders-released",
         "model-byok"
       ],
+      "author": "AlexP0112",
+      "author_avatar": "https://avatars.githubusercontent.com/u/72802667?v=4",
       "x": 8150,
       "y": 5480
     },
@@ -2655,6 +3552,8 @@
         "insiders-released",
         "chat-ext-issue"
       ],
+      "author": "szmcdull",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2098590?v=4",
       "x": 4970,
       "y": 1640
     },
@@ -2672,6 +3571,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "KevenAndrade",
+      "author_avatar": "https://avatars.githubusercontent.com/u/65917547?v=4",
       "x": 4270,
       "y": 4520
     },
@@ -2687,6 +3588,8 @@
         "insiders-released",
         "mermaid"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 9370,
       "y": 3080
     },
@@ -2703,6 +3606,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "vscodenpa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/105309205?v=4",
       "x": 4450,
       "y": 3080
     },
@@ -2717,6 +3622,8 @@
         "agents-window",
         "agents-app"
       ],
+      "author": "lostintangent",
+      "author_avatar": "https://avatars.githubusercontent.com/u/116461?v=4",
       "x": 8230,
       "y": 7880
     },
@@ -2733,6 +3640,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 4210,
       "y": 2120
     },
@@ -2749,6 +3658,8 @@
         "install-update",
         "windows"
       ],
+      "author": "PetSerAl",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17184058?v=4",
       "x": 8230,
       "y": 3560
     },
@@ -2764,6 +3675,8 @@
         "vscode-build",
         "insiders-released"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 2010,
       "y": 1160
     },
@@ -2778,6 +3691,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
       "x": 8230,
       "y": 1640
     },
@@ -2795,6 +3710,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "SalauDml",
+      "author_avatar": "https://avatars.githubusercontent.com/u/144810258?v=4",
       "x": 4750,
       "y": 4520
     },
@@ -2812,6 +3729,8 @@
         "on-testplan",
         "insiders-released"
       ],
+      "author": "JulianJvn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/128477611?v=4",
       "x": 8230,
       "y": 5000
     },
@@ -2826,6 +3745,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
       "x": 9370,
       "y": 1160
     },
@@ -2842,6 +3763,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "lostintangent",
+      "author_avatar": "https://avatars.githubusercontent.com/u/116461?v=4",
       "x": 4210,
       "y": 3560
     },
@@ -2858,6 +3781,8 @@
         "insiders-released",
         "agent-host"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 4590,
       "y": 5480
     },
@@ -2872,6 +3797,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
       "x": 8990,
       "y": 2600
     },
@@ -2890,6 +3817,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
+      "author": "OldStarchy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/15243523?v=4",
       "x": 7430,
       "y": 3560
     },
@@ -2904,6 +3833,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 4970,
       "y": 5480
     },
@@ -2920,6 +3851,8 @@
         "good first issue",
         "insiders-released"
       ],
+      "author": "birgersp",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5260237?v=4",
       "x": 2010,
       "y": 680
     },
@@ -2934,6 +3867,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
       "x": 2010,
       "y": 5000
     },
@@ -2945,6 +3880,8 @@
       "url": "https://github.com/microsoft/vscode/issues/294080",
       "number": 294080,
       "labels": [],
+      "author": "NSExceptional",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8371943?v=4",
       "x": 8990,
       "y": 6440
     },
@@ -2960,6 +3897,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "lszomoru",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3372902?v=4",
       "x": 1630,
       "y": 2120
     },
@@ -2976,6 +3915,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "djohnst10",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2738319?v=4",
       "x": 6790,
       "y": 3560
     },
@@ -2990,6 +3931,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
       "x": 2010,
       "y": 3080
     },
@@ -3006,6 +3949,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "alexr00",
+      "author_avatar": "https://avatars.githubusercontent.com/u/38270282?v=4",
       "x": 2770,
       "y": 4040
     },
@@ -3022,6 +3967,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 4130,
       "y": 3080
     },
@@ -3038,6 +3985,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 3970,
       "y": 3080
     },
@@ -3054,6 +4003,8 @@
         "insiders-released",
         "browser-integration"
       ],
+      "author": "jruales",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1588988?v=4",
       "x": 2010,
       "y": 1640
     },
@@ -3068,6 +4019,8 @@
         "unreleased",
         "agent-sandbox"
       ],
+      "author": "pierceboggan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1091304?v=4",
       "x": 9370,
       "y": 2600
     },
@@ -3084,6 +4037,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 2010,
       "y": 2120
     },
@@ -3097,6 +4052,8 @@
       "labels": [
         "bug"
       ],
+      "author": "garretwilson",
+      "author_avatar": "https://avatars.githubusercontent.com/u/627125?v=4",
       "x": 9370,
       "y": 6920
     },
@@ -3113,6 +4070,8 @@
         "markdown-ext",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
       "y": 1640
     },
@@ -3126,6 +4085,8 @@
       "labels": [
         "unreleased"
       ],
+      "author": "loekvangool",
+      "author_avatar": "https://avatars.githubusercontent.com/u/7300472?v=4",
       "x": 8990,
       "y": 3560
     },
@@ -3142,6 +4103,8 @@
         "install-update",
         "windows"
       ],
+      "author": "greeksurfer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/260123277?v=4",
       "x": 8070,
       "y": 3560
     },
@@ -3156,6 +4119,8 @@
         "unit-test-failure",
         "insiders-released"
       ],
+      "author": "deepak1556",
+      "author_avatar": "https://avatars.githubusercontent.com/u/964386?v=4",
       "x": 2390,
       "y": 2120
     },
@@ -3172,6 +4137,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 8990,
       "y": 2120
     },
@@ -3188,6 +4155,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 4590,
       "y": 2600
     },
@@ -3201,6 +4170,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
       "y": 2120
     },
@@ -3218,6 +4189,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "GongT",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2265048?v=4",
       "x": 4910,
       "y": 4520
     },
@@ -3233,6 +4206,8 @@
         "git",
         "confirmed"
       ],
+      "author": "Akatmks",
+      "author_avatar": "https://avatars.githubusercontent.com/u/112813970?v=4",
       "x": 8610,
       "y": 6440
     },
@@ -3249,6 +4224,8 @@
         "insiders-released",
         "agent-host"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 8230,
       "y": 2600
     },
@@ -3263,6 +4240,8 @@
         "help wanted",
         "engineering"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 9370,
       "y": 7400
     },
@@ -3278,6 +4257,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "simonezampinistud",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12156090?v=4",
       "x": 2770,
       "y": 1160
     },
@@ -3296,6 +4277,8 @@
         "insiders-released",
         "settings-search"
       ],
+      "author": "irvnriir",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13949704?v=4",
       "x": 2390,
       "y": 680
     },
@@ -3313,6 +4296,8 @@
         "good first issue",
         "insiders-released"
       ],
+      "author": "pepinho24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5161281?v=4",
       "x": 2390,
       "y": 3080
     },
@@ -3328,6 +4313,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "jdraggy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/202416335?v=4",
       "x": 570,
       "y": 1160
     },
@@ -3342,6 +4329,8 @@
         "unreleased",
         "agent-sandbox"
       ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 8230,
       "y": 2120
     },
@@ -3357,6 +4346,8 @@
         "install-update",
         "agents-window"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 190,
       "y": 1160
     },
@@ -3373,6 +4364,8 @@
         "ssh",
         "new release"
       ],
+      "author": "RossBoylan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2514994?v=4",
       "x": 9370,
       "y": 6440
     },
@@ -3387,6 +4380,8 @@
         "bug",
         "windows"
       ],
+      "author": "Bryan2333",
+      "author_avatar": "https://avatars.githubusercontent.com/u/31512600?v=4",
       "x": 9030,
       "y": 3560
     },
@@ -3402,6 +4397,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
       "x": 6110,
       "y": 1160
     },
@@ -3418,6 +4415,8 @@
         "insiders-released",
         "model-byok"
       ],
+      "author": "Igorgro",
+      "author_avatar": "https://avatars.githubusercontent.com/u/22894169?v=4",
       "x": 7990,
       "y": 5480
     },
@@ -3433,6 +4432,8 @@
         "verified",
         "accessibility"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 4970,
       "y": 3560
     },
@@ -3446,6 +4447,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "SebTardif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1413412?v=4",
       "x": 8610,
       "y": 2600
     },
@@ -3460,6 +4463,8 @@
         "bug",
         "verified"
       ],
+      "author": "SebTardif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1413412?v=4",
       "x": 4970,
       "y": 2600
     },
@@ -3473,6 +4478,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "acon96",
+      "author_avatar": "https://avatars.githubusercontent.com/u/35843486?v=4",
       "x": 2390,
       "y": 3560
     },
@@ -3490,6 +4497,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "pbaksa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5570057?v=4",
       "x": 4590,
       "y": 4520
     },
@@ -3506,6 +4515,8 @@
         "markdown-ext",
         "insiders-released"
       ],
+      "author": "alexsapps",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2482607?v=4",
       "x": 4590,
       "y": 680
     },
@@ -3520,6 +4531,8 @@
         "bug",
         "verified"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2390,
       "y": 1640
     },
@@ -3536,6 +4549,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "yatki",
+      "author_avatar": "https://avatars.githubusercontent.com/u/26697004?v=4",
       "x": 8610,
       "y": 3080
     },
@@ -3551,6 +4566,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "lramos15",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4544166?v=4",
       "x": 3830,
       "y": 1640
     },
@@ -3567,6 +4584,8 @@
         "accessibility",
         "insiders-released"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 3830,
       "y": 2600
     },
@@ -3583,6 +4602,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
       "y": 2120
     },
@@ -3597,6 +4618,8 @@
         "bug",
         "verified"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 1630,
       "y": 2600
     },
@@ -3613,6 +4636,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "Xiaobaituchb",
+      "author_avatar": "https://avatars.githubusercontent.com/u/171814097?v=4",
       "x": 8610,
       "y": 4520
     },
@@ -3627,6 +4652,8 @@
         "bug",
         "verified"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 3830,
       "y": 3080
     },
@@ -3642,6 +4669,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2010,
       "y": 2600
     },
@@ -3658,6 +4687,8 @@
         "accessibility",
         "insiders-released"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 4590,
       "y": 2120
     },
@@ -3673,6 +4704,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 4590,
       "y": 3080
     },
@@ -3689,6 +4722,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "karthiknadig",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3840081?v=4",
       "x": 8770,
       "y": 5480
     },
@@ -3704,6 +4739,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 6790,
       "y": 1160
     },
@@ -3717,6 +4754,8 @@
       "labels": [
         "agent-sandbox"
       ],
+      "author": "joshspicer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23246594?v=4",
       "x": 1630,
       "y": 4040
     },
@@ -3728,6 +4767,8 @@
       "url": "https://github.com/microsoft/vscode/issues/314695",
       "number": 314695,
       "labels": [],
+      "author": "pavel-slama",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2299813?v=4",
       "x": 4590,
       "y": 4040
     },
@@ -3744,6 +4785,8 @@
         "agents-window",
         "agents-app"
       ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
       "x": 8230,
       "y": 3080
     },
@@ -3758,6 +4801,8 @@
         "bug",
         "model-byok"
       ],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
       "x": 8230,
       "y": 7400
     },
@@ -3775,6 +4820,8 @@
         "insiders-released",
         "browser-integration"
       ],
+      "author": "kycutler",
+      "author_avatar": "https://avatars.githubusercontent.com/u/67761731?v=4",
       "x": 2390,
       "y": 2600
     },
@@ -3792,6 +4839,8 @@
         "macos",
         "insiders-released"
       ],
+      "author": "isidorn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1926584?v=4",
       "x": -650,
       "y": 1640
     },
@@ -3806,6 +4855,8 @@
         "feature-request",
         "copilot-chat"
       ],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
       "x": 8230,
       "y": 6920
     },
@@ -3819,6 +4870,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "wrobtom",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19633529?v=4",
       "x": 4210,
       "y": 5480
     },
@@ -3832,6 +4885,8 @@
       "labels": [
         "agent-sandbox"
       ],
+      "author": "pwang347",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8560030?v=4",
       "x": 2770,
       "y": 3080
     },
@@ -3845,6 +4900,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "dbaeumer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1931590?v=4",
       "x": 9370,
       "y": 3560
     },
@@ -3861,6 +4918,8 @@
         "markdown-ext",
         "insiders-released"
       ],
+      "author": "ElectricWarr",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10360900?v=4",
       "x": 4210,
       "y": 5000
     },
@@ -3876,6 +4935,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "cwebster-99",
+      "author_avatar": "https://avatars.githubusercontent.com/u/60238438?v=4",
       "x": 4970,
       "y": 1160
     },
@@ -3889,6 +4950,8 @@
       "labels": [
         "info-needed"
       ],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
       "x": 8990,
       "y": 5480
     },
@@ -3904,6 +4967,8 @@
         "editor-core",
         "confirmed"
       ],
+      "author": "straakaa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/32017839?v=4",
       "x": 8230,
       "y": 6440
     },
@@ -3921,6 +4986,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "Larsjep",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5514373?v=4",
       "x": 4970,
       "y": 3080
     },
@@ -3936,6 +5003,8 @@
         "chat-ext-issue",
         "agent-sandbox"
       ],
+      "author": "johannesrosskopp",
+      "author_avatar": "https://avatars.githubusercontent.com/u/147040531?v=4",
       "x": 3830,
       "y": 1160
     },
@@ -3952,6 +5021,8 @@
         "insiders-released",
         "accessibility-sla"
       ],
+      "author": "kapilvaishna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/124254981?v=4",
       "x": 1630,
       "y": 3560
     },
@@ -3967,6 +5038,8 @@
         "model-byok",
         "model-picker"
       ],
+      "author": "markdjones82",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5122938?v=4",
       "x": 2390,
       "y": 1160
     },
@@ -3981,6 +5054,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 4210,
       "y": 4040
     },
@@ -3997,6 +5072,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "wendywilsonPNW",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84543333?v=4",
       "x": 4210,
       "y": 680
     },
@@ -4011,6 +5088,8 @@
         "insiders-released",
         "flaky-test"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 2010,
       "y": 4520
     },
@@ -4025,6 +5104,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
       "x": 4210,
       "y": 4520
     },
@@ -4036,6 +5117,8 @@
       "url": "https://github.com/microsoft/vscode/issues/317329",
       "number": 317329,
       "labels": [],
+      "author": "mutl3y",
+      "author_avatar": "https://avatars.githubusercontent.com/u/7879800?v=4",
       "x": 8990,
       "y": 6920
     },
@@ -4054,6 +5137,8 @@
         "ai-generated",
         "ai-analyzed"
       ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 8610,
       "y": 3560
     },
@@ -4068,6 +5153,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 8610,
       "y": 2120
     },
@@ -4082,6 +5169,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 8610,
       "y": 1640
     },
@@ -4098,6 +5187,8 @@
         "install-update",
         "windows"
       ],
+      "author": "shhafiz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/55075894?v=4",
       "x": 9190,
       "y": 3560
     },
@@ -4113,6 +5204,8 @@
         "install-update",
         "windows"
       ],
+      "author": "flexdevguy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2757489?v=4",
       "x": 6950,
       "y": 3560
     },
@@ -4129,6 +5222,8 @@
         "insiders-released",
         "chat-prompts"
       ],
+      "author": "AnnAngela",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9762652?v=4",
       "x": 4590,
       "y": 1640
     },
@@ -4144,6 +5239,8 @@
         "markdown-ext",
         "verification-found"
       ],
+      "author": "gmccullo",
+      "author_avatar": "https://avatars.githubusercontent.com/u/26315643?v=4",
       "x": 1630,
       "y": 4520
     },
@@ -4160,6 +5257,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "bamurtaugh",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25310137?v=4",
       "x": 8610,
       "y": 680
     },
@@ -4176,6 +5275,8 @@
         "unreleased",
         "chat-agent"
       ],
+      "author": "JamesNK",
+      "author_avatar": "https://avatars.githubusercontent.com/u/303201?v=4",
       "x": 9370,
       "y": 1640
     },
@@ -4192,6 +5293,8 @@
         "install-update",
         "insiders-released"
       ],
+      "author": "Perspective2077",
+      "author_avatar": "https://avatars.githubusercontent.com/u/115461545?v=4",
       "x": -110,
       "y": 1640
     },
@@ -4209,6 +5312,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "KevinWGagel",
+      "author_avatar": "https://avatars.githubusercontent.com/u/100967931?v=4",
       "x": 4430,
       "y": 4520
     },
@@ -4225,6 +5330,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 8610,
       "y": 4040
     },
@@ -4243,6 +5350,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 9370,
       "y": 4520
     },
@@ -4260,6 +5369,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "briansbrian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/152048932?v=4",
       "x": 7750,
       "y": 3560
     },
@@ -4275,6 +5386,8 @@
         "install-update",
         "windows"
       ],
+      "author": "briansbrian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/152048932?v=4",
       "x": 7910,
       "y": 3560
     },
@@ -4292,6 +5405,8 @@
         "regression",
         "insiders-released"
       ],
+      "author": "mmueller2012",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3102472?v=4",
       "x": 8990,
       "y": 3080
     },
@@ -4310,6 +5425,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 4970,
       "y": 4520
     },
@@ -4328,6 +5445,8 @@
         "custom-editors",
         "insiders-released"
       ],
+      "author": "hediet",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2931520?v=4",
       "x": 2390,
       "y": 4520
     },
@@ -4345,6 +5464,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "rodrigoslayertech",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9668277?v=4",
       "x": 8230,
       "y": 4040
     },
@@ -4361,6 +5482,8 @@
         "windows",
         "insiders-released"
       ],
+      "author": "omraj-ekrazo",
+      "author_avatar": "https://avatars.githubusercontent.com/u/127827022?v=4",
       "x": 9670,
       "y": 3560
     },
@@ -4375,6 +5498,8 @@
         "bug",
         "error-telemetry"
       ],
+      "author": "jrieken",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1794099?v=4",
       "x": 1630,
       "y": 5000
     },
@@ -4391,6 +5516,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
       "x": 8450,
       "y": 5480
     },
@@ -4405,6 +5532,8 @@
         "insiders-released",
         "agent-sandbox"
       ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
       "x": 1630,
       "y": 680
     },
@@ -4421,6 +5550,8 @@
         "insiders-released",
         "agents-window"
       ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
       "x": 8610,
       "y": 5480
     },
@@ -4436,6 +5567,8 @@
         "important",
         "extension-host"
       ],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
       "x": 8990,
       "y": 5000
     },
@@ -4452,6 +5585,8 @@
         "verification-needed",
         "insiders-released"
       ],
+      "author": "jo-oikawa",
+      "author_avatar": "https://avatars.githubusercontent.com/u/14115185?v=4",
       "x": 4970,
       "y": 2120
     },
@@ -4465,6 +5600,8 @@
       "labels": [
         "agent-sandbox"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
       "y": 3560
     },
@@ -4480,6 +5617,8 @@
         "insiders-released",
         "model-byok"
       ],
+      "author": "cwebster-99",
+      "author_avatar": "https://avatars.githubusercontent.com/u/60238438?v=4",
       "x": 9370,
       "y": 4040
     },
@@ -4496,6 +5635,8 @@
         "snippets",
         "insiders-released"
       ],
+      "author": "brenapp",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8839926?v=4",
       "x": 8230,
       "y": 4520
     },
@@ -4512,6 +5653,8 @@
         "model-byok",
         "capi"
       ],
+      "author": "isidorn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1926584?v=4",
       "x": 8470,
       "y": 5480
     },
@@ -4528,6 +5671,8 @@
         "install-update",
         "windows"
       ],
+      "author": "mpapirkovskyy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2278972?v=4",
       "x": 7590,
       "y": 3560
     },
@@ -4544,6 +5689,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 8990,
       "y": 4040
     },
@@ -4560,6 +5707,8 @@
         "insiders-released",
         "agent-host"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 4590,
       "y": 5000
     },
@@ -4573,6 +5722,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 4970,
       "y": 5000
     },
@@ -4589,6 +5740,8 @@
         "accessibility",
         "insiders-released"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 3830,
       "y": 5000
     },
@@ -4606,6 +5759,8 @@
         "custom-editors",
         "insiders-released"
       ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
       "x": 2770,
       "y": 4520
     },
@@ -4621,6 +5776,8 @@
         "verified",
         "insiders-released"
       ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
       "x": 2010,
       "y": 4040
     },
@@ -4640,6 +5797,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
+      "author": "flexdevguy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2757489?v=4",
       "x": 8390,
       "y": 3560
     },
@@ -4657,6 +5816,8 @@
         "macos",
         "insiders-released"
       ],
+      "author": "craigreyenga",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1516914?v=4",
       "x": -490,
       "y": 1640
     },
@@ -4674,6 +5835,8 @@
         "suggest",
         "insiders-released"
       ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
       "x": 9370,
       "y": 5000
     },
@@ -4692,6 +5855,8 @@
         "confirmation-pending",
         "insiders-released"
       ],
+      "author": "TeamDman",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9356891?v=4",
       "x": 8870,
       "y": 3560
     },
@@ -4706,6 +5871,8 @@
         "bug",
         "insiders-released"
       ],
+      "author": "DanielRosenwasser",
+      "author_avatar": "https://avatars.githubusercontent.com/u/972891?v=4",
       "x": 8990,
       "y": 1640
     },
@@ -4719,6 +5886,8 @@
       "labels": [
         "chat-ext-issue"
       ],
+      "author": "thonhaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5081416?v=4",
       "x": 8990,
       "y": 5960
     },
@@ -4732,6 +5901,8 @@
       "labels": [
         "insiders-released"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 2850,
       "y": 2120
     },
@@ -4746,6 +5917,8 @@
         "insiders-released",
         "copilot"
       ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
       "x": 2690,
       "y": 2120
     },
@@ -4763,6 +5936,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 6030,
       "y": 680
     },
@@ -4779,6 +5954,8 @@
         "insiders-released",
         "chat-terminal"
       ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
       "x": 6410,
       "y": 1160
     },
@@ -4795,6 +5972,8 @@
         "insiders-released",
         "agent-host"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 3830,
       "y": 3560
     },
@@ -4813,6 +5992,8 @@
         "insiders-released",
         "terminal-shell-pwsh"
       ],
+      "author": "Supermanuu",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17361561?v=4",
       "x": 9350,
       "y": 3560
     },
@@ -4827,6 +6008,8 @@
         "bug",
         "snippets"
       ],
+      "author": "RedCMD",
+      "author_avatar": "https://avatars.githubusercontent.com/u/33529441?v=4",
       "x": 8610,
       "y": 7400
     },
@@ -4841,6 +6024,8 @@
         "insiders-released",
         "agent-host"
       ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
       "x": 3830,
       "y": 4520
     }
@@ -6976,5 +8161,16 @@
       "label": "pendiente",
       "state": "open"
     }
-  ]
+  ],
+  "stats": {
+    "total_releases": 5,
+    "total_prs_merged": 141,
+    "total_issues_closed": 169,
+    "total_prs_open": 19,
+    "total_issues_open": 16,
+    "avg_merge_days": 1,
+    "median_merge_days": 0,
+    "avg_issues_per_release": 33.8,
+    "avg_prs_per_release": 28.2
+  }
 }

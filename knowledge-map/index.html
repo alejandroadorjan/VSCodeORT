@@ -291,7 +291,7 @@ fetch('graph.json')
       dashes: e.state === 'open' || e.label === 'incluye'
     }))
 
-    updateStats(allNodes, allEdges)
+    updateStats(allNodes, allEdges, graph.stats)
     render(allNodes, allEdges)
   })
 
@@ -363,6 +363,21 @@ function showDetail(n) {
   const labels = (n.labels || [])
     .map(l => `<span class="chip">${l}</span>`)
     .join('')
+  let authorHtml = ''
+  if (n.author) {
+    const avatarImg = n.author_avatar ? `<img src="${n.author_avatar}" style="width:20px;height:20px;border-radius:50%;margin-right:6px;vertical-align:middle;">` : ''
+    authorHtml = `<div class="detail-row" style="margin-top:8px;"><span class="lbl">Autor</span> <span class="val" style="display:inline-flex;align-items:center;">${avatarImg}<a href="https://github.com/${n.author}" target="_blank" style="color:#58a6ff;text-decoration:none;">${n.author}</a></span></div>`
+  }
+
+
+  let metricsHtml = ''
+  if (n.metrics) {
+    if (n.metrics.issues_closed !== undefined) {
+      metricsHtml = `<div style="margin-top:12px; padding-top:12px; border-top:1px solid #30363d;"><div class="detail-row"><span class="lbl">Issues resueltos</span> <span class="val">${n.metrics.issues_closed}</span></div></div>`
+    } else if (n.metrics.prs_included !== undefined) {
+      metricsHtml = `<div style="margin-top:12px; padding-top:12px; border-top:1px solid #30363d;"><div class="detail-row"><span class="lbl">PRs incluidos</span> <span class="val">${n.metrics.prs_included}</span></div></div>`
+    }
+  }
 
   document.getElementById('node-detail-content').innerHTML = `
     <span class="detail-type ${dtClass[n.type]}">${typeLabel[n.type]}</span>
@@ -370,16 +385,20 @@ function showDetail(n) {
     ${n.number ? `<div class="detail-row"><span class="lbl">Número </span><span class="val">#${n.number}</span></div>` : ''}
     ${dateStr  ? `<div class="detail-row"><span class="lbl">${dateLbl} </span><span class="val">${dateStr}</span></div>` : ''}
     ${n.state  ? `<div class="detail-row"><span class="lbl">Estado </span><span class="val">${stateStr}</span></div>` : ''}
+    ${authorHtml}
     ${labels   ? `<div style="margin-top:8px">${labels}</div>` : ''}
+    ${metricsHtml}
     <br><a class="detail-link" href="${n.url}" target="_blank">Ver en GitHub ↗</a>
   `
 }
 
-function updateStats(nodes, edges) {
+function updateStats(nodes, edges, globalStats) {
   const c = { release: 0, pr: 0, issue: 0 }
   nodes.forEach(n => c[n.type]++)
-  document.getElementById('stats').textContent =
-    `${nodes.length} nodos · ${edges.length} relaciones (${c.release} rel · ${c.pr} PRs · ${c.issue} issues)`
+  const statsText = globalStats
+    ? `${c.release} rel · ${globalStats.total_prs_merged} PRs · ${globalStats.total_issues_closed} issues · Promedio merge: ${globalStats.avg_merge_days} días`
+    : `${nodes.length} nodos · ${edges.length} relaciones`
+  document.getElementById('stats').textContent = statsText
 }
 
 function normalize(s) {
