@@ -20,6 +20,7 @@ import { ApiRepository } from './api/api1';
 import { getRemoteSourceActions, pickRemoteSource } from './remoteSource';
 import { RemoteSourceAction } from './typings/git-base';
 import { CloneManager } from './cloneManager';
+import { Bisect } from './bisect';
 
 abstract class CheckoutCommandItem implements QuickPickItem {
 	abstract get label(): string;
@@ -782,6 +783,7 @@ export class CommandCenter {
 
 	private disposables: Disposable[];
 	private commandErrors = new CommandErrorOutputTextDocumentContentProvider();
+	private bisect: Bisect = new Bisect();
 
 	constructor(
 		private git: Git,
@@ -797,6 +799,7 @@ export class CommandCenter {
 		});
 
 		this.disposables.push(workspace.registerTextDocumentContentProvider('git-output', this.commandErrors));
+		this.disposables.push(this.bisect);
 	}
 
 	@command('git.showOutput')
@@ -804,9 +807,9 @@ export class CommandCenter {
 		this.logger.show();
 	}
 
-	@command('git.bisect')
-	bisect(): void {
-
+	@command('git.bisect', { repository: true })
+	startBisect(repository: Repository): void {
+		this.bisect.startBisect(repository);
 	}
 
 	@command('git.refresh', { repository: true })
