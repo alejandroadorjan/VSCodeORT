@@ -76,7 +76,16 @@ jobs:
         working-directory: build
 
       - name: Build and typecheck
-        run: npm exec -- npm-run-all2 -lp core-ci-pr hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check test-build-scripts
+        run: |
+          set -e
+          npm run gulp transpile-client-esbuild transpile-extensions
+          npm run hygiene
+          npm run eslint
+          npm run valid-layers-check
+          npm run define-class-fields-check
+          npm run vscode-dts-compile-check
+          npm run tsec-compile-check
+          npm run test-build-scripts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -91,6 +100,8 @@ jobs:
     name: Browser Tests
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    needs:
+      - build
 
     steps:
       - name: Checkout
@@ -203,3 +214,123 @@ jobs:
 
       - name: Run unit tests (Electron)
         run: ./scripts/test.sh --build --tfs "Unit Tests"
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    needs:
+      - build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore root node_modules cache
+        id: root-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+            build-essential \
+            pkg-config \
+            libx11-dev \
+            libx11-xcb-dev \
+            libxkbfile-dev \
+            libnotify-bin \
+            libkrb5-dev \
+            libgbm1 \
+            libgtk-3-0 \
+            xvfb
+
+      - name: Install dependencies
+        if: steps.root-node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build integration prerequisites
+        run: |
+          set -e
+          npm run gulp transpile-client-esbuild transpile-extensions
+          npx playwright install chromium
+          cd test/integration/browser && npm run compile
+
+      - name: Run integration tests (Electron)
+        run: ./scripts/test-integration.sh --suite api-folder
+
+      - name: Run integration tests (Browser, Chromium)
+        run: ./scripts/test-web-integration.sh --browser chromium
+
+      - name: Run integration tests (Remote)
+        run: ./scripts/test-remote-integration.sh
+
+  smoke-tests:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    needs:
+      - build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore root node_modules cache
+        id: root-node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: root-node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json', '.nvmrc') }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+            build-essential \
+            pkg-config \
+            libx11-dev \
+            libx11-xcb-dev \
+            libxkbfile-dev \
+            libnotify-bin \
+            libkrb5-dev \
+            libgbm1 \
+            libgtk-3-0 \
+            xvfb
+
+      - name: Install dependencies
+        if: steps.root-node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build smoke prerequisites
+        run: |
+          set -e
+          npm run gulp transpile-client-esbuild transpile-extensions
+          npx playwright install chromium
+
+      - name: Run smoke tests (Electron)
+        run: npm run smoketest -- --tracing
+
+      - name: Run smoke tests (Browser, Chromium)
+        run: npm run smoketest -- --web --browser chromium --headless --tracing
