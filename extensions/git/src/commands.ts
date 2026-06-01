@@ -804,6 +804,11 @@ export class CommandCenter {
 		this.logger.show();
 	}
 
+	@command('git.bisect')
+	bisect(): void {
+
+	}
+
 	@command('git.refresh', { repository: true })
 	async refresh(repository: Repository): Promise<void> {
 		await repository.refresh();
