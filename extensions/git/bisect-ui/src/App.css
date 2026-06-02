@@ -1,0 +1,27 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+#root {
+	padding: 16px;
+}
+
+.bisect-container {
+	padding: 16px;
+}
+
+.bisect-title {
+	margin: 0 0 8px;
+	font-size: 24px;
+}
+
+.bisect-text {
+	margin: 0;
+	font-size: 14px;
+}
