@@ -10,7 +10,7 @@
       "x": 6600,
       "y": 0,
       "metrics": {
-        "prs_included": 54
+        "prs_included": 55
       }
     },
     {
@@ -1227,6 +1227,25 @@
       }
     },
     {
+      "id": "pr-319408",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Fix BYOK models startup race",
+      "url": "https://github.com/microsoft/vscode/pull/319408",
+      "number": 319408,
+      "merged_at": "2026-06-01T23:37:20Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 6790,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
       "id": "pr-319410",
       "type": "pr",
       "state": "merged",
@@ -1237,7 +1256,7 @@
       "labels": [],
       "author": "vritant24",
       "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 2320,
       "metrics": {
         "issues_closed": 1
@@ -1290,8 +1309,8 @@
       ],
       "author": "Giuspepe",
       "author_avatar": "https://avatars.githubusercontent.com/u/39117631?v=4",
-      "x": 7170,
-      "y": 2320,
+      "x": 6030,
+      "y": 2800,
       "metrics": {
         "issues_closed": 1
       }
@@ -1326,7 +1345,7 @@
       ],
       "author": "vs-code-engineering[bot]",
       "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 2800,
       "metrics": {
         "issues_closed": 1
@@ -1360,7 +1379,7 @@
       "labels": [],
       "author": "sandy081",
       "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 2800,
       "metrics": {
         "issues_closed": 1
@@ -1411,7 +1430,7 @@
       "labels": [],
       "author": "goingforstudying-ctrl",
       "author_avatar": "https://avatars.githubusercontent.com/u/258847353?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 2800,
       "metrics": {
         "issues_closed": 1
@@ -1428,8 +1447,8 @@
       "labels": [],
       "author": "connor4312",
       "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
-      "x": 7170,
-      "y": 2800,
+      "x": 6030,
+      "y": 3280,
       "metrics": {
         "issues_closed": 1
       }
@@ -1498,7 +1517,7 @@
       "labels": [],
       "author": "bryanchen-d",
       "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 3280,
       "metrics": {
         "issues_closed": 1
@@ -1567,7 +1586,7 @@
       "labels": [],
       "author": "PenguinDOOM",
       "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 3280,
       "metrics": {
         "issues_closed": 1
@@ -1583,7 +1602,7 @@
       "labels": [],
       "author": "arnavnagzirkar",
       "author_avatar": "https://avatars.githubusercontent.com/u/113314200?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 3280,
       "metrics": {
         "issues_closed": 1
@@ -1599,8 +1618,8 @@
       "labels": [],
       "author": "Tyriar",
       "author_avatar": "https://avatars.githubusercontent.com/u/2193314?v=4",
-      "x": 7170,
-      "y": 3280,
+      "x": 6030,
+      "y": 3760,
       "metrics": {
         "issues_closed": 1
       }
@@ -1615,7 +1634,7 @@
       "labels": [],
       "author": "EmirX3D",
       "author_avatar": "https://avatars.githubusercontent.com/u/94228795?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 3760,
       "metrics": {
         "issues_closed": 1
@@ -1631,7 +1650,7 @@
       "labels": [],
       "author": "Monrother",
       "author_avatar": "https://avatars.githubusercontent.com/u/4018882?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 3760,
       "metrics": {
         "issues_closed": 1
@@ -1647,7 +1666,7 @@
       "labels": [],
       "author": "arnavnagzirkar",
       "author_avatar": "https://avatars.githubusercontent.com/u/113314200?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 3760,
       "metrics": {
         "issues_closed": 1
@@ -1667,8 +1686,8 @@
       ],
       "author": "dmitrivMS",
       "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
-      "x": 7170,
-      "y": 3760,
+      "x": 6030,
+      "y": 4240,
       "metrics": {
         "issues_closed": 2
       }
@@ -1683,7 +1702,7 @@
       "labels": [],
       "author": "brianpaden289",
       "author_avatar": "https://avatars.githubusercontent.com/u/86446018?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 4240,
       "metrics": {
         "issues_closed": 1
@@ -1699,7 +1718,7 @@
       "labels": [],
       "author": "ulugbekna",
       "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 4240,
       "metrics": {
         "issues_closed": 1
@@ -1715,7 +1734,7 @@
       "labels": [],
       "author": "br-robles",
       "author_avatar": "https://avatars.githubusercontent.com/u/127208754?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 4240,
       "metrics": {
         "issues_closed": 1
@@ -1731,8 +1750,8 @@
       "labels": [],
       "author": "vladstudio",
       "author_avatar": "https://avatars.githubusercontent.com/u/914320?v=4",
-      "x": 7170,
-      "y": 4240,
+      "x": 6030,
+      "y": 4720,
       "metrics": {
         "issues_closed": 1
       }
@@ -1747,7 +1766,7 @@
       "labels": [],
       "author": "EduardF1",
       "author_avatar": "https://avatars.githubusercontent.com/u/50618110?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 4720,
       "metrics": {
         "issues_closed": 1
@@ -1763,7 +1782,7 @@
       "labels": [],
       "author": "merahul22",
       "author_avatar": "https://avatars.githubusercontent.com/u/130483145?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 4720,
       "metrics": {
         "issues_closed": 1
@@ -1779,7 +1798,7 @@
       "labels": [],
       "author": "vishalranaut",
       "author_avatar": "https://avatars.githubusercontent.com/u/49563231?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 4720,
       "metrics": {
         "issues_closed": 1
@@ -1797,24 +1816,6 @@
       ],
       "author": "DisturbedSage5840C",
       "author_avatar": "https://avatars.githubusercontent.com/u/238647609?v=4",
-      "x": 7170,
-      "y": 4720,
-      "metrics": {
-        "issues_closed": 1
-      }
-    },
-    {
-      "id": "pr-319408",
-      "type": "pr",
-      "state": "open",
-      "title": "[cherry-pick] Fix BYOK models startup race",
-      "url": "https://github.com/microsoft/vscode/pull/319408",
-      "number": 319408,
-      "labels": [
-        "cherry-pick-artifact"
-      ],
-      "author": "vs-code-engineering[bot]",
-      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
       "x": 6030,
       "y": 5200,
       "metrics": {
@@ -2032,6 +2033,22 @@
       }
     },
     {
+      "id": "pr-319484",
+      "type": "pr",
+      "state": "open",
+      "title": "Redact error callstacks per-line to avoid wiping the entire stack",
+      "url": "https://github.com/microsoft/vscode/pull/319484",
+      "number": 319484,
+      "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6790,
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
       "id": "issue-299523",
       "type": "issue",
       "state": "closed",
@@ -2082,8 +2099,8 @@
       ],
       "author": "hsdk123",
       "author_avatar": "https://avatars.githubusercontent.com/u/4100142?v=4",
-      "x": 7170,
-      "y": 5000
+      "x": 6030,
+      "y": 5480
     },
     {
       "id": "issue-313098",
@@ -2095,7 +2112,7 @@
       "labels": [],
       "author": "PenguinDOOM",
       "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 3560
     },
     {
@@ -2234,7 +2251,7 @@
       ],
       "author": "skbtwiz",
       "author_avatar": "https://avatars.githubusercontent.com/u/30232407?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 4040
     },
     {
@@ -2285,8 +2302,8 @@
       ],
       "author": "Tyriar",
       "author_avatar": "https://avatars.githubusercontent.com/u/2193314?v=4",
-      "x": 7170,
-      "y": 3560
+      "x": 6030,
+      "y": 4040
     },
     {
       "id": "issue-285972",
@@ -2303,8 +2320,8 @@
       ],
       "author": "Abdullah1728",
       "author_avatar": "https://avatars.githubusercontent.com/u/153578546?v=4",
-      "x": 7250,
-      "y": 4040
+      "x": 6110,
+      "y": 4520
     },
     {
       "id": "issue-305683",
@@ -2367,7 +2384,7 @@
       ],
       "author": "vs-code-engineering[bot]",
       "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 2600
     },
     {
@@ -2780,8 +2797,8 @@
       ],
       "author": "benibenj",
       "author_avatar": "https://avatars.githubusercontent.com/u/44439583?v=4",
-      "x": 7170,
-      "y": 3080
+      "x": 6030,
+      "y": 3560
     },
     {
       "id": "issue-107090",
@@ -2799,7 +2816,7 @@
       ],
       "author": "a-guy-on-the-internet",
       "author_avatar": "https://avatars.githubusercontent.com/u/24993737?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 3560
     },
     {
@@ -2859,7 +2876,7 @@
       "labels": [],
       "author": "ulugbekna",
       "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 4520
     },
     {
@@ -3061,7 +3078,7 @@
       ],
       "author": "bryanchen-d",
       "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 3560
     },
     {
@@ -3114,7 +3131,7 @@
       ],
       "author": "sandy081",
       "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 3080
     },
     {
@@ -3130,8 +3147,8 @@
       ],
       "author": "AnlloXander",
       "author_avatar": "https://avatars.githubusercontent.com/u/29390217?v=4",
-      "x": 7170,
-      "y": 4520
+      "x": 6030,
+      "y": 5000
     },
     {
       "id": "issue-156031",
@@ -3147,7 +3164,7 @@
       ],
       "author": "bflatmajor",
       "author_avatar": "https://avatars.githubusercontent.com/u/14685751?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 5000
     },
     {
@@ -3265,7 +3282,7 @@
       "labels": [],
       "author": "mossgowild",
       "author_avatar": "https://avatars.githubusercontent.com/u/45252670?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 4520
     },
     {
@@ -3278,8 +3295,24 @@
       "labels": [],
       "author": "Smileslime47",
       "author_avatar": "https://avatars.githubusercontent.com/u/77948910?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 5000
+    },
+    {
+      "id": "issue-301200",
+      "type": "issue",
+      "state": "open",
+      "title": "[Unhandled Error] <REDACTED: URL>",
+      "url": "https://github.com/microsoft/vscode/issues/301200",
+      "number": 301200,
+      "labels": [
+        "bug",
+        "error-telemetry"
+      ],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6790,
+      "y": 6920
     },
     {
       "id": "issue-319121",
@@ -3295,8 +3328,8 @@
       ],
       "author": "tianda1",
       "author_avatar": "https://avatars.githubusercontent.com/u/96298101?v=4",
-      "x": 6030,
-      "y": 5480
+      "x": 6410,
+      "y": 4040
     },
     {
       "id": "issue-315282",
@@ -3432,7 +3465,7 @@
       "labels": [],
       "author": "Monrother",
       "author_avatar": "https://avatars.githubusercontent.com/u/4018882?v=4",
-      "x": 6410,
+      "x": 6790,
       "y": 4040
     },
     {
@@ -3785,7 +3818,7 @@
       ],
       "author": "vvavrychuk",
       "author_avatar": "https://avatars.githubusercontent.com/u/152563?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 5000
     },
     {
@@ -4097,7 +4130,7 @@
       ],
       "author": "JakiChen",
       "author_avatar": "https://avatars.githubusercontent.com/u/3423524?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 3080
     },
     {
@@ -4144,7 +4177,7 @@
       "labels": [],
       "author": "br-robles",
       "author_avatar": "https://avatars.githubusercontent.com/u/127208754?v=4",
-      "x": 6790,
+      "x": 7170,
       "y": 4520
     },
     {
@@ -4359,7 +4392,7 @@
       ],
       "author": "NikPiermafrost",
       "author_avatar": "https://avatars.githubusercontent.com/u/59047765?v=4",
-      "x": 6030,
+      "x": 6410,
       "y": 3080
     },
     {
@@ -4476,8 +4509,8 @@
       ],
       "author": "coezbek",
       "author_avatar": "https://avatars.githubusercontent.com/u/12127567?v=4",
-      "x": 7090,
-      "y": 4040
+      "x": 5950,
+      "y": 4520
     },
     {
       "id": "issue-317183",
@@ -5067,6 +5100,12 @@
       "state": "merged"
     },
     {
+      "from": "pr-319408",
+      "to": "issue-319121",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
       "from": "pr-319410",
       "to": "issue-319007",
       "label": "resuelve",
@@ -5614,6 +5653,12 @@
     },
     {
       "from": "release-331516246",
+      "to": "pr-319408",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
       "to": "pr-319410",
       "label": "incluye",
       "state": "merged"
@@ -5823,12 +5868,6 @@
       "state": "open"
     },
     {
-      "from": "pr-319408",
-      "to": "issue-319121",
-      "label": "resuelve",
-      "state": "open"
-    },
-    {
       "from": "pr-319156",
       "to": "issue-2809",
       "label": "resuelve",
@@ -5903,6 +5942,12 @@
     {
       "from": "pr-319482",
       "to": "issue-239062",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319484",
+      "to": "issue-301200",
       "label": "resuelve",
       "state": "open"
     },
@@ -5998,12 +6043,6 @@
     },
     {
       "from": "release-331516246",
-      "to": "pr-319408",
-      "label": "pendiente",
-      "state": "open"
-    },
-    {
-      "from": "release-331516246",
       "to": "pr-319156",
       "label": "pendiente",
       "state": "open"
@@ -6079,17 +6118,23 @@
       "to": "pr-319482",
       "label": "pendiente",
       "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319484",
+      "label": "pendiente",
+      "state": "open"
     }
   ],
   "stats": {
     "total_releases": 4,
-    "total_prs_merged": 86,
+    "total_prs_merged": 87,
     "total_issues_closed": 115,
     "total_prs_open": 29,
-    "total_issues_open": 29,
+    "total_issues_open": 30,
     "avg_merge_days": 1,
     "median_merge_days": 0,
     "avg_issues_per_release": 28.8,
-    "avg_prs_per_release": 21.5
+    "avg_prs_per_release": 21.8
   }
 }

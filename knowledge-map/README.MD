@@ -168,6 +168,16 @@ La API de GitHub no indica directamente qué issues cierra un PR. La única form
 
 Las posiciones de los nodos se calculan en Python y se guardan en `graph.json`. La alternativa era usar el motor de física de vis-network para que los nodos se acomodaran solos en el browser, pero con ~300 nodos la simulación tardaba varios segundos, producía un resultado diferente cada vez y no garantizaba la jerarquía visual deseada. Con el layout pre-calculado el grafo aparece instantáneamente y siempre con la misma estructura.
 
+#### Calidad de código
+
+El código del proyecto sigue las guidelines de codificación que usa el equipo de VS Code internamente.
+
+- Todos los archivos incluyen el header de copyright de Microsoft al inicio, que es requerido en cualquier archivo que forme parte del proyecto.
+
+- En `index.html`, sigue dos convenciones principales. Primero, todas las funciones tienen comentarios que documentan los parámetros con `@param` y el valor de retorno con `@returns` cuando la función devuelve algo, lo que hace más fácil entender el código sin tener que leerlo entero. Segundo, la carga del archivo `graph.json` usa `async/await`, que es la forma moderna de manejar operaciones que tardan tiempo en JavaScript y resulta más fácil de leer que encadenar `.then()`.
+
+- En `fetch_data.py` y `build_graph.py`, cada script tiene una única responsabilidad (uno descarga los datos, el otro construye el grafo) y las variables tienen nombres descriptivos que indican exactamente qué contienen, como `oldest_release_date`, `releases_sorted` o `issue_map`.
+
 #### Testing
 
 La solución no incluye tests automatizados. La validación se hizo de forma manual verificando que el grafo refleje las relaciones reales del repositorio, contrastando los resultados con los datos directamente en GitHub.

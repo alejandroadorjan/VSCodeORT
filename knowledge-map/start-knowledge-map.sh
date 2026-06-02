@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Copyright (c) Microsoft Corporation. All rights reserved.
 set -euo pipefail
 trap 'echo "Error: $0 falló en la línea ${LINENO}." >&2' ERR
 

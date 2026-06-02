@@ -219,6 +219,8 @@
 </div>
 
 <script>
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
 const COLORS = {
   release: {
     background: '#F85149', border: '#A40E26',
@@ -251,76 +253,86 @@ let allNodes = [], allEdges = [], network
 let currentTypeFilter = 'all'
 let currentSearchTerm = ''
 
-fetch('graph.json')
-  .then(r => r.json())
-  .then(graph => {
-    const connectedIds = new Set()
-    graph.edges.forEach(e => { connectedIds.add(e.from); connectedIds.add(e.to) })
+;(async () => {
+  const r = await fetch('graph.json')
+  const graph = await r.json()
 
-    allNodes = graph.nodes
-      .filter(n => connectedIds.has(n.id))
-      .map(n => {
-        const isRelease = n.type === 'release'
-        const isPR      = n.type === 'pr'
-        const label = isRelease
-          ? `v${n.title}`
-          : `#${n.number}\n${trunc(n.title, 30)}`
+  const connectedIds = new Set()
+  graph.edges.forEach(e => { connectedIds.add(e.from); connectedIds.add(e.to) })
 
-        const isPending = n.state === 'open'
-        const colorKey = isPending
-          ? (isPR ? 'pr_open' : 'issue_open')
-          : n.type
+  allNodes = graph.nodes
+    .filter(n => connectedIds.has(n.id))
+    .map(n => {
+      const isRelease = n.type === 'release'
+      const isPR      = n.type === 'pr'
+      const label = isRelease
+        ? `v${n.title}`
+        : `#${n.number}\n${trunc(n.title, 30)}`
 
-        return {
-          id:           n.id,
-          label,
-          color:        COLORS[colorKey],
-          type:         n.type,
-          state:        n.state,
-          raw:          n,
-          x:            n.x,
-          y:            n.y,
-          fixed:        { x: true, y: true },
-          shape:        isRelease ? 'box' : isPR ? 'ellipse' : 'box',
-          font: {
-            size:  isRelease ? 18 : 11,
-            color: isPending ? '#aaa' : '#fff',
-            face:  'sans-serif',
-            bold:  isRelease,
-            multi: !isRelease,
-          },
-          size:            isPR ? 22 : 18,
-          widthConstraint: isRelease ? { minimum: 140 } : { maximum: 140 },
-          margin:          isRelease ? 16 : 6,
-          mass:            isRelease ? 8 : isPR ? 2 : 1,
-          borderWidth:     isPending ? 2 : isRelease ? 3 : 2,
-          borderDashes:    isPending ? [6, 3] : false,
-        }
-      })
+      const isPending = n.state === 'open'
+      const colorKey = isPending
+        ? (isPR ? 'pr_open' : 'issue_open')
+        : n.type
 
-    allEdges = graph.edges.map((e, i) => ({
-      id:     i,
-      from:   e.from,
-      to:     e.to,
-      label:  e.label,
-      state:  e.state,
-      arrows: { to: { enabled: true, scaleFactor: 0.65 } },
-      color:  e.state === 'open'
-        ? { color: '#1D9E75', highlight: '#5DCAA5', hover: '#5DCAA5', opacity: 0.5 }
-        : { color: '#30363d', highlight: '#58a6ff', hover: '#58a6ff' },
-      font:   { size: 10, color: '#8b949e', align: 'middle', background: '#161b22' },
-      smooth: { type: 'continuous' },
-      dashes: e.state === 'open' || e.label === 'incluye'
-    }))
+      return {
+        id:           n.id,
+        label,
+        color:        COLORS[colorKey],
+        type:         n.type,
+        state:        n.state,
+        raw:          n,
+        x:            n.x,
+        y:            n.y,
+        fixed:        { x: true, y: true },
+        shape:        isRelease ? 'box' : isPR ? 'ellipse' : 'box',
+        font: {
+          size:  isRelease ? 18 : 11,
+          color: isPending ? '#aaa' : '#fff',
+          face:  'sans-serif',
+          bold:  isRelease,
+          multi: !isRelease,
+        },
+        size:            isPR ? 22 : 18,
+        widthConstraint: isRelease ? { minimum: 140 } : { maximum: 140 },
+        margin:          isRelease ? 16 : 6,
+        mass:            isRelease ? 8 : isPR ? 2 : 1,
+        borderWidth:     isPending ? 2 : isRelease ? 3 : 2,
+        borderDashes:    isPending ? [6, 3] : false,
+      }
+    })
 
-    updateStats(allNodes, allEdges, graph.stats)
-    render(allNodes, allEdges)
-  })
+  allEdges = graph.edges.map((e, i) => ({
+    id:     i,
+    from:   e.from,
+    to:     e.to,
+    label:  e.label,
+    state:  e.state,
+    arrows: { to: { enabled: true, scaleFactor: 0.65 } },
+    color:  e.state === 'open'
+      ? { color: '#1D9E75', highlight: '#5DCAA5', hover: '#5DCAA5', opacity: 0.5 }
+      : { color: '#30363d', highlight: '#58a6ff', hover: '#58a6ff' },
+    font:   { size: 10, color: '#8b949e', align: 'middle', background: '#161b22' },
+    smooth: { type: 'continuous' },
+    dashes: e.state === 'open' || e.label === 'incluye'
+  }))
 
+  updateStats(allNodes, allEdges, graph.stats)
+  render(allNodes, allEdges)
+})()
+
+/**
+ * @param {string} s
+ * @param {number} n
+ * @returns {string}
+ */
 function trunc(s, n) {
   return s && s.length > n ? s.slice(0, n) + '…' : (s || '')
 }
 
+/**
+ * @param {object[]} nodes
+ * @param {object[]} edges
+ */
 function render(nodes, edges) {
   const container = document.getElementById('graph')
 
@@ -369,6 +381,9 @@ function render(nodes, edges) {
   network.fit()
 }
 
+/**
+ * @param {object} n - Raw node data from the graph JSON
+ */
 function showDetail(n) {
   const typeLabel = { release: 'Release', pr: 'Pull Request', issue: 'Issue' }
   const dtClass   = { release: 'dt-release', pr: 'dt-pr', issue: 'dt-issue' }
@@ -414,14 +429,24 @@ function showDetail(n) {
   `
 }
 
+/**
+ * @param {object[]} nodes
+ * @param {object[]} edges
+ * @param {object} [globalStats]
+ */
 function updateStats(nodes, edges, globalStats) {
   document.getElementById('stats').textContent = ''
 }
 
+/**
+ * @param {unknown} s
+ * @returns {string}
+ */
 function normalize(s) {
   return (s || '').toString().toLowerCase()
 }
 
+/** Applies the active type filter and search term to re-render the graph. */
 function applyFilters() {
   const term = normalize(currentSearchTerm).trim()
 
@@ -464,23 +489,25 @@ function applyFilters() {
   }
 }
 
+/**
+ * @param {'all'|'release'|'pr'|'issue'} type
+ */
 function filter(type) {
   currentTypeFilter = type
   applyFilters()
 }
 
-// wire up search input and clear button
-const _si = document.getElementById('search-input')
-if (_si) {
-  _si.addEventListener('input', (e) => {
+const searchInput = document.getElementById('search-input')
+if (searchInput) {
+  searchInput.addEventListener('input', e => {
     currentSearchTerm = e.target.value || ''
     applyFilters()
   })
 }
-const _sc = document.getElementById('search-clear')
-if (_sc) {
-  _sc.addEventListener('click', () => {
-    if (_si) { _si.value = ''; _si.focus() }
+const searchClear = document.getElementById('search-clear')
+if (searchClear) {
+  searchClear.addEventListener('click', () => {
+    if (searchInput) { searchInput.value = ''; searchInput.focus() }
     currentSearchTerm = ''
     applyFilters()
   })
