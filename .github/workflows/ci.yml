@@ -76,6 +76,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup Electron sandbox
+        run: |
+          npm run electron
+          sudo chown root .build/electron/chrome-sandbox
+          sudo chmod 4755 .build/electron/chrome-sandbox
+
       - name: Run unit tests node.js
         run: npm run test-node
 
@@ -85,11 +91,7 @@ jobs:
           DEBUG: "*browser*"
 
       - name: Run unit tests Electron
-        run: |
-          npm run electron
-          sudo chown root .build/electron/chrome-sandbox
-          sudo chmod 4755 .build/electron/chrome-sandbox
-          VSCODE_SKIP_PRELAUNCH=1 xvfb-run ./scripts/test.sh --build --tfs "Unit Tests"
+        run: VSCODE_SKIP_PRELAUNCH=1 xvfb-run ./scripts/test.sh --build --tfs "Unit Tests"
 
       - name: Build integration prerequisites
         run: |
@@ -98,7 +100,7 @@ jobs:
           npm run compile
 
       - name: Run integration tests Electron
-        run: ./scripts/test-integration.sh --suite api-folder
+        run: xvfb-run ./scripts/test-integration.sh --suite api-folder
 
       - name: Run integration tests Browser Chromium
         run: ./scripts/test-web-integration.sh --browser chromium
@@ -107,7 +109,7 @@ jobs:
         run: ./scripts/test-remote-integration.sh
 
       - name: Run smoke tests Electron
-        run: npm run smoketest -- --tracing
+        run: xvfb-run npm run smoketest -- --tracing
 
       - name: Run smoke tests Browser Chromium
         run: npm run smoketest -- --web --browser chromium --headless --tracing
