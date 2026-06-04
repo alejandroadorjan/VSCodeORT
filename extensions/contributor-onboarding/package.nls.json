@@ -1,0 +1,18 @@
+{
+	"displayName": "VS Code Contributor Onboarding",
+	"description": "Interactive onboarding for new VS Code contributors.",
+	"walkthrough.title": "Contribute to VS Code",
+	"walkthrough.description": "Follow the contributor journey from choosing an issue to opening a pull request.",
+	"walkthrough.chooseWork.title": "Choose the right work",
+	"walkthrough.chooseWork.description": "Start with a suitable issue, check for duplicates, and comment when you decide to work on it.\n[Browse good first issues](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A%22good%20first%20issue%22)",
+	"walkthrough.discussFirst.title": "Know when to discuss first",
+	"walkthrough.discussFirst.description": "Some changes need alignment before implementation, especially feature requests, UX changes, architecture changes, and API proposals.\n[Read issue triaging guidance](https://github.com/microsoft/vscode/wiki/Issues-Triaging)",
+	"walkthrough.architecture.title": "Map the architecture",
+	"walkthrough.architecture.description": "Understand the layer that owns the behavior before changing code.\n[Open Source Code Organization](https://github.com/microsoft/vscode/wiki/source-code-organization)",
+	"walkthrough.localSetup.title": "Set up and reproduce locally",
+	"walkthrough.localSetup.description": "Build Code - OSS, run the development version, and reproduce the issue before editing.\n[Open setup guide](https://github.com/microsoft/vscode/wiki/How-to-Contribute)",
+	"walkthrough.aiWorkflow.title": "Use AI as a contributor assistant",
+	"walkthrough.aiWorkflow.description": "Use Copilot Chat or another assistant to inspect context, but keep the contributor responsible for architecture, validation, and review readiness.\n[Open Chat](command:workbench.action.chat.open?%7B%22mode%22%3A%22ask%22%7D)",
+	"walkthrough.validateAndPr.title": "Validate and open the pull request",
+	"walkthrough.validateAndPr.description": "Run the checks that match the changed area, describe how to test the change, and follow review and iteration planning.\n[Read pull request guidance](https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests)"
+}

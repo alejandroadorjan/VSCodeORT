@@ -8,6 +8,8 @@ There are several ways in which you can contribute, beyond writing code. The goa
 
 Use this journey as a map for a first code contribution. It follows the order most contributors need: choosing work, understanding the system, preparing a local build, validating the change, opening a pull request, and following the monthly project cycle. It does not replace the detailed wiki pages; it shows how those pages fit together.
 
+For an interactive version of this journey, open the **Contribute to VS Code** walkthrough from the Getting Started page. The walkthrough turns this document into a checklist inside VS Code and includes a reusable Copilot prompt for AI-assisted contribution planning.
+
 ### 1. Find Work That Fits
 
 Start with the [issues labeled `good first issue`](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A%22good%20first%20issue%22) or [`help wanted`](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A%22help%20wanted%22). They are the clearest signal that the team considers the issue suitable for an external contribution. The [Where to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute#where-to-contribute) guide explains why some issues are better candidates than others.
@@ -101,13 +103,19 @@ Follow [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contr
 
 Once the build is running, launch the development version of VS Code and reproduce the issue before changing code. For UI and multi-process behavior, use the [debugging](https://github.com/microsoft/vscode/wiki/How-to-Contribute#debugging) guidance to choose the right process: renderer, extension host, search process, shared process, or Electron main process.
 
-### 6. Make a Focused Change
+### 6. Use AI as a Contributor Assistant
+
+AI tools such as GitHub Copilot Chat, Claude, or local agent skills can help reduce onboarding friction when they follow the same project workflow. Use them to summarize the issue, identify the likely owner area, search for existing patterns, propose validation commands, and draft a pull request summary.
+
+Do not treat AI output as a substitute for project judgment. The contributor still needs to verify architecture boundaries, run local validation, and respond to review feedback. The `contributor-journey` chat prompt contributed by the onboarding extension is designed to keep AI assistance aligned with this process.
+
+### 7. Make a Focused Change
 
 Keep the pull request scoped to one issue and one root cause. Follow the [Coding Guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines), including naming, tabs for indentation, small exports, localized user-facing strings, and title-style capitalization for commands and menu items.
 
 Prefer existing patterns over new abstractions. Add tests when the change affects behavior. Avoid broad formatting-only edits, unrelated refactors, or moving files unless the issue requires it.
 
-### 7. Validate Locally
+### 8. Validate Locally
 
 Use the validation that matches the area you changed:
 
@@ -119,11 +127,11 @@ Use the validation that matches the area you changed:
 
 Manual validation matters too. Verify the original issue, the expected behavior, and any important desktop, web, remote, or extension-host scenario affected by the change.
 
-### 8. Open the Pull Request
+### 9. Open the Pull Request
 
 Read the [pull request guidelines](https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests). Create one pull request per issue, link the issue, keep your branch up to date with `main`, explain the change, and include clear steps for how reviewers can test it. The pull request template will remind you about the required details and the Contributor License Agreement check will run automatically.
 
-### 9. Follow Review and Project Flow
+### 10. Follow Review and Project Flow
 
 Watch the pull request for CI results, reviewer comments, and requested changes. Respond to review by updating the code, tests, and PR description when needed.
 
