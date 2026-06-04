@@ -43,7 +43,7 @@ export class Bisect implements Disposable {
 				'bisect-ui',
 				'dist',
 				'assets',
-				'app.js'
+				'bisect.js'
 			)
 		);
 

@@ -14,7 +14,7 @@ export default defineConfig({
 		emptyOutDir: true,
 		rollupOptions: {
 			output: {
-				entryFileNames: 'assets/app.js',
+				entryFileNames: 'assets/bisect.js',
 				chunkFileNames: 'assets/[name].js',
 				assetFileNames: 'assets/[name][extname]'
 			}
