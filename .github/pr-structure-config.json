@@ -1,0 +1,25 @@
+{
+	"bypassLabel": "skip-pr-check",
+	"sections": [
+		{
+			"heading": "## Context",
+			"description": "Problem or need motivating the change",
+			"minContentLength": 50
+		},
+		{
+			"heading": "## Solution",
+			"description": "Approach taken and affected areas",
+			"minContentLength": 50
+		},
+		{
+			"heading": "## Impact",
+			"description": "Risks, compatibility, visible behavior changes",
+			"minContentLength": 50
+		},
+		{
+			"heading": "## Testing",
+			"description": "How the change was validated",
+			"minContentLength": 50
+		}
+	]
+}
