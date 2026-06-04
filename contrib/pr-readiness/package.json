@@ -1,0 +1,101 @@
+{
+  "name": "pr-readiness-assistant",
+  "displayName": "PR Readiness Assistant",
+  "description": "Asiste al contribuyente open source antes de abrir un Pull Request: calcula un PR Readiness Score con IA y un checklist pre-PR derivado de las convenciones del proyecto.",
+  "version": "0.1.0",
+  "publisher": "ort-vscode-team",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "SCM Providers"
+  ],
+  "extensionDependencies": [
+    "vscode.git"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "prReadiness",
+          "title": "PR Readiness",
+          "icon": "$(rocket)"
+        }
+      ]
+    },
+    "views": {
+      "prReadiness": [
+        {
+          "id": "prReadiness.panel",
+          "name": "Readiness"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "prReadiness.evaluate",
+        "title": "PR Readiness: Evaluar cambio actual",
+        "category": "PR Readiness"
+      },
+      {
+        "command": "prReadiness.setApiKey",
+        "title": "PR Readiness: Configurar Anthropic API Key",
+        "category": "PR Readiness"
+      },
+      {
+        "command": "prReadiness.clearApiKey",
+        "title": "PR Readiness: Borrar Anthropic API Key",
+        "category": "PR Readiness"
+      }
+    ],
+    "configuration": {
+      "title": "PR Readiness Assistant",
+      "properties": {
+        "prReadiness.model": {
+          "type": "string",
+          "enum": [
+            "claude-opus-4-8",
+            "claude-sonnet-4-6",
+            "claude-haiku-4-5"
+          ],
+          "default": "claude-opus-4-8",
+          "description": "Modelo de Claude usado para generar el score y evaluar el checklist. opus-4-8 = mayor calidad; sonnet-4-6 = más barato/rápido."
+        },
+        "prReadiness.effort": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium",
+          "description": "Profundidad de razonamiento / gasto de tokens de la IA. 'medium' equilibra costo y calidad para evaluar un diff."
+        },
+        "prReadiness.apiKey": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "**Desaconsejado.** API key de Anthropic en texto plano. Preferí el comando `PR Readiness: Configurar Anthropic API Key` (la guarda cifrada en SecretStorage) o la variable de entorno `ANTHROPIC_API_KEY`. Si la ponés acá, NO commitees tu settings.json."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "npm run build -- --sourcemap --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.0"
+  }
+}
