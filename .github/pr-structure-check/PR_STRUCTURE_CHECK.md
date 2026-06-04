@@ -2,7 +2,21 @@
 
 GitHub Actions workflow that validates a minimum structure in pull request descriptions before merge.
 
-Inspired by [Discussion #28](https://github.com/alejandroadorjan/VSCodeORT/discussions/28) and [microsoft/vscode#314486](https://github.com/microsoft/vscode/issues/314486).
+## Layout
+
+All feature files live under [`.github/pr-structure-check/`](./). GitHub requires the workflow file under [`.github/workflows/`](../workflows/).
+
+```
+.github/
+├── pr-structure-check/
+│   ├── PR_STRUCTURE_CHECK.md      ← this document
+│   ├── config.json                ← versioned rules
+│   ├── validate-pr-structure.mjs  ← validator (phase 2)
+│   └── validate-pr-structure.test.mjs  ← unit tests (phase 3)
+├── workflows/
+│   └── pr-structure-check.yml     ← workflow (phase 4; must stay here)
+└── pull_request_template.md       ← aligned in phase 5
+```
 
 ## Required sections
 
@@ -17,7 +31,7 @@ Each PR description must include these markdown H2 sections (English):
 
 ## Configuration
 
-Rules live in [`.github/pr-structure-config.json`](./pr-structure-config.json), not in the validator script. To change conventions, edit the config and the pull request template together.
+Rules live in [`config.json`](./config.json), not in the validator script. To change conventions, edit the config and the pull request template together.
 
 ### Config schema
 
@@ -35,7 +49,7 @@ These decisions were agreed during planning and govern the implementation.
 
 | Topic | Decision |
 |-------|----------|
-| Validator | Node ESM standalone (`.github/scripts/validate-pr-structure.mjs`) |
+| Validator | Node ESM standalone (`validate-pr-structure.mjs` in this folder) |
 | Section language | English headers |
 | Header matching | Case-insensitive H2 (`## context` = `## Context`) |
 | Section order | Any order is accepted |
@@ -49,7 +63,7 @@ These decisions were agreed during planning and govern the implementation.
 | Success feedback | Previous failure comment is updated to a resolved message |
 | Error messages | English |
 | Check name | `PR Structure Check` |
-| Unit tests | `.github/scripts/validate-pr-structure.test.mjs` with `node:test` (run locally) |
+| Unit tests | `validate-pr-structure.test.mjs` with `node:test` (run locally) |
 
 ## STRICT_MODE (test vs production)
 
@@ -60,29 +74,29 @@ The workflow exposes `STRICT_MODE` (default: **`false`** for development).
 | Target branches | All pull requests | Only PRs targeting `main` and `release/*` |
 | Config source | PR head branch | PR base branch |
 
-**Why the default is `false`:** lets the team test the check on PRs into `development` (or other branches) without merging config to `main` first. Flip to `true` in [`.github/workflows/pr-structure-check.yml`](./workflows/pr-structure-check.yml) before treating the feature as production-ready.
+**Why the default is `false`:** lets the team test the check on PRs into `development` (or other branches) without merging config to `main` first. Flip to `true` in [`.github/workflows/pr-structure-check.yml`](../workflows/pr-structure-check.yml) before treating the feature as production-ready.
 
 ## Local validation
 
 Once the validator script exists:
 
 ```bash
-node .github/scripts/validate-pr-structure.mjs \
-  --config .github/pr-structure-config.json \
+node .github/pr-structure-check/validate-pr-structure.mjs \
+  --config .github/pr-structure-check/config.json \
   --body "$(cat my-pr-body.md)"
 ```
 
 Run unit tests:
 
 ```bash
-node --test .github/scripts/validate-pr-structure.test.mjs
+node --test .github/pr-structure-check/validate-pr-structure.test.mjs
 ```
 
 ## Branch protection
 
 The workflow creates a GitHub Check named **PR Structure Check**. To block merges, add that check as a required status in branch protection (Settings → Branches → `main`).
 
-**Note:** PRs that add or change `.github/workflows/` may be blocked by [`no-engineering-system-changes.yml`](./workflows/no-engineering-system-changes.yml) unless the author has write access to the repository.
+**Note:** PRs that add or change `.github/workflows/` may be blocked by [`no-engineering-system-changes.yml`](../workflows/no-engineering-system-changes.yml) unless the author has write access to the repository.
 
 ## Manual test checklist
 
@@ -96,10 +110,10 @@ The workflow creates a GitHub Check named **PR Structure Check**. To block merge
 
 | Phase | Commit | Deliverable |
 |-------|--------|-------------|
-| 1 | `docs: add PR structure check design and config schema` | This doc + `pr-structure-config.json` |
+| 1 | `docs: add PR structure check design and config schema` | This folder + `config.json` |
 | 2 | `feat: add PR structure validator script` | `validate-pr-structure.mjs` |
 | 3 | `test: add PR structure validator unit tests` | `validate-pr-structure.test.mjs` |
-| 4 | `ci: add PR structure check workflow` | `pr-structure-check.yml` |
-| 5 | `chore: align pull request template with structure check` | `pull_request_template.md` |
+| 4 | `ci: add PR structure check workflow` | `../workflows/pr-structure-check.yml` |
+| 5 | `chore: align pull request template with structure check` | `../pull_request_template.md` |
 
 Work happens on branch `feature/pr-structure-check` from `development`.
