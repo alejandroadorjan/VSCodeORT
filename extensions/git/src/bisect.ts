@@ -20,6 +20,11 @@ type StartBisectMessage = {
 	commitsBack: number;
 };
 
+type CheckoutCommitMessage = {
+	type: 'checkoutCommit';
+	commitHash: string;
+};
+
 type MarkBisectMessage = {
 	type: 'mark';
 	commitHash: string;
@@ -132,6 +137,35 @@ export class Bisect implements Disposable {
 						panel.webview.postMessage({
 							type: 'error',
 							message: this.toErrorMessage(error, 'No se pudo reiniciar git bisect.')
+						});
+					}
+
+					break;
+				}
+				case 'checkoutCommit': {
+					try {
+						const checkoutMessage = message as CheckoutCommitMessage;
+
+						if (!commits.some(commit => commit.hash === checkoutMessage.commitHash)) {
+							throw new Error('El commit seleccionado no pertenece a la linea de bisect.');
+						}
+
+						await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
+						await this.execGit(repositoryPath, ['checkout', checkoutMessage.commitHash]);
+
+						currentCommitHash = checkoutMessage.commitHash;
+
+						panel.webview.postMessage({
+							type: 'checkedOut',
+							commitHash: currentCommitHash,
+							message: `Checkout realizado en ${currentCommitHash.substring(0, 7)}.`
+						});
+					} catch (error) {
+						console.error(error);
+
+						panel.webview.postMessage({
+							type: 'error',
+							message: this.toErrorMessage(error, 'No se pudo hacer checkout del commit.')
 						});
 					}
 

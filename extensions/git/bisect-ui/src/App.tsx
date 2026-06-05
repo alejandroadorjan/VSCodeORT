@@ -47,13 +47,15 @@ type WebviewToExtensionMessage =
 	| { readonly type: 'ready' }
 	| { readonly type: 'start'; readonly branch: string; readonly commitsBack: number }
 	| { readonly type: 'mark'; readonly commitHash: string; readonly verdict: Verdict }
-	| { readonly type: 'reset' };
+	| { readonly type: 'reset' }
+	| { readonly type: 'checkoutCommit'; readonly commitHash: string };
 
 type ExtensionToWebviewMessage =
 	| { readonly type: 'init'; readonly branches: BranchOption[]; readonly currentBranch?: string }
 	| { readonly type: 'started'; readonly commits: CommitItem[]; readonly currentCommitHash: string; readonly message?: string }
 	| { readonly type: 'step'; readonly commits: CommitItem[]; readonly currentCommitHash: string; readonly message?: string }
 	| { readonly type: 'finished'; readonly commits: CommitItem[]; readonly result: BisectResult; readonly message?: string }
+	| { readonly type: 'checkedOut'; readonly commitHash: string; readonly message?: string }
 	| { readonly type: 'error'; readonly message: string };
 
 declare const acquireVsCodeApi: <TState = unknown>() => {
@@ -183,6 +185,18 @@ function App() {
 				return;
 			}
 
+			if (message.type === 'checkedOut') {
+				setState(previous => ({
+					...previous,
+					currentCommitHash: message.commitHash,
+					selectedVerdict: '',
+					busy: false,
+					message: message.message ?? `Checkout realizado en ${shortHash(message.commitHash)}.`,
+					error: null,
+				}));
+				return;
+			}
+
 			if (message.type === 'error') {
 				setState(previous => ({
 					...previous,
@@ -271,6 +285,25 @@ function App() {
 		vscode.postMessage({ type: 'reset' });
 	}
 
+	function onTimelineCommitClick(commitHash: string): void {
+		if (state.phase !== 'finished' || state.busy) {
+			return;
+		}
+
+		setState(previous => ({
+			...previous,
+			currentCommitHash: commitHash,
+			busy: true,
+			message: `Haciendo checkout de ${shortHash(commitHash)}...`,
+			error: null,
+		}));
+
+		vscode.postMessage({
+			type: 'checkoutCommit',
+			commitHash,
+		});
+	}
+
 	return (
 		<main className='bisect-container'>
 			<header className='bisect-header'>
@@ -333,12 +366,16 @@ function App() {
 						<ol className='timeline'>
 							{state.commits.map((commit, index) => (
 								<li className='timeline-item' key={commit.hash}>
-									<div
-										className={`commit-dot status-${commit.status}${commit.hash === state.currentCommitHash ? ' current' : ''}`}
+									<button
+										className={`commit-dot status-${commit.status}${commit.hash === state.currentCommitHash ? ' current' : ''}${state.phase === 'finished' ? ' clickable' : ''}`}
 										title={`${shortHash(commit.hash)} · ${commit.subject}`}
+										type='button'
+										onClick={() => onTimelineCommitClick(commit.hash)}
+										disabled={state.phase !== 'finished' || state.busy}
 									>
 										<span>{index + 1}</span>
-									</div>
+									</button>
+
 									<div className='commit-card'>
 										<strong>{shortHash(commit.hash)}</strong>
 										<span>{commit.subject}</span>

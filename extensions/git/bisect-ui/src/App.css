@@ -300,3 +300,21 @@ select {
 .error-message {
 	color: var(--vscode-errorForeground);
 }
+
+.commit-dot {
+	border: 0;
+	font: inherit;
+	cursor: default;
+}
+
+.commit-dot.clickable {
+	cursor: pointer;
+}
+
+.commit-dot.clickable:hover {
+	transform: scale(1.08);
+}
+
+.commit-dot:disabled {
+	opacity: 1;
+}
