@@ -190,6 +190,9 @@ export class Bisect implements Disposable {
 
 						if (this.isBisectFinished(output)) {
 							const resultHash = this.extractFirstBadCommitHash(output) ?? currentCommitHash;
+
+							commits = this.resolveFinishedCommitStatuses(commits, resultHash);
+
 							const resultCommit = commits.find(commit => commit.hash === resultHash);
 
 							panel.webview.postMessage({
@@ -395,6 +398,28 @@ export class Bisect implements Disposable {
 					resolve(branches);
 				}
 			);
+		});
+	}
+
+	private resolveFinishedCommitStatuses(commits: CommitItem[], firstBadCommitHash: string): CommitItem[] {
+		const firstBadIndex = commits.findIndex(commit => commit.hash === firstBadCommitHash);
+
+		if (firstBadIndex < 0) {
+			return commits;
+		}
+
+		return commits.map((commit, index) => {
+			if (index < firstBadIndex) {
+				return {
+					...commit,
+					status: 'good' as const
+				};
+			}
+
+			return {
+				...commit,
+				status: 'bad' as const
+			};
 		});
 	}
 

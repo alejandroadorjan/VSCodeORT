@@ -175,7 +175,7 @@ function App() {
 					...previous,
 					phase: 'finished',
 					commits: message.commits,
-					currentCommitHash: null,
+					currentCommitHash: message.result.hash,
 					selectedVerdict: '',
 					busy: false,
 					message: message.message ?? 'Git bisect termino.',
