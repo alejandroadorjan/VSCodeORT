@@ -35,12 +35,12 @@ export class NullTelemetryServiceShape implements ITelemetryService {
 	readonly devDeviceId = 'someValue.devDeviceId';
 	readonly firstSessionDate = 'someValue.firstSessionDate';
 	readonly sendErrorTelemetry = false;
-	publicLog() { }
-	publicLog2() { }
-	publicLogError() { }
-	publicLogError2() { }
-	setExperimentProperty() { }
-	setCommonProperty() { }
+	publicLog(_eventName?: string, _data?: ITelemetryData) { }
+	publicLog2(_eventName?: string, _data?: unknown) { }
+	publicLogError(_errorEventName?: string, _data?: ITelemetryData) { }
+	publicLogError2(_errorEventName?: string, _data?: unknown) { }
+	setExperimentProperty(_name?: string, _value?: string) { }
+	setCommonProperty(_name?: string, _value?: string) { }
 }
 
 export const NullTelemetryService = new NullTelemetryServiceShape();

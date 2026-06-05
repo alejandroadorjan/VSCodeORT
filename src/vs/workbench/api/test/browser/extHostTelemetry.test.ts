@@ -7,9 +7,42 @@ import assert from 'assert';
 import { URI } from '../../../../base/common/uri.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../base/test/common/utils.js';
 import { ExtensionIdentifier, IExtensionDescription, TargetPlatform } from '../../../../platform/extensions/common/extensions.js';
-import { DEFAULT_LOG_LEVEL, LogLevel } from '../../../../platform/log/common/log.js';
+import { DEFAULT_LOG_LEVEL, LogLevel, ILogger, ILoggerService } from '../../../../platform/log/common/log.js';
+import { Emitter } from '../../../../base/common/event.js';
 import { TelemetryLevel } from '../../../../platform/telemetry/common/telemetry.js';
-import { TestTelemetryLoggerService } from '../../../../platform/telemetry/test/common/telemetryLogAppender.test.js';
+class TestTelemetryLoggerService implements ILoggerService {
+	declare readonly _serviceBrand: undefined;
+	private readonly _onDidChangeLogLevel = new Emitter<LogLevel | [any, LogLevel]>();
+	readonly onDidChangeLogLevel = this._onDidChangeLogLevel.event;
+	private readonly _onDidChangeVisibility = new Emitter<[any, boolean]>();
+	readonly onDidChangeVisibility = this._onDidChangeVisibility.event;
+	private readonly _onDidChangeLoggers = new Emitter<any>();
+	readonly onDidChangeLoggers = this._onDidChangeLoggers.event;
+
+	createLogger(_resourceOrId: any, _options?: any): ILogger {
+		const logs: string[] = [];
+		return {
+			onDidChangeLogLevel: this._onDidChangeLogLevel.event,
+			getLevel: () => DEFAULT_LOG_LEVEL,
+			setLevel: () => { },
+			trace: (msg: string, ..._args: unknown[]) => logs.push(msg),
+			debug: (msg: string, ..._args: unknown[]) => logs.push(msg),
+			info: (msg: string, ..._args: unknown[]) => logs.push(msg),
+			warn: (msg: string, ..._args: unknown[]) => logs.push(msg),
+			error: (msg: string | Error, ..._args: unknown[]) => logs.push(String(msg)),
+			flush: () => { }
+		} as ILogger;
+	}
+
+	getLogger(_resourceOrId: any): ILogger | undefined { return undefined; }
+	setLogLevel(_levelOrResource: any, _level?: LogLevel): void { }
+	getLogLevel(_resource?: any): LogLevel { return DEFAULT_LOG_LEVEL; }
+	setVisibility(_resourceOrId: any, _visible: boolean): void { }
+	registerLogger(_resource: any): void { }
+	deregisterLogger(_idOrResource: any): void { }
+	getRegisteredLoggers(): Iterable<any> { return []; }
+	getRegisteredLogger(_resource: any): any | undefined { return undefined; }
+}
 import { IExtHostInitDataService } from '../../common/extHostInitDataService.js';
 import { ExtHostTelemetry, ExtHostTelemetryLogger } from '../../common/extHostTelemetry.js';
 import { IEnvironment } from '../../../services/extensions/common/extensionHostProtocol.js';

@@ -15,7 +15,7 @@ import { IProductService } from '../../../product/common/productService.js';
 import ErrorTelemetry from '../../browser/errorTelemetry.js';
 import { TelemetryConfiguration, TelemetryLevel } from '../../common/telemetry.js';
 import { ITelemetryServiceConfig, TelemetryService } from '../../common/telemetryService.js';
-import { ITelemetryAppender, NullAppender } from '../../common/telemetryUtils.js';
+import { ITelemetryAppender, NullAppender, NullTelemetryService } from '../../common/telemetryUtils.js';
 
 const sinonTestFn = sinonTest(sinon);
 
@@ -176,6 +176,17 @@ suite('TelemetryService', () => {
 		assert.strictEqual(typeof first.data['bar'], 'boolean');
 
 		service.dispose();
+	});
+
+	test('academic fork: NullTelemetryService is the active implementation', () => {
+		assert.strictEqual(NullTelemetryService.telemetryLevel, TelemetryLevel.NONE);
+		assert.strictEqual(NullTelemetryService.sendErrorTelemetry, false);
+		assert.doesNotThrow(() => {
+			NullTelemetryService.publicLog('testEvent', { value: 'x' });
+			NullTelemetryService.publicLogError('testError', { value: 'x' });
+			NullTelemetryService.setExperimentProperty('exp', 'off');
+			NullTelemetryService.setCommonProperty('common.test', 'value');
+		});
 	});
 
 	test('common properties added to *all* events, event with data', function () {

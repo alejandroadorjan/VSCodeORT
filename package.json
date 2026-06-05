@@ -92,8 +92,7 @@
     "@anthropic-ai/sandbox-runtime": "0.0.49",
     "@github/copilot": "1.0.39",
     "@github/copilot-sdk": "^0.3.0",
-    "@microsoft/1ds-core-js": "^3.2.13",
-    "@microsoft/1ds-post-js": "^3.2.13",
+
     "@microsoft/dev-tunnels-connections": "^1.3.41",
     "@microsoft/dev-tunnels-contracts": "^1.3.41",
     "@microsoft/dev-tunnels-management": "^1.3.41",
@@ -244,7 +243,7 @@
     "tar": "^7.5.9",
     "tsec": "0.2.7",
     "tslib": "^2.6.3",
-    "typescript": "^6.0.0-dev.20260401",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
     "util": "^0.12.4",
     "xml2js": "^0.5.0",

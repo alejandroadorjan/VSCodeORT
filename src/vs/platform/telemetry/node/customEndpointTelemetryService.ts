@@ -5,14 +5,8 @@
 
 import { FileAccess } from '../../../base/common/network.js';
 import { Client as TelemetryClient } from '../../../base/parts/ipc/node/ipc.cp.js';
-import { IConfigurationService } from '../../configuration/common/configuration.js';
-import { IEnvironmentService } from '../../environment/common/environment.js';
-import { ILoggerService } from '../../log/common/log.js';
-import { IProductService } from '../../product/common/productService.js';
 import { ICustomEndpointTelemetryService, ITelemetryData, ITelemetryEndpoint, ITelemetryService } from '../common/telemetry.js';
-import { TelemetryAppenderClient } from '../common/telemetryIpc.js';
-import { TelemetryLogAppender } from '../common/telemetryLogAppender.js';
-import { TelemetryService } from '../common/telemetryService.js';
+import { NullTelemetryService } from '../common/telemetryUtils.js';
 
 export class CustomEndpointTelemetryService implements ICustomEndpointTelemetryService {
 	declare readonly _serviceBrand: undefined;
@@ -20,11 +14,7 @@ export class CustomEndpointTelemetryService implements ICustomEndpointTelemetryS
 	private customTelemetryServices = new Map<string, ITelemetryService>();
 
 	constructor(
-		@IConfigurationService private readonly configurationService: IConfigurationService,
-		@ITelemetryService private readonly telemetryService: ITelemetryService,
-		@ILoggerService private readonly loggerService: ILoggerService,
-		@IEnvironmentService private readonly environmentService: IEnvironmentService,
-		@IProductService private readonly productService: IProductService
+		@ITelemetryService private readonly telemetryService: ITelemetryService
 	) { }
 
 	private getCustomTelemetryService(endpoint: ITelemetryEndpoint): ITelemetryService {
@@ -48,15 +38,8 @@ export class CustomEndpointTelemetryService implements ICustomEndpointTelemetryS
 			);
 
 			const channel = client.getChannel('telemetryAppender');
-			const appenders = [
-				new TelemetryAppenderClient(channel),
-				new TelemetryLogAppender(`[${endpoint.id}] `, false, this.loggerService, this.environmentService, this.productService),
-			];
 
-			this.customTelemetryServices.set(endpoint.id, new TelemetryService({
-				appenders,
-				sendErrorTelemetry: endpoint.sendErrorTelemetry
-			}, this.configurationService, this.productService));
+			this.customTelemetryServices.set(endpoint.id, NullTelemetryService);
 		}
 
 		return this.customTelemetryServices.get(endpoint.id)!;

@@ -5,7 +5,7 @@
 
 import { setDefaultResultOrder } from 'dns';
 import * as fs from 'fs';
-import { hostname, release } from 'os';
+// hostname/release imports removed (unused after telemetry changes)
 import { raceTimeout } from '../../base/common/async.js';
 import { toErrorMessage } from '../../base/common/errorMessage.js';
 import { isSigPipeError, onUnexpectedError, setUnexpectedErrorHandler } from '../../base/common/errors.js';
@@ -48,11 +48,7 @@ import { IProductService } from '../../platform/product/common/productService.js
 import { IRequestService } from '../../platform/request/common/request.js';
 import { RequestService } from '../../platform/request/node/requestService.js';
 import { SaveStrategy, StateReadonlyService } from '../../platform/state/node/stateService.js';
-import { resolveCommonProperties } from '../../platform/telemetry/common/commonProperties.js';
-import { ITelemetryService } from '../../platform/telemetry/common/telemetry.js';
-import { ITelemetryServiceConfig, TelemetryService } from '../../platform/telemetry/common/telemetryService.js';
-import { supportsTelemetry, NullTelemetryService, getPiiPathsFromEnvironment, isInternalTelemetry, ITelemetryAppender } from '../../platform/telemetry/common/telemetryUtils.js';
-import { OneDataSystemAppender } from '../../platform/telemetry/node/1dsAppender.js';
+import { ITelemetryAppender } from '../../platform/telemetry/common/telemetryUtils.js';
 import { buildTelemetryMessage } from '../../platform/telemetry/node/telemetry.js';
 import { IUriIdentityService } from '../../platform/uriIdentity/common/uriIdentity.js';
 import { UriIdentityService } from '../../platform/uriIdentity/common/uriIdentityService.js';
@@ -248,24 +244,7 @@ class CliMain extends Disposable {
 
 		// Telemetry
 		const appenders: ITelemetryAppender[] = [];
-		const isInternal = isInternalTelemetry(productService, configurationService);
-		if (supportsTelemetry(productService, environmentService)) {
-			if (productService.aiConfig?.ariaKey) {
-				appenders.push(new OneDataSystemAppender(requestService, isInternal, 'monacoworkbench', null, productService.aiConfig.ariaKey));
-			}
-
-			const config: ITelemetryServiceConfig = {
-				appenders,
-				sendErrorTelemetry: false,
-				commonProperties: resolveCommonProperties(release(), hostname(), process.arch, productService.commit, productService.version, machineId, sqmId, devDeviceId, isInternal, productService.date, productService.telemetryAppName),
-				piiPaths: getPiiPathsFromEnvironment(environmentService)
-			};
-
-			services.set(ITelemetryService, new SyncDescriptor(TelemetryService, [config], false));
-
-		} else {
-			services.set(ITelemetryService, NullTelemetryService);
-		}
+		services.set(ITelemetryService, NullTelemetryService);
 
 		return [new InstantiationService(services), appenders];
 	}

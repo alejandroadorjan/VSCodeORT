@@ -48,6 +48,7 @@ import { IConfirmation, IConfirmationResult, IDialogService, IInputResult, IProm
 import { ExtensionKind, IEnvironmentService, IExtensionHostDebugParams } from '../../../platform/environment/common/environment.js';
 import { SyncDescriptor } from '../../../platform/instantiation/common/descriptors.js';
 import { InstantiationType, getSingletonServiceDescriptors, registerSingleton } from '../../../platform/instantiation/common/extensions.js';
+import { NullTelemetryService } from '../../../platform/telemetry/common/telemetryUtils.js';
 import { IInstantiationService, ServiceIdentifier, createDecorator } from '../../../platform/instantiation/common/instantiation.js';
 import { InstantiationService } from '../../../platform/instantiation/common/instantiationService.js';
 import { ServiceCollection } from '../../../platform/instantiation/common/serviceCollection.js';
@@ -1166,7 +1167,7 @@ registerSingleton(ITextResourceConfigurationService, StandaloneResourceConfigura
 registerSingleton(ITextResourcePropertiesService, StandaloneResourcePropertiesService, InstantiationType.Eager);
 registerSingleton(IWorkspaceContextService, StandaloneWorkspaceContextService, InstantiationType.Eager);
 registerSingleton(ILabelService, StandaloneUriLabelService, InstantiationType.Eager);
-registerSingleton(ITelemetryService, StandaloneTelemetryService, InstantiationType.Eager);
+registerSingleton(ITelemetryService, NullTelemetryService as any, InstantiationType.Eager);
 registerSingleton(IDialogService, StandaloneDialogService, InstantiationType.Eager);
 registerSingleton(IEnvironmentService, StandaloneEnvironmentService, InstantiationType.Eager);
 registerSingleton(INotificationService, StandaloneNotificationService, InstantiationType.Eager);
