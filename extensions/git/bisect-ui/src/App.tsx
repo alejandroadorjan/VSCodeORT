@@ -278,9 +278,10 @@ function App() {
 					<h1 className='bisect-title'>Git Bisect</h1>
 					<p className='bisect-subtitle'>Selecciona un commit reciente malo y un commit anterior bueno para iniciar la busqueda.</p>
 				</div>
-				{state.phase !== 'setup' && (
-					<button className='secondary-button' type='button' onClick={onReset}>Reiniciar</button>
-				)}
+
+				<button className='secondary-button' type='button' onClick={onReset}>
+					Reiniciar
+				</button>
 			</header>
 
 			<section className={state.setupCollapsed ? 'card card-collapsed' : 'card'}>

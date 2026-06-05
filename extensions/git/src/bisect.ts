@@ -20,6 +20,12 @@ type StartBisectMessage = {
 	commitsBack: number;
 };
 
+type MarkBisectMessage = {
+	type: 'mark';
+	commitHash: string;
+	verdict: 'good' | 'bad';
+};
+
 type BranchItem = {
 	name: string;
 	current: boolean;
@@ -36,7 +42,8 @@ export class Bisect implements Disposable {
 	startBisect(repository: Repository): void {
 		const repositoryPath: string = repository.root;
 
-		console.log(repositoryPath);
+		let commits: CommitItem[] = [];
+		let currentCommitHash = '';
 
 		const panel = window.createWebviewPanel(
 			'gitBisect',
@@ -50,9 +57,7 @@ export class Bisect implements Disposable {
 			}
 		);
 
-		this.disposables.push(panel);
-
-		panel.webview.onDidReceiveMessage(async message => {
+		const messageDisposable = panel.webview.onDidReceiveMessage(async message => {
 			switch (message.type) {
 				case 'ready': {
 					try {
@@ -85,6 +90,9 @@ export class Bisect implements Disposable {
 							startMessage.commitsBack
 						);
 
+						commits = result.commits;
+						currentCommitHash = result.currentCommitHash;
+
 						panel.webview.postMessage({
 							type: 'started',
 							commits: result.commits,
@@ -104,10 +112,13 @@ export class Bisect implements Disposable {
 				}
 				case 'reset': {
 					try {
-						await this.execGit(repositoryPath, ['bisect', 'reset']);
+						await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
 
 						const branches = await this.getBranches(repositoryPath);
 						const currentBranch = branches.find(branch => branch.current)?.name ?? branches[0]?.name ?? '';
+
+						commits = [];
+						currentCommitHash = '';
 
 						panel.webview.postMessage({
 							type: 'init',
@@ -126,8 +137,64 @@ export class Bisect implements Disposable {
 
 					break;
 				}
+				case 'mark': {
+					try {
+						const markMessage = message as MarkBisectMessage;
+
+						commits = commits.map(commit => {
+							if (commit.hash === markMessage.commitHash) {
+								return {
+									...commit,
+									status: markMessage.verdict
+								};
+							}
+
+							return commit;
+						});
+
+						const output = await this.execGit(repositoryPath, ['bisect', markMessage.verdict]);
+
+						if (this.isBisectFinished(output)) {
+							const resultHash = this.extractFirstBadCommitHash(output) ?? currentCommitHash;
+							const resultCommit = commits.find(commit => commit.hash === resultHash);
+
+							panel.webview.postMessage({
+								type: 'finished',
+								commits,
+								result: {
+									hash: resultHash,
+									subject: resultCommit?.subject,
+									rawOutput: output
+								},
+								message: 'Git bisect termino.'
+							});
+
+							break;
+						}
+
+						currentCommitHash = await this.execGit(repositoryPath, ['rev-parse', 'HEAD']);
+
+						panel.webview.postMessage({
+							type: 'step',
+							commits,
+							currentCommitHash,
+							message: `Commit marcado como ${markMessage.verdict}.`
+						});
+					} catch (error) {
+						console.error(error);
+
+						panel.webview.postMessage({
+							type: 'error',
+							message: this.toErrorMessage(error, 'No se pudo marcar el commit.')
+						});
+					}
+
+					break;
+				}
 			}
 		});
+
+		this.disposables.push(panel, messageDisposable);
 
 		panel.webview.html = this.getHtml(panel);
 	}
@@ -216,6 +283,17 @@ export class Bisect implements Disposable {
 			currentCommitHash,
 			message
 		};
+	}
+
+	private isBisectFinished(output: string): boolean {
+		return output.includes('is the first bad commit')
+			|| output.includes('first bad commit could be any of');
+	}
+
+	private extractFirstBadCommitHash(output: string): string | undefined {
+		const match = output.match(/^([0-9a-f]{40}) is the first bad commit/m);
+
+		return match?.[1];
 	}
 
 	private execGit(repositoryPath: string, args: string[]): Promise<string> {
