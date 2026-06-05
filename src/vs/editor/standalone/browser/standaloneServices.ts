@@ -794,24 +794,6 @@ class StandaloneResourcePropertiesService implements ITextResourcePropertiesServ
 	}
 }
 
-class StandaloneTelemetryService implements ITelemetryService {
-	declare readonly _serviceBrand: undefined;
-	readonly telemetryLevel = TelemetryLevel.NONE;
-	readonly sessionId = 'someValue.sessionId';
-	readonly machineId = 'someValue.machineId';
-	readonly sqmId = 'someValue.sqmId';
-	readonly devDeviceId = 'someValue.devDeviceId';
-	readonly firstSessionDate = 'someValue.firstSessionDate';
-	readonly sendErrorTelemetry = false;
-	setEnabled(): void { }
-	setExperimentProperty(): void { }
-	setCommonProperty(): void { }
-	publicLog() { }
-	publicLog2() { }
-	publicLogError() { }
-	publicLogError2() { }
-}
-
 class StandaloneWorkspaceContextService implements IWorkspaceContextService {
 
 	public _serviceBrand: undefined;

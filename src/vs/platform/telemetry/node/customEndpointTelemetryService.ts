@@ -37,7 +37,7 @@ export class CustomEndpointTelemetryService implements ICustomEndpointTelemetryS
 				}
 			);
 
-			const channel = client.getChannel('telemetryAppender');
+			client.getChannel('telemetryAppender');
 
 			this.customTelemetryServices.set(endpoint.id, NullTelemetryService);
 		}

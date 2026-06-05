@@ -48,7 +48,9 @@ import { IProductService } from '../../platform/product/common/productService.js
 import { IRequestService } from '../../platform/request/common/request.js';
 import { RequestService } from '../../platform/request/node/requestService.js';
 import { SaveStrategy, StateReadonlyService } from '../../platform/state/node/stateService.js';
+import { ITelemetryService } from '../../platform/telemetry/common/telemetry.js';
 import { ITelemetryAppender } from '../../platform/telemetry/common/telemetryUtils.js';
+import { NullTelemetryService } from '../../platform/telemetry/common/telemetryUtils.js';
 import { buildTelemetryMessage } from '../../platform/telemetry/node/telemetry.js';
 import { IUriIdentityService } from '../../platform/uriIdentity/common/uriIdentity.js';
 import { UriIdentityService } from '../../platform/uriIdentity/common/uriIdentityService.js';

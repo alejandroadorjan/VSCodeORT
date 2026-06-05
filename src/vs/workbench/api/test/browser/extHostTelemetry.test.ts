@@ -12,6 +12,7 @@ import { Emitter } from '../../../../base/common/event.js';
 import { TelemetryLevel } from '../../../../platform/telemetry/common/telemetry.js';
 class TestTelemetryLoggerService implements ILoggerService {
 	declare readonly _serviceBrand: undefined;
+	readonly logs: string[] = [];
 	private readonly _onDidChangeLogLevel = new Emitter<LogLevel | [any, LogLevel]>();
 	readonly onDidChangeLogLevel = this._onDidChangeLogLevel.event;
 	private readonly _onDidChangeVisibility = new Emitter<[any, boolean]>();
@@ -19,19 +20,19 @@ class TestTelemetryLoggerService implements ILoggerService {
 	private readonly _onDidChangeLoggers = new Emitter<any>();
 	readonly onDidChangeLoggers = this._onDidChangeLoggers.event;
 
-	createLogger(_resourceOrId: any, _options?: any): ILogger {
-		const logs: string[] = [];
+	createLogger(_resourceOrId: any, _options?: any): ILogger & { logs: string[] } {
 		return {
 			onDidChangeLogLevel: this._onDidChangeLogLevel.event,
 			getLevel: () => DEFAULT_LOG_LEVEL,
 			setLevel: () => { },
-			trace: (msg: string, ..._args: unknown[]) => logs.push(msg),
-			debug: (msg: string, ..._args: unknown[]) => logs.push(msg),
-			info: (msg: string, ..._args: unknown[]) => logs.push(msg),
-			warn: (msg: string, ..._args: unknown[]) => logs.push(msg),
-			error: (msg: string | Error, ..._args: unknown[]) => logs.push(String(msg)),
-			flush: () => { }
-		} as ILogger;
+			trace: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
+			debug: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
+			info: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
+			warn: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
+			error: (msg: string | Error, ..._args: unknown[]) => this.logs.push(String(msg)),
+			flush: () => { },
+			logs: this.logs
+		};
 	}
 
 	getLogger(_resourceOrId: any): ILogger | undefined { return undefined; }
@@ -324,11 +325,11 @@ suite('ExtHostTelemetry', function () {
 		const logger = createLogger(functionSpy, extensionTelemetry);
 
 		// Ensure headers are logged on instantiation
-		assert.strictEqual(loggerService.createLogger().logs.length, 0);
+		assert.strictEqual(loggerService.logs.length, 0);
 
 		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		// Initial header is logged then the event
-		assert.strictEqual(loggerService.createLogger().logs.length, 1);
-		assert.ok(loggerService.createLogger().logs[0].startsWith('test-extension/test-event'));
+		assert.strictEqual(loggerService.logs.length, 1);
+		assert.ok(loggerService.logs[0].startsWith('test-extension/test-event'));
 	});
 });
