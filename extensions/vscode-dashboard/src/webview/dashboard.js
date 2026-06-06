@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 // This file contains the webview runtime behavior for the dashboard.
 // It was extracted from dashboard.html to keep HTML purely structural.
 
@@ -18,6 +23,7 @@ const chartLabels = __chartLabels__;
 const chartSuccess = __chartSuccess__;
 const chartFailed = __chartFailed__;
 const chartDur = __chartDur__;
+const dashboardText = __dashboardText__;
 
 (function () {
 	const isDark = document.body.classList.contains('vscode-dark') ||
@@ -49,7 +55,7 @@ const chartDur = __chartDur__;
 	}
 
 	const runsDetail = document.getElementById('runs-detail');
-	if (runsDetail) {runsDetail.textContent = `${succ} ok · ${fail} failed`;}
+	if (runsDetail) {runsDetail.textContent = dashboardText.runsDetail.replace('{0}', succ).replace('{1}', fail);}
 
 	const avgFormatted = avgD >= 60
 		? `${Math.floor(avgD / 60)}m ${avgD % 60}s`
@@ -59,31 +65,31 @@ const chartDur = __chartDur__;
 
 	const bsub = document.getElementById('build-sub');
 	if (bsub) {
-		if (avgD < 120) {bsub.innerHTML = '<span class="badge badge-green">Fast</span>';}
-		else if (avgD < 300) {bsub.innerHTML = '<span class="badge badge-blue">Moderate</span>';}
-		else {bsub.innerHTML = '<span class="badge badge-amber">Slow</span>';}
+		if (avgD < 120) {bsub.innerHTML = `<span class="badge badge-green">${dashboardText.fast}</span>`;}
+		else if (avgD < 300) {bsub.innerHTML = `<span class="badge badge-blue">${dashboardText.moderate}</span>`;}
+		else {bsub.innerHTML = `<span class="badge badge-amber">${dashboardText.slow}</span>`;}
 	}
 
 	const hb = document.getElementById('health-badge');
 	if (hb) {
-		if (hs > 85) {hb.className = 'badge badge-green', hb.textContent = 'Excellent';}
-		else if (hs > 65) {hb.className = 'badge badge-amber', hb.textContent = 'Fair';}
-		else {hb.className = 'badge badge-red', hb.textContent = 'At risk';}
+		if (hs > 85) {hb.className = 'badge badge-green', hb.textContent = dashboardText.excellent;}
+		else if (hs > 65) {hb.className = 'badge badge-amber', hb.textContent = dashboardText.fair;}
+		else {hb.className = 'badge badge-red', hb.textContent = dashboardText.atRisk;}
 	}
 
 	const mb = document.getElementById('mttr-badge');
 	if (mb) {
-		if (mttr === 0) {mb.className = 'badge badge-blue', mb.textContent = 'No data';}
-		else if (mttr < 60) {mb.className = 'badge badge-green', mb.textContent = 'Elite';}
-		else if (mttr < 120) {mb.className = 'badge badge-blue', mb.textContent = 'High';}
-		else {mb.className = 'badge badge-amber', mb.textContent = 'Medium';}
+		if (mttr === 0) {mb.className = 'badge badge-blue', mb.textContent = dashboardText.noData;}
+		else if (mttr < 60) {mb.className = 'badge badge-green', mb.textContent = dashboardText.elite;}
+		else if (mttr < 120) {mb.className = 'badge badge-blue', mb.textContent = dashboardText.high;}
+		else {mb.className = 'badge badge-amber', mb.textContent = dashboardText.medium;}
 	}
 
 	const cb = document.getElementById('cfr-badge');
 	if (cb) {
-		if (cfr < 5) {cb.className = 'badge badge-green', cb.textContent = 'Elite';}
-		else if (cfr < 15) {cb.className = 'badge badge-blue', cb.textContent = 'High';}
-		else {cb.className = 'badge badge-amber', cb.textContent = 'Medium';}
+		if (cfr < 5) {cb.className = 'badge badge-green', cb.textContent = dashboardText.elite;}
+		else if (cfr < 15) {cb.className = 'badge badge-blue', cb.textContent = dashboardText.high;}
+		else {cb.className = 'badge badge-amber', cb.textContent = dashboardText.medium;}
 	}
 
 	const otherPct = Math.max(0, 100 - sp - fp);
@@ -125,8 +131,8 @@ const chartDur = __chartDur__;
 		data: {
 			labels: chartLabels,
 			datasets: [
-				{ label: 'Success', data: chartSuccess, backgroundColor: cSuccess, borderRadius: 2, borderSkipped: false, stack: 'a' },
-				{ label: 'Failed', data: chartFailed, backgroundColor: cFailed, borderRadius: 2, borderSkipped: false, stack: 'a' }
+				{ label: dashboardText.success, data: chartSuccess, backgroundColor: cSuccess, borderRadius: 2, borderSkipped: false, stack: 'a' },
+				{ label: dashboardText.failed, data: chartFailed, backgroundColor: cFailed, borderRadius: 2, borderSkipped: false, stack: 'a' }
 			]
 		},
 		options: {
@@ -148,7 +154,7 @@ const chartDur = __chartDur__;
 		data: {
 			labels: chartLabels,
 			datasets: [{
-				label: 'Duration (s)',
+				label: dashboardText.durationSeconds,
 				data: chartDur,
 				borderColor: cBlue,
 				backgroundColor: 'rgba(' + cBlueRgb + ',0.08)',
@@ -172,7 +178,7 @@ const chartDur = __chartDur__;
 	new Chart(document.getElementById('donutChart'), {
 		type: 'doughnut',
 		data: {
-			labels: ['Success', 'Failed', 'Other'],
+			labels: [dashboardText.success, dashboardText.failed, dashboardText.other],
 			datasets: [{ data: [sp, fp, otherPct], backgroundColor: [cSuccess, cFailed, cOther], borderWidth: 0, hoverOffset: 4 }]
 		},
 		options: {

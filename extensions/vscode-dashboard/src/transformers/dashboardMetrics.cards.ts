@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import type { IssueCard, RunCard } from '../model/dashboard';
 import type { GitHubIssue, GitHubWorkflowRun } from '../model/github';
 import { createLabelMarkup, formatClosedDate, formatDuration } from './dashboardMetrics.formatters';
@@ -39,7 +44,7 @@ export function createRecentRunCard(run: GitHubWorkflowRun): RunCard {
 }
 
 export function createIssueCard(issue: GitHubIssue): IssueCard {
-	const closedBy = issue.closed_by?.login ? `by @${issue.closed_by.login}` : '';
+	const closedBy = issue.closed_by?.login ? `@${issue.closed_by.login}` : '';
 	const comments = issue.comments && issue.comments > 0 ? String(issue.comments) : '';
 
 	return {

@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import type { GitHubCommit, GitHubIssue, GitHubRepo, GitHubWorkflowRun } from '../model/github';
 import type { GitHubRunsResponse, GitHubSearchResponse } from './githubClient.responses';
 import type { GitHubClientOptions, GitHubFetchLike } from './githubClient.types';
@@ -25,11 +30,16 @@ async function requestJson<T>(url: string, options: GitHubClientOptions): Promis
 	const response = await fetchImpl(url, { headers: createHeaders(options.token) });
 
 	if (!response.ok) {
-		const message = await response.text().catch(() => '');
+		let message = '';
+		try {
+			message = await response.text();
+		} catch {
+			// Ignore response body read failures when building the HTTP error.
+		}
 		throw new Error(`HTTP ${response.status} ${response.statusText}${message ? ` - ${message}` : ''}`);
 	}
 
-	return response.json() as Promise<T>;
+	return await response.json() as T;
 }
 
 function buildRepoUrl(owner: string, repo: string, suffix = ''): string {

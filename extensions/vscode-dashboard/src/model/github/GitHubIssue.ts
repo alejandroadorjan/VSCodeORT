@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import type { GitHubLabel } from './GitHubLabel';
 import type { GitHubUser } from './GitHubUser';
 
@@ -8,5 +13,5 @@ export interface GitHubIssue {
 	comments?: number;
 	labels?: GitHubLabel[];
 	closed_by?: GitHubUser | null;
-	pull_request?: unknown;
+	pull_request?: object;
 }

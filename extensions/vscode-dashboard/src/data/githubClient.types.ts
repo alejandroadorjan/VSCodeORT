@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 export interface GitHubClientOptions {
 	owner: string;
 	repo: string;
@@ -11,7 +16,7 @@ export interface GitHubResponseLike {
 	ok: boolean;
 	status: number;
 	statusText: string;
-	json(): Promise<unknown>;
+	json(): Promise<object>;
 	text(): Promise<string>;
 }
 

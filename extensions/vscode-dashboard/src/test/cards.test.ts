@@ -1,4 +1,10 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import * as assert from 'assert';
+import type { GitHubIssue, GitHubWorkflowRun } from '../model/github';
 import { createRecentRunCard, createIssueCard } from '../transformers/dashboardMetrics.cards';
 
 export async function runCardsTests() {
@@ -8,7 +14,7 @@ export async function runCardsTests() {
 }
 
 function testRecentRunCardSuccess() {
-  const run: any = {
+  const run: GitHubWorkflowRun = {
     name: 'My Workflow Name That Is Surprisingly Long And Will Be Truncated',
     workflow_name: undefined,
     head_branch: 'main',
@@ -26,7 +32,7 @@ function testRecentRunCardSuccess() {
 }
 
 function testRecentRunCardFallbacks() {
-  const run: any = {
+  const run: GitHubWorkflowRun = {
     workflow_name: 'WF',
     run_started_at: undefined,
     updated_at: undefined,
@@ -40,7 +46,7 @@ function testRecentRunCardFallbacks() {
 }
 
 function testCreateIssueCard() {
-  const issue: any = {
+  const issue: GitHubIssue = {
     number: 42,
     title: 'Fix me',
     closed_at: null,

@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import type { DashboardViewModel } from '../model/dashboard';
 import type { GitHubCommit, GitHubIssue, GitHubRepo, GitHubWorkflowRun } from '../model/github';
 import { DEPLOYMENT_WEEKS_ESTIMATE, RECENT_RUN_COUNT } from './dashboardMetrics.constants';

@@ -1,7 +1,7 @@
 {
   "name": "vscode-dashboard",
-  "displayName": "vscode-dashboard",
-  "description": "Engineering observability dashboard for GitHub repositories",
+  "displayName": "%vscode-dashboard.displayName%",
+  "description": "%vscode-dashboard.description%",
   "version": "0.0.1",
   "publisher": "vscode",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "commands": [
       {
         "command": "dashboard.open",
-        "title": "Open Dashboard"
+        "title": "%dashboard.open.title%"
       }
     ]
   },

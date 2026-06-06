@@ -1,0 +1,5 @@
+{
+	"vscode-dashboard.displayName": "vscode-dashboard",
+	"vscode-dashboard.description": "Engineering observability dashboard for GitHub repositories",
+	"dashboard.open.title": "Open Dashboard"
+}

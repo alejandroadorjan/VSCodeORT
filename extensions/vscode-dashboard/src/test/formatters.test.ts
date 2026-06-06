@@ -1,4 +1,10 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 import * as assert from 'assert';
+import type { GitHubLabel } from '../model/github';
 import { formatDuration, formatClosedDate, createLabelMarkup } from '../transformers/dashboardMetrics.formatters';
 
 export async function runFormattersTests() {
@@ -23,7 +29,8 @@ function testFormatClosedDate() {
 }
 
 function testCreateLabelMarkup() {
-  const html = createLabelMarkup([{ name: 'bug', color: 'ff0000' } as any]);
+  const labels: GitHubLabel[] = [{ name: 'bug', color: 'ff0000' }];
+  const html = createLabelMarkup(labels);
   assert.ok(html.includes('bug'));
   assert.ok(html.includes('background:rgba(255,0,0')); // red channel check
   // empty labels
