@@ -101,7 +101,7 @@ function renderMainAlerts(model: DashboardViewModel): string {
 		return `
 			<div class="main-alert-clear">
 				<span class="status-dot green"></span>
-				<span>${vscode.l10n.t('No recent non-success runs found on main.')}</span>
+				<span>${vscode.l10n.t('No recent failed runs found on main.')}</span>
 			</div>`;
 	}
 
@@ -270,7 +270,7 @@ function localizeDashboardHtml(html: string): string {
 		['Watchers', vscode.l10n.t('Watchers')],
 		['Active devs (10 commits)', vscode.l10n.t('Active devs (10 commits)')],
 		['Main branch alerts', vscode.l10n.t('Main branch alerts')],
-		['Recent non-success workflow runs on main only. Yellow includes skipped, cancelled, action required, neutral, timed out, stale, and similar outcomes.', vscode.l10n.t('Recent non-success workflow runs on main only. Yellow includes skipped, cancelled, action required, neutral, timed out, stale, and similar outcomes.')],
+		['Recent failed workflow runs on main only. Skipped, cancelled, action required, and currently running workflows are intentionally excluded.', vscode.l10n.t('Recent failed workflow runs on main only. Skipped, cancelled, action required, and currently running workflows are intentionally excluded.')],
 	]);
 
 	let localizedHtml = html;

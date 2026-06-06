@@ -96,8 +96,7 @@ async function testMainFailureAlerts() {
 	});
 	const alerts = viewModel.mainFailureAlerts;
 
-	assert.strictEqual(alerts.length, 2);
-	assert.strictEqual(alerts[0].name, 'Main skipped');
-	assert.strictEqual(alerts[0].statusLabel, 'skipped');
-	assert.strictEqual(alerts[1].statusLabel, 'failure');
+	assert.strictEqual(alerts.length, 1);
+	assert.strictEqual(alerts[0].name, 'Main failure');
+	assert.strictEqual(alerts[0].statusLabel, 'failure');
 }

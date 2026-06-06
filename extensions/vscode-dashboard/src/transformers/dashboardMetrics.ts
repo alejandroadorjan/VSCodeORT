@@ -12,22 +12,6 @@ import { buildRecentSuccessCount, buildWorkflowHistogram, calculateHealthScore, 
 const MAIN_BRANCH = 'main';
 const MAIN_ALERT_COUNT = 5;
 
-function getRunOutcome(run: GitHubWorkflowRun): 'success' | 'failure' | 'inProgress' | 'other' {
-	if (run.conclusion === 'success') {
-		return 'success';
-	}
-
-	if (run.conclusion === 'failure') {
-		return 'failure';
-	}
-
-	if (run.status === 'in_progress') {
-		return 'inProgress';
-	}
-
-	return 'other';
-}
-
 function formatRunDate(run: GitHubWorkflowRun): string {
 	const timestamp = run.updated_at ?? run.run_started_at;
 	if (!timestamp) {
@@ -51,7 +35,7 @@ function getStatusClasses(status: string): { dotClass: string; badgeClass: strin
 
 function buildMainFailureAlerts(runs: GitHubWorkflowRun[]): MainFailureAlert[] {
 	return runs
-		.filter(run => run.head_branch === MAIN_BRANCH && getRunOutcome(run) !== 'success')
+		.filter(run => run.head_branch === MAIN_BRANCH && run.conclusion === 'failure')
 		.slice(-MAIN_ALERT_COUNT)
 		.reverse()
 		.map(run => {
