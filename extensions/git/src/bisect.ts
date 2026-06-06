@@ -79,7 +79,7 @@ export class Bisect implements Disposable {
 
 						panel.webview.postMessage({
 							type: 'error',
-							message: 'No se pudieron cargar las ramas del repositorio.'
+							message: 'Could not load repository branches.'
 						});
 					}
 
@@ -109,7 +109,7 @@ export class Bisect implements Disposable {
 
 						panel.webview.postMessage({
 							type: 'error',
-							message: this.toErrorMessage(error, 'No se pudo iniciar git bisect.')
+							message: this.toErrorMessage(error, 'Could not start git bisect.')
 						});
 					}
 
@@ -129,14 +129,14 @@ export class Bisect implements Disposable {
 							type: 'init',
 							branches,
 							currentBranch,
-							message: 'Bisect reiniciado.'
+							message: 'Bisect reset.'
 						});
 					} catch (error) {
 						console.error(error);
 
 						panel.webview.postMessage({
 							type: 'error',
-							message: this.toErrorMessage(error, 'No se pudo reiniciar git bisect.')
+							message: this.toErrorMessage(error, 'Could not reset git bisect.')
 						});
 					}
 
@@ -147,7 +147,7 @@ export class Bisect implements Disposable {
 						const checkoutMessage = message as CheckoutCommitMessage;
 
 						if (!commits.some(commit => commit.hash === checkoutMessage.commitHash)) {
-							throw new Error('El commit seleccionado no pertenece a la linea de bisect.');
+							throw new Error('The selected commit does not belong to the bisect timeline.');
 						}
 
 						await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
@@ -158,14 +158,14 @@ export class Bisect implements Disposable {
 						panel.webview.postMessage({
 							type: 'checkedOut',
 							commitHash: currentCommitHash,
-							message: `Checkout realizado en ${currentCommitHash.substring(0, 7)}.`
+							message: `Checked out ${currentCommitHash.substring(0, 7)}.`
 						});
 					} catch (error) {
 						console.error(error);
 
 						panel.webview.postMessage({
 							type: 'error',
-							message: this.toErrorMessage(error, 'No se pudo hacer checkout del commit.')
+							message: this.toErrorMessage(error, 'Could not check out the commit.')
 						});
 					}
 
@@ -203,7 +203,7 @@ export class Bisect implements Disposable {
 									subject: resultCommit?.subject,
 									rawOutput: output
 								},
-								message: 'Git bisect termino.'
+								message: 'Git bisect finished.'
 							});
 
 							break;
@@ -215,14 +215,14 @@ export class Bisect implements Disposable {
 							type: 'step',
 							commits,
 							currentCommitHash,
-							message: `Commit marcado como ${markMessage.verdict}.`
+							message: `Commit marked as ${markMessage.verdict}.`
 						});
 					} catch (error) {
 						console.error(error);
 
 						panel.webview.postMessage({
 							type: 'error',
-							message: this.toErrorMessage(error, 'No se pudo marcar el commit.')
+							message: this.toErrorMessage(error, 'Could not mark the commit.')
 						});
 					}
 
@@ -274,7 +274,7 @@ export class Bisect implements Disposable {
 			});
 
 		if (commitsNewestToOldest.length < 2) {
-			throw new Error('La rama seleccionada necesita al menos 2 commits para iniciar git bisect.');
+			throw new Error('The selected branch needs at least 2 commits to start git bisect.');
 		}
 
 		const requestedIndex = normalizedCommitsBack;
@@ -312,8 +312,8 @@ export class Bisect implements Disposable {
 		const effectiveCommitsBack = goodIndex;
 
 		const message = effectiveCommitsBack < normalizedCommitsBack
-			? `Se pidieron ${normalizedCommitsBack} commits hacia atras, pero solo hay ${effectiveCommitsBack} disponibles. Se uso el commit mas antiguo disponible.`
-			: `Bisect iniciado entre ${goodCommit.hash.substring(0, 7)} y ${badCommit.hash.substring(0, 7)}.`;
+			? `Requested ${normalizedCommitsBack} commits back, but only ${effectiveCommitsBack} are available. The oldest available commit was used.`
+			: `Bisect started between ${goodCommit.hash.substring(0, 7)} and ${badCommit.hash.substring(0, 7)}.`;
 
 		return {
 			commits: commitsOldestToNewest,

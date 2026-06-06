@@ -100,7 +100,7 @@ function getStatusLabel(status: CommitStatus): string {
 		return 'bad';
 	}
 
-	return 'pendiente';
+	return 'pending';
 }
 
 function App() {
@@ -149,7 +149,7 @@ function App() {
 					currentCommitHash: message.currentCommitHash,
 					selectedVerdict: '',
 					busy: false,
-					message: message.message ?? 'Git bisect iniciado. Marca el commit seleccionado.',
+					message: message.message ?? 'Git bisect started. Mark the selected commit.',
 					error: null,
 					result: null,
 				}));
@@ -164,7 +164,7 @@ function App() {
 					currentCommitHash: message.currentCommitHash,
 					selectedVerdict: '',
 					busy: false,
-					message: message.message ?? 'Git bisect selecciono otro commit.',
+					message: message.message ?? 'Git bisect selected another commit.',
 					error: null,
 				}));
 				return;
@@ -178,7 +178,7 @@ function App() {
 					currentCommitHash: message.result.hash,
 					selectedVerdict: '',
 					busy: false,
-					message: message.message ?? 'Git bisect termino.',
+					message: message.message ?? 'Git bisect finished.',
 					error: null,
 					result: message.result,
 				}));
@@ -191,7 +191,7 @@ function App() {
 					currentCommitHash: message.commitHash,
 					selectedVerdict: '',
 					busy: false,
-					message: message.message ?? `Checkout realizado en ${shortHash(message.commitHash)}.`,
+					message: message.message ?? `Checked out ${shortHash(message.commitHash)}.`,
 					error: null,
 				}));
 				return;
@@ -243,7 +243,7 @@ function App() {
 			phase: 'starting',
 			setupCollapsed: true,
 			busy: true,
-			message: 'Iniciando git bisect...',
+			message: 'Starting git bisect...',
 			error: null,
 			result: null,
 			commits: [],
@@ -269,7 +269,7 @@ function App() {
 			...previous,
 			commits: previous.commits.map(commit => commit.hash === commitHash ? { ...commit, status: verdict } : commit),
 			busy: true,
-			message: `Marcando ${shortHash(commitHash)} como ${verdict}...`,
+			message: `Marking ${shortHash(commitHash)} as ${verdict}...`,
 			error: null,
 		}));
 
@@ -294,7 +294,7 @@ function App() {
 			...previous,
 			currentCommitHash: commitHash,
 			busy: true,
-			message: `Haciendo checkout de ${shortHash(commitHash)}...`,
+			message: `Checking out ${shortHash(commitHash)}...`,
 			error: null,
 		}));
 
@@ -309,19 +309,19 @@ function App() {
 			<header className='bisect-header'>
 				<div>
 					<h1 className='bisect-title'>Git Bisect</h1>
-					<p className='bisect-subtitle'>Selecciona un commit reciente malo y un commit anterior bueno para iniciar la busqueda.</p>
+					<p className='bisect-subtitle'>Select a recent bad commit and an older good commit to start the search.</p>
 				</div>
 
 				<button className='secondary-button' type='button' onClick={onReset}>
-					Reiniciar
+					Reset
 				</button>
 			</header>
 
 			<section className={state.setupCollapsed ? 'card card-collapsed' : 'card'}>
 				<div className='card-header'>
 					<div>
-						<h2>Configuracion inicial</h2>
-						<p>La rama seleccionada sera el extremo rojo. El numero indica cuantos commits hacia atras se usara como extremo verde.</p>
+						<h2>Initial setup</h2>
+						<p>The selected branch is used as the red endpoint. The number indicates how many commits back will be used as the green endpoint.</p>
 					</div>
 					{state.setupCollapsed && <span className='summary-pill'>{state.selectedBranch} · {state.commitsBack} commits</span>}
 				</div>
@@ -329,9 +329,9 @@ function App() {
 				{!state.setupCollapsed && (
 					<form className='setup-form' onSubmit={onStart}>
 						<label className='field'>
-							<span>Rama roja</span>
+							<span>Red branch</span>
 							<select value={state.selectedBranch} onChange={onBranchChange} disabled={state.busy}>
-								<option value='' disabled>{state.branches.length === 0 ? 'Cargando ramas...' : 'Seleccionar rama'}</option>
+								<option value='' disabled>{state.branches.length === 0 ? 'Loading branches...' : 'Select branch'}</option>
 								{state.branches.map(branch => (
 									<option key={branch.name} value={branch.name}>{branch.current ? `${branch.name} (actual)` : branch.name}</option>
 								))}
@@ -339,11 +339,11 @@ function App() {
 						</label>
 
 						<label className='field small-field'>
-							<span>Commit verde hacia atras</span>
+							<span>Commits back for green endpoint</span>
 							<input min={1} type='number' value={state.commitsBack} onChange={onCommitsBackChange} disabled={state.busy} />
 						</label>
 
-						<button className='primary-button' type='submit' disabled={!canStart}>Iniciar bisect</button>
+						<button className='primary-button' type='submit' disabled={!canStart}>Start bisect</button>
 					</form>
 				)}
 			</section>
@@ -351,14 +351,14 @@ function App() {
 			<section className={state.phase === 'setup' ? 'card disabled-card' : 'card'}>
 				<div className='card-header'>
 					<div>
-						<h2>Linea de commits</h2>
-						<p>Verde significa good, rojo significa bad y gris significa pendiente.</p>
+						<h2>Commit timeline</h2>
+						<p>Green means good, red means bad, and gray means pending.</p>
 					</div>
-					{state.currentCommitHash && <span className='current-pill'>Commit actual: {shortHash(state.currentCommitHash)}</span>}
+					{state.currentCommitHash && <span className='current-pill'>Current commit: {shortHash(state.currentCommitHash)}</span>}
 				</div>
 
 				{state.commits.length === 0 && (
-					<div className='empty-state'>{state.phase === 'setup' ? 'Inicia el bisect para ver la linea de commits.' : 'Esperando commits del backend...'}</div>
+					<div className='empty-state'>{state.phase === 'setup' ? 'Start bisect to see the commit timeline.' : 'Waiting for commits from the backend...'}</div>
 				)}
 
 				{state.commits.length > 0 && (
@@ -390,8 +390,8 @@ function App() {
 
 			{state.phase === 'running' && currentCommit && (
 				<section className='card action-card'>
-					<h2>Clasificar commit seleccionado</h2>
-					<p>El repositorio ya deberia estar parado en <strong>{shortHash(currentCommit.hash)}</strong>. Proba manualmente ese estado y marca el resultado.</p>
+					<h2>Classify selected commit</h2>
+					<p>The repository should already be checked out at <strong>{shortHash(currentCommit.hash)}</strong>. Test that state manually and mark the result.</p>
 
 					<div className='verdict-options'>
 						<label>
@@ -404,14 +404,14 @@ function App() {
 						</label>
 					</div>
 
-					<button className='primary-button' type='button' onClick={onMarkCommit} disabled={!canMark}>Confirmar resultado</button>
+					<button className='primary-button' type='button' onClick={onMarkCommit} disabled={!canMark}>Confirm result</button>
 				</section>
 			)}
 
 			{state.result && (
 				<section className='card result-card'>
-					<h2>Resultado</h2>
-					<p>Primer commit malo encontrado: <strong>{shortHash(state.result.hash)}</strong>{state.result.subject ? ` · ${state.result.subject}` : ''}</p>
+					<h2>Result</h2>
+					<p>First bad commit found: <strong>{shortHash(state.result.hash)}</strong>{state.result.subject ? ` · ${state.result.subject}` : ''}</p>
 					{state.result.rawOutput && <pre>{state.result.rawOutput}</pre>}
 				</section>
 			)}
