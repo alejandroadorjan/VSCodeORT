@@ -150,7 +150,15 @@ export function buildDashboardViewModel(input: {
 }): DashboardViewModel {
 	const sortedRuns = sortByStartDate(input.workflowRuns).filter((run) => run.conclusion !== undefined || run.status !== undefined);
 	const runsByCommit = buildRunsByCommit(sortedRuns);
-	const healthRuns = sortedRuns.filter((run) => run.conclusion !== 'skipped' || inferSkippedRunReason(getRelatedRunsForCommit(run, runsByCommit)) !== 'configOrEvent');
+	const healthRuns = sortedRuns.filter(run => {
+		if (run.conclusion !== 'skipped') {
+			return true;
+		}
+
+		return inferSkippedRunReason(
+			getRelatedRunsForCommit(run, runsByCommit)
+		) === 'sameCommitFailure';
+	});
 	const totalRuns = sortedRuns.length;
 	const successCount = sortedRuns.filter((run) => run.conclusion === 'success').length;
 	const failureCount = sortedRuns.filter((run) => run.conclusion === 'failure').length;
@@ -163,14 +171,33 @@ export function buildDashboardViewModel(input: {
 	const otherRate = totalRuns > 0 ? Math.max(0, 100 - successRate - failedRate - inProgressRate) : 0;
 	const completedRuns = sortedRuns.filter((run) => isCompletedRun(run));
 	const healthCompletedRuns = healthRuns.filter((run) => isCompletedRun(run));
-	const healthSuccessCount = healthRuns.filter((run) => run.conclusion === 'success').length;
-	const healthSuccessRate = healthRuns.length > 0 ? Math.round((healthSuccessCount / healthRuns.length) * 100) : 0;
+
+	// Health success rate is based only on completed workflow executions.
+	// Cancelled, skipped and in-progress runs do not represent a successful
+	// or failed execution and are therefore excluded from the reliability metric.
+	const healthRelevantRuns = healthRuns.filter(
+		run =>
+			run.conclusion === 'success' ||
+			run.conclusion === 'failure'
+	);
+	const healthSuccessCount = healthRelevantRuns.filter(
+		(run) => run.conclusion === 'success'
+	).length;
+
+	const healthSuccessRate = healthRelevantRuns.length > 0
+		? Math.round((healthSuccessCount / healthRelevantRuns.length) * 100)
+		: 0;
 	const healthAverageDurationSeconds = healthCompletedRuns.length > 0
 		? Math.round(healthCompletedRuns.reduce((total, run) => total + runDurationSeconds(run), 0) / healthCompletedRuns.length)
 		: 0;
 	const averageDurationSeconds = completedRuns.length > 0
 		? Math.round(completedRuns.reduce((total, run) => total + runDurationSeconds(run), 0) / completedRuns.length)
 		: 0;
+
+	console.log('healthRuns', healthRuns.length);
+	console.log('healthSuccessCount', healthSuccessCount);
+	console.log('healthSuccessRate', healthSuccessRate);
+	console.log('healthAverageDurationSeconds', healthAverageDurationSeconds);
 	const recentSuccessCount = buildRecentSuccessCount(sortedRuns);
 	const deploymentFrequency = recentSuccessCount > 0 ? Math.round((recentSuccessCount / DEPLOYMENT_WEEKS_ESTIMATE) * 10) / 10 : 0;
 	const mttrMinutes = calculateMttrMinutes(sortedRuns);

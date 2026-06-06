@@ -19,7 +19,28 @@
         "command": "dashboard.open",
         "title": "%dashboard.open.title%"
       }
-    ]
+    ],
+      "configuration": {
+    "title": "Dashboard",
+    "properties": {
+      "dashboard.owner": {
+        "type": "string",
+        "default": "microsoft",
+        "description": "GitHub repository owner"
+      },
+      "dashboard.repo": {
+        "type": "string",
+        "default": "vscode",
+        "description": "GitHub repository name"
+      },
+      "dashboard.githubToken": {
+        "type": "string",
+        "default": "",
+        "description": "GitHub Personal Access Token"
+      }
+    }
+  }
+
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

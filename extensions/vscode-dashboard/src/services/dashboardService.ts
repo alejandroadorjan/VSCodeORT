@@ -7,6 +7,9 @@ import { getClosedIssues, getCommits, getOpenIssuesCount, getOpenPullRequestsCou
 import type { DashboardData, DashboardRequest } from '../model/dashboard';
 
 export async function loadDashboardData(request: DashboardRequest): Promise<DashboardData> {
+	console.log('OWNER', request.owner);
+	console.log('REPO', request.repo);
+	console.log('TOKEN PRESENT', !!request.token);
 	const options = {
 		owner: request.owner,
 		repo: request.repo,

@@ -7,13 +7,68 @@
 
 Engineering observability dashboard for GitHub repositories.
 
-This extension adds a command that opens a webview dashboard with key repository and workflow metrics (runs, success/failure rate, MTTR, deployment frequency, open issues/PRs, stars, forks, watchers, and more).
+This extension adds a command that opens a webview dashboard with key repository and workflow metrics (runs, success/failure rate, workflow health, workflow-based delivery proxies, open issues/PRs, stars, forks, watchers, and more).
 
 ## What It Does
 
 - Loads repository data from GitHub APIs.
 - Aggregates CI/workflow metrics into a dashboard view model.
 - Renders a webview dashboard inside VS Code.
+
+## Metric Definitions
+
+The dashboard is intentionally based on GitHub data that is available from the repository APIs. Workflow metrics use the latest workflow runs returned by GitHub Actions, up to 300 runs (`per_page=100`, `maxPages=3`), across all branches. This is a recent-activity sample, not a fixed calendar window.
+
+### Repository Signals
+
+- Stars: `repo.stargazers_count`.
+- Forks: `repo.forks_count`.
+- Watchers: `repo.subscribers_count` when available, otherwise `repo.watchers_count`.
+- Open issues: GitHub Search API count for `is:issue is:open`; pull requests are excluded.
+- Open PRs: GitHub Search API count for `is:pr is:open`.
+- Active devs: unique commit author logins from the latest 10 commits returned by GitHub.
+
+### Workflow Outcomes
+
+- Runs tracked: workflow runs with either `conclusion` or `status`.
+- Success count: runs where `conclusion === "success"`.
+- Failure count: runs where `conclusion === "failure"`.
+- In progress count: runs where `status === "in_progress"`.
+- Other count: tracked runs that are not success, failure, or in progress. This includes skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes.
+- Success rate: `success_count / tracked_runs * 100`.
+- Failure rate: `failure_count / tracked_runs * 100`.
+- In progress rate: `in_progress_count / tracked_runs * 100`.
+- Other rate: remainder to 100 after rounded success, failure, and in-progress percentages.
+
+### Build Duration
+
+- Completed run: a run with `run_started_at`, `updated_at`, and `conclusion`.
+- Run duration: `max(0, updated_at - run_started_at)` in seconds.
+- Average build time: mean duration across completed workflow runs.
+
+### Workflow Health
+
+Workflow Health is a composite score from 0 to 100:
+
+```text
+Workflow Health = (reliability * 0.65) + (build_speed * 0.35)
+```
+
+- Reliability uses only success and failure outcomes from health-relevant runs: `successes / (successes + failures) * 100`.
+- Skipped runs that are likely caused by workflow configuration or event filters are excluded from the health input.
+- Cancelled, skipped, and in-progress runs are excluded from reliability because they do not represent a success/failure execution outcome.
+- Build speed normalizes average duration against a 900 second cap: `((900 - min(avg_duration_seconds, 900)) / 900) * 100`.
+
+### Workflow-Based Delivery Proxies
+
+The DORA-style section uses workflow data as transparent proxies because the public GitHub APIs used here do not expose full production deployment, incident, and rollback traces.
+
+- Deployment frequency proxy: successful workflow runs in the last 30 days divided by 4 weeks.
+- MTTR proxy: average minutes from a failed run's `updated_at` timestamp to the next successful run's `run_started_at` timestamp.
+- Change failure rate proxy: `failure_count / tracked_runs * 100`.
+- Lead time: currently displayed as a static approximation (`~2.1 days`) and should be treated as illustrative until commit-to-deployment tracing is implemented.
+
+These values are useful for CI/CD observability, but they should not be presented as exact production DORA measurements.
 
 Main command:
 

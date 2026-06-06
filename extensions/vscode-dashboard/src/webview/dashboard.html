@@ -1,299 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Engineering Dashboard</title>
-  <link rel="stylesheet" href="__styles__" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Engineering Dashboard</title>
+	<link rel="stylesheet" href="__styles__" />
 </head>
+
 <body>
 
-<!-- TOPBAR -->
-<header class="topbar">
-  <div class="topbar-left">
-    <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    <span class="repo-name">microsoft / vscode</span>
-    <span class="badge badge-blue">public</span>
-    <span class="divider-v"></span>
-    <span class="repo-desc">Code editing. Redefined.</span>
-  </div>
-  <div class="topbar-right">
-    <span class="in-progress-pill hidden" id="ip-pill">
-      <span class="pulse-dot"></span> <span id="ip-count">0</span> running
-    </span>
-    <span class="last-updated">Refreshed <span id="timestamp"></span></span>
-  </div>
-</header>
+	<!-- TOPBAR -->
+	<header class="topbar">
+		<div class="topbar-left">
+			<svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+				stroke-width="2">
+				<path
+					d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+			</svg>
+			<span class="repo-name">microsoft / vscode</span>
+			<span class="badge badge-blue">public</span>
+			<span class="divider-v"></span>
+			<span class="repo-desc">Code editing. Redefined.</span>
+		</div>
+		<div class="topbar-right">
+			<span class="in-progress-pill hidden" id="ip-pill">
+				<span class="pulse-dot"></span> <span id="ip-count">0</span> running
+			</span>
+			<span class="last-updated">Refreshed <span id="timestamp"></span></span>
+		</div>
+	</header>
 
-<main class="dashboard">
+	<main class="dashboard">
 
-  <!-- ── SECTION: KPI STRIP ─────────────────────────────────────────── -->
-  <div class="kpi-row">
-    <div class="metric-card">
-      <div class="label">Stars</div>
-      <div class="val">__stars__</div>
-      <div class="sub"><span class="badge badge-green">popular</span></div>
-    </div>
-    <div class="metric-card">
-      <div class="label">Open issues</div>
-      <div class="val">__openIssues__</div>
-      <div class="sub"><span class="badge badge-amber">real issues only</span></div>
-    </div>
-    <div class="metric-card">
-      <div class="label">Open PRs</div>
-      <div class="val">__openPRs__</div>
-      <div class="sub"><span class="badge badge-blue">in review</span></div>
-    </div>
+		<!-- - SECTION: KPI STRIP --------------------- -->
+		<div class="kpi-row">
+			<div class="metric-card">
+				<div class="label">Stars</div>
+				<div class="val">__stars__</div>
+				<div class="sub"><span class="badge badge-green">popular</span></div>
+			</div>
+			<div class="metric-card">
+				<div class="label">Open issues</div>
+				<div class="val">__openIssues__</div>
+				<div class="sub"><span class="badge badge-amber">real issues only</span></div>
+			</div>
+			<div class="metric-card">
+				<div class="label">Open PRs</div>
+				<div class="val">__openPRs__</div>
+				<div class="sub"><span class="badge badge-blue">in review</span></div>
+			</div>
 
-    <!-- SUCCESS RATE with tooltip -->
-    <div class="metric-card has-tooltip">
-      <div class="info-icon" aria-label="Info">?</div>
-      <div class="tooltip-box">
-        <strong>Success rate</strong><br>
-        Percentage of completed workflow runs (last 100) where <code>conclusion === "success"</code>.<br><br>
-        <em>Formula:</em> successful runs ÷ total completed runs × 100
-      </div>
-      <div class="label">Success rate</div>
-      <div class="val">__successRate__%</div>
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-    </div>
+			<!-- SUCCESS RATE with tooltip -->
+			<div class="metric-card has-tooltip">
+				<div class="info-icon" aria-label="Info">?</div>
+				<div class="tooltip-box">
+					<strong>Success rate</strong><br>
+					Percentage of completed workflow runs (last 100) where <code>conclusion === "success"</code>.<br><br>
+					<em>Formula:</em> successful runs ÷ total completed runs × 100
+				</div>
+				<div class="label">Success rate</div>
+				<div class="val">__successRate__%</div>
+				<div class="progress-bar">
+					<div class="progress-fill"></div>
+				</div>
+			</div>
 
-    <div class="metric-card has-tooltip">
-      <div class="info-icon" aria-label="Info">?</div>
-      <div class="tooltip-box">
-        <strong>Avg build time</strong><br>
-        Average duration of completed workflow runs.<br><br>
-        <em>Formula:</em> mean of (updated_at − run_started_at) for all runs with a conclusion.
-      </div>
-      <div class="label">Avg build time</div>
-      <div class="val" id="avg-dur-val">__avgDuration__s</div>
-      <div class="sub" id="build-sub"></div>
-    </div>
+			<div class="metric-card has-tooltip">
+				<div class="info-icon" aria-label="Info">?</div>
+				<div class="tooltip-box">
+					<strong>Avg build time</strong><br>
+					Average duration of completed workflow runs.<br><br>
+					<em>Formula:</em> mean of (updated_at - run_started_at) for all runs with a conclusion.
+				</div>
+				<div class="label">Avg build time</div>
+				<div class="val" id="avg-dur-val">__avgDuration__s</div>
+				<div class="sub" id="build-sub"></div>
+			</div>
 
-    <div class="metric-card">
-      <div class="label">Runs tracked</div>
-      <div class="val">__totalRuns__</div>
-      <div class="sub"><span id="runs-detail" class="muted-text"></span></div>
-    </div>
-  </div>
+			<div class="metric-card">
+				<div class="label">Runs tracked</div>
+				<div class="val">__totalRuns__</div>
+				<div class="sub"><span id="runs-detail" class="muted-text"></span></div>
+			</div>
+		</div>
 
-  <!-- ── SECTION: HEALTH + PIPELINE ────────────────────────────────── -->
-  <div class="section-label">Pipeline overview</div>
-  <div class="row2">
+		<!-- - SECTION: HEALTH + PIPELINE ----------------- -->
+		<div class="section-label">Pipeline overview</div>
+		<div class="row2">
 
-    <div class="card health-card">
-      <div class="card-title">Project health</div>
-      <div class="gauge-wrap">
-        <canvas id="gauge" width="180" height="100"></canvas>
-        <div class="gauge-score">__healthScore__<span class="gauge-unit">/ 100</span></div>
-      </div>
-      <div class="centered">
-        <span class="badge" id="health-badge"></span>
-      </div>
+			<div class="card health-card">
+				<div class="card-title">Workflow Health</div>
+				<div class="gauge-wrap">
+					<canvas id="gauge" width="180" height="100"></canvas>
+					<div class="gauge-score">__healthScore__<span class="gauge-unit">/ 100</span></div>
+				</div>
+				<div class="centered">
+					<span class="badge" id="health-badge"></span>
+				</div>
 
-      <!-- Health breakdown with tooltips -->
-      <div class="health-breakdown">
-        <div class="hb-row has-tooltip">
-          <span>
-            Pipeline stability
-            <span class="info-icon-sm">?</span>
-            <div class="tooltip-box tooltip-box-sm">
-              <strong>Pipeline stability (65% weight)</strong><br>
-              Based on the success rate of the last 100 workflow runs.<br><br>
-              <em>Formula:</em> success_rate × 0.65<br>
-              Higher success rate = higher stability score.
-            </div>
-          </span>
-          <span>65%</span>
-        </div>
-        <div class="hb-row has-tooltip">
-          <span>
-            Build speed
-            <span class="info-icon-sm">?</span>
-            <div class="tooltip-box tooltip-box-sm">
-              <strong>Build speed (35% weight)</strong><br>
-              Measures how fast your builds are, capped at 180s for scoring purposes.<br><br>
-              <em>Formula:</em> (100 − min(avg_duration_s, 180)) × 0.35<br>
-              A 60s avg build → (100−60)×0.35 = 14 pts. A 180s+ build → 0 pts.
-            </div>
-          </span>
-          <span>35%</span>
-        </div>
-      </div>
+				<!-- Health breakdown with tooltips -->
+				<div class="health-breakdown">
+					<div class="hb-row has-tooltip">
+						<span>
+							Workflow reliability
+							<span class="info-icon-sm">?</span>
+							<div class="tooltip-box tooltip-box-sm">
+								<strong>Workflow reliability (65% weight)</strong><br>
+								Based only on successful and failed workflow executions.<br><br>
 
-      <!-- Health score formula note -->
-      <div class="health-formula">
-        <span class="info-icon-sm mr-4">ƒ</span>
-        Score = (success_rate × 0.65) + ((100 − min(avg_s, 180)) × 0.35)
-      </div>
-    </div>
+								Skipped, cancelled and in-progress runs are excluded because they do not represent a completed execution
+								outcome.<br><br>
 
-    <div class="card chart-card">
-      <div class="chart-header">
-        <div class="card-title">Recent run diagnosis</div>
-        <div class="legend-row">
-          <span class="legend-dot success"></span><span>Success</span>
-          <span class="legend-dot failed ml-12"></span><span>Failed</span>
-          <span class="legend-dot other ml-12"></span><span>Skipped / other</span>
-          <span class="legend-dot inprogress ml-12"></span><span>In progress</span>
-        </div>
-      </div>
-      <div class="chart-help">Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.</div>
-      <div class="run-diagnostics">__runDiagnosticsHtml__</div>
-      <div class="run-insights">
-        <div class="run-insights-title">Runs needing attention</div>
-        <div class="run-insights-list">__runInsightsHtml__</div>
-      </div>
-    </div>
+								<em>Formula:</em>
 
-  </div>
+								successful_workflows
+								÷
+								(successful_workflows + failed_workflows)
 
-  <!-- ── SECTION: DORA + RUNS + DONUT ──────────────────────────────── -->
-  <div class="section-label">DORA metrics &amp; run detail</div>
-  <div class="row3">
+								× 0.65
+							</div>
+						</span>
+						<span>65%</span>
+					</div>
+					<div class="hb-row has-tooltip">
+						<span>
+							Build speed
+							<span class="info-icon-sm">?</span>
+							<div class="tooltip-box tooltip-box-sm">
+								<strong>Build speed (35% weight)</strong><br>
+								Measures how fast your builds are, capped at 180s for scoring purposes.<br><br>
+								<em>Formula:</em> (100 - min(avg_duration_s, 180)) × 0.35<br>
+								A 60s avg build → (100-60)×0.35 = 14 pts. A 180s+ build → 0 pts.
+							</div>
+						</span>
+						<span>35%</span>
+					</div>
+				</div>
 
-    <div class="card dora-card">
-      <div class="card-title">DORA metrics</div>
+				<!-- Health score formula note -->
+				<div class="health-formula">
+					<span class="info-icon-sm mr-4"></span>
+					Workflow Health = 65% Reliability + 35% Build Speed
+				</div>
+			</div>
 
-      <div class="dora-row has-tooltip">
-        <div class="info-icon" aria-label="Info">?</div>
-        <div class="tooltip-box tooltip-dora">
-          <strong>Deployment frequency</strong><br>
-          Successful runs in the last 30 days divided by 4 weeks.<br><br>
-          <em>Formula:</em> successful_runs_last_30d ÷ 4
-        </div>
-        <div>
-          <div class="dora-label">Deployment frequency</div>
-          <div class="dora-hint">successful runs / week</div>
-        </div>
-        <div class="dora-right"><span class="dora-val">__deploymentFrequency__/wk</span><span class="badge badge-green">Elite</span></div>
-      </div>
+			<div class="card chart-card">
+				<div class="chart-header">
+					<div class="card-title">Recent run diagnosis</div>
+					<div class="legend-row">
+						<span class="legend-dot success"></span><span>Success</span>
+						<span class="legend-dot failed ml-12"></span><span>Failed</span>
+						<span class="legend-dot other ml-12"></span><span>Skipped / other</span>
+						<span class="legend-dot inprogress ml-12"></span><span>In progress</span>
+					</div>
+				</div>
+				<div class="chart-help">Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link
+					to jump to the exact run when something needs attention.</div>
+				<div class="run-diagnostics">__runDiagnosticsHtml__</div>
+				<div class="run-insights">
+					<div class="run-insights-title">Runs needing attention</div>
+					<div class="run-insights-list">__runInsightsHtml__</div>
+				</div>
+			</div>
 
-      <div class="dora-row has-tooltip">
-        <div class="info-icon" aria-label="Info">?</div>
-        <div class="tooltip-box tooltip-dora">
-          <strong>Lead time</strong><br>
-          Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy tracking for real data.
-        </div>
-        <div>
-          <div class="dora-label">Lead time</div>
-          <div class="dora-hint">commit → production</div>
-        </div>
-        <div class="dora-right"><span class="dora-val">~2.1 days</span><span class="badge badge-blue">High</span></div>
-      </div>
+		</div>
 
-      <div class="dora-row has-tooltip">
-        <div class="info-icon" aria-label="Info">?</div>
-        <div class="tooltip-box tooltip-dora">
-          <strong>MTTR — Mean Time To Recovery</strong><br>
-          Average minutes from a failed run's end to the next successful run's start.<br><br>
-          <em>Formula:</em> mean of (next_success.run_started_at − failure.updated_at) for each failure→recovery pair.
-        </div>
-        <div>
-          <div class="dora-label">MTTR</div>
-          <div class="dora-hint">failure → next success</div>
-        </div>
-        <div class="dora-right"><span class="dora-val">__mttr__ min</span><span class="badge" id="mttr-badge"></span></div>
-      </div>
+		<!-- SECTION: DORA + RUNS + DONUT -->
+		<div class="section-label">DORA metrics &amp; run detail</div>
+		<div class="row3">
 
-      <div class="dora-row has-tooltip no-border">
-        <div class="info-icon" aria-label="Info">?</div>
-        <div class="tooltip-box tooltip-dora">
-          <strong>Change failure rate</strong><br>
-          Percentage of workflow runs that ended in failure.<br><br>
-          <em>Formula:</em> failed_runs ÷ total_runs × 100
-        </div>
-        <div>
-          <div class="dora-label">Change failure rate</div>
-          <div class="dora-hint">failed / total runs</div>
-        </div>
-        <div class="dora-right"><span class="dora-val">__changeFailureRate__%</span><span class="badge" id="cfr-badge"></span></div>
-      </div>
-    </div>
+			<div class="card dora-card">
+				<div class="card-title">DORA metrics</div>
 
-    <div class="card runs-card">
-      <div class="card-title">Recent workflow runs</div>
-      <div id="recentRuns">__recentRunsHtml__</div>
-    </div>
+				<div class="dora-row has-tooltip">
+					<div class="info-icon" aria-label="Info">?</div>
+					<div class="tooltip-box tooltip-dora">
+						<strong>Deployment frequency</strong><br>
+						Successful runs in the last 30 days divided by 4 weeks.<br><br>
+						<em>Formula:</em> successful_runs_last_30d ÷ 4
+					</div>
+					<div>
+						<div class="dora-label">Deployment frequency</div>
+						<div class="dora-hint">successful runs / week</div>
+					</div>
+					<div class="dora-right"><span class="dora-val">__deploymentFrequency__/wk</span><span
+							class="badge badge-green">Elite</span></div>
+				</div>
 
-    <div class="card donut-card">
-      <div class="card-title">Run outcomes</div>
-      <div class="outcome-scope">Scope: latest __totalRuns__ workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.</div>
-      <div class="outcome-visual">
-        <canvas id="donutChart" role="img" aria-label="Run outcomes"></canvas>
-        <div class="outcome-stack" aria-hidden="true">
-          <span class="outcome-segment success" id="outcome-success"></span>
-          <span class="outcome-segment failed" id="outcome-failed"></span>
-          <span class="outcome-segment other" id="outcome-other"></span>
-          <span class="outcome-segment inprogress" id="outcome-inprogress"></span>
-        </div>
-      </div>
-      <div class="donut-legend">
-        <div><span class="legend-dot success"></span>Success<br><strong id="success-pct">0%</strong><span class="outcome-count">__success__ runs</span></div>
-        <div><span class="legend-dot failed"></span>Failed<br><strong id="failed-pct">0%</strong><span class="outcome-count">__failed__ runs</span></div>
-        <div title="Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes"><span class="legend-dot other"></span>Skipped / other<br><strong id="other-pct">0%</strong><span class="outcome-count">__other__ runs</span></div>
-        <div><span class="legend-dot inprogress"></span>In progress<br><strong id="inprogress-pct">0%</strong><span class="outcome-count">__inProgress__ runs</span></div>
-      </div>
-    </div>
+				<div class="dora-row has-tooltip">
+					<div class="info-icon" aria-label="Info">?</div>
+					<div class="tooltip-box tooltip-dora">
+						<strong>Lead time</strong><br>
+						Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy
+						tracking for real data.
+					</div>
+					<div>
+						<div class="dora-label">Lead time</div>
+						<div class="dora-hint">commit → production</div>
+					</div>
+					<div class="dora-right"><span class="dora-val">~2.1 days</span><span class="badge badge-blue">High</span>
+					</div>
+				</div>
 
-  </div>
+				<div class="dora-row has-tooltip">
+					<div class="info-icon" aria-label="Info">?</div>
+					<div class="tooltip-box tooltip-dora">
+						<strong>MTTR — Mean Time To Recovery</strong><br>
+						Average minutes from a failed run's end to the next successful run's start.<br><br>
+						<em>Formula:</em> mean of (next_success.run_started_at - failure.updated_at) for each failure→recovery pair.
+					</div>
+					<div>
+						<div class="dora-label">MTTR</div>
+						<div class="dora-hint">failure → next success</div>
+					</div>
+					<div class="dora-right"><span class="dora-val">__mttr__ min</span><span class="badge" id="mttr-badge"></span>
+					</div>
+				</div>
 
-  <!-- ── SECTION: ISSUES + SIGNALS ─────────────────────────────────── -->
-  <div class="section-label">Issues &amp; repository signals</div>
-  <div class="row4">
+				<div class="dora-row has-tooltip no-border">
+					<div class="info-icon" aria-label="Info">?</div>
+					<div class="tooltip-box tooltip-dora">
+						<strong>Change failure rate</strong><br>
+						Percentage of workflow runs that ended in failure.<br><br>
+						<em>Formula:</em> failed_runs ÷ total_runs × 100
+					</div>
+					<div>
+						<div class="dora-label">Change failure rate</div>
+						<div class="dora-hint">failed / total runs</div>
+					</div>
+					<div class="dora-right"><span class="dora-val">__changeFailureRate__%</span><span class="badge"
+							id="cfr-badge"></span></div>
+				</div>
+			</div>
 
-    <div class="card issues-card">
-      <div class="card-title card-title-row">
-        <span>Recently closed issues</span>
-        <span class="muted-text muted-subtext">Source: GitHub Issues API · excludes PRs</span>
-      </div>
-      <ul id="issueList">__resolvedIssues__</ul>
-    </div>
+			<div class="card runs-card">
+				<div class="card-title">Recent workflow runs</div>
+				<div id="recentRuns">__recentRunsHtml__</div>
+			</div>
 
-    <div class="signals-col">
+			<div class="card donut-card">
+				<div class="card-title">Run outcomes</div>
+				<div class="outcome-scope">Scope: latest __totalRuns__ workflow runs returned by GitHub Actions across all
+					branches; this is not a fixed time window.</div>
+				<div class="outcome-visual">
+					<canvas id="donutChart" role="img" aria-label="Run outcomes"></canvas>
+					<div class="outcome-stack" aria-hidden="true">
+						<span class="outcome-segment success" id="outcome-success"></span>
+						<span class="outcome-segment failed" id="outcome-failed"></span>
+						<span class="outcome-segment other" id="outcome-other"></span>
+						<span class="outcome-segment inprogress" id="outcome-inprogress"></span>
+					</div>
+				</div>
+				<div class="donut-legend">
+					<div><span class="legend-dot success"></span>Success<br><strong id="success-pct">0%</strong><span
+							class="outcome-count">__success__ runs</span></div>
+					<div><span class="legend-dot failed"></span>Failed<br><strong id="failed-pct">0%</strong><span
+							class="outcome-count">__failed__ runs</span></div>
+					<div
+						title="Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes">
+						<span class="legend-dot other"></span>Skipped / other<br><strong id="other-pct">0%</strong><span
+							class="outcome-count">__other__ runs</span></div>
+					<div><span class="legend-dot inprogress"></span>In progress<br><strong id="inprogress-pct">0%</strong><span
+							class="outcome-count">__inProgress__ runs</span></div>
+				</div>
+			</div>
 
-      <div class="card signals-card">
-        <div class="card-title">Repository signals</div>
-        <div class="signals-grid">
-          <div class="signal-item">
-            <div class="label">Forks</div>
-            <div class="val-sm">__forks__</div>
-          </div>
-          <div class="signal-item">
-            <div class="label">Watchers</div>
-            <div class="val-sm">__watchers__</div>
-          </div>
-          <div class="signal-item">
-            <div class="label">Open PRs</div>
-            <div class="val-sm">__openPRs__</div>
-          </div>
-          <div class="signal-item">
-            <div class="label">Active devs (10 commits)</div>
-            <div class="val-sm">__activeDevs__</div>
-          </div>
-        </div>
-      </div>
+		</div>
 
-      <div class="card main-alerts-card">
-        <div class="card-title">Main branch alerts</div>
-        <div class="main-alerts-note">Recent failed workflow runs on main only. Skipped, cancelled, action required, and currently running workflows are intentionally excluded.</div>
-        <div class="main-alerts">__mainAlertsHtml__</div>
-      </div>
+		<!--  SECTION: ISSUES + SIGNALS  -->
+		<div class="section-label">Issues &amp; repository signals</div>
+		<div class="row4">
 
-      <div class="card skipped-runs-card">
-        <div class="card-title">Skipped run diagnostics</div>
-        <div class="skipped-runs-note">Probable causes inferred from other workflow runs on the same commit. GitHub does not expose a single skip reason in workflow run data.</div>
-        <div class="skipped-runs">__skippedRunsHtml__</div>
-      </div>
+			<div class="card issues-card">
+				<div class="card-title card-title-row">
+					<span>Recently closed issues</span>
+					<span class="muted-text muted-subtext">Source: GitHub Issues API · excludes PRs</span>
+				</div>
+				<ul id="issueList">__resolvedIssues__</ul>
+			</div>
 
-    </div>
+			<div class="signals-col">
 
-  </div>
+				<div class="card signals-card">
+					<div class="card-title">Repository signals</div>
+					<div class="signals-grid">
+						<div class="signal-item">
+							<div class="label">Forks</div>
+							<div class="val-sm">__forks__</div>
+						</div>
+						<div class="signal-item">
+							<div class="label">Watchers</div>
+							<div class="val-sm">__watchers__</div>
+						</div>
+						<div class="signal-item">
+							<div class="label">Open PRs</div>
+							<div class="val-sm">__openPRs__</div>
+						</div>
+						<div class="signal-item">
+							<div class="label">Active devs (10 commits)</div>
+							<div class="val-sm">__activeDevs__</div>
+						</div>
+					</div>
+				</div>
 
-</main>
+				<div class="card main-alerts-card">
+					<div class="card-title">Main branch alerts</div>
+					<div class="main-alerts-note">Recent failed workflow runs on main only. Skipped, cancelled, action required,
+						and currently running workflows are intentionally excluded.</div>
+					<div class="main-alerts">__mainAlertsHtml__</div>
+				</div>
 
-<script>
-__script__
-</script>
+				<div class="card skipped-runs-card">
+					<div class="card-title">Skipped run diagnostics</div>
+					<div class="skipped-runs-note">Probable causes inferred from other workflow runs on the same commit. GitHub
+						does not expose a single skip reason in workflow run data.</div>
+					<div class="skipped-runs">__skippedRunsHtml__</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
+	<script>
+		__script__
+	</script>
 </body>
+
 </html>
