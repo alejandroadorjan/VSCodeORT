@@ -58,6 +58,13 @@ type ExtensionToWebviewMessage =
 	| { readonly type: 'checkedOut'; readonly commitHash: string; readonly message?: string }
 	| { readonly type: 'error'; readonly message: string };
 
+type InitMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'init' }>;
+type StartedMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'started' }>;
+type StepMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'step' }>;
+type FinishedMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'finished' }>;
+type CheckedOutMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'checkedOut' }>;
+type ErrorMessage = Extract<ExtensionToWebviewMessage, { readonly type: 'error' }>;
+
 declare const acquireVsCodeApi: <TState = unknown>() => {
 	postMessage: (message: WebviewToExtensionMessage) => void;
 	getState: () => TState | undefined;
@@ -103,6 +110,106 @@ function getStatusLabel(status: CommitStatus): string {
 	return 'pending';
 }
 
+function handleInitMessage(previous: BisectUiState, message: InitMessage): BisectUiState {
+	const selectedBranch = previous.selectedBranch
+		|| message.currentBranch
+		|| message.branches.find(branch => branch.current)?.name
+		|| message.branches[0]?.name
+		|| '';
+
+	return {
+		...previous,
+		branches: message.branches,
+		selectedBranch,
+		error: null,
+	};
+}
+
+function handleStartedMessage(previous: BisectUiState, message: StartedMessage): BisectUiState {
+	return {
+		...previous,
+		phase: 'running',
+		setupCollapsed: true,
+		commits: message.commits,
+		currentCommitHash: message.currentCommitHash,
+		selectedVerdict: '',
+		busy: false,
+		message: message.message ?? 'Git bisect started. Mark the selected commit.',
+		error: null,
+		result: null,
+	};
+}
+
+function handleStepMessage(previous: BisectUiState, message: StepMessage): BisectUiState {
+	return {
+		...previous,
+		phase: 'running',
+		commits: message.commits,
+		currentCommitHash: message.currentCommitHash,
+		selectedVerdict: '',
+		busy: false,
+		message: message.message ?? 'Git bisect selected another commit.',
+		error: null,
+	};
+}
+
+function handleFinishedMessage(previous: BisectUiState, message: FinishedMessage): BisectUiState {
+	return {
+		...previous,
+		phase: 'finished',
+		commits: message.commits,
+		currentCommitHash: message.result.hash,
+		selectedVerdict: '',
+		busy: false,
+		message: message.message ?? 'Git bisect finished.',
+		error: null,
+		result: message.result,
+	};
+}
+
+function handleCheckedOutMessage(previous: BisectUiState, message: CheckedOutMessage): BisectUiState {
+	return {
+		...previous,
+		currentCommitHash: message.commitHash,
+		selectedVerdict: '',
+		busy: false,
+		message: message.message ?? `Checked out ${shortHash(message.commitHash)}.`,
+		error: null,
+	};
+}
+
+function handleErrorMessage(previous: BisectUiState, message: ErrorMessage): BisectUiState {
+	return {
+		...previous,
+		phase: previous.commits.length > 0 ? previous.phase : 'setup',
+		setupCollapsed: previous.commits.length > 0,
+		busy: false,
+		error: message.message,
+	};
+}
+
+function handleExtensionMessage(previous: BisectUiState, message: ExtensionToWebviewMessage): BisectUiState {
+	switch (message.type) {
+		case 'init':
+			return handleInitMessage(previous, message);
+
+		case 'started':
+			return handleStartedMessage(previous, message);
+
+		case 'step':
+			return handleStepMessage(previous, message);
+
+		case 'finished':
+			return handleFinishedMessage(previous, message);
+
+		case 'checkedOut':
+			return handleCheckedOutMessage(previous, message);
+
+		case 'error':
+			return handleErrorMessage(previous, message);
+	}
+}
+
 function App() {
 	const [state, setState] = useState<BisectUiState>(() => vscode.getState() ?? defaultState);
 
@@ -122,90 +229,7 @@ function App() {
 		const listener = (event: MessageEvent<ExtensionToWebviewMessage>): void => {
 			const message = event.data;
 
-			if (message.type === 'init') {
-				setState(previous => {
-					const selectedBranch = previous.selectedBranch
-						|| message.currentBranch
-						|| message.branches.find(branch => branch.current)?.name
-						|| message.branches[0]?.name
-						|| '';
-
-					return {
-						...previous,
-						branches: message.branches,
-						selectedBranch,
-						error: null,
-					};
-				});
-				return;
-			}
-
-			if (message.type === 'started') {
-				setState(previous => ({
-					...previous,
-					phase: 'running',
-					setupCollapsed: true,
-					commits: message.commits,
-					currentCommitHash: message.currentCommitHash,
-					selectedVerdict: '',
-					busy: false,
-					message: message.message ?? 'Git bisect started. Mark the selected commit.',
-					error: null,
-					result: null,
-				}));
-				return;
-			}
-
-			if (message.type === 'step') {
-				setState(previous => ({
-					...previous,
-					phase: 'running',
-					commits: message.commits,
-					currentCommitHash: message.currentCommitHash,
-					selectedVerdict: '',
-					busy: false,
-					message: message.message ?? 'Git bisect selected another commit.',
-					error: null,
-				}));
-				return;
-			}
-
-			if (message.type === 'finished') {
-				setState(previous => ({
-					...previous,
-					phase: 'finished',
-					commits: message.commits,
-					currentCommitHash: message.result.hash,
-					selectedVerdict: '',
-					busy: false,
-					message: message.message ?? 'Git bisect finished.',
-					error: null,
-					result: message.result,
-				}));
-				return;
-			}
-
-			if (message.type === 'checkedOut') {
-				setState(previous => ({
-					...previous,
-					currentCommitHash: message.commitHash,
-					selectedVerdict: '',
-					busy: false,
-					message: message.message ?? `Checked out ${shortHash(message.commitHash)}.`,
-					error: null,
-				}));
-				return;
-			}
-
-			if (message.type === 'error') {
-				setState(previous => ({
-					...previous,
-					phase: previous.commits.length > 0 ? previous.phase : 'setup',
-					setupCollapsed: previous.commits.length > 0,
-					busy: false,
-					error: message.message,
-				}));
-			}
+			setState(previous => handleExtensionMessage(previous, message));
 		};
 
 		window.addEventListener('message', listener);
