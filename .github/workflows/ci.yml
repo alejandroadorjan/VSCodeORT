@@ -78,7 +78,7 @@ jobs:
 
       - name: Setup Electron sandbox
         run: |
-          npm run electron
+          node build/lib/preLaunch.ts
           sudo chown root .build/electron/chrome-sandbox
           sudo chmod 4755 .build/electron/chrome-sandbox
 
@@ -101,15 +101,26 @@ jobs:
 
       - name: Run integration tests Electron
         run: xvfb-run ./scripts/test-integration.sh --suite api-folder
+        env:
+          VSCODE_SKIP_PRELAUNCH: 1
 
       - name: Run integration tests Browser Chromium
         run: ./scripts/test-web-integration.sh --browser chromium
 
       - name: Run integration tests Remote
         run: ./scripts/test-remote-integration.sh
+        env:
+          VSCODE_SKIP_PRELAUNCH: 1
 
       - name: Run smoke tests Electron
-        run: xvfb-run npm run smoketest -- --tracing
+        run: |
+          set -e
+          node build/lib/preLaunch.ts
+          sudo chown root .build/electron/chrome-sandbox
+          sudo chmod 4755 .build/electron/chrome-sandbox
+          cd test/smoke
+          npm run compile
+          xvfb-run node test/index.js --tracing
 
       - name: Run smoke tests Browser Chromium
         run: npm run smoketest -- --web --browser chromium --headless --tracing
