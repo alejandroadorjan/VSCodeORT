@@ -59,7 +59,7 @@ export class Bisect implements Disposable {
 
 		const panel: WebviewPanel = this.createWebviewPanel();
 
-		const messageDisposable = this.prepareonDidReceiveMessage(panel, repositoryPath, sessionState);
+		const messageDisposable = this.prepareOnDidReceiveMessage(panel, repositoryPath, sessionState);
 
 		this.disposables.push(panel, messageDisposable);
 
@@ -80,175 +80,190 @@ export class Bisect implements Disposable {
 		);
 	}
 
-	private prepareonDidReceiveMessage(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState): Disposable {
+	private prepareOnDidReceiveMessage(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState): Disposable {
 		return panel.webview.onDidReceiveMessage(async message => {
 			switch (message.type) {
 				case 'ready': {
-					try {
-						const branches = await this.getBranches(repositoryPath);
-						const currentBranch = branches.find(branch => branch.current)?.name ?? branches[0]?.name ?? '';
-
-						panel.webview.postMessage({
-							type: 'init',
-							branches,
-							currentBranch
-						});
-					} catch (error) {
-						console.error(error);
-
-						panel.webview.postMessage({
-							type: 'error',
-							message: 'Could not load repository branches.'
-						});
-					}
-
+					await this.readyEvent(panel, repositoryPath);
 					break;
 				}
 				case 'start': {
-					try {
-						const startMessage = message as StartBisectMessage;
-
-						const result = await this.startGitBisect(
-							repositoryPath,
-							startMessage.branch,
-							startMessage.commitsBack
-						);
-
-						sessionState.commits = result.commits;
-						sessionState.currentCommitHash = result.currentCommitHash;
-
-						panel.webview.postMessage({
-							type: 'started',
-							commits: result.commits,
-							currentCommitHash: result.currentCommitHash,
-							message: result.message
-						});
-					} catch (error) {
-						console.error(error);
-
-						panel.webview.postMessage({
-							type: 'error',
-							message: this.toErrorMessage(error, 'Could not start git bisect.')
-						});
-					}
-
+					await this.startEvent(panel, repositoryPath, sessionState, message);
 					break;
 				}
 				case 'reset': {
-					try {
-						await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
-
-						const branches = await this.getBranches(repositoryPath);
-						const currentBranch = branches.find(branch => branch.current)?.name ?? branches[0]?.name ?? '';
-
-						sessionState.commits = [];
-						sessionState.currentCommitHash = '';
-
-						panel.webview.postMessage({
-							type: 'init',
-							branches,
-							currentBranch,
-							message: 'Bisect reset.'
-						});
-					} catch (error) {
-						console.error(error);
-
-						panel.webview.postMessage({
-							type: 'error',
-							message: this.toErrorMessage(error, 'Could not reset git bisect.')
-						});
-					}
-
+					await this.resetEvent(panel, repositoryPath, sessionState);
 					break;
 				}
 				case 'checkoutCommit': {
-					try {
-						const checkoutMessage = message as CheckoutCommitMessage;
-
-						if (!sessionState.commits.some(commit => commit.hash === checkoutMessage.commitHash)) {
-							throw new Error('The selected commit does not belong to the bisect timeline.');
-						}
-
-						await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
-						await this.execGit(repositoryPath, ['checkout', checkoutMessage.commitHash]);
-
-						sessionState.currentCommitHash = checkoutMessage.commitHash;
-
-						panel.webview.postMessage({
-							type: 'checkedOut',
-							commitHash: sessionState.currentCommitHash,
-							message: `Checked out ${sessionState.currentCommitHash.substring(0, 7)}.`
-						});
-					} catch (error) {
-						console.error(error);
-
-						panel.webview.postMessage({
-							type: 'error',
-							message: this.toErrorMessage(error, 'Could not check out the commit.')
-						});
-					}
-
+					await this.checkoutCommitEvent(panel, repositoryPath, sessionState, message);
 					break;
 				}
 				case 'mark': {
-					try {
-						const markMessage = message as MarkBisectMessage;
-
-						sessionState.commits = sessionState.commits.map(commit => {
-							if (commit.hash === markMessage.commitHash) {
-								return {
-									...commit,
-									status: markMessage.verdict
-								};
-							}
-
-							return commit;
-						});
-
-						const output = await this.execGit(repositoryPath, ['bisect', markMessage.verdict]);
-
-						if (this.isBisectFinished(output)) {
-							const resultHash = this.extractFirstBadCommitHash(output) ?? sessionState.currentCommitHash;
-
-							sessionState.commits = this.resolveFinishedCommitStatuses(sessionState.commits, resultHash);
-
-							const resultCommit = sessionState.commits.find(commit => commit.hash === resultHash);
-
-							panel.webview.postMessage({
-								type: 'finished',
-								commits: sessionState.commits,
-								result: {
-									hash: resultHash,
-									subject: resultCommit?.subject,
-									rawOutput: output
-								},
-								message: 'Git bisect finished.'
-							});
-
-							break;
-						}
-
-						sessionState.currentCommitHash = await this.execGit(repositoryPath, ['rev-parse', 'HEAD']);
-
-						panel.webview.postMessage({
-							type: 'step',
-							commits: sessionState.commits,
-							currentCommitHash: sessionState.currentCommitHash,
-							message: `Commit marked as ${markMessage.verdict}.`
-						});
-					} catch (error) {
-						console.error(error);
-
-						panel.webview.postMessage({
-							type: 'error',
-							message: this.toErrorMessage(error, 'Could not mark the commit.')
-						});
-					}
-
+					await this.markEvent(panel, repositoryPath, sessionState, message);
 					break;
 				}
 			}
 		});
+	}
+
+	private async readyEvent(panel: WebviewPanel, repositoryPath: string): Promise<void> {
+		try {
+			const branches = await this.getBranches(repositoryPath);
+			const currentBranch = branches.find(branch => branch.current)?.name ?? branches[0]?.name ?? '';
+
+			panel.webview.postMessage({
+				type: 'init',
+				branches,
+				currentBranch
+			});
+		} catch (error) {
+			console.error(error);
+
+			panel.webview.postMessage({
+				type: 'error',
+				message: 'Could not load repository branches.'
+			});
+		}
+	}
+
+	private async startEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: StartBisectMessage): Promise<void> {
+		try {
+			const startMessage = message as StartBisectMessage;
+
+			const result = await this.startGitBisect(
+				repositoryPath,
+				startMessage.branch,
+				startMessage.commitsBack
+			);
+
+			sessionState.commits = result.commits;
+			sessionState.currentCommitHash = result.currentCommitHash;
+
+			panel.webview.postMessage({
+				type: 'started',
+				commits: result.commits,
+				currentCommitHash: result.currentCommitHash,
+				message: result.message
+			});
+		} catch (error) {
+			console.error(error);
+
+			panel.webview.postMessage({
+				type: 'error',
+				message: this.toErrorMessage(error, 'Could not start git bisect.')
+			});
+		}
+	}
+
+	private async resetEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState): Promise<void> {
+		try {
+			await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
+
+			const branches = await this.getBranches(repositoryPath);
+			const currentBranch = branches.find(branch => branch.current)?.name ?? branches[0]?.name ?? '';
+
+			sessionState.commits = [];
+			sessionState.currentCommitHash = '';
+
+			panel.webview.postMessage({
+				type: 'init',
+				branches,
+				currentBranch,
+				message: 'Bisect reset.'
+			});
+		} catch (error) {
+			console.error(error);
+
+			panel.webview.postMessage({
+				type: 'error',
+				message: this.toErrorMessage(error, 'Could not reset git bisect.')
+			});
+		}
+	}
+
+	private async checkoutCommitEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: CheckoutCommitMessage): Promise<void> {
+		try {
+			const checkoutMessage = message as CheckoutCommitMessage;
+
+			if (!sessionState.commits.some(commit => commit.hash === checkoutMessage.commitHash)) {
+				throw new Error('The selected commit does not belong to the bisect timeline.');
+			}
+
+			await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
+			await this.execGit(repositoryPath, ['checkout', checkoutMessage.commitHash]);
+
+			sessionState.currentCommitHash = checkoutMessage.commitHash;
+
+			panel.webview.postMessage({
+				type: 'checkedOut',
+				commitHash: sessionState.currentCommitHash,
+				message: `Checked out ${sessionState.currentCommitHash.substring(0, 7)}.`
+			});
+		} catch (error) {
+			console.error(error);
+
+			panel.webview.postMessage({
+				type: 'error',
+				message: this.toErrorMessage(error, 'Could not check out the commit.')
+			});
+		}
+	}
+
+	private async markEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: MarkBisectMessage): Promise<void> {
+		try {
+			const markMessage = message as MarkBisectMessage;
+
+			sessionState.commits = sessionState.commits.map(commit => {
+				if (commit.hash === markMessage.commitHash) {
+					return {
+						...commit,
+						status: markMessage.verdict
+					};
+				}
+
+				return commit;
+			});
+
+			const output = await this.execGit(repositoryPath, ['bisect', markMessage.verdict]);
+
+			if (this.isBisectFinished(output)) {
+				const resultHash = this.extractFirstBadCommitHash(output) ?? sessionState.currentCommitHash;
+
+				sessionState.commits = this.resolveFinishedCommitStatuses(sessionState.commits, resultHash);
+
+				const resultCommit = sessionState.commits.find(commit => commit.hash === resultHash);
+
+				panel.webview.postMessage({
+					type: 'finished',
+					commits: sessionState.commits,
+					result: {
+						hash: resultHash,
+						subject: resultCommit?.subject,
+						rawOutput: output
+					},
+					message: 'Git bisect finished.'
+				});
+
+				return;
+			}
+
+			sessionState.currentCommitHash = await this.execGit(repositoryPath, ['rev-parse', 'HEAD']);
+
+			panel.webview.postMessage({
+				type: 'step',
+				commits: sessionState.commits,
+				currentCommitHash: sessionState.currentCommitHash,
+				message: `Commit marked as ${markMessage.verdict}.`
+			});
+		} catch (error) {
+			console.error(error);
+
+			panel.webview.postMessage({
+				type: 'error',
+				message: this.toErrorMessage(error, 'Could not mark the commit.')
+			});
+		}
 	}
 
 	private async startGitBisect(
