@@ -13,6 +13,7 @@ export async function runDashboardMetricsTests() {
 	await testRecentRunsOrdering();
 	await testRunOutcomePercentagesAddToOneHundred();
 	await testMainFailureAlerts();
+	await testRunsNeedingAttentionFiltersExpectedStatuses();
 	await testSkippedRunInsights();
 	await testSkippedRunInsightsInferMissingContextAndInconclusiveReasons();
 	await testConfigSkippedRunsDoNotLowerHealthScore();
@@ -138,6 +139,41 @@ async function testMainFailureAlerts() {
 		statusLabel: 'failure',
 		commit: '',
 	}]);
+}
+
+async function testRunsNeedingAttentionFiltersExpectedStatuses() {
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'Config sibling success', head_branch: 'main', head_sha: 'config-sha', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+		{ name: 'Config skip', head_branch: 'main', head_sha: 'config-sha', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
+		{ name: 'Lonely skip', head_branch: 'main', head_sha: 'lonely-sha', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+		{ name: 'Compile failure', head_branch: 'main', head_sha: 'failure-sha', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T13:00:00Z' },
+		{ name: 'Skipped after failure', head_branch: 'main', head_sha: 'failure-sha', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T14:00:00Z' },
+		{ name: 'Manual approval needed', head_branch: 'main', head_sha: 'approval-sha', conclusion: 'action_required', status: 'completed', updated_at: '2026-05-01T15:00:00Z' },
+		{ name: 'Cancelled cleanup', head_branch: 'main', head_sha: 'cancel-sha', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T16:00:00Z' },
+	];
+
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual(viewModel.runInsights.map(run => ({
+		name: run.name,
+		statusLabel: run.statusLabel,
+	})), [
+		{
+			name: 'Manual approval needed',
+			statusLabel: 'action_required',
+		},
+		{
+			name: 'Skipped after failure',
+			statusLabel: 'skipped',
+		},
+		{
+			name: 'Compile failure',
+			statusLabel: 'failure',
+		},
+	]);
 }
 
 async function testSkippedRunInsights() {

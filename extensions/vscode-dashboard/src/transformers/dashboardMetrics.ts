@@ -128,6 +128,18 @@ function buildSkippedRunInsights(runs: GitHubWorkflowRun[], runsByCommit: Map<st
 		});
 }
 
+function isRunNeedingAttention(run: GitHubWorkflowRun, runsByCommit: Map<string, GitHubWorkflowRun[]>): boolean {
+	if (run.conclusion === 'failure' || run.conclusion === 'action_required') {
+		return true;
+	}
+
+	if (run.conclusion !== 'skipped') {
+		return false;
+	}
+
+	return inferSkippedRunReason(getRelatedRunsForCommit(run, runsByCommit)) === 'sameCommitFailure';
+}
+
 export function buildDashboardViewModel(input: {
 	repo: GitHubRepo;
 	workflowRuns: GitHubWorkflowRun[];
@@ -197,7 +209,7 @@ export function buildDashboardViewModel(input: {
 		recentRuns: recentRuns.map(createRecentRunCard),
 		runDiagnostics: recentRuns.map(createRunInsight),
 		runInsights: sortedRuns
-			.filter(run => run.conclusion !== 'success')
+			.filter(run => isRunNeedingAttention(run, runsByCommit))
 			.slice(-5)
 			.reverse()
 			.map(createRunInsight),
