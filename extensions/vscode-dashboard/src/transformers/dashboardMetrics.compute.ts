@@ -20,7 +20,8 @@ export function runDurationSeconds(run: GitHubWorkflowRun): number {
 }
 
 export function calculateHealthScore(successRate: number, averageDurationSeconds: number): { score: number; color: string } {
-	const score = Math.min(100, Math.round((successRate * 0.65) + ((100 - Math.min(averageDurationSeconds, BUILD_DURATION_CAP_SECONDS)) * 0.35)));
+	const durationScore = Math.max(0, Math.round(((BUILD_DURATION_CAP_SECONDS - Math.min(averageDurationSeconds, BUILD_DURATION_CAP_SECONDS)) / BUILD_DURATION_CAP_SECONDS) * 100));
+	const score = Math.min(100, Math.round((successRate * 0.65) + (durationScore * 0.35)));
 
 	if (score > 85) {
 		return { score, color: '#7ec850' };

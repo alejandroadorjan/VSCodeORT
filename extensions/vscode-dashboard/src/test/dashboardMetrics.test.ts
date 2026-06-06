@@ -175,5 +175,5 @@ async function testConfigSkippedRunsDoNotLowerHealthScore() {
 
 	assert.strictEqual(viewModel.skippedRunInsights[0].reasonKind, 'configOrEvent');
 	assert.strictEqual(viewModel.metrics.successRate, 50);
-	assert.strictEqual(viewModel.metrics.healthScore, 97);
+	assert.strictEqual(viewModel.metrics.healthScore, 98);
 }
