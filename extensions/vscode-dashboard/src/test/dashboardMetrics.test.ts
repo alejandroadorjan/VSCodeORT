@@ -4,6 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as assert from 'assert';
+import type { DashboardViewModel } from '../model/dashboard';
+import type { GitHubWorkflowRun } from '../model/github';
 import { buildDashboardViewModel } from '../transformers/dashboardMetrics';
 
 export async function runDashboardMetricsTests() {
@@ -12,168 +14,332 @@ export async function runDashboardMetricsTests() {
 	await testRunOutcomePercentagesAddToOneHundred();
 	await testMainFailureAlerts();
 	await testSkippedRunInsights();
+	await testSkippedRunInsightsInferMissingContextAndInconclusiveReasons();
 	await testConfigSkippedRunsDoNotLowerHealthScore();
+	await testNonConfigSkippedRunsLowerHealthScore();
+	await testHealthScoreNormalizesDurationBeforeApplyingCap();
+}
+
+function buildViewModel(workflowRuns: GitHubWorkflowRun[]): DashboardViewModel {
+	return buildDashboardViewModel({
+		repo: {},
+		workflowRuns,
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
 }
 
 async function testViewModelBuildsWorkflowConcentration() {
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'CI', workflow_name: 'CI', conclusion: 'failure', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:10:00Z' },
+		{ name: 'CI', workflow_name: 'CI', conclusion: 'success', run_started_at: '2026-05-01T11:00:00Z', updated_at: '2026-05-01T11:08:00Z' },
+		{ name: 'Tests', workflow_name: 'Tests', conclusion: 'failure', run_started_at: '2026-05-01T12:00:00Z', updated_at: '2026-05-01T12:05:00Z' },
+	];
+
+	// Act
 	const viewModel = buildDashboardViewModel({
 		repo: { stargazers_count: 25, forks_count: 3, subscribers_count: 2, watchers_count: 4 },
-		workflowRuns: [
-			{ name: 'CI', workflow_name: 'CI', conclusion: 'failure', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:10:00Z' },
-			{ name: 'CI', workflow_name: 'CI', conclusion: 'success', run_started_at: '2026-05-01T11:00:00Z', updated_at: '2026-05-01T11:08:00Z' },
-			{ name: 'Tests', workflow_name: 'Tests', conclusion: 'failure', run_started_at: '2026-05-01T12:00:00Z', updated_at: '2026-05-01T12:05:00Z' },
-		],
+		workflowRuns,
 		closedIssues: [],
 		openIssuesCount: 4,
 		openPullRequestsCount: 2,
 		commits: [{ author: { login: 'dev1' } }, { author: { login: 'dev2' } }, { author: { login: 'dev1' } }],
 	});
 
-	assert.strictEqual(viewModel.metrics.totalRuns, 3);
-	assert.strictEqual(viewModel.metrics.failureCount, 2);
-	assert.strictEqual(viewModel.metrics.activeDevs, 2);
-	assert.strictEqual(viewModel.workflowSeries[0].label, 'CI');
-	assert.strictEqual(viewModel.workflowSeries[0].failure >= 1, true);
+	// Assert
+	assert.deepStrictEqual({
+		totalRuns: viewModel.metrics.totalRuns,
+		failureCount: viewModel.metrics.failureCount,
+		activeDevs: viewModel.metrics.activeDevs,
+		topWorkflow: viewModel.workflowSeries[0].label,
+		topWorkflowFailures: viewModel.workflowSeries[0].failure,
+	}, {
+		totalRuns: 3,
+		failureCount: 2,
+		activeDevs: 2,
+		topWorkflow: 'CI',
+		topWorkflowFailures: 1,
+	});
 }
 
 async function testRecentRunsOrdering() {
-	const viewModel = buildDashboardViewModel({
-		repo: {},
-		workflowRuns: [
-			{ name: 'Old', conclusion: 'success', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:01:00Z' },
-			{ name: 'New', conclusion: 'failure', run_started_at: '2026-05-02T10:00:00Z', updated_at: '2026-05-02T10:01:00Z' },
-		],
-		closedIssues: [],
-		openIssuesCount: 0,
-		openPullRequestsCount: 0,
-		commits: [],
-	});
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'Old', conclusion: 'success', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:01:00Z' },
+		{ name: 'New', conclusion: 'failure', run_started_at: '2026-05-02T10:00:00Z', updated_at: '2026-05-02T10:01:00Z' },
+	];
 
-	assert.strictEqual(viewModel.recentRuns[0].name, 'New');
-	assert.strictEqual(viewModel.recentRuns[1].name, 'Old');
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual(viewModel.recentRuns.map(run => run.name), ['New', 'Old']);
 }
 
 async function testRunOutcomePercentagesAddToOneHundred() {
-	const viewModel = buildDashboardViewModel({
-		repo: {},
-		workflowRuns: [
-			{ name: 'Success 1', conclusion: 'success', status: 'completed' },
-			{ name: 'Success 2', conclusion: 'success', status: 'completed' },
-			{ name: 'Failure', conclusion: 'failure', status: 'completed' },
-			{ name: 'Skipped', conclusion: 'skipped', status: 'completed' },
-			{ name: 'Action Required', conclusion: 'action_required', status: 'completed' },
-			{ name: 'Running', status: 'in_progress' },
-		],
-		closedIssues: [],
-		openIssuesCount: 0,
-		openPullRequestsCount: 0,
-		commits: [],
-	});
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'Success 1', conclusion: 'success', status: 'completed' },
+		{ name: 'Success 2', conclusion: 'success', status: 'completed' },
+		{ name: 'Failure', conclusion: 'failure', status: 'completed' },
+		{ name: 'Skipped', conclusion: 'skipped', status: 'completed' },
+		{ name: 'Action Required', conclusion: 'action_required', status: 'completed' },
+		{ name: 'Running', status: 'in_progress' },
+	];
+
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
 	const metrics = viewModel.metrics;
 
-	assert.strictEqual(metrics.successCount, 2);
-	assert.strictEqual(metrics.failureCount, 1);
-	assert.strictEqual(metrics.otherCount, 2);
-	assert.strictEqual(metrics.inProgressCount, 1);
-	assert.strictEqual(metrics.successRate + metrics.failedRate + metrics.otherRate + metrics.inProgressRate, 100);
-	assert.strictEqual(viewModel.runDiagnostics.length, 6);
-	assert.strictEqual(viewModel.runDiagnostics.filter(run => run.statusLabel === 'action_required' || run.statusLabel === 'skipped').length, 2);
+	// Assert
+	assert.deepStrictEqual({
+		successCount: metrics.successCount,
+		failureCount: metrics.failureCount,
+		otherCount: metrics.otherCount,
+		inProgressCount: metrics.inProgressCount,
+		outcomePercentTotal: metrics.successRate + metrics.failedRate + metrics.otherRate + metrics.inProgressRate,
+		runDiagnosticsCount: viewModel.runDiagnostics.length,
+		nonSuccessDiagnosticsCount: viewModel.runDiagnostics.filter(run => run.statusLabel === 'action_required' || run.statusLabel === 'skipped').length,
+	}, {
+		successCount: 2,
+		failureCount: 1,
+		otherCount: 2,
+		inProgressCount: 1,
+		outcomePercentTotal: 100,
+		runDiagnosticsCount: 6,
+		nonSuccessDiagnosticsCount: 2,
+	});
 }
 
 async function testMainFailureAlerts() {
-	const viewModel = buildDashboardViewModel({
-		repo: {},
-		workflowRuns: [
-			{ name: 'Main success', head_branch: 'main', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
-			{ name: 'Main failure', head_branch: 'main', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
-			{ name: 'Main skipped', head_branch: 'main', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
-			{ name: 'Feature skipped', head_branch: 'feature/a', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-02T10:00:00Z' },
-			{ name: 'Feature action', head_branch: 'feature/a', conclusion: 'action_required', status: 'completed', updated_at: '2026-05-02T11:00:00Z' },
-			{ name: 'Feature running', head_branch: 'feature/a', status: 'in_progress', updated_at: '2026-05-02T12:00:00Z' },
-		],
-		closedIssues: [],
-		openIssuesCount: 0,
-		openPullRequestsCount: 0,
-		commits: [],
-	});
-	const alerts = viewModel.mainFailureAlerts;
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'Main success', head_branch: 'main', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+		{ name: 'Main failure', head_branch: 'main', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
+		{ name: 'Main skipped', head_branch: 'main', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+		{ name: 'Feature skipped', head_branch: 'feature/a', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-02T10:00:00Z' },
+		{ name: 'Feature action', head_branch: 'feature/a', conclusion: 'action_required', status: 'completed', updated_at: '2026-05-02T11:00:00Z' },
+		{ name: 'Feature running', head_branch: 'feature/a', status: 'in_progress', updated_at: '2026-05-02T12:00:00Z' },
+	];
 
-	assert.strictEqual(alerts.length, 1);
-	assert.strictEqual(alerts[0].name, 'Main failure');
-	assert.strictEqual(alerts[0].statusLabel, 'failure');
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual(viewModel.mainFailureAlerts.map(alert => ({
+		name: alert.name,
+		statusLabel: alert.statusLabel,
+		commit: alert.commit,
+	})), [{
+		name: 'Main failure',
+		statusLabel: 'failure',
+		commit: '',
+	}]);
 }
 
 async function testSkippedRunInsights() {
-	const viewModel = buildDashboardViewModel({
-		repo: {},
-		workflowRuns: [
-			{ name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
-			{
-				name: 'API Proposal Version Check',
-				head_branch: 'main',
-				head_sha: 'abcdef123456',
-				conclusion: 'skipped',
-				status: 'completed',
-				event: 'issue_comment',
-				path: '.github/workflows/api-proposal-version-check.yml',
-				updated_at: '2026-05-01T11:00:00Z',
-				html_url: 'https://github.com/microsoft/vscode/actions/runs/1',
-			},
-			{ name: 'Compile', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:30:00Z' },
-			{ name: 'Docs', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'skipped', status: 'completed', event: 'push', updated_at: '2026-05-01T11:40:00Z' },
-			{ name: 'Cancelled', head_branch: 'main', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
-		],
-		closedIssues: [],
-		openIssuesCount: 0,
-		openPullRequestsCount: 0,
-		commits: [],
-	});
-	const skippedRuns = viewModel.skippedRunInsights;
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+		{
+			name: 'API Proposal Version Check',
+			head_branch: 'main',
+			head_sha: 'abcdef123456',
+			conclusion: 'skipped',
+			status: 'completed',
+			event: 'issue_comment',
+			path: '.github/workflows/api-proposal-version-check.yml',
+			updated_at: '2026-05-01T11:00:00Z',
+			html_url: 'https://github.com/microsoft/vscode/actions/runs/1',
+		},
+		{ name: 'Compile', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:30:00Z' },
+		{ name: 'Docs', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'skipped', status: 'completed', event: 'push', updated_at: '2026-05-01T11:40:00Z' },
+		{ name: 'Cancelled', head_branch: 'main', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+	];
 
-	assert.strictEqual(skippedRuns.length, 2);
-	assert.strictEqual(skippedRuns[0].name, 'Docs');
-	assert.strictEqual(skippedRuns[0].reasonKind, 'sameCommitFailure');
-	assert.deepStrictEqual(skippedRuns[0].sameCommitFailures, ['Compile']);
-	assert.strictEqual(skippedRuns[1].name, 'API Proposal Version Check');
-	assert.strictEqual(skippedRuns[1].event, 'issue_comment');
-	assert.strictEqual(skippedRuns[1].workflowPath, '.github/workflows/api-proposal-version-check.yml');
-	assert.strictEqual(skippedRuns[1].branch, 'main');
-	assert.strictEqual(skippedRuns[1].commit, 'abcdef1');
-	assert.strictEqual(skippedRuns[1].url, 'https://github.com/microsoft/vscode/actions/runs/1');
-	assert.strictEqual(skippedRuns[1].reasonKind, 'configOrEvent');
-	assert.strictEqual(skippedRuns[1].sameCommitSuccessCount, 1);
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual(viewModel.skippedRunInsights.map(run => ({
+		name: run.name,
+		event: run.event,
+		workflowPath: run.workflowPath,
+		branch: run.branch,
+		commit: run.commit,
+		url: run.url,
+		reasonKind: run.reasonKind,
+		sameCommitFailures: run.sameCommitFailures,
+		sameCommitRunCount: run.sameCommitRunCount,
+		sameCommitSuccessCount: run.sameCommitSuccessCount,
+	})), [
+		{
+			name: 'Docs',
+			event: 'push',
+			workflowPath: '',
+			branch: 'main',
+			commit: '123456a',
+			url: '',
+			reasonKind: 'sameCommitFailure',
+			sameCommitFailures: ['Compile'],
+			sameCommitRunCount: 1,
+			sameCommitSuccessCount: 0,
+		},
+		{
+			name: 'API Proposal Version Check',
+			event: 'issue_comment',
+			workflowPath: '.github/workflows/api-proposal-version-check.yml',
+			branch: 'main',
+			commit: 'abcdef1',
+			url: 'https://github.com/microsoft/vscode/actions/runs/1',
+			reasonKind: 'configOrEvent',
+			sameCommitFailures: [],
+			sameCommitRunCount: 1,
+			sameCommitSuccessCount: 1,
+		},
+	]);
+}
+
+async function testSkippedRunInsightsInferMissingContextAndInconclusiveReasons() {
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{ name: 'Lonely skip', head_branch: 'main', head_sha: 'no-context', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+		{ name: 'Cancelled sibling', head_branch: 'main', head_sha: 'mixed-context', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
+		{ name: 'Inconclusive skip', head_branch: 'main', head_sha: 'mixed-context', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+		{ name: 'Running sibling', head_branch: 'main', head_sha: 'running-context', status: 'in_progress', updated_at: '2026-05-01T13:00:00Z' },
+		{ name: 'Waiting skip', head_branch: 'main', head_sha: 'running-context', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T14:00:00Z' },
+	];
+
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual(viewModel.skippedRunInsights.map(run => ({
+		name: run.name,
+		reasonKind: run.reasonKind,
+		sameCommitRunCount: run.sameCommitRunCount,
+	})), [
+		{
+			name: 'Waiting skip',
+			reasonKind: 'missingContext',
+			sameCommitRunCount: 1,
+		},
+		{
+			name: 'Inconclusive skip',
+			reasonKind: 'inconclusive',
+			sameCommitRunCount: 1,
+		},
+		{
+			name: 'Lonely skip',
+			reasonKind: 'missingContext',
+			sameCommitRunCount: 0,
+		},
+	]);
 }
 
 async function testConfigSkippedRunsDoNotLowerHealthScore() {
-	const viewModel = buildDashboardViewModel({
-		repo: {},
-		workflowRuns: [
-			{
-				name: 'CI',
-				head_branch: 'main',
-				head_sha: 'abcdef123456',
-				conclusion: 'success',
-				status: 'completed',
-				run_started_at: '2026-05-01T10:00:00Z',
-				updated_at: '2026-05-01T10:00:10Z',
-			},
-			{
-				name: 'Docs',
-				head_branch: 'main',
-				head_sha: 'abcdef123456',
-				conclusion: 'skipped',
-				status: 'completed',
-				run_started_at: '2026-05-01T10:00:00Z',
-				updated_at: '2026-05-01T10:00:00Z',
-			},
-		],
-		closedIssues: [],
-		openIssuesCount: 0,
-		openPullRequestsCount: 0,
-		commits: [],
-	});
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{
+			name: 'CI',
+			head_branch: 'main',
+			head_sha: 'abcdef123456',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2026-05-01T10:00:00Z',
+			updated_at: '2026-05-01T10:00:10Z',
+		},
+		{
+			name: 'Docs',
+			head_branch: 'main',
+			head_sha: 'abcdef123456',
+			conclusion: 'skipped',
+			status: 'completed',
+			run_started_at: '2026-05-01T10:00:00Z',
+			updated_at: '2026-05-01T10:00:00Z',
+		},
+	];
 
-	assert.strictEqual(viewModel.skippedRunInsights[0].reasonKind, 'configOrEvent');
-	assert.strictEqual(viewModel.metrics.successRate, 50);
-	assert.strictEqual(viewModel.metrics.healthScore, 98);
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual({
+		skipReason: viewModel.skippedRunInsights[0].reasonKind,
+		visibleSuccessRate: viewModel.metrics.successRate,
+		healthScore: viewModel.metrics.healthScore,
+	}, {
+		skipReason: 'configOrEvent',
+		visibleSuccessRate: 50,
+		healthScore: 98,
+	});
+}
+
+async function testNonConfigSkippedRunsLowerHealthScore() {
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{
+			name: 'Compile',
+			head_branch: 'main',
+			head_sha: 'abcdef123456',
+			conclusion: 'failure',
+			status: 'completed',
+			run_started_at: '2026-05-01T10:00:00Z',
+			updated_at: '2026-05-01T10:00:10Z',
+		},
+		{
+			name: 'Docs',
+			head_branch: 'main',
+			head_sha: 'abcdef123456',
+			conclusion: 'skipped',
+			status: 'completed',
+			run_started_at: '2026-05-01T10:00:00Z',
+			updated_at: '2026-05-01T10:00:00Z',
+		},
+	];
+
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual({
+		skipReason: viewModel.skippedRunInsights[0].reasonKind,
+		visibleFailedRate: viewModel.metrics.failedRate,
+		healthScore: viewModel.metrics.healthScore,
+	}, {
+		skipReason: 'sameCommitFailure',
+		visibleFailedRate: 50,
+		healthScore: 34,
+	});
+}
+
+async function testHealthScoreNormalizesDurationBeforeApplyingCap() {
+	// Arrange
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{
+			name: 'Slow success',
+			head_branch: 'main',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2026-05-01T10:00:00Z',
+			updated_at: '2026-05-01T10:05:00Z',
+		},
+	];
+
+	// Act
+	const viewModel = buildViewModel(workflowRuns);
+
+	// Assert
+	assert.deepStrictEqual({
+		averageDurationSeconds: viewModel.metrics.averageDurationSeconds,
+		successRate: viewModel.metrics.successRate,
+		healthScore: viewModel.metrics.healthScore,
+	}, {
+		averageDurationSeconds: 300,
+		successRate: 100,
+		healthScore: 65,
+	});
 }
