@@ -12,6 +12,7 @@ export async function runDashboardMetricsTests() {
 	await testRunOutcomePercentagesAddToOneHundred();
 	await testMainFailureAlerts();
 	await testSkippedRunInsights();
+	await testConfigSkippedRunsDoNotLowerHealthScore();
 }
 
 async function testViewModelBuildsWorkflowConcentration() {
@@ -141,4 +142,38 @@ async function testSkippedRunInsights() {
 	assert.strictEqual(skippedRuns[1].url, 'https://github.com/microsoft/vscode/actions/runs/1');
 	assert.strictEqual(skippedRuns[1].reasonKind, 'configOrEvent');
 	assert.strictEqual(skippedRuns[1].sameCommitSuccessCount, 1);
+}
+
+async function testConfigSkippedRunsDoNotLowerHealthScore() {
+	const viewModel = buildDashboardViewModel({
+		repo: {},
+		workflowRuns: [
+			{
+				name: 'CI',
+				head_branch: 'main',
+				head_sha: 'abcdef123456',
+				conclusion: 'success',
+				status: 'completed',
+				run_started_at: '2026-05-01T10:00:00Z',
+				updated_at: '2026-05-01T10:00:10Z',
+			},
+			{
+				name: 'Docs',
+				head_branch: 'main',
+				head_sha: 'abcdef123456',
+				conclusion: 'skipped',
+				status: 'completed',
+				run_started_at: '2026-05-01T10:00:00Z',
+				updated_at: '2026-05-01T10:00:00Z',
+			},
+		],
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
+
+	assert.strictEqual(viewModel.skippedRunInsights[0].reasonKind, 'configOrEvent');
+	assert.strictEqual(viewModel.metrics.successRate, 50);
+	assert.strictEqual(viewModel.metrics.healthScore, 97);
 }
