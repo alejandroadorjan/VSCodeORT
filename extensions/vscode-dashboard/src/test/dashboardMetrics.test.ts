@@ -9,6 +9,8 @@ import { buildDashboardViewModel } from '../transformers/dashboardMetrics';
 export async function runDashboardMetricsTests() {
 	await testViewModelBuildsWorkflowConcentration();
 	await testRecentRunsOrdering();
+	await testRunOutcomePercentagesAddToOneHundred();
+	await testMainFailureAlerts();
 }
 
 async function testViewModelBuildsWorkflowConcentration() {
@@ -47,4 +49,55 @@ async function testRecentRunsOrdering() {
 
 	assert.strictEqual(viewModel.recentRuns[0].name, 'New');
 	assert.strictEqual(viewModel.recentRuns[1].name, 'Old');
+}
+
+async function testRunOutcomePercentagesAddToOneHundred() {
+	const viewModel = buildDashboardViewModel({
+		repo: {},
+		workflowRuns: [
+			{ name: 'Success 1', conclusion: 'success', status: 'completed' },
+			{ name: 'Success 2', conclusion: 'success', status: 'completed' },
+			{ name: 'Failure', conclusion: 'failure', status: 'completed' },
+			{ name: 'Skipped', conclusion: 'skipped', status: 'completed' },
+			{ name: 'Action Required', conclusion: 'action_required', status: 'completed' },
+			{ name: 'Running', status: 'in_progress' },
+		],
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
+	const metrics = viewModel.metrics;
+
+	assert.strictEqual(metrics.successCount, 2);
+	assert.strictEqual(metrics.failureCount, 1);
+	assert.strictEqual(metrics.otherCount, 2);
+	assert.strictEqual(metrics.inProgressCount, 1);
+	assert.strictEqual(metrics.successRate + metrics.failedRate + metrics.otherRate + metrics.inProgressRate, 100);
+	assert.strictEqual(viewModel.runDiagnostics.length, 6);
+	assert.strictEqual(viewModel.runDiagnostics.filter(run => run.statusLabel === 'action_required' || run.statusLabel === 'skipped').length, 2);
+}
+
+async function testMainFailureAlerts() {
+	const viewModel = buildDashboardViewModel({
+		repo: {},
+		workflowRuns: [
+			{ name: 'Main success', head_branch: 'main', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+			{ name: 'Main failure', head_branch: 'main', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
+			{ name: 'Main skipped', head_branch: 'main', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+			{ name: 'Feature skipped', head_branch: 'feature/a', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-02T10:00:00Z' },
+			{ name: 'Feature action', head_branch: 'feature/a', conclusion: 'action_required', status: 'completed', updated_at: '2026-05-02T11:00:00Z' },
+			{ name: 'Feature running', head_branch: 'feature/a', status: 'in_progress', updated_at: '2026-05-02T12:00:00Z' },
+		],
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
+	const alerts = viewModel.mainFailureAlerts;
+
+	assert.strictEqual(alerts.length, 2);
+	assert.strictEqual(alerts[0].name, 'Main skipped');
+	assert.strictEqual(alerts[0].statusLabel, 'skipped');
+	assert.strictEqual(alerts[1].statusLabel, 'failure');
 }

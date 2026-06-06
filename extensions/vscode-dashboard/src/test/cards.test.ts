@@ -5,12 +5,13 @@
 
 import * as assert from 'assert';
 import type { GitHubIssue, GitHubWorkflowRun } from '../model/github';
-import { createRecentRunCard, createIssueCard } from '../transformers/dashboardMetrics.cards';
+import { createRecentRunCard, createIssueCard, createRunInsight } from '../transformers/dashboardMetrics.cards';
 
 export async function runCardsTests() {
   testRecentRunCardSuccess();
   testRecentRunCardFallbacks();
   testCreateIssueCard();
+  testCreateRunInsight();
 }
 
 function testRecentRunCardSuccess() {
@@ -60,4 +61,24 @@ function testCreateIssueCard() {
   assert.ok(ic.labels.includes('p1'));
   assert.ok(ic.closedBy.includes('@alice'));
   assert.strictEqual(ic.commentCount, '3');
+}
+
+function testCreateRunInsight() {
+  const run: GitHubWorkflowRun = {
+    name: 'CI',
+    display_title: 'Fix terminal regression',
+    head_branch: 'main',
+    head_sha: '1234567890abcdef',
+    conclusion: 'action_required',
+    run_started_at: '2021-01-01T00:00:00Z',
+    updated_at: null,
+    html_url: 'https://github.com/microsoft/vscode/actions/runs/1',
+  };
+
+  const insight = createRunInsight(run);
+  assert.strictEqual(insight.name, 'CI');
+  assert.strictEqual(insight.title, 'Fix terminal regression');
+  assert.strictEqual(insight.commit, '1234567');
+  assert.strictEqual(insight.hasDuration, false);
+  assert.strictEqual(insight.url, 'https://github.com/microsoft/vscode/actions/runs/1');
 }

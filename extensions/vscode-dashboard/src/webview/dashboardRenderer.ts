@@ -42,6 +42,86 @@ function renderRecentRuns(model: DashboardViewModel): string {
 		</div>`).join('');
 }
 
+function renderRunInsights(model: DashboardViewModel): string {
+	if (model.runInsights.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No recent runs need attention.')}</div>`;
+	}
+
+	return model.runInsights.map((run) => {
+		const runLink = run.url ? `<a class="run-link" href="${run.url}">${vscode.l10n.t('Open run')}</a>` : '';
+		const duration = run.hasDuration ? run.duration : vscode.l10n.t('Duration unavailable');
+		const details = [
+			run.branch ? vscode.l10n.t('branch {0}', run.branch) : '',
+			run.commit ? vscode.l10n.t('commit {0}', run.commit) : '',
+			duration,
+		].filter(Boolean).join(' · ');
+
+		return `
+			<div class="run-insight">
+				<span class="status-dot ${run.dotClass}"></span>
+				<div class="run-insight-main">
+					<div class="run-insight-title">${run.name}</div>
+					<div class="run-insight-meta">${details}</div>
+				</div>
+				<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
+				${runLink}
+			</div>`;
+	}).join('');
+}
+
+function renderRunDiagnostics(model: DashboardViewModel): string {
+	if (model.runDiagnostics.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No recent workflow runs found.')}</div>`;
+	}
+
+	return model.runDiagnostics.map((run) => {
+		const runLink = run.url ? `<a class="diagnostic-link" href="${run.url}">${vscode.l10n.t('Open')}</a>` : '';
+		const duration = run.hasDuration ? run.duration : vscode.l10n.t('No duration');
+		const branch = run.branch || vscode.l10n.t('no branch');
+		const commit = run.commit || vscode.l10n.t('no commit');
+
+		return `
+			<div class="diagnostic-tile ${run.dotClass}">
+				<div class="diagnostic-top">
+					<span class="status-dot ${run.dotClass}"></span>
+					<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
+				</div>
+				<div class="diagnostic-name">${run.name}</div>
+				<div class="diagnostic-meta">${branch} · ${commit}</div>
+				<div class="diagnostic-bottom">
+					<span>${duration}</span>
+					${runLink}
+				</div>
+			</div>`;
+	}).join('');
+}
+
+function renderMainAlerts(model: DashboardViewModel): string {
+	if (model.mainFailureAlerts.length === 0) {
+		return `
+			<div class="main-alert-clear">
+				<span class="status-dot green"></span>
+				<span>${vscode.l10n.t('No recent non-success runs found on main.')}</span>
+			</div>`;
+	}
+
+	return model.mainFailureAlerts.map((run) => {
+		const runLink = run.url ? `<a class="run-link" href="${run.url}">${vscode.l10n.t('Open run')}</a>` : '';
+		const commit = run.commit || vscode.l10n.t('no commit');
+
+		return `
+			<div class="main-alert">
+				<span class="status-dot ${run.dotClass}"></span>
+				<div class="main-alert-main">
+					<div class="main-alert-title">${run.name}</div>
+					<div class="main-alert-meta">${vscode.l10n.t('{0} · commit {1} · {2}', run.date, commit, run.duration)}</div>
+				</div>
+				<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
+				${runLink}
+			</div>`;
+	}).join('');
+}
+
 function localizeRunStatus(status: string): string {
 	switch (status) {
 		case 'success':
@@ -77,8 +157,8 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 			medium: vscode.l10n.t('Medium'),
 			success: vscode.l10n.t('Success'),
 			failed: vscode.l10n.t('Failed'),
-			other: vscode.l10n.t('Other'),
-			durationSeconds: vscode.l10n.t('Duration (s)'),
+			other: vscode.l10n.t('Skipped / other'),
+			inProgress: vscode.l10n.t('In progress'),
 		}))
 		.replace(/__stars__/g, String(metrics.stars.toLocaleString()))
 		.replace(/__openIssues__/g, String(metrics.openIssuesCount.toLocaleString()))
@@ -93,24 +173,31 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 		.replace(/__deploymentFrequency__/g, String(metrics.deploymentFrequency))
 		.replace(/__changeFailureRate__/g, String(metrics.changeFailureRate))
 		.replace(/__mttr__/g, String(metrics.mttrMinutes))
+		.replace(/__success__/g, String(metrics.successCount.toLocaleString()))
+		.replace(/__failed__/g, String(metrics.failureCount.toLocaleString()))
+		.replace(/__cancelled__/g, String(metrics.cancelledCount.toLocaleString()))
+		.replace(/__inProgress__/g, String(metrics.inProgressCount.toLocaleString()))
+		.replace(/__other__/g, String(metrics.otherCount.toLocaleString()))
 		.replace(/__successPercent__/g, String(metrics.successRate))
 		.replace(/__failedPercent__/g, String(metrics.failedRate))
+		.replace(/__inProgressPercent__/g, String(metrics.inProgressRate))
+		.replace(/__otherPercent__/g, String(metrics.otherRate))
 		.replace(/__activeDevs__/g, String(metrics.activeDevs))
 		.replace(/__resolvedIssues__/g, renderIssueList(model))
 		.replace(/__recentRunsHtml__/g, renderRecentRuns(model))
-		.replace(/__chartLabels__/g, JSON.stringify(model.chartLabels))
-		.replace(/__chartSuccess__/g, JSON.stringify(model.chartSuccess))
-		.replace(/__chartFailed__/g, JSON.stringify(model.chartFailure))
-		.replace(/__chartDur__/g, JSON.stringify(model.chartDuration));
+		.replace(/__runDiagnosticsHtml__/g, renderRunDiagnostics(model))
+		.replace(/__runInsightsHtml__/g, renderRunInsights(model))
+		.replace(/__mainAlertsHtml__/g, renderMainAlerts(model));
 }
 
 export function renderDashboardHtml(context: vscode.ExtensionContext, webview: vscode.Webview, model: DashboardViewModel): string {
 	const htmlPath = path.join(context.extensionPath, 'src', 'webview', 'dashboard.html');
+	const scriptPath = path.join(context.extensionPath, 'src', 'webview', 'dashboard.js');
 	const stylesUri = webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'src', 'webview', 'styles.css')));
-	const scriptUri = webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, 'src', 'webview', 'dashboard.js')));
+	const scriptSource = fs.readFileSync(scriptPath, 'utf8');
 	const webviewHtml = fs.readFileSync(htmlPath, 'utf8')
 		.replace(/__styles__/g, String(stylesUri))
-		.replace(/__script__/g, String(scriptUri));
+		.replace(/__script__/g, scriptSource);
 
 	return renderMetricPlaceholders(localizeDashboardHtml(webviewHtml), model);
 }
@@ -146,10 +233,9 @@ function localizeDashboardHtml(html: string): string {
 		['Build speed', vscode.l10n.t('Build speed')],
 		['Build speed (35% weight)', vscode.l10n.t('Build speed (35% weight)')],
 		['Measures how fast your builds are, capped at 180s for scoring purposes.', vscode.l10n.t('Measures how fast your builds are, capped at 180s for scoring purposes.')],
-		['Last 10 runs — status &amp; duration', vscode.l10n.t('Last 10 runs — status & duration')],
-		['Build duration (seconds)', vscode.l10n.t('Build duration (seconds)')],
-		['Stacked bar chart of the last 10 pipeline runs showing success vs failure per run', vscode.l10n.t('Stacked bar chart of the last 10 pipeline runs showing success vs failure per run')],
-		['Line chart showing build duration in seconds for the last 10 runs', vscode.l10n.t('Line chart showing build duration in seconds for the last 10 runs')],
+		['Recent run diagnosis', vscode.l10n.t('Recent run diagnosis')],
+		['Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.', vscode.l10n.t('Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.')],
+		['Runs needing attention', vscode.l10n.t('Runs needing attention')],
 		['DORA metrics &amp; run detail', vscode.l10n.t('DORA metrics & run detail')],
 		['DORA metrics', vscode.l10n.t('DORA metrics')],
 		['Deployment frequency', vscode.l10n.t('Deployment frequency')],
@@ -166,9 +252,16 @@ function localizeDashboardHtml(html: string): string {
 		['Percentage of workflow runs that ended in failure.', vscode.l10n.t('Percentage of workflow runs that ended in failure.')],
 		['Recent workflow runs', vscode.l10n.t('Recent workflow runs')],
 		['Run outcomes', vscode.l10n.t('Run outcomes')],
+		['Scope: latest __totalRuns__ workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.', vscode.l10n.t('Scope: latest {0} workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.', '__totalRuns__')],
+		['__success__ runs', vscode.l10n.t('{0} runs', '__success__')],
+		['__failed__ runs', vscode.l10n.t('{0} runs', '__failed__')],
+		['__other__ runs', vscode.l10n.t('{0} runs', '__other__')],
+		['__inProgress__ runs', vscode.l10n.t('{0} runs', '__inProgress__')],
 		['Success', vscode.l10n.t('Success')],
 		['Failed', vscode.l10n.t('Failed')],
-		['Other', vscode.l10n.t('Other')],
+		['Skipped / other', vscode.l10n.t('Skipped / other')],
+		['Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes', vscode.l10n.t('Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes')],
+		['In progress', vscode.l10n.t('In progress')],
 		['Recently closed issues', vscode.l10n.t('Recently closed issues')],
 		['Source: GitHub Issues API · excludes PRs', vscode.l10n.t('Source: GitHub Issues API · excludes PRs')],
 		['Issues &amp; repository signals', vscode.l10n.t('Issues & repository signals')],
@@ -176,10 +269,8 @@ function localizeDashboardHtml(html: string): string {
 		['Forks', vscode.l10n.t('Forks')],
 		['Watchers', vscode.l10n.t('Watchers')],
 		['Active devs (10 commits)', vscode.l10n.t('Active devs (10 commits)')],
-		['Run breakdown', vscode.l10n.t('Run breakdown')],
-		['Successful', vscode.l10n.t('Successful')],
-		['Cancelled', vscode.l10n.t('Cancelled')],
-		['In progress', vscode.l10n.t('In progress')],
+		['Main branch alerts', vscode.l10n.t('Main branch alerts')],
+		['Recent non-success workflow runs on main only. Yellow includes skipped, cancelled, action required, neutral, timed out, stale, and similar outcomes.', vscode.l10n.t('Recent non-success workflow runs on main only. Yellow includes skipped, cancelled, action required, neutral, timed out, stale, and similar outcomes.')],
 	]);
 
 	let localizedHtml = html;

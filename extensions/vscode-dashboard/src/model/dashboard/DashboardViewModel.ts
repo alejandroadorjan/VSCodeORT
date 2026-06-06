@@ -5,16 +5,17 @@
 
 import type { DashboardMetrics } from './DashboardMetrics';
 import type { IssueCard } from './IssueCard';
+import type { MainFailureAlert } from './MainFailureAlert';
 import type { RunCard } from './RunCard';
+import type { RunInsight } from './RunInsight';
 import type { WorkflowHistogramItem } from './WorkflowHistogramItem';
 
 export interface DashboardViewModel {
 	metrics: DashboardMetrics;
 	issueCards: IssueCard[];
 	recentRuns: RunCard[];
+	runDiagnostics: RunInsight[];
+	runInsights: RunInsight[];
+	mainFailureAlerts: MainFailureAlert[];
 	workflowSeries: WorkflowHistogramItem[];
-	chartLabels: string[];
-	chartSuccess: number[];
-	chartFailure: number[];
-	chartDuration: number[];
 }

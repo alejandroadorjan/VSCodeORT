@@ -3,14 +3,13 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-export type {
-	DashboardData,
-	DashboardMetrics,
-	DashboardRequest,
-	DashboardViewModel,
-	IssueCard,
-	MainFailureAlert,
-	RunCard,
-	RunInsight,
-	WorkflowHistogramItem,
-} from './dashboard/index';
+export interface MainFailureAlert {
+	name: string;
+	statusLabel: string;
+	badgeClass: string;
+	dotClass: string;
+	commit: string;
+	date: string;
+	duration: string;
+	url: string;
+}

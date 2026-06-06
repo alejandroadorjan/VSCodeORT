@@ -5,7 +5,7 @@
 
 import type { GitHubWorkflowRun } from '../model/github';
 import type { WorkflowHistogramItem } from '../model/dashboard';
-import { BUILD_DURATION_CAP_SECONDS, CHART_POINTS, DEPLOYMENT_WINDOW_DAYS } from './dashboardMetrics.constants';
+import { BUILD_DURATION_CAP_SECONDS, DEPLOYMENT_WINDOW_DAYS } from './dashboardMetrics.constants';
 
 export function isCompletedRun(run: GitHubWorkflowRun): boolean {
 	return Boolean(run.run_started_at && run.updated_at && run.conclusion);
@@ -35,12 +35,6 @@ export function calculateHealthScore(successRate: number, averageDurationSeconds
 
 export function sortByStartDate(runs: GitHubWorkflowRun[]): GitHubWorkflowRun[] {
 	return [...runs].sort((left, right) => new Date(left.run_started_at ?? '').getTime() - new Date(right.run_started_at ?? '').getTime());
-}
-
-export function buildLastRunsSeries(runs: GitHubWorkflowRun[]): GitHubWorkflowRun[] {
-	return sortByStartDate(runs)
-		.filter(run => isCompletedRun(run))
-		.slice(-CHART_POINTS);
 }
 
 export function buildRecentSuccessCount(runs: GitHubWorkflowRun[]): number {
@@ -86,18 +80,4 @@ export function buildWorkflowHistogram(runs: GitHubWorkflowRun[]): WorkflowHisto
 		failure: workflowRuns.filter(run => run.conclusion === 'failure').length,
 		durationSeconds: Math.round(workflowRuns.filter(run => isCompletedRun(run)).reduce((total, run) => total + runDurationSeconds(run), 0) / Math.max(1, workflowRuns.filter(run => isCompletedRun(run)).length)),
 	})).sort((left, right) => right.failure - left.failure || right.durationSeconds - left.durationSeconds);
-}
-
-export function buildChartData(runs: GitHubWorkflowRun[]): { labels: string[]; success: number[]; failure: number[]; duration: number[] } {
-	const lastRuns = buildLastRunsSeries(runs);
-
-	return {
-		labels: lastRuns.map(run => {
-			const startedAt = run.run_started_at ? new Date(run.run_started_at) : new Date();
-			return `${startedAt.getMonth() + 1}/${startedAt.getDate()}`;
-		}),
-		success: lastRuns.map(run => run.conclusion === 'success' ? 1 : 0),
-		failure: lastRuns.map(run => run.conclusion === 'failure' ? 1 : 0),
-		duration: lastRuns.map(run => runDurationSeconds(run)),
-	};
 }

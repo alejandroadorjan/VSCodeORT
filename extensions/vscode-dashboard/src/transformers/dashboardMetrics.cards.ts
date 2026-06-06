@@ -3,10 +3,10 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { IssueCard, RunCard } from '../model/dashboard';
+import type { IssueCard, RunCard, RunInsight } from '../model/dashboard';
 import type { GitHubIssue, GitHubWorkflowRun } from '../model/github';
 import { createLabelMarkup, formatClosedDate, formatDuration } from './dashboardMetrics.formatters';
-import { runDurationSeconds } from './dashboardMetrics.compute';
+import { isCompletedRun, runDurationSeconds } from './dashboardMetrics.compute';
 
 function getWorkflowDisplayName(run: GitHubWorkflowRun): string {
 	return (run.name ?? run.workflow_name ?? 'Workflow').slice(0, 30);
@@ -40,6 +40,25 @@ export function createRecentRunCard(run: GitHubWorkflowRun): RunCard {
 		badgeClass: classes.badgeClass,
 		statusLabel,
 		dotClass: classes.dotClass,
+	};
+}
+
+export function createRunInsight(run: GitHubWorkflowRun): RunInsight {
+	const statusLabel = getWorkflowStatus(run);
+	const classes = getStatusClasses(statusLabel);
+	const durationSeconds = runDurationSeconds(run);
+
+	return {
+		name: getWorkflowDisplayName(run),
+		title: run.display_title ?? run.name ?? run.workflow_name ?? 'Workflow',
+		statusLabel,
+		badgeClass: classes.badgeClass,
+		dotClass: classes.dotClass,
+		branch: run.head_branch ?? '',
+		commit: run.head_sha?.slice(0, 7) ?? '',
+		duration: formatDuration(durationSeconds),
+		hasDuration: isCompletedRun(run),
+		url: run.html_url ?? '',
 	};
 }
 

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Engineering Dashboard</title>
   <link rel="stylesheet" href="__styles__" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 
@@ -131,18 +130,19 @@
 
     <div class="card chart-card">
       <div class="chart-header">
-        <div class="card-title">Last 10 runs — status &amp; duration</div>
+        <div class="card-title">Recent run diagnosis</div>
         <div class="legend-row">
           <span class="legend-dot success"></span><span>Success</span>
           <span class="legend-dot failed ml-12"></span><span>Failed</span>
+          <span class="legend-dot other ml-12"></span><span>Skipped / other</span>
+          <span class="legend-dot inprogress ml-12"></span><span>In progress</span>
         </div>
       </div>
-      <div class="chart-compact">
-        <canvas id="statusChart" role="img" aria-label="Stacked bar chart of the last 10 pipeline runs showing success vs failure per run"></canvas>
-      </div>
-      <div class="chart-sublabel">Build duration (seconds)</div>
-      <div class="chart-compact--no-bottom">
-        <canvas id="durChart" role="img" aria-label="Line chart showing build duration in seconds for the last 10 runs"></canvas>
+      <div class="chart-help">Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.</div>
+      <div class="run-diagnostics">__runDiagnosticsHtml__</div>
+      <div class="run-insights">
+        <div class="run-insights-title">Runs needing attention</div>
+        <div class="run-insights-list">__runInsightsHtml__</div>
       </div>
     </div>
 
@@ -218,13 +218,21 @@
 
     <div class="card donut-card">
       <div class="card-title">Run outcomes</div>
-      <div class="donut-wrap">
-        <canvas id="donutChart" role="img" aria-label="Donut chart: __successPercent__% success, __failedPercent__% failed, rest other"></canvas>
+      <div class="outcome-scope">Scope: latest __totalRuns__ workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.</div>
+      <div class="outcome-visual">
+        <canvas id="donutChart" role="img" aria-label="Run outcomes"></canvas>
+        <div class="outcome-stack" aria-hidden="true">
+          <span class="outcome-segment success" id="outcome-success"></span>
+          <span class="outcome-segment failed" id="outcome-failed"></span>
+          <span class="outcome-segment other" id="outcome-other"></span>
+          <span class="outcome-segment inprogress" id="outcome-inprogress"></span>
+        </div>
       </div>
       <div class="donut-legend">
-        <div><span class="legend-dot success"></span>Success<br><strong>__successPercent__%</strong></div>
-        <div><span class="legend-dot failed"></span>Failed<br><strong>__failedPercent__%</strong></div>
-        <div><span class="legend-dot other"></span>Other<br><strong id="other-pct"></strong></div>
+        <div><span class="legend-dot success"></span>Success<br><strong id="success-pct">0%</strong><span class="outcome-count">__success__ runs</span></div>
+        <div><span class="legend-dot failed"></span>Failed<br><strong id="failed-pct">0%</strong><span class="outcome-count">__failed__ runs</span></div>
+        <div title="Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes"><span class="legend-dot other"></span>Skipped / other<br><strong id="other-pct">0%</strong><span class="outcome-count">__other__ runs</span></div>
+        <div><span class="legend-dot inprogress"></span>In progress<br><strong id="inprogress-pct">0%</strong><span class="outcome-count">__inProgress__ runs</span></div>
       </div>
     </div>
 
@@ -266,40 +274,10 @@
         </div>
       </div>
 
-      <div class="card breakdown-card">
-        <div class="card-title">Run breakdown</div>
-        <div class="breakdown-row">
-          <span class="breakdown-dot success"></span>
-          <span class="breakdown-label">Successful</span>
-          <div class="breakdown-bar-wrap">
-            <div class="breakdown-bar" id="bar-success"></div>
-          </div>
-          <span class="breakdown-count">__success__</span>
-        </div>
-        <div class="breakdown-row">
-          <span class="breakdown-dot failure"></span>
-          <span class="breakdown-label">Failed</span>
-          <div class="breakdown-bar-wrap">
-            <div class="breakdown-bar" id="bar-failed"></div>
-          </div>
-          <span class="breakdown-count">__failed__</span>
-        </div>
-        <div class="breakdown-row">
-          <span class="breakdown-dot other"></span>
-          <span class="breakdown-label">Cancelled</span>
-          <div class="breakdown-bar-wrap">
-            <div class="breakdown-bar" id="bar-cancelled"></div>
-          </div>
-          <span class="breakdown-count">__cancelled__</span>
-        </div>
-        <div class="breakdown-row no-border">
-          <span class="breakdown-dot inprogress"></span>
-          <span class="breakdown-label">In progress</span>
-          <div class="breakdown-bar-wrap">
-            <div class="breakdown-bar" id="bar-inprogress"></div>
-          </div>
-          <span class="breakdown-count">__inProgress__</span>
-        </div>
+      <div class="card main-alerts-card">
+        <div class="card-title">Main branch alerts</div>
+        <div class="main-alerts-note">Recent non-success workflow runs on main only. Yellow includes skipped, cancelled, action required, neutral, timed out, stale, and similar outcomes.</div>
+        <div class="main-alerts">__mainAlertsHtml__</div>
       </div>
 
     </div>
@@ -308,6 +286,8 @@
 
 </main>
 
-<script src="__script__"></script>
+<script>
+__script__
+</script>
 </body>
 </html>

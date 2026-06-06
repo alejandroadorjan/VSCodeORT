@@ -6,10 +6,14 @@
 export interface GitHubWorkflowRun {
 	id?: number;
 	name?: string;
+	display_title?: string;
 	head_branch?: string;
+	head_sha?: string;
 	conclusion?: string | null;
 	status?: string;
 	run_started_at?: string | null;
 	updated_at?: string | null;
 	workflow_name?: string;
+	html_url?: string;
+	jobs_url?: string;
 }

@@ -12,17 +12,13 @@ const mttr = __mttr__;
 const cfr = __changeFailureRate__;
 const succ = __success__;
 const fail = __failed__;
-const canc = __cancelled__;
 const inp = __inProgress__;
 const sp = __successPercent__;
 const fp = __failedPercent__;
+const ip = __inProgressPercent__;
+const op = __otherPercent__;
 const avgD = __avgDuration__;
-const tot = __totalRuns__;
 
-const chartLabels = __chartLabels__;
-const chartSuccess = __chartSuccess__;
-const chartFailed = __chartFailed__;
-const chartDur = __chartDur__;
 const dashboardText = __dashboardText__;
 
 (function () {
@@ -34,15 +30,9 @@ const dashboardText = __dashboardText__;
 	const cFailed = (cs.getPropertyValue('--dashboard-failed') || '#e05c5c').trim();
 	const cAmber = (cs.getPropertyValue('--dashboard-amber') || '#e0a030').trim();
 	const cBlue = (cs.getPropertyValue('--dashboard-blue') || '#4f9bf5').trim();
-	const cOther = (cs.getPropertyValue('--dashboard-other') || '#888888').trim();
-	const cSuccessRgb = (cs.getPropertyValue('--dashboard-success-rgb') || '126,200,80').trim();
-	const cBlueRgb = (cs.getPropertyValue('--dashboard-blue-rgb') || '79,155,245').trim();
+	const cOther = (cs.getPropertyValue('--dashboard-other') || '#e0a030').trim();
 	const trackLight = (cs.getPropertyValue('--dashboard-track-light') || '#e8e8e8').trim();
 	const trackDark = (cs.getPropertyValue('--dashboard-track-dark') || '#333333').trim();
-	const gridLight = (cs.getPropertyValue('--dashboard-grid-light') || 'rgba(0,0,0,0.05)').trim();
-	const gridDark = (cs.getPropertyValue('--dashboard-grid-dark') || 'rgba(255,255,255,0.05)').trim();
-	const tickLight = (cs.getPropertyValue('--dashboard-tick-light') || '#aaa').trim();
-	const tickDark = (cs.getPropertyValue('--dashboard-tick-dark') || '#666').trim();
 
 	const tsEl = document.getElementById('timestamp');
 	if (tsEl) {tsEl.textContent = new Date().toLocaleTimeString();}
@@ -92,21 +82,7 @@ const dashboardText = __dashboardText__;
 		else {cb.className = 'badge badge-amber', cb.textContent = dashboardText.medium;}
 	}
 
-	const otherPct = Math.max(0, 100 - sp - fp);
-	const otherEl = document.getElementById('other-pct');
-	if (otherEl) {otherEl.textContent = otherPct + '%';}
-
-	const setBar = (id, count, variantClass) => {
-		const el = document.getElementById(id);
-		if (el) {
-			el.style.width = Math.round((count / tot) * 100) + '%';
-			if (variantClass) {el.classList.add(variantClass);}
-		}
-	};
-	setBar('bar-success', succ, 'success');
-	setBar('bar-failed', fail, 'failure');
-	setBar('bar-cancelled', canc, 'other');
-	setBar('bar-inprogress', inp, 'inprogress');
+	setOutcomeVisuals([sp, fp, op, ip], [cSuccess, cFailed, cOther, cBlue]);
 
 	// set success progress fill
 	const pf = document.querySelector('.progress-fill'); if (pf) {pf.style.width = sr + '%';}
@@ -123,74 +99,6 @@ const dashboardText = __dashboardText__;
 		gctx.strokeStyle = gaugeColor; gctx.lineWidth = 14; gctx.lineCap = 'round'; gctx.stroke();
 	}
 
-	const gridColor = isDark ? gridDark : gridLight;
-	const tickColor = isDark ? tickDark : tickLight;
-
-	new Chart(document.getElementById('statusChart'), {
-		type: 'bar',
-		data: {
-			labels: chartLabels,
-			datasets: [
-				{ label: dashboardText.success, data: chartSuccess, backgroundColor: cSuccess, borderRadius: 2, borderSkipped: false, stack: 'a' },
-				{ label: dashboardText.failed, data: chartFailed, backgroundColor: cFailed, borderRadius: 2, borderSkipped: false, stack: 'a' }
-			]
-		},
-		options: {
-			responsive: true, maintainAspectRatio: false,
-			plugins: {
-				legend: { display: false }, tooltip: {
-					callbacks: { label: ctx => ctx.dataset.label + ': ' + (ctx.raw ? '✓' : '–') }
-				}
-			},
-			scales: {
-				x: { stacked: true, ticks: { color: tickColor, font: { size: 10 }, autoSkip: false, maxRotation: 0 }, grid: { color: gridColor } },
-				y: { stacked: true, display: false, beginAtZero: true, max: 1 }
-			}
-		}
-	});
-
-	new Chart(document.getElementById('durChart'), {
-		type: 'line',
-		data: {
-			labels: chartLabels,
-			datasets: [{
-				label: dashboardText.durationSeconds,
-				data: chartDur,
-				borderColor: cBlue,
-				backgroundColor: 'rgba(' + cBlueRgb + ',0.08)',
-				borderWidth: 1.5,
-				pointRadius: 3,
-				pointBackgroundColor: cBlue,
-				tension: 0.3,
-				fill: true
-			}]
-		},
-		options: {
-			responsive: true, maintainAspectRatio: false,
-			plugins: { legend: { display: false } },
-			scales: {
-				x: { ticks: { color: tickColor, font: { size: 10 }, autoSkip: false, maxRotation: 0 }, grid: { color: gridColor } },
-				y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor }, beginAtZero: true }
-			}
-		}
-	});
-
-	new Chart(document.getElementById('donutChart'), {
-		type: 'doughnut',
-		data: {
-			labels: [dashboardText.success, dashboardText.failed, dashboardText.other],
-			datasets: [{ data: [sp, fp, otherPct], backgroundColor: [cSuccess, cFailed, cOther], borderWidth: 0, hoverOffset: 4 }]
-		},
-		options: {
-			responsive: true, maintainAspectRatio: false,
-			cutout: '68%',
-			plugins: {
-				legend: { display: false },
-				tooltip: { callbacks: { label: c => c.label + ': ' + c.parsed + '%' } }
-			}
-		}
-	});
-
 	const ul = document.getElementById('issueList');
 	if (ul) {
 		ul.querySelectorAll('li').forEach(li => {
@@ -203,3 +111,62 @@ const dashboardText = __dashboardText__;
 		});
 	}
 })();
+
+function setOutcomeVisuals(values, colors) {
+	const percentIds = ['success-pct', 'failed-pct', 'other-pct', 'inprogress-pct'];
+	const segmentIds = ['outcome-success', 'outcome-failed', 'outcome-other', 'outcome-inprogress'];
+	const labels = [dashboardText.success, dashboardText.failed, dashboardText.other, dashboardText.inProgress];
+
+	for (let index = 0; index < values.length; index++) {
+		const percentEl = document.getElementById(percentIds[index]);
+		if (percentEl) {
+			percentEl.textContent = values[index] + '%';
+		}
+
+		const segmentEl = document.getElementById(segmentIds[index]);
+		if (segmentEl) {
+			segmentEl.style.width = values[index] + '%';
+			segmentEl.title = labels[index] + ': ' + values[index] + '%';
+		}
+	}
+
+	const canvas = document.getElementById('donutChart');
+	if (canvas) {
+		canvas.setAttribute('aria-label', labels.map((label, index) => label + ' ' + values[index] + '%').join(', '));
+	}
+	drawDonutFallback(canvas, values, colors);
+}
+
+function drawDonutFallback(canvas, values, colors) {
+	if (!canvas || !canvas.getContext) {
+		return;
+	}
+
+	const context = canvas.getContext('2d');
+	const size = Math.min(canvas.clientWidth || 150, canvas.clientHeight || 150);
+	const scale = window.devicePixelRatio || 1;
+	canvas.width = Math.max(1, Math.round(size * scale));
+	canvas.height = Math.max(1, Math.round(size * scale));
+	context.scale(scale, scale);
+
+	const center = size / 2;
+	const radius = Math.max(0, (size / 2) - 8);
+	const lineWidth = Math.max(10, radius * 0.32);
+	let startAngle = -Math.PI / 2;
+
+	for (let index = 0; index < values.length; index++) {
+		const value = values[index];
+		if (value <= 0) {
+			continue;
+		}
+
+		const endAngle = startAngle + ((value / 100) * Math.PI * 2);
+		context.beginPath();
+		context.arc(center, center, radius, startAngle, endAngle);
+		context.strokeStyle = colors[index];
+		context.lineWidth = lineWidth;
+		context.lineCap = 'butt';
+		context.stroke();
+		startAngle = endAngle;
+	}
+}

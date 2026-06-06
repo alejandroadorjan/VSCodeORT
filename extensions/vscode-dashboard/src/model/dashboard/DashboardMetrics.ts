@@ -9,8 +9,11 @@ export interface DashboardMetrics {
 	failureCount: number;
 	cancelledCount: number;
 	inProgressCount: number;
+	otherCount: number;
 	successRate: number;
 	failedRate: number;
+	inProgressRate: number;
+	otherRate: number;
 	averageDurationSeconds: number;
 	deploymentFrequency: number;
 	mttrMinutes: number;
