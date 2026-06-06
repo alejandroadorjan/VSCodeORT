@@ -122,6 +122,60 @@ function renderMainAlerts(model: DashboardViewModel): string {
 	}).join('');
 }
 
+function renderSkippedRuns(model: DashboardViewModel): string {
+	if (model.skippedRunInsights.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No recent skipped runs found.')}</div>`;
+	}
+
+	return model.skippedRunInsights.map((run) => {
+		const runLink = run.url ? `<a class="run-link" href="${run.url}">${vscode.l10n.t('Open run')}</a>` : '';
+		const commit = run.commit || vscode.l10n.t('no commit');
+		const event = run.event || vscode.l10n.t('unknown event');
+		const workflowPath = run.workflowPath || vscode.l10n.t('unknown workflow file');
+		const branch = run.branch || vscode.l10n.t('unknown branch');
+		const reason = getSkippedRunReason(run);
+
+		return `
+			<div class="skipped-run">
+				<span class="status-dot amber"></span>
+				<div class="skipped-run-main">
+					<div class="skipped-run-title">${run.name}</div>
+					<div class="skipped-run-reason">${reason.label}</div>
+					<div class="skipped-run-evidence">${reason.evidence}</div>
+					<div class="skipped-run-meta">${vscode.l10n.t('{0} · {1} · {2}', event, branch, commit)}</div>
+					<div class="skipped-run-path">${workflowPath}</div>
+				</div>
+				<span class="skipped-run-date">${run.date}</span>
+				${runLink}
+			</div>`;
+	}).join('');
+}
+
+function getSkippedRunReason(run: DashboardViewModel['skippedRunInsights'][number]): { label: string; evidence: string } {
+	switch (run.reasonKind) {
+		case 'sameCommitFailure':
+			return {
+				label: vscode.l10n.t('Likely related to failing workflows on the same commit'),
+				evidence: vscode.l10n.t('{0} failed on this commit: {1}', run.sameCommitFailures.length, run.sameCommitFailures.join(', ')),
+			};
+		case 'configOrEvent':
+			return {
+				label: vscode.l10n.t('Likely skipped by workflow configuration or event filters'),
+				evidence: vscode.l10n.t('{0} other workflow runs succeeded on this same commit.', run.sameCommitSuccessCount),
+			};
+		case 'missingContext':
+			return {
+				label: vscode.l10n.t('Not enough same-commit context'),
+				evidence: vscode.l10n.t('{0} comparable workflow runs found for this commit.', run.sameCommitRunCount),
+			};
+		case 'inconclusive':
+			return {
+				label: vscode.l10n.t('Skip cause is inconclusive'),
+				evidence: vscode.l10n.t('{0} comparable workflow runs found, but none clearly explains the skip.', run.sameCommitRunCount),
+			};
+	}
+}
+
 function localizeRunStatus(status: string): string {
 	switch (status) {
 		case 'success':
@@ -187,7 +241,8 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 		.replace(/__recentRunsHtml__/g, renderRecentRuns(model))
 		.replace(/__runDiagnosticsHtml__/g, renderRunDiagnostics(model))
 		.replace(/__runInsightsHtml__/g, renderRunInsights(model))
-		.replace(/__mainAlertsHtml__/g, renderMainAlerts(model));
+		.replace(/__mainAlertsHtml__/g, renderMainAlerts(model))
+		.replace(/__skippedRunsHtml__/g, renderSkippedRuns(model));
 }
 
 export function renderDashboardHtml(context: vscode.ExtensionContext, webview: vscode.Webview, model: DashboardViewModel): string {
@@ -271,6 +326,8 @@ function localizeDashboardHtml(html: string): string {
 		['Active devs (10 commits)', vscode.l10n.t('Active devs (10 commits)')],
 		['Main branch alerts', vscode.l10n.t('Main branch alerts')],
 		['Recent failed workflow runs on main only. Skipped, cancelled, action required, and currently running workflows are intentionally excluded.', vscode.l10n.t('Recent failed workflow runs on main only. Skipped, cancelled, action required, and currently running workflows are intentionally excluded.')],
+		['Skipped run diagnostics', vscode.l10n.t('Skipped run diagnostics')],
+		['Probable causes inferred from other workflow runs on the same commit. GitHub does not expose a single skip reason in workflow run data.', vscode.l10n.t('Probable causes inferred from other workflow runs on the same commit. GitHub does not expose a single skip reason in workflow run data.')],
 	]);
 
 	let localizedHtml = html;

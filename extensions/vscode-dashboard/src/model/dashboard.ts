@@ -12,5 +12,7 @@ export type {
 	MainFailureAlert,
 	RunCard,
 	RunInsight,
+	SkippedRunInsight,
+	SkippedRunReasonKind,
 	WorkflowHistogramItem,
 } from './dashboard/index';

@@ -11,4 +11,5 @@ export type { IssueCard } from './IssueCard';
 export type { MainFailureAlert } from './MainFailureAlert';
 export type { RunCard } from './RunCard';
 export type { RunInsight } from './RunInsight';
+export type { SkippedRunInsight, SkippedRunReasonKind } from './SkippedRunInsight';
 export type { WorkflowHistogramItem } from './WorkflowHistogramItem';

@@ -415,3 +415,15 @@ li.no-data   { font-size: 12px; opacity: .4; padding: 6px 0; list-style: none; }
 .main-alert-main { min-width: 0; }
 .main-alert-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .main-alert-meta { opacity: .5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+
+/* ── SKIPPED RUN DIAGNOSTICS ─────────────────────────────────────────── */
+.skipped-runs-note { font-size: 10px; line-height: 1.35; opacity: .45; margin: -4px 0 8px; }
+.skipped-runs { display: flex; flex-direction: column; gap: 7px; }
+.skipped-run { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 8px; font-size: 11px; }
+.skipped-run-main { min-width: 0; }
+.skipped-run-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.skipped-run-reason { color: var(--dashboard-amber); font-size: 10px; font-weight: 600; line-height: 1.3; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.skipped-run-evidence { font-size: 10px; line-height: 1.3; opacity: .58; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+.skipped-run-meta { opacity: .5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+.skipped-run-path { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 10px; opacity: .38; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+.skipped-run-date { opacity: .55; white-space: nowrap; }

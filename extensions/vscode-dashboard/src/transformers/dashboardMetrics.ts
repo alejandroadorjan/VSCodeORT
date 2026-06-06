@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { DashboardViewModel, MainFailureAlert } from '../model/dashboard';
+import type { DashboardViewModel, MainFailureAlert, SkippedRunInsight, SkippedRunReasonKind } from '../model/dashboard';
 import type { GitHubCommit, GitHubIssue, GitHubRepo, GitHubWorkflowRun } from '../model/github';
 import { DEPLOYMENT_WEEKS_ESTIMATE, RECENT_RUN_COUNT } from './dashboardMetrics.constants';
 import { createIssueCard, createRecentRunCard, createRunInsight } from './dashboardMetrics.cards';
@@ -11,6 +11,11 @@ import { buildRecentSuccessCount, buildWorkflowHistogram, calculateHealthScore, 
 
 const MAIN_BRANCH = 'main';
 const MAIN_ALERT_COUNT = 5;
+const SKIPPED_INSIGHT_COUNT = 5;
+
+function getRunName(run: GitHubWorkflowRun): string {
+	return run.name ?? run.workflow_name ?? 'Workflow';
+}
 
 function formatRunDate(run: GitHubWorkflowRun): string {
 	const timestamp = run.updated_at ?? run.run_started_at;
@@ -52,6 +57,54 @@ function buildMainFailureAlerts(runs: GitHubWorkflowRun[]): MainFailureAlert[] {
 				date: formatRunDate(run),
 				duration: isCompletedRun(run) ? `${durationSeconds}s` : 'n/a',
 				url: run.html_url ?? '',
+			};
+		});
+}
+
+function buildSkippedRunInsights(runs: GitHubWorkflowRun[]): SkippedRunInsight[] {
+	const runsByCommit = new Map<string, GitHubWorkflowRun[]>();
+	for (const run of runs) {
+		if (!run.head_sha) {
+			continue;
+		}
+
+		runsByCommit.set(run.head_sha, [...(runsByCommit.get(run.head_sha) ?? []), run]);
+	}
+
+	return runs
+		.filter(run => run.conclusion === 'skipped')
+		.slice(-SKIPPED_INSIGHT_COUNT)
+		.reverse()
+		.map(run => {
+			const sameCommitRuns = run.head_sha ? runsByCommit.get(run.head_sha) ?? [] : [];
+			const relatedRuns = sameCommitRuns.filter(relatedRun => relatedRun !== run);
+			const sameCommitFailures = relatedRuns
+				.filter(relatedRun => relatedRun.conclusion === 'failure')
+				.map(relatedRun => getRunName(relatedRun).slice(0, 30));
+			const sameCommitSuccessCount = relatedRuns.filter(relatedRun => relatedRun.conclusion === 'success').length;
+			const inProgressCount = relatedRuns.filter(relatedRun => relatedRun.status === 'in_progress').length;
+			let reasonKind: SkippedRunReasonKind = 'inconclusive';
+
+			if (sameCommitFailures.length > 0) {
+				reasonKind = 'sameCommitFailure';
+			} else if (sameCommitSuccessCount > 0) {
+				reasonKind = 'configOrEvent';
+			} else if (relatedRuns.length === 0 || inProgressCount > 0) {
+				reasonKind = 'missingContext';
+			}
+
+			return {
+				name: getRunName(run).slice(0, 38),
+				event: run.event ?? '',
+				workflowPath: run.path ?? '',
+				branch: run.head_branch ?? '',
+				commit: run.head_sha?.slice(0, 7) ?? '',
+				date: formatRunDate(run),
+				url: run.html_url ?? '',
+				reasonKind,
+				sameCommitFailures,
+				sameCommitRunCount: relatedRuns.length,
+				sameCommitSuccessCount,
 			};
 		});
 }
@@ -122,6 +175,7 @@ export function buildDashboardViewModel(input: {
 			.reverse()
 			.map(createRunInsight),
 		mainFailureAlerts: buildMainFailureAlerts(sortedRuns),
+		skippedRunInsights: buildSkippedRunInsights(sortedRuns),
 		workflowSeries: buildWorkflowHistogram(sortedRuns),
 	};
 }

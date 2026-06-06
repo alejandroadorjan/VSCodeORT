@@ -11,6 +11,7 @@ export async function runDashboardMetricsTests() {
 	await testRecentRunsOrdering();
 	await testRunOutcomePercentagesAddToOneHundred();
 	await testMainFailureAlerts();
+	await testSkippedRunInsights();
 }
 
 async function testViewModelBuildsWorkflowConcentration() {
@@ -99,4 +100,45 @@ async function testMainFailureAlerts() {
 	assert.strictEqual(alerts.length, 1);
 	assert.strictEqual(alerts[0].name, 'Main failure');
 	assert.strictEqual(alerts[0].statusLabel, 'failure');
+}
+
+async function testSkippedRunInsights() {
+	const viewModel = buildDashboardViewModel({
+		repo: {},
+		workflowRuns: [
+			{ name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
+			{
+				name: 'API Proposal Version Check',
+				head_branch: 'main',
+				head_sha: 'abcdef123456',
+				conclusion: 'skipped',
+				status: 'completed',
+				event: 'issue_comment',
+				path: '.github/workflows/api-proposal-version-check.yml',
+				updated_at: '2026-05-01T11:00:00Z',
+				html_url: 'https://github.com/microsoft/vscode/actions/runs/1',
+			},
+			{ name: 'Compile', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:30:00Z' },
+			{ name: 'Docs', head_branch: 'main', head_sha: '123456abcdef', conclusion: 'skipped', status: 'completed', event: 'push', updated_at: '2026-05-01T11:40:00Z' },
+			{ name: 'Cancelled', head_branch: 'main', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
+		],
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
+	const skippedRuns = viewModel.skippedRunInsights;
+
+	assert.strictEqual(skippedRuns.length, 2);
+	assert.strictEqual(skippedRuns[0].name, 'Docs');
+	assert.strictEqual(skippedRuns[0].reasonKind, 'sameCommitFailure');
+	assert.deepStrictEqual(skippedRuns[0].sameCommitFailures, ['Compile']);
+	assert.strictEqual(skippedRuns[1].name, 'API Proposal Version Check');
+	assert.strictEqual(skippedRuns[1].event, 'issue_comment');
+	assert.strictEqual(skippedRuns[1].workflowPath, '.github/workflows/api-proposal-version-check.yml');
+	assert.strictEqual(skippedRuns[1].branch, 'main');
+	assert.strictEqual(skippedRuns[1].commit, 'abcdef1');
+	assert.strictEqual(skippedRuns[1].url, 'https://github.com/microsoft/vscode/actions/runs/1');
+	assert.strictEqual(skippedRuns[1].reasonKind, 'configOrEvent');
+	assert.strictEqual(skippedRuns[1].sameCommitSuccessCount, 1);
 }
