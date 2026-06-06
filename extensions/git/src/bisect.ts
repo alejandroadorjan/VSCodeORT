@@ -107,6 +107,7 @@ export class Bisect implements Disposable {
 		});
 	}
 
+	// Handles the initial webview ready event by loading repository branches and sending the initial UI state.
 	private async readyEvent(panel: WebviewPanel, repositoryPath: string): Promise<void> {
 		try {
 			const branches = await this.getBranches(repositoryPath);
@@ -127,6 +128,7 @@ export class Bisect implements Disposable {
 		}
 	}
 
+	// Starts the bisect workflow from a webview request, stores the initial session state, and notifies the UI.
 	private async startEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: StartBisectMessage): Promise<void> {
 		try {
 			const startMessage = message as StartBisectMessage;
@@ -156,6 +158,7 @@ export class Bisect implements Disposable {
 		}
 	}
 
+	// Resets any active git bisect session, clears the in-memory timeline state, and reloads the branch list in the UI.
 	private async resetEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState): Promise<void> {
 		try {
 			await this.execGit(repositoryPath, ['bisect', 'reset']).catch(() => undefined);
@@ -182,6 +185,7 @@ export class Bisect implements Disposable {
 		}
 	}
 
+	// Handles a timeline commit click after bisect finishes, resets bisect state, checks out the selected commit, and updates the UI.
 	private async checkoutCommitEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: CheckoutCommitMessage): Promise<void> {
 		try {
 			const checkoutMessage = message as CheckoutCommitMessage;
@@ -210,6 +214,7 @@ export class Bisect implements Disposable {
 		}
 	}
 
+	// Handles a user classification for the current bisect commit, advances git bisect, and updates the UI with either the next step or the final result.
 	private async markEvent(panel: WebviewPanel, repositoryPath: string, sessionState: BisectSessionState, message: MarkBisectMessage): Promise<void> {
 		try {
 			const markMessage = message as MarkBisectMessage;
@@ -266,6 +271,7 @@ export class Bisect implements Disposable {
 		}
 	}
 
+	// Starts a git bisect session using the selected branch as the bad endpoint and an older commit as the good endpoint.
 	private async startGitBisect(
 		repositoryPath: string,
 		branch: string,
@@ -314,6 +320,7 @@ export class Bisect implements Disposable {
 		const badCommit = commitsNewestToOldest[0];
 		const goodCommit = commitsNewestToOldest[goodIndex];
 
+		// Builds the commit list displayed in the UI, ordered from oldest to newest.
 		const commitsOldestToNewest = commitsNewestToOldest
 			.slice(0, goodIndex + 1)
 			.reverse()
@@ -363,6 +370,7 @@ export class Bisect implements Disposable {
 		return match?.[1];
 	}
 
+	// Executes a git command in the given repository path and returns the trimmed stdout.
 	private execGit(repositoryPath: string, args: string[]): Promise<string> {
 		return new Promise((resolve, reject) => {
 			execFile(
@@ -431,6 +439,7 @@ export class Bisect implements Disposable {
 		});
 	}
 
+	// Resolves pending commit statuses to good or bad based on their position relative to the first bad commit.
 	private resolveFinishedCommitStatuses(commits: CommitItem[], firstBadCommitHash: string): CommitItem[] {
 		const firstBadIndex = commits.findIndex(commit => commit.hash === firstBadCommitHash);
 
