@@ -65,10 +65,10 @@ jobs:
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           set +e
-          output=$(node .github/pr-structure-check/validate-pr-structure.mjs \
+          # Pipe body via stdin — avoids bash interpreting backticks in "$PR_BODY"
+          output=$(printf '%s' "$PR_BODY" | node .github/pr-structure-check/validate-pr-structure.mjs \
             --config .github/pr-structure-check/config.json \
-            --github-actions \
-            --body "$PR_BODY" 2>&1)
+            --github-actions 2>&1)
           exit_code=$?
           printf '%s\n' "$output"
 
@@ -90,7 +90,7 @@ jobs:
           exit "$exit_code"
 
       - name: Update PR comment
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && always() && steps.validate.outcome != 'skipped'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && (steps.validate.outcome == 'success' || steps.validate.outcome == 'failure')
         uses: actions/github-script@v9
         env:
           VALIDATION_ERRORS: ${{ steps.validate.outputs.errors }}
@@ -163,5 +163,5 @@ jobs:
             }
 
       - name: Fail if validation failed
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && steps.validate.outputs.valid != 'true'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && steps.validate.outcome == 'failure'
         run: exit 1
