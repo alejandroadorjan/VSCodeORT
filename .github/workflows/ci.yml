@@ -126,7 +126,11 @@ jobs:
         run: ./scripts/test-web-integration.sh --browser chromium
 
       - name: Run integration tests Remote
-        run: ./scripts/test-remote-integration.sh
+        run: |
+          set -e
+          sudo chown root .build/electron/chrome-sandbox
+          sudo chmod 4755 .build/electron/chrome-sandbox
+          ./scripts/test-remote-integration.sh
         env:
           VSCODE_SKIP_PRELAUNCH: 1
 
