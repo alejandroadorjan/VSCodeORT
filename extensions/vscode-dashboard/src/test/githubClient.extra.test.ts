@@ -4,8 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as assert from 'assert';
-import type { GitHubFetchLike } from '../data/githubClient';
-import { getRepo } from '../data/githubClient';
+import { type GitHubFetchLike, getRepo } from '../data/githubClient';
 import type { GitHubResponseLike } from '../data/githubClient.types';
 
 function createResponse(response: Omit<GitHubResponseLike, 'json' | 'text'> & { body?: object; textBody?: string }): GitHubResponseLike {

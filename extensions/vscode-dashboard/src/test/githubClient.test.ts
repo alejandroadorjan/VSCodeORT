@@ -4,8 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as assert from 'assert';
-import type { GitHubFetchLike } from '../data/githubClient';
-import { getClosedIssues, getRepo, getWorkflowRuns } from '../data/githubClient';
+import { type GitHubFetchLike, getClosedIssues, getRepo, getWorkflowRuns } from '../data/githubClient';
 import type { GitHubResponseLike } from '../data/githubClient.types';
 
 function createOkResponse(body: object): GitHubResponseLike {
