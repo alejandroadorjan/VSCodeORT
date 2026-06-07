@@ -130,7 +130,7 @@ jobs:
           set -e
           sudo chown root .build/electron/chrome-sandbox
           sudo chmod 4755 .build/electron/chrome-sandbox
-          ./scripts/test-remote-integration.sh
+          xvfb-run ./scripts/test-remote-integration.sh
         env:
           VSCODE_SKIP_PRELAUNCH: 1
 
