@@ -59,7 +59,7 @@ These decisions were agreed during planning and govern the implementation.
 | Duplicate headers | Content from duplicate occurrences is concatenated before length check |
 | Content counting | Text after trim; only HTML comments are stripped; markdown syntax counts |
 | Empty body | Fail with one error per missing section |
-| Draft PRs | Skipped until marked "Ready for review" |
+| Draft PRs | Skipped while draft; re-runs on `ready_for_review` when marked ready |
 | Bot PRs | Skipped when author login ends with `[bot]` |
 | Bypass | PR passes if `skip-pr-check` label is present; who can add labels is enforced by GitHub repo permissions |
 | Global toggle | `PR_STRUCTURE_CHECK_ENABLED` in workflow env; `false` skips validation entirely (job succeeds) |
@@ -144,9 +144,10 @@ When the check is **not** required, authors can merge even if validation fails (
 1. Open a PR without sections → check fails with specific errors and a PR comment
 2. Fill all four sections with enough content → check passes; failure comment is marked resolved
 3. Add `skip-pr-check` label → check passes even with an empty description
-4. Open as draft → check does not run
-5. Edit the description → check re-runs automatically
-6. Set `PR_STRUCTURE_CHECK_ENABLED: false` → job succeeds without validating any PR
+4. Open as draft → check does not run (job skipped)
+5. Mark draft as ready for review → check runs automatically
+6. Edit the description → check re-runs automatically
+7. Set `PR_STRUCTURE_CHECK_ENABLED: false` → job succeeds without validating any PR
 
 ## Workflow environment variables
 
@@ -156,6 +157,12 @@ When the check is **not** required, authors can merge even if validation fails (
 | `STRICT_MODE` | `false` | Branch filter and config source (see above) |
 
 Both live at the top of [`.github/workflows/pr-structure-check.yml`](../workflows/pr-structure-check.yml).
+
+### Pull request events
+
+The workflow listens for: `opened`, `synchronize`, `reopened`, `edited`, `labeled`, `unlabeled`, and **`ready_for_review`**.
+
+`ready_for_review` is required so the check runs when a draft PR is marked ready. Without it, the last result stays **Skipped** from the last push while the PR was still a draft.
 
 ## Implementation phases
 
