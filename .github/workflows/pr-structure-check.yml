@@ -23,13 +23,26 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       !github.event.pull_request.draft &&
-      !endsWith(github.event.pull_request.user.login, '[bot]') &&
-      (env.STRICT_MODE != 'true' ||
-        github.event.pull_request.base.ref == 'main' ||
-        startsWith(github.event.pull_request.base.ref, 'release/'))
+      !endsWith(github.event.pull_request.user.login, '[bot]')
     steps:
+      - name: Apply STRICT_MODE branch filter
+        id: strict_mode
+        run: |
+          if [ "$STRICT_MODE" = "true" ]; then
+            BASE="${{ github.event.pull_request.base.ref }}"
+            if [ "$BASE" = "main" ] || [[ "$BASE" == release/* ]]; then
+              echo "strict_mode_pass=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "STRICT_MODE=true: skipping PR (base branch: $BASE)"
+              echo "strict_mode_pass=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "strict_mode_pass=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Pass when bypass label is present
         id: bypass
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true'
         run: |
           if [ "${{ contains(github.event.pull_request.labels.*.name, 'skip-pr-check') }}" = "true" ]; then
             echo "Bypass label skip-pr-check present; skipping validation."
@@ -39,14 +52,14 @@ jobs:
           fi
 
       - name: Checkout repository
-        if: steps.bypass.outputs.bypass != 'true'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
         uses: actions/checkout@v6
         with:
           ref: ${{ env.STRICT_MODE == 'true' && github.event.pull_request.base.sha || github.event.pull_request.head.sha }}
 
       - name: Validate PR structure
         id: validate
-        if: steps.bypass.outputs.bypass != 'true'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
         continue-on-error: true
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
@@ -77,7 +90,7 @@ jobs:
           exit "$exit_code"
 
       - name: Update PR comment
-        if: steps.bypass.outputs.bypass != 'true' && always() && steps.validate.outcome != 'skipped'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && always() && steps.validate.outcome != 'skipped'
         uses: actions/github-script@v9
         env:
           VALIDATION_ERRORS: ${{ steps.validate.outputs.errors }}
@@ -150,5 +163,5 @@ jobs:
             }
 
       - name: Fail if validation failed
-        if: steps.bypass.outputs.bypass != 'true' && steps.validate.outputs.valid != 'true'
+        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && steps.validate.outputs.valid != 'true'
         run: exit 1
