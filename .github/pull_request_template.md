@@ -8,16 +8,14 @@
 
 
 ## Qué cambia
-Breve descripción
+<!-- Breve descripción -->
 
 ## Tipo
-- Feature
-- Fix
-- Refactor
-- Docs
+- [] Feature
+- [] Fix
+- [] Refactor
+- [] Docs
 
 ## Evidencia
-- Capturas
-- Video
-- Tests ejecutados
+<!-- Capturas, videos, tests ejecutados -->
 
