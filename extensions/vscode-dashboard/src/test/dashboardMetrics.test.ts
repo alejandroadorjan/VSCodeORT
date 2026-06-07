@@ -373,7 +373,6 @@ async function testHealthScoreNormalizesDurationBeforeApplyingCap() {
 }
 
 async function testReleaseDoraInspiredMetricsUseReleasesAndTags() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{
 			name: 'Release pipeline',
@@ -423,7 +422,6 @@ async function testReleaseDoraInspiredMetricsUseReleasesAndTags() {
 		{ name: '1.1.1' },
 	];
 
-	// Act
 	const viewModel = buildDashboardViewModel({
 		repo: {},
 		workflowRuns,
@@ -443,7 +441,6 @@ async function testReleaseDoraInspiredMetricsUseReleasesAndTags() {
 		commits: [],
 	});
 
-	// Assert
 	assert.deepStrictEqual({
 		recentSuccessfulReleases: viewModel.metrics.recentSuccessCount,
 		releaseFrequency: viewModel.metrics.deploymentFrequency,
