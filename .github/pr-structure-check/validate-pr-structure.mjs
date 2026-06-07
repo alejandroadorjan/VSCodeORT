@@ -17,6 +17,18 @@ export function stripHtmlComments(text) {
 }
 
 /**
+ * @param {string | null | undefined} text
+ * @returns {string}
+ */
+export function normalizeLineEndings(text) {
+	if (!text) {
+		return '';
+	}
+
+	return text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+}
+
+/**
  * @param {string} heading
  * @returns {string}
  */
@@ -40,7 +52,7 @@ export function toDisplayHeading(configHeading) {
 export function parseSectionContents(body) {
 	/** @type {Map<string, string>} */
 	const sections = new Map();
-	const lines = stripHtmlComments(body).split('\n');
+	const lines = normalizeLineEndings(stripHtmlComments(body)).split('\n');
 
 	let currentKey = null;
 	/** @type {string[]} */

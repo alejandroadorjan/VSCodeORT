@@ -4,6 +4,7 @@ import { describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
 	loadConfig,
+	normalizeLineEndings,
 	parseSectionContents,
 	stripHtmlComments,
 	validatePrStructure
@@ -45,6 +46,12 @@ describe('stripHtmlComments', () => {
 	it('returns empty string for nullish input', () => {
 		assert.equal(stripHtmlComments(null), '');
 		assert.equal(stripHtmlComments(undefined), '');
+	});
+});
+
+describe('normalizeLineEndings', () => {
+	it('converts CRLF and CR to LF', () => {
+		assert.equal(normalizeLineEndings('a\r\nb\rc'), 'a\nb\nc');
 	});
 });
 
@@ -142,6 +149,12 @@ describe('validatePrStructure', () => {
 			`## testing\n${LONG}`
 		].join('\n\n');
 
+		const result = validatePrStructure(body, testConfig);
+		assert.equal(result.valid, true);
+	});
+
+	it('accepts CRLF line endings as sent by the GitHub PR API', () => {
+		const body = buildValidBody().replace(/\n/g, '\r\n');
 		const result = validatePrStructure(body, testConfig);
 		assert.equal(result.valid, true);
 	});
