@@ -11,6 +11,15 @@ import type { DashboardViewModel } from '../model/dashboard';
 const RUN_INSIGHTS_PAGE_SIZE = 5;
 const TOP_FAILING_WORKFLOWS_LIMIT = 6;
 
+function escapeHtml(value: string): string {
+	return value
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
 function renderWorkflowDurationInsights(model: DashboardViewModel): string {
 	if (model.workflowDurationInsights.length === 0) {
 		return `<div class="no-data">${vscode.l10n.t('No completed workflow durations found.')}</div>`;
@@ -302,6 +311,9 @@ function localizeRunStatus(status: string): string {
 function renderMetricPlaceholders(html: string, model: DashboardViewModel): string {
 	const metrics = model.metrics;
 	const formatSeconds = (seconds: number): string => seconds >= 60 ? vscode.l10n.t('{0}m {1}s', Math.floor(seconds / 60), seconds % 60) : vscode.l10n.t('{0}s', seconds);
+	const repoName = model.metrics.repoFullName ? escapeHtml(model.metrics.repoFullName) : vscode.l10n.t('Unknown repository');
+	const repoDescription = model.metrics.repoDescription ? escapeHtml(model.metrics.repoDescription) : vscode.l10n.t('No repository description');
+	const repoVisibility = model.metrics.repoPrivate ? vscode.l10n.t('private') : vscode.l10n.t('public');
 
 	return html
 		.replace(/__dashboardText__/g, JSON.stringify({
@@ -323,6 +335,9 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 			other: vscode.l10n.t('Skipped / other'),
 			inProgress: vscode.l10n.t('In progress'),
 		}))
+		.replace(/__repoFullName__/g, repoName)
+		.replace(/__repoDescription__/g, repoDescription)
+		.replace(/__repoVisibility__/g, repoVisibility)
 		.replace(/__stars__/g, String(metrics.stars.toLocaleString()))
 		.replace(/__openIssues__/g, String(metrics.openIssuesCount.toLocaleString()))
 		.replace(/__openPRs__/g, String(metrics.openPullRequestsCount.toLocaleString()))

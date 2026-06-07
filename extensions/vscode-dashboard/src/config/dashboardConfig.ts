@@ -14,13 +14,17 @@ function getReleaseSource(value: string | undefined): DashboardReleaseSource {
 	return value === 'main' || value === 'tags' ? value : DEFAULT_RELEASE_SOURCE;
 }
 
+function getToken(configuredToken: string | undefined): string | null {
+	return configuredToken || process.env.DASHBOARD_GITHUB_TOKEN || process.env.GITHUB_TOKEN || null;
+}
+
 export function getDashboardConfig(): DashboardConfig {
 	const configuration = vscode.workspace.getConfiguration('dashboard');
 
 	return {
 		owner: configuration.get<string>('owner') ?? DEFAULT_OWNER,
 		repo: configuration.get<string>('repo') ?? DEFAULT_REPO,
-		token: configuration.get<string>('githubToken') ?? null,
+		token: getToken(configuration.get<string>('githubToken')),
 		releaseSource: getReleaseSource(configuration.get<string>('releaseSource')),
 	};
 }

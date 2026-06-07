@@ -10,4 +10,6 @@ export interface GitHubRepo {
 	watchers_count?: number;
 	stargazers_count?: number;
 	full_name?: string;
+	description?: string | null;
+	private?: boolean;
 }

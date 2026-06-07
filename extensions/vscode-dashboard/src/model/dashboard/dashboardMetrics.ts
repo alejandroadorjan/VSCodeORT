@@ -37,6 +37,9 @@ export interface DashboardMetrics {
 	recentSuccessCount: number;
 	openIssuesCount: number;
 	openPullRequestsCount: number;
+	repoFullName: string;
+	repoDescription: string | null;
+	repoPrivate: boolean;
 	stars: number;
 	forks: number;
 	watchers: number;
