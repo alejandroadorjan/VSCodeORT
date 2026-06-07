@@ -7,27 +7,8 @@ import { getClosedIssues, getCommits, getCompareCommits, getOpenIssuesCount, get
 import type { DashboardData, DashboardRequest, ReleaseChange } from '../model/dashboard';
 import type { GitHubCommit, GitHubRelease, GitHubTag, GitHubWorkflowRun } from '../model/github';
 
-const DASHBOARD_DATA_CACHE_MS = 5 * 60 * 1000;
-const WORKFLOW_RUNS_PER_PAGE = 50;
-const WORKFLOW_RUN_PAGE_LIMIT = 2;
-const RELEASE_WORKFLOW_RUN_LIMIT = 3;
-const RELEASE_COMPARE_LIMIT = 4;
-
-interface DashboardDataCacheEntry {
-	readonly createdAt: number;
-	readonly data: DashboardData;
-}
-
-const dashboardDataCache = new Map<string, DashboardDataCacheEntry>();
-
-function getCacheKey(request: DashboardRequest): string {
-	return [
-		request.owner,
-		request.repo,
-		request.releaseSource,
-		request.token ? 'authenticated' : 'anonymous',
-	].join('/');
-}
+const RELEASE_WORKFLOW_RUN_LIMIT = 20;
+const RELEASE_COMPARE_LIMIT = 10;
 
 function isVersionTag(name: string): boolean {
 	return /^v?\d+\.\d+\.\d+(?:[-+].*)?$/.test(name);
@@ -88,12 +69,6 @@ async function getReleaseChanges(options: GitHubClientOptions, releases: GitHubR
 }
 
 export async function loadDashboardData(request: DashboardRequest): Promise<DashboardData> {
-	const cacheKey = getCacheKey(request);
-	const cached = dashboardDataCache.get(cacheKey);
-	if (cached && Date.now() - cached.createdAt < DASHBOARD_DATA_CACHE_MS) {
-		return cached.data;
-	}
-
 	const options = {
 		owner: request.owner,
 		repo: request.repo,
@@ -102,7 +77,7 @@ export async function loadDashboardData(request: DashboardRequest): Promise<Dash
 
 	const [repo, workflowRuns, releases, closedIssues, openIssuesCount, openPullRequestsCount, commits] = await Promise.all([
 		getRepo(options),
-		getWorkflowRuns({ ...options, perPage: WORKFLOW_RUNS_PER_PAGE, maxPages: WORKFLOW_RUN_PAGE_LIMIT }),
+		getWorkflowRuns({ ...options, perPage: 100, maxPages: 5 }),
 		request.releaseSource === 'tags' ? getReleases(options) : Promise.resolve([]),
 		getClosedIssues(options),
 		getOpenIssuesCount(options),
@@ -116,11 +91,11 @@ export async function loadDashboardData(request: DashboardRequest): Promise<Dash
 	const doraReleaseTags = releaseTags.length > 0 ? releaseTags : fallbackTags;
 	const releaseTagNames = doraReleaseTags.map(tag => tag.name).filter((name): name is string => Boolean(name));
 	const releaseWorkflowRuns = request.releaseSource === 'tags'
-		? (await Promise.all(releaseTagNames.slice(0, RELEASE_WORKFLOW_RUN_LIMIT).map(tagName => getWorkflowRunsForBranch({ ...options, perPage: WORKFLOW_RUNS_PER_PAGE, maxPages: 1 }, tagName)))).flat()
+		? (await Promise.all(releaseTagNames.slice(0, RELEASE_WORKFLOW_RUN_LIMIT).map(tagName => getWorkflowRunsForBranch({ ...options, perPage: 100, maxPages: 1 }, tagName)))).flat()
 		: [];
 	const releaseChanges = request.releaseSource === 'tags' && releases.length > 1 ? await getReleaseChanges(options, releases) : [];
 
-	const data = {
+	return {
 		repo,
 		workflowRuns: dedupeWorkflowRuns([...workflowRuns, ...releaseWorkflowRuns]),
 		releaseSource: request.releaseSource,
@@ -132,11 +107,4 @@ export async function loadDashboardData(request: DashboardRequest): Promise<Dash
 		openPullRequestsCount,
 		commits,
 	};
-
-	dashboardDataCache.set(cacheKey, {
-		createdAt: Date.now(),
-		data,
-	});
-
-	return data;
 }
