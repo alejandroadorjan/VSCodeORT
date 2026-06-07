@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 const esbuild = require("esbuild");
 
 const production = process.argv.includes('--production');
@@ -15,7 +20,7 @@ const esbuildProblemMatcherPlugin = {
 		});
 		build.onEnd((result) => {
 			result.errors.forEach(({ text, location }) => {
-				console.error(`✘ [ERROR] ${text}`);
+				console.error(`[ERROR] ${text}`);
 				console.error(`    ${location.file}:${location.line}:${location.column}:`);
 			});
 			console.log('[watch] build finished');

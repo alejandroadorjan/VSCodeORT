@@ -54,7 +54,7 @@ function renderRunInsights(model: DashboardViewModel): string {
 			run.branch ? vscode.l10n.t('branch {0}', run.branch) : '',
 			run.commit ? vscode.l10n.t('commit {0}', run.commit) : '',
 			duration,
-		].filter(Boolean).join(' · ');
+		].filter(Boolean).join(' - ');
 
 		return `
 			<div class="run-insight">
@@ -87,7 +87,7 @@ function renderRunDiagnostics(model: DashboardViewModel): string {
 					<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
 				</div>
 				<div class="diagnostic-name">${run.name}</div>
-				<div class="diagnostic-meta">${branch} · ${commit}</div>
+				<div class="diagnostic-meta">${branch} - ${commit}</div>
 				<div class="diagnostic-bottom">
 					<span>${duration}</span>
 					${runLink}
@@ -114,7 +114,7 @@ function renderMainAlerts(model: DashboardViewModel): string {
 				<span class="status-dot ${run.dotClass}"></span>
 				<div class="main-alert-main">
 					<div class="main-alert-title">${run.name}</div>
-					<div class="main-alert-meta">${vscode.l10n.t('{0} · commit {1} · {2}', run.date, commit, run.duration)}</div>
+					<div class="main-alert-meta">${vscode.l10n.t('{0} - commit {1} - {2}', run.date, commit, run.duration)}</div>
 				</div>
 				<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
 				${runLink}
@@ -142,7 +142,7 @@ function renderSkippedRuns(model: DashboardViewModel): string {
 					<div class="skipped-run-title">${run.name}</div>
 					<div class="skipped-run-reason">${reason.label}</div>
 					<div class="skipped-run-evidence">${reason.evidence}</div>
-					<div class="skipped-run-meta">${vscode.l10n.t('{0} · {1} · {2}', event, branch, commit)}</div>
+					<div class="skipped-run-meta">${vscode.l10n.t('{0} - {1} - {2}', event, branch, commit)}</div>
 					<div class="skipped-run-path">${workflowPath}</div>
 				</div>
 				<span class="skipped-run-date">${run.date}</span>
@@ -198,7 +198,7 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 
 	return html
 		.replace(/__dashboardText__/g, JSON.stringify({
-			runsDetail: vscode.l10n.t('{0} ok · {1} failed'),
+			runsDetail: vscode.l10n.t('{0} ok - {1} failed'),
 			fast: vscode.l10n.t('Fast'),
 			moderate: vscode.l10n.t('Moderate'),
 			slow: vscode.l10n.t('Slow'),
@@ -274,10 +274,10 @@ function localizeDashboardHtml(html: string): string {
 		['Success rate', vscode.l10n.t('Success rate')],
 		['Percentage of completed workflow runs (last 100) where', vscode.l10n.t('Percentage of completed workflow runs (last 100) where')],
 		['Formula:', vscode.l10n.t('Formula:')],
-		['successful runs ÷ total completed runs × 100', vscode.l10n.t('successful runs ÷ total completed runs × 100')],
+		['successful runs / total completed runs x 100', vscode.l10n.t('successful runs / total completed runs x 100')],
 		['Avg build time', vscode.l10n.t('Avg build time')],
 		['Average duration of completed workflow runs.', vscode.l10n.t('Average duration of completed workflow runs.')],
-		['mean of (updated_at − run_started_at) for all runs with a conclusion.', vscode.l10n.t('mean of (updated_at − run_started_at) for all runs with a conclusion.')],
+		['mean of (updated_at - run_started_at) for all runs with a conclusion.', vscode.l10n.t('mean of (updated_at - run_started_at) for all runs with a conclusion.')],
 		['Runs tracked', vscode.l10n.t('Runs tracked')],
 		['Pipeline overview', vscode.l10n.t('Pipeline overview')],
 		['Project health', vscode.l10n.t('Project health')],
@@ -297,10 +297,10 @@ function localizeDashboardHtml(html: string): string {
 		['successful runs / week', vscode.l10n.t('successful runs / week')],
 		['Successful runs in the last 30 days divided by 4 weeks.', vscode.l10n.t('Successful runs in the last 30 days divided by 4 weeks.')],
 		['Lead time', vscode.l10n.t('Lead time')],
-		['commit → production', vscode.l10n.t('commit → production')],
-		['Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy tracking for real data.', vscode.l10n.t('Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy tracking for real data.')],
-		['MTTR — Mean Time To Recovery', vscode.l10n.t('MTTR — Mean Time To Recovery')],
-		['failure → next success', vscode.l10n.t('failure → next success')],
+		['commit to production', vscode.l10n.t('commit to production')],
+		['Estimated time from commit to production. Static approximation (~2.1 days) - requires deeper commit/deploy tracking for real data.', vscode.l10n.t('Estimated time from commit to production. Static approximation (~2.1 days) - requires deeper commit/deploy tracking for real data.')],
+		['MTTR - Mean Time To Recovery', vscode.l10n.t('MTTR - Mean Time To Recovery')],
+		['failure to next success', vscode.l10n.t('failure to next success')],
 		['Average minutes from a failed run\'s end to the next successful run\'s start.', vscode.l10n.t('Average minutes from a failed run\'s end to the next successful run\'s start.')],
 		['Change failure rate', vscode.l10n.t('Change failure rate')],
 		['failed / total runs', vscode.l10n.t('failed / total runs')],
@@ -318,7 +318,7 @@ function localizeDashboardHtml(html: string): string {
 		['Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes', vscode.l10n.t('Skipped, cancelled, action required, neutral, timed out, stale, and other non-success/failure outcomes')],
 		['In progress', vscode.l10n.t('In progress')],
 		['Recently closed issues', vscode.l10n.t('Recently closed issues')],
-		['Source: GitHub Issues API · excludes PRs', vscode.l10n.t('Source: GitHub Issues API · excludes PRs')],
+		['Source: GitHub Issues API - excludes PRs', vscode.l10n.t('Source: GitHub Issues API - excludes PRs')],
 		['Issues &amp; repository signals', vscode.l10n.t('Issues & repository signals')],
 		['Repository signals', vscode.l10n.t('Repository signals')],
 		['Forks', vscode.l10n.t('Forks')],

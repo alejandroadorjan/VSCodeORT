@@ -17,30 +17,30 @@ function createResponse(response: Omit<GitHubResponseLike, 'json' | 'text'> & { 
 }
 
 export async function runGitHubClientExtraTests() {
-  await testRequestErrorPath();
-  await testAuthHeaderPresent();
+	await testRequestErrorPath();
+	await testAuthHeaderPresent();
 }
 
 async function testRequestErrorPath() {
-  const fetchImpl: GitHubFetchLike = async () => createResponse({ ok: false, status: 500, statusText: 'Server Error', textBody: 'boom' });
-  let thrown = false;
-  try {
-    await getRepo({ owner: 'o', repo: 'r', fetchImpl });
-  } catch (err) {
-    thrown = true;
-    assert.ok(err instanceof Error);
-    assert.ok(/HTTP 500/.test(err.message));
-  }
+	const fetchImpl: GitHubFetchLike = async () => createResponse({ ok: false, status: 500, statusText: 'Server Error', textBody: 'boom' });
+	let thrown = false;
+	try {
+		await getRepo({ owner: 'o', repo: 'r', fetchImpl });
+	} catch (err) {
+		thrown = true;
+		assert.ok(err instanceof Error);
+		assert.ok(/HTTP 500/.test(err.message));
+	}
 
-  assert.strictEqual(thrown, true);
+	assert.strictEqual(thrown, true);
 }
 
 async function testAuthHeaderPresent() {
-  const fetchImpl: GitHubFetchLike = async (_url, init) => {
-    assert.ok(init && init.headers && init.headers.Authorization === 'Bearer tok123');
-    return createResponse({ ok: true, status: 200, statusText: 'OK', body: { full_name: 'o/r' } });
-  };
+	const fetchImpl: GitHubFetchLike = async (_url, init) => {
+		assert.ok(init && init.headers && init.headers.Authorization === 'Bearer tok123');
+		return createResponse({ ok: true, status: 200, statusText: 'OK', body: { full_name: 'o/r' } });
+	};
 
-  const repo = await getRepo({ owner: 'o', repo: 'r', fetchImpl, token: 'tok123' });
-  assert.strictEqual(repo.full_name, 'o/r');
+	const repo = await getRepo({ owner: 'o', repo: 'r', fetchImpl, token: 'tok123' });
+	assert.strictEqual(repo.full_name, 'o/r');
 }
