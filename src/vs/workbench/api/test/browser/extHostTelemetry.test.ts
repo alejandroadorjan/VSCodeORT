@@ -3,22 +3,22 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import assert from "assert";
-import { URI } from "../../../../base/common/uri.js";
-import { ensureNoDisposablesAreLeakedInTestSuite } from "../../../../base/test/common/utils.js";
+import assert from 'assert';
+import { URI } from '../../../../base/common/uri.js';
+import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../base/test/common/utils.js';
 import {
 	ExtensionIdentifier,
 	IExtensionDescription,
 	TargetPlatform,
-} from "../../../../platform/extensions/common/extensions.js";
+} from '../../../../platform/extensions/common/extensions.js';
 import {
 	DEFAULT_LOG_LEVEL,
 	LogLevel,
 	ILogger,
 	ILoggerService,
-} from "../../../../platform/log/common/log.js";
-import { Emitter, Event } from "../../../../base/common/event.js";
-import { TelemetryLevel } from "../../../../platform/telemetry/common/telemetry.js";
+} from '../../../../platform/log/common/log.js';
+import { Emitter, Event } from '../../../../base/common/event.js';
+import { TelemetryLevel } from '../../../../platform/telemetry/common/telemetry.js';
 class TestTelemetryLoggerService implements ILoggerService {
 	declare readonly _serviceBrand: undefined;
 	readonly logs: string[] = [];
@@ -43,15 +43,15 @@ class TestTelemetryLoggerService implements ILoggerService {
 		return {
 			onDidChangeLogLevel: this._onDidChangeLogLevel.event as Event<LogLevel>,
 			getLevel: () => this._level,
-			setLevel: () => {},
+			setLevel: () => { },
 			trace: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
 			debug: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
 			info: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
 			warn: (msg: string, ..._args: unknown[]) => this.logs.push(msg),
 			error: (msg: string | Error, ..._args: unknown[]) =>
 				this.logs.push(String(msg)),
-			flush: () => {},
-			dispose: () => {},
+			flush: () => { },
+			dispose: () => { },
 			logs: this.logs,
 		};
 	}
@@ -59,13 +59,13 @@ class TestTelemetryLoggerService implements ILoggerService {
 	getLogger(_resourceOrId: any): ILogger | undefined {
 		return undefined;
 	}
-	setLogLevel(_levelOrResource: any, _level?: LogLevel): void {}
+	setLogLevel(_levelOrResource: any, _level?: LogLevel): void { }
 	getLogLevel(_resource?: any): LogLevel {
 		return DEFAULT_LOG_LEVEL;
 	}
-	setVisibility(_resourceOrId: any, _visible: boolean): void {}
-	registerLogger(_resource: any): void {}
-	deregisterLogger(_idOrResource: any): void {}
+	setVisibility(_resourceOrId: any, _visible: boolean): void { }
+	registerLogger(_resource: any): void { }
+	deregisterLogger(_idOrResource: any): void { }
 	getRegisteredLoggers(): Iterable<any> {
 		return [];
 	}
@@ -73,14 +73,14 @@ class TestTelemetryLoggerService implements ILoggerService {
 		return undefined;
 	}
 }
-import { IExtHostInitDataService } from "../../common/extHostInitDataService.js";
+import { IExtHostInitDataService } from '../../common/extHostInitDataService.js';
 import {
 	ExtHostTelemetry,
 	ExtHostTelemetryLogger,
-} from "../../common/extHostTelemetry.js";
-import { IEnvironment } from "../../../services/extensions/common/extensionHostProtocol.js";
-import { mock } from "../../../test/common/workbenchTestServices.js";
-import type { TelemetryLoggerOptions, TelemetrySender } from "vscode";
+} from '../../common/extHostTelemetry.js';
+import { IEnvironment } from '../../../services/extensions/common/extensionHostProtocol.js';
+import { mock } from '../../../test/common/workbenchTestServices.js';
+import type { TelemetryLoggerOptions, TelemetrySender } from 'vscode';
 
 interface TelemetryLoggerSpy {
 	dataArr: any[];
@@ -88,7 +88,7 @@ interface TelemetryLoggerSpy {
 	flushCalled: boolean;
 }
 
-suite("ExtHostTelemetry", function () {
+suite('ExtHostTelemetry', function () {
 	const store = ensureNoDisposablesAreLeakedInTestSuite();
 
 	const mockEnvironment: IEnvironment = {
@@ -96,40 +96,40 @@ suite("ExtHostTelemetry", function () {
 		extensionDevelopmentLocationURI: undefined,
 		extensionTestsLocationURI: undefined,
 		appRoot: undefined,
-		appName: "test",
+		appName: 'test',
 		isExtensionTelemetryLoggingOnly: false,
-		appHost: "test",
-		appLanguage: "en",
-		globalStorageHome: URI.parse("fake"),
-		workspaceStorageHome: URI.parse("fake"),
-		appUriScheme: "test",
+		appHost: 'test',
+		appLanguage: 'en',
+		globalStorageHome: URI.parse('fake'),
+		workspaceStorageHome: URI.parse('fake'),
+		appUriScheme: 'test',
 	};
 
 	const mockTelemetryInfo = {
-		firstSessionDate: "2020-01-01T00:00:00.000Z",
-		sessionId: "test",
-		machineId: "test",
-		sqmId: "test",
-		devDeviceId: "test",
+		firstSessionDate: '2020-01-01T00:00:00.000Z',
+		sessionId: 'test',
+		machineId: 'test',
+		sqmId: 'test',
+		devDeviceId: 'test',
 	};
 
 	const mockRemote = {
-		authority: "test",
+		authority: 'test',
 		isRemote: false,
 		connectionData: null,
 	};
 
 	const mockExtensionIdentifier: IExtensionDescription = {
-		identifier: new ExtensionIdentifier("test-extension"),
+		identifier: new ExtensionIdentifier('test-extension'),
 		targetPlatform: TargetPlatform.UNIVERSAL,
 		isBuiltin: true,
 		isUserBuiltin: true,
 		isUnderDevelopment: true,
-		name: "test-extension",
-		publisher: "vscode",
-		version: "1.0.0",
-		engines: { vscode: "*" },
-		extensionLocation: URI.parse("fake"),
+		name: 'test-extension',
+		publisher: 'vscode',
+		version: '1.0.0',
+		engines: { vscode: '*' },
+		extensionLocation: URI.parse('fake'),
 		enabledApiProposals: undefined,
 		preRelease: false,
 	};
@@ -184,7 +184,7 @@ suite("ExtHostTelemetry", function () {
 		return logger;
 	};
 
-	test("Validate sender instances", function () {
+	test('Validate sender instances', function () {
 		// eslint-disable-next-line local/code-no-any-casts
 		assert.throws(() => ExtHostTelemetryLogger.validateSender(<any>null));
 		// eslint-disable-next-line local/code-no-any-casts
@@ -194,7 +194,7 @@ suite("ExtHostTelemetry", function () {
 		assert.throws(() => {
 			// eslint-disable-next-line local/code-no-any-casts
 			ExtHostTelemetryLogger.validateSender(<any>{
-				sendErrorData: () => {},
+				sendErrorData: () => { },
 				sendEventData: true,
 			});
 		});
@@ -202,20 +202,20 @@ suite("ExtHostTelemetry", function () {
 			// eslint-disable-next-line local/code-no-any-casts
 			ExtHostTelemetryLogger.validateSender(<any>{
 				sendErrorData: 123,
-				sendEventData: () => {},
+				sendEventData: () => { },
 			});
 		});
 		assert.throws(() => {
 			// eslint-disable-next-line local/code-no-any-casts
 			ExtHostTelemetryLogger.validateSender(<any>{
-				sendErrorData: () => {},
-				sendEventData: () => {},
+				sendErrorData: () => { },
+				sendEventData: () => { },
 				flush: true,
 			});
 		});
 	});
 
-	test("Ensure logger gets proper telemetry level during initialization", function () {
+	test('Ensure logger gets proper telemetry level during initialization', function () {
 		const extensionTelemetry = createExtHostTelemetry();
 		let config = extensionTelemetry.getTelemetryDetails();
 		assert.strictEqual(config.isCrashEnabled, true);
@@ -252,7 +252,7 @@ suite("ExtHostTelemetry", function () {
 		extensionTelemetry.dispose();
 	});
 
-	test("Simple log event to TelemetryLogger", function () {
+	test('Simple log event to TelemetryLogger', function () {
 		const functionSpy: TelemetryLoggerSpy = {
 			dataArr: [],
 			exceptionArr: [],
@@ -261,21 +261,21 @@ suite("ExtHostTelemetry", function () {
 
 		const logger = createLogger(functionSpy);
 
-		logger.logUsage("test-event", { "test-data": "test-data" });
+		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 1);
 		assert.strictEqual(
 			functionSpy.dataArr[0].eventName,
 			`${mockExtensionIdentifier.name}/test-event`,
 		);
-		assert.strictEqual(functionSpy.dataArr[0].data["test-data"], "test-data");
+		assert.strictEqual(functionSpy.dataArr[0].data['test-data'], 'test-data');
 
-		logger.logUsage("test-event", { "test-data": "test-data" });
+		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 2);
 
-		logger.logError("test-event", { "test-data": "test-data" });
+		logger.logError('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 3);
 
-		logger.logError(new Error("test-error"), { "test-data": "test-data" });
+		logger.logError(new Error('test-error'), { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 3);
 		assert.strictEqual(functionSpy.exceptionArr.length, 1);
 
@@ -287,7 +287,7 @@ suite("ExtHostTelemetry", function () {
 		assert.strictEqual(functionSpy.flushCalled, true);
 	});
 
-	test("Simple log event to TelemetryLogger with options", function () {
+	test('Simple log event to TelemetryLogger with options', function () {
 		const functionSpy: TelemetryLoggerSpy = {
 			dataArr: [],
 			exceptionArr: [],
@@ -295,25 +295,25 @@ suite("ExtHostTelemetry", function () {
 		};
 
 		const logger = createLogger(functionSpy, undefined, {
-			additionalCommonProperties: { "common.foo": "bar" },
+			additionalCommonProperties: { 'common.foo': 'bar' },
 		});
 
-		logger.logUsage("test-event", { "test-data": "test-data" });
+		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 1);
 		assert.strictEqual(
 			functionSpy.dataArr[0].eventName,
 			`${mockExtensionIdentifier.name}/test-event`,
 		);
-		assert.strictEqual(functionSpy.dataArr[0].data["test-data"], "test-data");
-		assert.strictEqual(functionSpy.dataArr[0].data["common.foo"], "bar");
+		assert.strictEqual(functionSpy.dataArr[0].data['test-data'], 'test-data');
+		assert.strictEqual(functionSpy.dataArr[0].data['common.foo'], 'bar');
 
-		logger.logUsage("test-event", { "test-data": "test-data" });
+		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 2);
 
-		logger.logError("test-event", { "test-data": "test-data" });
+		logger.logError('test-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 3);
 
-		logger.logError(new Error("test-error"), { "test-data": "test-data" });
+		logger.logError(new Error('test-error'), { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 3);
 		assert.strictEqual(functionSpy.exceptionArr.length, 1);
 
@@ -325,7 +325,7 @@ suite("ExtHostTelemetry", function () {
 		assert.strictEqual(functionSpy.flushCalled, true);
 	});
 
-	test("Log error should get common properties #193205", function () {
+	test('Log error should get common properties #193205', function () {
 		const functionSpy: TelemetryLoggerSpy = {
 			dataArr: [],
 			exceptionArr: [],
@@ -333,44 +333,44 @@ suite("ExtHostTelemetry", function () {
 		};
 
 		const logger = createLogger(functionSpy, undefined, {
-			additionalCommonProperties: { "common.foo": "bar" },
+			additionalCommonProperties: { 'common.foo': 'bar' },
 		});
-		logger.logError(new Error("Test error"));
+		logger.logError(new Error('Test error'));
 		assert.strictEqual(functionSpy.exceptionArr.length, 1);
-		assert.strictEqual(functionSpy.exceptionArr[0].data["common.foo"], "bar");
+		assert.strictEqual(functionSpy.exceptionArr[0].data['common.foo'], 'bar');
 		assert.strictEqual(
-			functionSpy.exceptionArr[0].data["common.product"],
-			"test",
+			functionSpy.exceptionArr[0].data['common.product'],
+			'test',
 		);
 
-		logger.logError("test-error-event");
+		logger.logError('test-error-event');
 		assert.strictEqual(functionSpy.dataArr.length, 1);
-		assert.strictEqual(functionSpy.dataArr[0].data["common.foo"], "bar");
-		assert.strictEqual(functionSpy.dataArr[0].data["common.product"], "test");
+		assert.strictEqual(functionSpy.dataArr[0].data['common.foo'], 'bar');
+		assert.strictEqual(functionSpy.dataArr[0].data['common.product'], 'test');
 
-		logger.logError("test-error-event", { "test-data": "test-data" });
+		logger.logError('test-error-event', { 'test-data': 'test-data' });
 		assert.strictEqual(functionSpy.dataArr.length, 2);
-		assert.strictEqual(functionSpy.dataArr[1].data["common.foo"], "bar");
-		assert.strictEqual(functionSpy.dataArr[1].data["common.product"], "test");
+		assert.strictEqual(functionSpy.dataArr[1].data['common.foo'], 'bar');
+		assert.strictEqual(functionSpy.dataArr[1].data['common.product'], 'test');
 
-		logger.logError("test-error-event", {
-			properties: { "test-data": "test-data" },
+		logger.logError('test-error-event', {
+			properties: { 'test-data': 'test-data' },
 		});
 		assert.strictEqual(functionSpy.dataArr.length, 3);
 		assert.strictEqual(
-			functionSpy.dataArr[2].data.properties["common.foo"],
-			"bar",
+			functionSpy.dataArr[2].data.properties['common.foo'],
+			'bar',
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[2].data.properties["common.product"],
-			"test",
+			functionSpy.dataArr[2].data.properties['common.product'],
+			'test',
 		);
 
 		logger.dispose();
 		assert.strictEqual(functionSpy.flushCalled, true);
 	});
 
-	test("Ensure logger properly cleans PII", function () {
+	test('Ensure logger properly cleans PII', function () {
 		const functionSpy: TelemetryLoggerSpy = {
 			dataArr: [],
 			exceptionArr: [],
@@ -380,12 +380,12 @@ suite("ExtHostTelemetry", function () {
 		const logger = createLogger(functionSpy);
 
 		// Log an event with a bunch of PII, this should all get cleaned out
-		logger.logUsage("test-event", {
-			"fake-password": "pwd=123",
-			"fake-email": "no-reply@example.com",
-			"fake-token": "token=123",
-			"fake-slack-token": "xoxp-123",
-			"fake-path": "/Users/username/.vscode/extensions",
+		logger.logUsage('test-event', {
+			'fake-password': 'pwd=123',
+			'fake-email': 'no-reply@example.com',
+			'fake-token': 'token=123',
+			'fake-slack-token': 'xoxp-123',
+			'fake-path': '/Users/username/.vscode/extensions',
 		});
 
 		assert.strictEqual(functionSpy.dataArr.length, 1);
@@ -394,28 +394,28 @@ suite("ExtHostTelemetry", function () {
 			`${mockExtensionIdentifier.name}/test-event`,
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[0].data["fake-password"],
-			"<REDACTED: Generic Secret>",
+			functionSpy.dataArr[0].data['fake-password'],
+			'<REDACTED: Generic Secret>',
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[0].data["fake-email"],
-			"<REDACTED: Email>",
+			functionSpy.dataArr[0].data['fake-email'],
+			'<REDACTED: Email>',
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[0].data["fake-token"],
-			"<REDACTED: Generic Secret>",
+			functionSpy.dataArr[0].data['fake-token'],
+			'<REDACTED: Generic Secret>',
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[0].data["fake-slack-token"],
-			"<REDACTED: Slack Token>",
+			functionSpy.dataArr[0].data['fake-slack-token'],
+			'<REDACTED: Slack Token>',
 		);
 		assert.strictEqual(
-			functionSpy.dataArr[0].data["fake-path"],
-			"<REDACTED: user-file-path>",
+			functionSpy.dataArr[0].data['fake-path'],
+			'<REDACTED: user-file-path>',
 		);
 	});
 
-	test("Ensure output channel is logged to", function () {
+	test('Ensure output channel is logged to', function () {
 		// Have to re-duplicate code here because I the logger service isn't exposed in the simple setup functions
 		const loggerService = new TestTelemetryLoggerService(LogLevel.Trace);
 		const extensionTelemetry = new ExtHostTelemetry(
@@ -443,9 +443,9 @@ suite("ExtHostTelemetry", function () {
 		// Ensure headers are logged on instantiation
 		assert.strictEqual(loggerService.logs.length, 0);
 
-		logger.logUsage("test-event", { "test-data": "test-data" });
+		logger.logUsage('test-event', { 'test-data': 'test-data' });
 		// Initial header is logged then the event
 		assert.strictEqual(loggerService.logs.length, 1);
-		assert.ok(loggerService.logs[0].startsWith("test-extension/test-event"));
+		assert.ok(loggerService.logs[0].startsWith('test-extension/test-event'));
 	});
 });

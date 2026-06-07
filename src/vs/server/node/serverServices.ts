@@ -4,57 +4,57 @@
  *--------------------------------------------------------------------------------------------*/
 
 // hostname/release imports removed (unused after telemetry changes)
-import { Emitter, Event } from "../../base/common/event.js";
-import { DisposableStore } from "../../base/common/lifecycle.js";
-import { Schemas } from "../../base/common/network.js";
-import * as path from "../../base/common/path.js";
-import { IURITransformer } from "../../base/common/uriIpc.js";
+import { Emitter, Event } from '../../base/common/event.js';
+import { DisposableStore } from '../../base/common/lifecycle.js';
+import { Schemas } from '../../base/common/network.js';
+import * as path from '../../base/common/path.js';
+import { IURITransformer } from '../../base/common/uriIpc.js';
 import {
 	getMachineId,
 	getSqmMachineId,
 	getDevDeviceId,
-} from "../../base/node/id.js";
-import { Promises } from "../../base/node/pfs.js";
+} from '../../base/node/id.js';
+import { Promises } from '../../base/node/pfs.js';
 import {
 	ClientConnectionEvent,
 	IMessagePassingProtocol,
 	IPCServer,
 	StaticRouter,
-} from "../../base/parts/ipc/common/ipc.js";
-import { ProtocolConstants } from "../../base/parts/ipc/common/ipc.net.js";
-import { IConfigurationService } from "../../platform/configuration/common/configuration.js";
-import { ConfigurationService } from "../../platform/configuration/common/configurationService.js";
-import { ExtensionHostDebugBroadcastChannel } from "../../platform/debug/common/extensionHostDebugIpc.js";
-import { IDownloadService } from "../../platform/download/common/download.js";
-import { DownloadServiceChannelClient } from "../../platform/download/common/downloadIpc.js";
+} from '../../base/parts/ipc/common/ipc.js';
+import { ProtocolConstants } from '../../base/parts/ipc/common/ipc.net.js';
+import { IConfigurationService } from '../../platform/configuration/common/configuration.js';
+import { ConfigurationService } from '../../platform/configuration/common/configurationService.js';
+import { ExtensionHostDebugBroadcastChannel } from '../../platform/debug/common/extensionHostDebugIpc.js';
+import { IDownloadService } from '../../platform/download/common/download.js';
+import { DownloadServiceChannelClient } from '../../platform/download/common/downloadIpc.js';
 import {
 	IEnvironmentService,
 	INativeEnvironmentService,
-} from "../../platform/environment/common/environment.js";
-import { ExtensionGalleryServiceWithNoStorageService } from "../../platform/extensionManagement/common/extensionGalleryService.js";
+} from '../../platform/environment/common/environment.js';
+import { ExtensionGalleryServiceWithNoStorageService } from '../../platform/extensionManagement/common/extensionGalleryService.js';
 import {
 	IAllowedExtensionsService,
 	IExtensionGalleryService,
-} from "../../platform/extensionManagement/common/extensionManagement.js";
+} from '../../platform/extensionManagement/common/extensionManagement.js';
 import {
 	ExtensionSignatureVerificationService,
 	IExtensionSignatureVerificationService,
-} from "../../platform/extensionManagement/node/extensionSignatureVerificationService.js";
-import { ExtensionManagementCLI } from "../../platform/extensionManagement/common/extensionManagementCLI.js";
-import { ExtensionManagementChannel } from "../../platform/extensionManagement/common/extensionManagementIpc.js";
+} from '../../platform/extensionManagement/node/extensionSignatureVerificationService.js';
+import { ExtensionManagementCLI } from '../../platform/extensionManagement/common/extensionManagementCLI.js';
+import { ExtensionManagementChannel } from '../../platform/extensionManagement/common/extensionManagementIpc.js';
 import {
 	ExtensionManagementService,
 	INativeServerExtensionManagementService,
-} from "../../platform/extensionManagement/node/extensionManagementService.js";
-import { IFileService } from "../../platform/files/common/files.js";
-import { FileService } from "../../platform/files/common/fileService.js";
-import { DiskFileSystemProvider } from "../../platform/files/node/diskFileSystemProvider.js";
-import { SyncDescriptor } from "../../platform/instantiation/common/descriptors.js";
-import { IInstantiationService } from "../../platform/instantiation/common/instantiation.js";
-import { InstantiationService } from "../../platform/instantiation/common/instantiationService.js";
-import { ServiceCollection } from "../../platform/instantiation/common/serviceCollection.js";
-import { ILanguagePackService } from "../../platform/languagePacks/common/languagePacks.js";
-import { NativeLanguagePackService } from "../../platform/languagePacks/node/languagePacks.js";
+} from '../../platform/extensionManagement/node/extensionManagementService.js';
+import { IFileService } from '../../platform/files/common/files.js';
+import { FileService } from '../../platform/files/common/fileService.js';
+import { DiskFileSystemProvider } from '../../platform/files/node/diskFileSystemProvider.js';
+import { SyncDescriptor } from '../../platform/instantiation/common/descriptors.js';
+import { IInstantiationService } from '../../platform/instantiation/common/instantiation.js';
+import { InstantiationService } from '../../platform/instantiation/common/instantiationService.js';
+import { ServiceCollection } from '../../platform/instantiation/common/serviceCollection.js';
+import { ILanguagePackService } from '../../platform/languagePacks/common/languagePacks.js';
+import { NativeLanguagePackService } from '../../platform/languagePacks/node/languagePacks.js';
 import {
 	AbstractLogger,
 	DEFAULT_LOG_LEVEL,
@@ -64,109 +64,109 @@ import {
 	log,
 	LogLevel,
 	LogLevelToString,
-} from "../../platform/log/common/log.js";
-import product from "../../platform/product/common/product.js";
-import { IProductService } from "../../platform/product/common/productService.js";
-import { RemoteAgentConnectionContext } from "../../platform/remote/common/remoteAgentEnvironment.js";
-import { IRequestService } from "../../platform/request/common/request.js";
-import { RequestChannel } from "../../platform/request/common/requestIpc.js";
-import { RequestService } from "../../platform/request/node/requestService.js";
+} from '../../platform/log/common/log.js';
+import product from '../../platform/product/common/product.js';
+import { IProductService } from '../../platform/product/common/productService.js';
+import { RemoteAgentConnectionContext } from '../../platform/remote/common/remoteAgentEnvironment.js';
+import { IRequestService } from '../../platform/request/common/request.js';
+import { RequestChannel } from '../../platform/request/common/requestIpc.js';
+import { RequestService } from '../../platform/request/node/requestService.js';
 // telemetry appender removed (unused after telemetry changes)
-import ErrorTelemetry from "../../platform/telemetry/node/errorTelemetry.js";
+import ErrorTelemetry from '../../platform/telemetry/node/errorTelemetry.js';
 import {
 	IPtyService,
 	TerminalSettingId,
-} from "../../platform/terminal/common/terminal.js";
-import { PtyHostService } from "../../platform/terminal/node/ptyHostService.js";
-import { IUriIdentityService } from "../../platform/uriIdentity/common/uriIdentity.js";
-import { UriIdentityService } from "../../platform/uriIdentity/common/uriIdentityService.js";
-import { RemoteAgentEnvironmentChannel } from "./remoteAgentEnvironmentImpl.js";
-import { RemoteAgentFileSystemProviderChannel } from "./remoteFileSystemProviderServer.js";
-import { ServerTelemetryChannel } from "../../platform/telemetry/common/remoteTelemetryChannel.js";
+} from '../../platform/terminal/common/terminal.js';
+import { PtyHostService } from '../../platform/terminal/node/ptyHostService.js';
+import { IUriIdentityService } from '../../platform/uriIdentity/common/uriIdentity.js';
+import { UriIdentityService } from '../../platform/uriIdentity/common/uriIdentityService.js';
+import { RemoteAgentEnvironmentChannel } from './remoteAgentEnvironmentImpl.js';
+import { RemoteAgentFileSystemProviderChannel } from './remoteFileSystemProviderServer.js';
+import { ServerTelemetryChannel } from '../../platform/telemetry/common/remoteTelemetryChannel.js';
 import {
 	IServerTelemetryService,
 	ServerNullTelemetryService,
-} from "../../platform/telemetry/common/serverTelemetryService.js";
-import { RemoteTerminalChannel } from "./remoteTerminalChannel.js";
-import { createURITransformer } from "../../base/common/uriTransformer.js";
+} from '../../platform/telemetry/common/serverTelemetryService.js';
+import { RemoteTerminalChannel } from './remoteTerminalChannel.js';
+import { createURITransformer } from '../../base/common/uriTransformer.js';
 import {
 	ServerConnectionToken,
 	ServerConnectionTokenType,
-} from "./serverConnectionToken.js";
+} from './serverConnectionToken.js';
 import {
 	ServerEnvironmentService,
 	ServerParsedArgs,
-} from "./serverEnvironmentService.js";
-import { REMOTE_TERMINAL_CHANNEL_NAME } from "../../workbench/contrib/terminal/common/remote/remoteTerminalChannel.js";
-import { REMOTE_FILE_SYSTEM_CHANNEL_NAME } from "../../workbench/services/remote/common/remoteFileSystemProviderClient.js";
+} from './serverEnvironmentService.js';
+import { REMOTE_TERMINAL_CHANNEL_NAME } from '../../workbench/contrib/terminal/common/remote/remoteTerminalChannel.js';
+import { REMOTE_FILE_SYSTEM_CHANNEL_NAME } from '../../workbench/services/remote/common/remoteFileSystemProviderClient.js';
 import {
 	ExtensionHostStatusService,
 	IExtensionHostStatusService,
-} from "./extensionHostStatusService.js";
-import { IExtensionsScannerService } from "../../platform/extensionManagement/common/extensionsScannerService.js";
-import { ExtensionsScannerService } from "./extensionsScannerService.js";
-import { IExtensionsProfileScannerService } from "../../platform/extensionManagement/common/extensionsProfileScannerService.js";
-import { IUserDataProfilesService } from "../../platform/userDataProfile/common/userDataProfile.js";
-import { NullPolicyService } from "../../platform/policy/common/policy.js";
-import { LoggerService } from "../../platform/log/node/loggerService.js";
-import { ServerUserDataProfilesService } from "../../platform/userDataProfile/node/userDataProfile.js";
-import { ExtensionsProfileScannerService } from "../../platform/extensionManagement/node/extensionsProfileScannerService.js";
-import { LogService } from "../../platform/log/common/logService.js";
-import { LoggerChannel } from "../../platform/log/common/logIpc.js";
-import { localize } from "../../nls.js";
+} from './extensionHostStatusService.js';
+import { IExtensionsScannerService } from '../../platform/extensionManagement/common/extensionsScannerService.js';
+import { ExtensionsScannerService } from './extensionsScannerService.js';
+import { IExtensionsProfileScannerService } from '../../platform/extensionManagement/common/extensionsProfileScannerService.js';
+import { IUserDataProfilesService } from '../../platform/userDataProfile/common/userDataProfile.js';
+import { NullPolicyService } from '../../platform/policy/common/policy.js';
+import { LoggerService } from '../../platform/log/node/loggerService.js';
+import { ServerUserDataProfilesService } from '../../platform/userDataProfile/node/userDataProfile.js';
+import { ExtensionsProfileScannerService } from '../../platform/extensionManagement/node/extensionsProfileScannerService.js';
+import { LogService } from '../../platform/log/common/logService.js';
+import { LoggerChannel } from '../../platform/log/common/logIpc.js';
+import { localize } from '../../nls.js';
 import {
 	RemoteExtensionsScannerChannel,
 	RemoteExtensionsScannerService,
-} from "./remoteExtensionsScanner.js";
-import { RemoteExtensionsScannerChannelName } from "../../platform/remote/common/remoteExtensionsScanner.js";
-import { RemoteUserDataProfilesServiceChannel } from "../../platform/userDataProfile/common/userDataProfileIpc.js";
-import { NodePtyHostStarter } from "../../platform/terminal/node/nodePtyHostStarter.js";
-import { NodeAgentHostStarter } from "../../platform/agentHost/node/nodeAgentHostStarter.js";
-import { ServerAgentHostManager } from "./serverAgentHostManager.js";
+} from './remoteExtensionsScanner.js';
+import { RemoteExtensionsScannerChannelName } from '../../platform/remote/common/remoteExtensionsScanner.js';
+import { RemoteUserDataProfilesServiceChannel } from '../../platform/userDataProfile/common/userDataProfileIpc.js';
+import { NodePtyHostStarter } from '../../platform/terminal/node/nodePtyHostStarter.js';
+import { NodeAgentHostStarter } from '../../platform/agentHost/node/nodeAgentHostStarter.js';
+import { ServerAgentHostManager } from './serverAgentHostManager.js';
 import {
 	IServerLifetimeService,
 	ServerLifetimeService,
-} from "./serverLifetimeService.js";
+} from './serverLifetimeService.js';
 import {
 	CSSDevelopmentService,
 	ICSSDevelopmentService,
-} from "../../platform/cssDev/node/cssDevService.js";
-import { AllowedExtensionsService } from "../../platform/extensionManagement/common/allowedExtensionsService.js";
+} from '../../platform/cssDev/node/cssDevService.js';
+import { AllowedExtensionsService } from '../../platform/extensionManagement/common/allowedExtensionsService.js';
 import {
 	INativeMcpDiscoveryHelperService,
 	NativeMcpDiscoveryHelperChannelName,
-} from "../../platform/mcp/common/nativeMcpDiscoveryHelper.js";
-import { NativeMcpDiscoveryHelperChannel } from "../../platform/mcp/node/nativeMcpDiscoveryHelperChannel.js";
-import { NativeMcpDiscoveryHelperService } from "../../platform/mcp/node/nativeMcpDiscoveryHelperService.js";
+} from '../../platform/mcp/common/nativeMcpDiscoveryHelper.js';
+import { NativeMcpDiscoveryHelperChannel } from '../../platform/mcp/node/nativeMcpDiscoveryHelperChannel.js';
+import { NativeMcpDiscoveryHelperService } from '../../platform/mcp/node/nativeMcpDiscoveryHelperService.js';
 import {
 	IMcpGatewayService,
 	McpGatewayChannelName,
-} from "../../platform/mcp/common/mcpGateway.js";
-import { McpGatewayService } from "../../platform/mcp/node/mcpGatewayService.js";
-import { McpGatewayChannel } from "../../platform/mcp/node/mcpGatewayChannel.js";
-import { IExtensionGalleryManifestService } from "../../platform/extensionManagement/common/extensionGalleryManifest.js";
-import { ExtensionGalleryManifestIPCService } from "../../platform/extensionManagement/common/extensionGalleryManifestServiceIpc.js";
+} from '../../platform/mcp/common/mcpGateway.js';
+import { McpGatewayService } from '../../platform/mcp/node/mcpGatewayService.js';
+import { McpGatewayChannel } from '../../platform/mcp/node/mcpGatewayChannel.js';
+import { IExtensionGalleryManifestService } from '../../platform/extensionManagement/common/extensionGalleryManifest.js';
+import { ExtensionGalleryManifestIPCService } from '../../platform/extensionManagement/common/extensionGalleryManifestServiceIpc.js';
 import {
 	IAllowedMcpServersService,
 	IMcpGalleryService,
 	IMcpManagementService,
-} from "../../platform/mcp/common/mcpManagement.js";
-import { McpManagementService } from "../../platform/mcp/node/mcpManagementService.js";
-import { McpGalleryService } from "../../platform/mcp/common/mcpGalleryService.js";
+} from '../../platform/mcp/common/mcpManagement.js';
+import { McpManagementService } from '../../platform/mcp/node/mcpManagementService.js';
+import { McpGalleryService } from '../../platform/mcp/common/mcpGalleryService.js';
 import {
 	IMcpResourceScannerService,
 	McpResourceScannerService,
-} from "../../platform/mcp/common/mcpResourceScannerService.js";
-import { McpManagementChannel } from "../../platform/mcp/common/mcpManagementIpc.js";
-import { AllowedMcpServersService } from "../../platform/mcp/common/allowedMcpServersService.js";
-import { IMcpGalleryManifestService } from "../../platform/mcp/common/mcpGalleryManifest.js";
-import { McpGalleryManifestIPCService } from "../../platform/mcp/common/mcpGalleryManifestServiceIpc.js";
+} from '../../platform/mcp/common/mcpResourceScannerService.js';
+import { McpManagementChannel } from '../../platform/mcp/common/mcpManagementIpc.js';
+import { AllowedMcpServersService } from '../../platform/mcp/common/allowedMcpServersService.js';
+import { IMcpGalleryManifestService } from '../../platform/mcp/common/mcpGalleryManifest.js';
+import { McpGalleryManifestIPCService } from '../../platform/mcp/common/mcpGalleryManifestServiceIpc.js';
 import {
 	SANDBOX_HELPER_CHANNEL_NAME,
 	SandboxHelperChannel,
-} from "../../platform/sandbox/common/sandboxHelperIpc.js";
-import { SandboxHelperService } from "../../platform/sandbox/node/sandboxHelper.js";
-import { ITelemetryService } from "../../platform/telemetry/common/telemetry.js";
+} from '../../platform/sandbox/common/sandboxHelperIpc.js';
+import { SandboxHelperService } from '../../platform/sandbox/node/sandboxHelper.js';
+import { ITelemetryService } from '../../platform/telemetry/common/telemetry.js';
 
 export async function setupServerServices(
 	connectionToken: ServerConnectionToken,
@@ -193,14 +193,14 @@ export async function setupServerServices(
 	);
 	services.set(ILoggerService, loggerService);
 	socketServer.registerChannel(
-		"logger",
+		'logger',
 		new LoggerChannel(loggerService, (ctx: RemoteAgentConnectionContext) =>
 			getUriTransformer(ctx.remoteAuthority),
 		),
 	);
 
-	const logger = loggerService.createLogger("remoteagent", {
-		name: localize("remoteExtensionLog", "Server"),
+	const logger = loggerService.createLogger('remoteagent', {
+		name: localize('remoteExtensionLog', 'Server'),
 	});
 	const logService = disposables.add(
 		new LogService(logger, [new ServerLogger(getLogLevel(environmentService))]),
@@ -224,9 +224,9 @@ export async function setupServerServices(
 	);
 
 	logService.trace(`Remote configuration data at ${REMOTE_DATA_FOLDER}`);
-	logService.trace("process arguments:", environmentService.args);
+	logService.trace('process arguments:', environmentService.args);
 	if (Array.isArray(productService.serverGreeting)) {
-		logService.info(`\n\n${productService.serverGreeting.join("\n")}\n\n`);
+		logService.info(`\n\n${productService.serverGreeting.join('\n')}\n\n`);
 	}
 
 	// ExtensionHost Debug broadcast service
@@ -237,7 +237,7 @@ export async function setupServerServices(
 
 	// TODO: @Sandy @Joao need dynamic context based router
 	const router = new StaticRouter<RemoteAgentConnectionContext>(
-		(ctx) => ctx.clientId === "renderer",
+		(ctx) => ctx.clientId === 'renderer',
 	);
 
 	// Files
@@ -270,7 +270,7 @@ export async function setupServerServices(
 	);
 	services.set(IUserDataProfilesService, userDataProfilesService);
 	socketServer.registerChannel(
-		"userDataProfiles",
+		'userDataProfiles',
 		new RemoteUserDataProfilesServiceChannel(
 			userDataProfilesService,
 			(ctx: RemoteAgentConnectionContext) =>
@@ -298,7 +298,7 @@ export async function setupServerServices(
 
 	// Request
 	const requestService = new RequestService(
-		"remote",
+		'remote',
 		configurationService,
 		environmentService,
 		logService,
@@ -320,14 +320,14 @@ export async function setupServerServices(
 		new SyncDescriptor(ExtensionGalleryServiceWithNoStorageService),
 	);
 
-	const downloadChannel = socketServer.getChannel("download", router);
+	const downloadChannel = socketServer.getChannel('download', router);
 	services.set(
 		IDownloadService,
 		new DownloadServiceChannelClient(
 			downloadChannel,
 			() =>
 				getUriTransformer(
-					"renderer",
+					'renderer',
 				) /* TODO: @Sandy @Joao need dynamic context based router */,
 		),
 	);
@@ -373,9 +373,9 @@ export async function setupServerServices(
 			shortGraceTime:
 				environmentService.reconnectionGraceTime > 0
 					? Math.min(
-							ProtocolConstants.ReconnectionShortGraceTime,
-							environmentService.reconnectionGraceTime,
-						)
+						ProtocolConstants.ReconnectionShortGraceTime,
+						environmentService.reconnectionGraceTime,
+					)
 					: 0,
 			scrollback:
 				configurationService.getValue<number>(
@@ -392,19 +392,19 @@ export async function setupServerServices(
 	const serverLifetimeService = instantiationService.createInstance(
 		ServerLifetimeService,
 		{
-			enableAutoShutdown: !!args["enable-remote-auto-shutdown"],
-			shutdownWithoutDelay: !!args["remote-auto-shutdown-without-delay"],
+			enableAutoShutdown: !!args['enable-remote-auto-shutdown'],
+			shutdownWithoutDelay: !!args['remote-auto-shutdown-without-delay'],
 		},
 	);
 	services.set(IServerLifetimeService, serverLifetimeService);
 
-	if (args["agent-host-port"] || args["agent-host-path"]) {
+	if (args['agent-host-port'] || args['agent-host-path']) {
 		const agentHostStarter =
 			instantiationService.createInstance(NodeAgentHostStarter);
 		agentHostStarter.setWebSocketConfig({
-			port: args["agent-host-port"],
-			socketPath: args["agent-host-path"],
-			host: args.host || "localhost",
+			port: args['agent-host-port'],
+			socketPath: args['agent-host-path'],
+			host: args.host || 'localhost',
 			connectionToken:
 				connectionToken.type === ServerConnectionTokenType.Mandatory
 					? connectionToken.value
@@ -445,7 +445,7 @@ export async function setupServerServices(
 			logService,
 		);
 		socketServer.registerChannel(
-			"remoteextensionsenvironment",
+			'remoteextensionsenvironment',
 			remoteExtensionEnvironmentChannel,
 		);
 
@@ -453,7 +453,7 @@ export async function setupServerServices(
 			accessor.get(IServerTelemetryService),
 			null,
 		);
-		socketServer.registerChannel("telemetry", telemetryChannel);
+		socketServer.registerChannel('telemetry', telemetryChannel);
 
 		socketServer.registerChannel(
 			SANDBOX_HELPER_CHANNEL_NAME,
@@ -524,7 +524,7 @@ export async function setupServerServices(
 		);
 
 		socketServer.registerChannel(
-			"request",
+			'request',
 			new RequestChannel(accessor.get(IRequestService)),
 		);
 
@@ -533,10 +533,10 @@ export async function setupServerServices(
 			(ctx: RemoteAgentConnectionContext) =>
 				getUriTransformer(ctx.remoteAuthority),
 		);
-		socketServer.registerChannel("extensions", channel);
+		socketServer.registerChannel('extensions', channel);
 
 		socketServer.registerChannel(
-			"mcpManagement",
+			'mcpManagement',
 			new McpManagementChannel(
 				mcpManagementService,
 				(ctx: RemoteAgentConnectionContext) =>
