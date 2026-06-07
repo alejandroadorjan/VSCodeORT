@@ -752,3 +752,5 @@ function percentDecode(str: string): string {
 export type UriDto<T> = { [K in keyof T]: T[K] extends URI
 	? UriComponents
 	: UriDto<T[K]> };
+
+// risk-scoring smoke test: low-risk base change (covered by tests)

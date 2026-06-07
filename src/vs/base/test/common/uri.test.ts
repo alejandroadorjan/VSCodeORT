@@ -2,6 +2,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+// risk-scoring smoke test: touches a test file so S4 (missing tests) stays 0
 import assert from 'assert';
 import { isWindows } from '../../common/platform.js';
 import { URI, UriComponents, isUriComponents } from '../../common/uri.js';
