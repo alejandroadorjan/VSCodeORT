@@ -97,8 +97,6 @@ import { McpGalleryManifestIPCService } from '../../platform/mcp/common/mcpGalle
 import { SANDBOX_HELPER_CHANNEL_NAME, SandboxHelperChannel } from '../../platform/sandbox/common/sandboxHelperIpc.js';
 import { SandboxHelperService } from '../../platform/sandbox/node/sandboxHelper.js';
 import { ITelemetryService } from '../../platform/telemetry/common/telemetry.js';
-import { NullTelemetryService } from '../../platform/telemetry/common/telemetryUtils.js';
-import { oneDsAppender } from '../../platform/telemetry/node/1dsAppender.js';
 
 const eventPrefix = 'monacoworkbench';
 
@@ -234,7 +232,7 @@ export async function setupServerServices(connectionToken: ServerConnectionToken
 		const remoteExtensionEnvironmentChannel = new RemoteAgentEnvironmentChannel(connectionToken, environmentService, userDataProfilesService, extensionHostStatusService, logService);
 		socketServer.registerChannel('remoteextensionsenvironment', remoteExtensionEnvironmentChannel);
 
-		const telemetryChannel = new ServerTelemetryChannel(accessor.get(IServerTelemetryService), oneDsAppender);
+		const telemetryChannel = new ServerTelemetryChannel(accessor.get(IServerTelemetryService), null);
 		socketServer.registerChannel('telemetry', telemetryChannel);
 
 		socketServer.registerChannel(SANDBOX_HELPER_CHANNEL_NAME, new SandboxHelperChannel(new SandboxHelperService()));

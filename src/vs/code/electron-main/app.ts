@@ -9,6 +9,7 @@ import { validatedIpcMain } from '../../base/parts/ipc/electron-main/ipcMain.js'
 import { execFile } from 'child_process';
 // hostname/release imports removed (unused after telemetry changes)
 import { initWindowsVersionInfo } from '../../base/node/windowsVersion.js';
+import { NullTelemetryService } from '../../platform/telemetry/common/telemetryUtils.js';
 import { VSBuffer } from '../../base/common/buffer.js';
 import { toErrorMessage } from '../../base/common/errorMessage.js';
 import { Event } from '../../base/common/event.js';
@@ -113,7 +114,6 @@ import { UserDataProfilesHandler } from '../../platform/userDataProfile/electron
 import { ProfileStorageChangesListenerChannel } from '../../platform/userDataProfile/electron-main/userDataProfileStorageIpc.js';
 import { Promises, RunOnceScheduler, runWhenGlobalIdle } from '../../base/common/async.js';
 import { CancellationToken } from '../../base/common/cancellation.js';
-import { TelemetryLevel } from '../../platform/telemetry/common/telemetry.js';
 import { resolveMachineId, resolveSqmId, resolveDevDeviceId, validateDevDeviceId } from '../../platform/telemetry/electron-main/telemetryUtils.js';
 import { ExtensionsProfileScannerService } from '../../platform/extensionManagement/node/extensionsProfileScannerService.js';
 import { LoggerChannel } from '../../platform/log/electron-main/logIpc.js';
@@ -1719,7 +1719,7 @@ export class CodeApplication extends Disposable {
 			const argvContent = await this.fileService.readFile(this.environmentMainService.argvResource);
 			const argvString = argvContent.value.toString();
 			const argvJSON = parse<{ 'enable-crash-reporter'?: boolean }>(argvString);
-			const telemetryLevel = getTelemetryLevel(this.configurationService);
+			const telemetryLevel = TelemetryLevel.NONE;
 			const enableCrashReporter = telemetryLevel >= TelemetryLevel.CRASH;
 
 			// Initial startup
