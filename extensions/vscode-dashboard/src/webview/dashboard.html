@@ -64,7 +64,7 @@
 					<div class="tooltip-box">
 						<strong>Success rate</strong><br>
 						Percentage of completed workflow runs (last 100) where <code>conclusion === "success"</code>.<br><br>
-						<em>Formula:</em> successful runs ÷ total completed runs × 100
+						<em>Formula:</em> successful runs / total completed runs x 100
 					</div>
 					<div class="label">Success rate</div>
 					<div class="val">__successRate__%</div>
@@ -136,10 +136,10 @@
 									<em>Formula:</em>
 
 									successful_workflows
-									÷
+									/
 									(successful_workflows + failed_workflows)
 
-									× 0.65
+									x 0.65
 								</div>
 							</span>
 							<span>65%</span>
@@ -151,8 +151,8 @@
 								<div class="tooltip-box tooltip-box-sm">
 									<strong>Build speed (35% weight)</strong><br>
 									Measures how fast your builds are, capped at 180s for scoring purposes.<br><br>
-									<em>Formula:</em> (100 - min(avg_duration_s, 180)) × 0.35<br>
-									A 60s avg build → (100-60)×0.35 = 14 pts. A 180s+ build → 0 pts.
+									<em>Formula:</em> (100 - min(avg_duration_s, 180)) x 0.35<br>
+									A 60s avg build to (100-60)x0.35 = 14 pts. A 180s+ build to 0 pts.
 								</div>
 							</span>
 							<span>35%</span>
@@ -213,7 +213,7 @@
 					<div class="tooltip-box tooltip-dora">
 						<strong>CI Failure Rate</strong><br>
 						Failed workflow runs divided by completed workflow runs.<br><br>
-						<em>Formula:</em> failed_completed_runs ÷ completed_runs × 100
+						<em>Formula:</em> failed_completed_runs / completed_runs x 100
 					</div>
 					<div>
 						<div class="dora-label">CI Failure Rate</div>
@@ -241,7 +241,7 @@
 					<div class="tooltip-box tooltip-dora">
 						<strong>Failure Concentration</strong><br>
 						Share of all CI failures caused by the most failing workflow.<br><br>
-						<em>Formula:</em> top_workflow_failures ÷ total_failures × 100
+						<em>Formula:</em> top_workflow_failures / total_failures x 100
 					</div>
 					<div>
 						<div class="dora-label">Failure Concentration</div>
@@ -258,7 +258,7 @@
 					</div>
 					<div>
 						<div class="dora-label">CI Recovery Time</div>
-						<div class="dora-hint">failure → next same-workflow success</div>
+						<div class="dora-hint">failure to next same-workflow success</div>
 					</div>
 					<div class="dora-right"><span class="dora-val">__ciRecoveryTime__ min</span><span class="badge" id="mttr-badge"></span></div>
 				</div>
@@ -271,7 +271,7 @@
 					<div class="tooltip-box tooltip-dora">
 						<strong>Release Frequency</strong><br>
 						This approximates Deployment Frequency using GitHub Releases or versioned tags. It does not use merges to main because main is CI integration for VS Code.<br><br>
-						<em>Formula:</em> releases_in_window ÷ weeks_in_window
+						<em>Formula:</em> releases_in_window / weeks_in_window
 					</div>
 					<div>
 						<div class="dora-label">Release Frequency</div>
@@ -289,7 +289,7 @@
 					</div>
 					<div>
 						<div class="dora-label">Lead Time Proxy</div>
-						<div class="dora-hint">avg __leadTimeAverage__d · median __leadTimeMedian__d</div>
+						<div class="dora-hint">avg __leadTimeAverage__d - median __leadTimeMedian__d</div>
 					</div>
 					<div class="dora-right"><span class="dora-val">__leadTimeAverage__d</span><span class="badge" id="lead-time-badge"></span></div>
 				</div>
@@ -299,7 +299,7 @@
 					<div class="tooltip-box tooltip-dora">
 						<strong>Post-release Correction Rate</strong><br>
 						Proxy for Change Failure Rate. It does not prove a release caused a production failure; it only detects nearby patch releases after stable releases.<br><br>
-						<em>Formula:</em> stable_releases_with_patch_within_7d ÷ stable_releases × 100
+						<em>Formula:</em> stable_releases_with_patch_within_7d / stable_releases x 100
 					</div>
 					<div>
 						<div class="dora-label">Post-release Correction Rate</div>
@@ -371,7 +371,7 @@
 			<div class="card issues-card">
 				<div class="card-title card-title-row">
 					<span>Recently closed issues</span>
-					<span class="muted-text muted-subtext">Source: GitHub Issues API · excludes PRs</span>
+					<span class="muted-text muted-subtext">Source: GitHub Issues API - excludes PRs</span>
 				</div>
 				<ul id="issueList">__resolvedIssues__</ul>
 			</div>

@@ -39,14 +39,12 @@ function buildViewModel(workflowRuns: GitHubWorkflowRun[], releaseSource: Dashbo
 }
 
 async function testViewModelBuildsWorkflowConcentration() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'CI', workflow_name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'failure', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:10:00Z', html_url: 'https://github.com/microsoft/vscode/actions/runs/1' },
 		{ name: 'CI', workflow_name: 'CI', conclusion: 'success', run_started_at: '2026-05-01T11:00:00Z', updated_at: '2026-05-01T11:08:00Z' },
 		{ name: 'Tests', workflow_name: 'Tests', conclusion: 'failure', run_started_at: '2026-05-01T12:00:00Z', updated_at: '2026-05-01T12:05:00Z' },
 	];
 
-	// Act
 	const viewModel = buildDashboardViewModel({
 		repo: { stargazers_count: 25, forks_count: 3, subscribers_count: 2, watchers_count: 4 },
 		workflowRuns,
@@ -60,7 +58,6 @@ async function testViewModelBuildsWorkflowConcentration() {
 		commits: [{ author: { login: 'dev1' } }, { author: { login: 'dev2' } }, { author: { login: 'dev1' } }],
 	});
 
-	// Assert
 	assert.deepStrictEqual({
 		totalRuns: viewModel.metrics.totalRuns,
 		failureCount: viewModel.metrics.failureCount,
@@ -89,21 +86,17 @@ async function testViewModelBuildsWorkflowConcentration() {
 }
 
 async function testRecentRunsOrdering() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'Old', conclusion: 'success', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:01:00Z' },
 		{ name: 'New', conclusion: 'failure', run_started_at: '2026-05-02T10:00:00Z', updated_at: '2026-05-02T10:01:00Z' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual(viewModel.recentRuns.map(run => run.name), ['New', 'Old']);
 }
 
 async function testRunOutcomePercentagesAddToOneHundred() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'Success 1', conclusion: 'success', status: 'completed' },
 		{ name: 'Success 2', conclusion: 'success', status: 'completed' },
@@ -113,11 +106,9 @@ async function testRunOutcomePercentagesAddToOneHundred() {
 		{ name: 'Running', status: 'in_progress' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 	const metrics = viewModel.metrics;
 
-	// Assert
 	assert.deepStrictEqual({
 		successCount: metrics.successCount,
 		failureCount: metrics.failureCount,
@@ -138,7 +129,6 @@ async function testRunOutcomePercentagesAddToOneHundred() {
 }
 
 async function testMainFailureAlerts() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'Main success', head_branch: 'main', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
 		{ name: 'Main failure', head_branch: 'main', conclusion: 'failure', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
@@ -148,10 +138,8 @@ async function testMainFailureAlerts() {
 		{ name: 'Feature running', head_branch: 'feature/a', status: 'in_progress', updated_at: '2026-05-02T12:00:00Z' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual(viewModel.mainFailureAlerts.map(alert => ({
 		name: alert.name,
 		statusLabel: alert.statusLabel,
@@ -164,7 +152,6 @@ async function testMainFailureAlerts() {
 }
 
 async function testRunsNeedingAttentionFiltersExpectedStatuses() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'Config sibling success', head_branch: 'main', head_sha: 'config-sha', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
 		{ name: 'Config skip', head_branch: 'main', head_sha: 'config-sha', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
@@ -175,10 +162,8 @@ async function testRunsNeedingAttentionFiltersExpectedStatuses() {
 		{ name: 'Cancelled cleanup', head_branch: 'main', head_sha: 'cancel-sha', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T16:00:00Z' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual(viewModel.runInsights.map(run => ({
 		name: run.name,
 		statusLabel: run.statusLabel,
@@ -199,7 +184,6 @@ async function testRunsNeedingAttentionFiltersExpectedStatuses() {
 }
 
 async function testSkippedRunInsights() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'success', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
 		{
@@ -218,10 +202,8 @@ async function testSkippedRunInsights() {
 		{ name: 'Cancelled', head_branch: 'main', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T12:00:00Z' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual(viewModel.skippedRunInsights.map(run => ({
 		name: run.name,
 		event: run.event,
@@ -262,7 +244,6 @@ async function testSkippedRunInsights() {
 }
 
 async function testSkippedRunInsightsInferMissingContextAndInconclusiveReasons() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{ name: 'Lonely skip', head_branch: 'main', head_sha: 'no-context', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T10:00:00Z' },
 		{ name: 'Cancelled sibling', head_branch: 'main', head_sha: 'mixed-context', conclusion: 'cancelled', status: 'completed', updated_at: '2026-05-01T11:00:00Z' },
@@ -271,10 +252,8 @@ async function testSkippedRunInsightsInferMissingContextAndInconclusiveReasons()
 		{ name: 'Waiting skip', head_branch: 'main', head_sha: 'running-context', conclusion: 'skipped', status: 'completed', updated_at: '2026-05-01T14:00:00Z' },
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual(viewModel.skippedRunInsights.map(run => ({
 		name: run.name,
 		reasonKind: run.reasonKind,
@@ -299,7 +278,6 @@ async function testSkippedRunInsightsInferMissingContextAndInconclusiveReasons()
 }
 
 async function testConfigSkippedRunsDoNotLowerHealthScore() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{
 			name: 'CI',
@@ -321,10 +299,8 @@ async function testConfigSkippedRunsDoNotLowerHealthScore() {
 		},
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual({
 		skipReason: viewModel.skippedRunInsights[0].reasonKind,
 		visibleSuccessRate: viewModel.metrics.successRate,
@@ -337,7 +313,6 @@ async function testConfigSkippedRunsDoNotLowerHealthScore() {
 }
 
 async function testNonConfigSkippedRunsLowerHealthScore() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{
 			name: 'Compile',
@@ -359,10 +334,8 @@ async function testNonConfigSkippedRunsLowerHealthScore() {
 		},
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual({
 		skipReason: viewModel.skippedRunInsights[0].reasonKind,
 		visibleFailedRate: viewModel.metrics.failedRate,
@@ -375,7 +348,6 @@ async function testNonConfigSkippedRunsLowerHealthScore() {
 }
 
 async function testHealthScoreNormalizesDurationBeforeApplyingCap() {
-	// Arrange
 	const workflowRuns: GitHubWorkflowRun[] = [
 		{
 			name: 'Slow success',
@@ -387,10 +359,8 @@ async function testHealthScoreNormalizesDurationBeforeApplyingCap() {
 		},
 	];
 
-	// Act
 	const viewModel = buildViewModel(workflowRuns);
 
-	// Assert
 	assert.deepStrictEqual({
 		averageDurationSeconds: viewModel.metrics.averageDurationSeconds,
 		successRate: viewModel.metrics.successRate,
