@@ -1,0 +1,4 @@
+node_modules/
+dist/
+data/snapshot-*.json
+report/*.md
