@@ -1,0 +1,6140 @@
+{
+  "nodes": [
+    {
+      "id": "release-331516246",
+      "type": "release",
+      "state": "closed",
+      "title": "1.122.1",
+      "url": "https://github.com/microsoft/vscode/releases/tag/1.122.1",
+      "date": "2026-05-29T12:53:58Z",
+      "x": 6600,
+      "y": 0,
+      "metrics": {
+        "prs_included": 55
+      }
+    },
+    {
+      "id": "release-330727311",
+      "type": "release",
+      "state": "closed",
+      "title": "1.122.0",
+      "url": "https://github.com/microsoft/vscode/releases/tag/1.122.0",
+      "date": "2026-05-28T08:32:40Z",
+      "x": 4400,
+      "y": 0,
+      "metrics": {
+        "prs_included": 32
+      }
+    },
+    {
+      "id": "release-325804905",
+      "type": "release",
+      "state": "closed",
+      "title": "1.121.0",
+      "url": "https://github.com/microsoft/vscode/releases/tag/1.121.0",
+      "date": "2026-05-20T09:41:43Z",
+      "x": 2200,
+      "y": 0,
+      "metrics": {
+        "prs_included": 25
+      }
+    },
+    {
+      "id": "release-321722534",
+      "type": "release",
+      "state": "closed",
+      "title": "1.120.0",
+      "url": "https://github.com/microsoft/vscode/releases/tag/1.120.0",
+      "date": "2026-05-13T08:18:42Z",
+      "x": 0,
+      "y": 0,
+      "metrics": {
+        "prs_included": 4
+      }
+    },
+    {
+      "id": "pr-318465",
+      "type": "pr",
+      "state": "merged",
+      "title": "Enable Manage Language Models action whenever BYOK is enabled",
+      "url": "https://github.com/microsoft/vscode/pull/318465",
+      "number": 318465,
+      "merged_at": "2026-05-27T00:01:28Z",
+      "labels": [
+        "model-byok",
+        "release-cherry-pick"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 3830,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318486",
+      "type": "pr",
+      "state": "merged",
+      "title": "Skip Inno spawn when another instance is already installing",
+      "url": "https://github.com/microsoft/vscode/pull/318486",
+      "number": 318486,
+      "merged_at": "2026-06-01T17:39:37Z",
+      "labels": [
+        "install-update",
+        "windows"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 6030,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319017",
+      "type": "pr",
+      "state": "merged",
+      "title": "Don't dispose cached chat session when returning existing reference",
+      "url": "https://github.com/microsoft/vscode/pull/319017",
+      "number": 319017,
+      "merged_at": "2026-05-29T17:22:04Z",
+      "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 6410,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318529",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Enable Manage Language Models action whenever BYOK is enabled",
+      "url": "https://github.com/microsoft/vscode/pull/318529",
+      "number": 318529,
+      "merged_at": "2026-05-27T08:57:40Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 4210,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316495",
+      "type": "pr",
+      "state": "merged",
+      "title": "Agents picker: include private repos in search results",
+      "url": "https://github.com/microsoft/vscode/pull/316495",
+      "number": 316495,
+      "merged_at": "2026-05-14T21:14:59Z",
+      "labels": [],
+      "author": "osortega",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48293249?v=4",
+      "x": 1630,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318035",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix Windows agent sandbox setting ID",
+      "url": "https://github.com/microsoft/vscode/pull/318035",
+      "number": 318035,
+      "merged_at": "2026-05-22T19:41:45Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 4590,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319061",
+      "type": "pr",
+      "state": "merged",
+      "title": "[Linux-Sandboxing]: Ubuntu 24.04 silently fails due to App Armor profile on bwrap",
+      "url": "https://github.com/microsoft/vscode/pull/319061",
+      "number": 319061,
+      "merged_at": "2026-06-01T00:04:28Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 6790,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318571",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix /doc placing Python docstrings before decorators",
+      "url": "https://github.com/microsoft/vscode/pull/318571",
+      "number": 318571,
+      "merged_at": "2026-05-28T13:27:30Z",
+      "labels": [],
+      "author": "ulugbekna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
+      "x": 7170,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316524",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: defer ChatInputPart carousel max-height update to next animation frame (#316509)",
+      "url": "https://github.com/microsoft/vscode/pull/316524",
+      "number": 316524,
+      "merged_at": "2026-05-15T17:06:05Z",
+      "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 2010,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319097",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix language model event issues",
+      "url": "https://github.com/microsoft/vscode/pull/319097",
+      "number": 319097,
+      "merged_at": "2026-05-30T08:00:02Z",
+      "labels": [],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 6030,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 2
+      }
+    },
+    {
+      "id": "pr-318079",
+      "type": "pr",
+      "state": "merged",
+      "title": "Enable sandboxing only for default approvals permissions.",
+      "url": "https://github.com/microsoft/vscode/pull/318079",
+      "number": 318079,
+      "merged_at": "2026-05-23T12:24:58Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 4970,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317594",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix sudo -S sensitive input detection",
+      "url": "https://github.com/microsoft/vscode/pull/317594",
+      "number": 317594,
+      "merged_at": "2026-05-20T20:09:55Z",
+      "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 3830,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317095",
+      "type": "pr",
+      "state": "merged",
+      "title": "Reverting fetch web tool changes for sandboxing",
+      "url": "https://github.com/microsoft/vscode/pull/317095",
+      "number": 317095,
+      "merged_at": "2026-05-18T23:15:34Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 2390,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318123",
+      "type": "pr",
+      "state": "merged",
+      "title": "Don't group built-in tools when tool search is active",
+      "url": "https://github.com/microsoft/vscode/pull/318123",
+      "number": 318123,
+      "merged_at": "2026-05-23T21:16:28Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 4210,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317615",
+      "type": "pr",
+      "state": "merged",
+      "title": "sessions: don't reorder session list when find widget opens",
+      "url": "https://github.com/microsoft/vscode/pull/317615",
+      "number": 317615,
+      "merged_at": "2026-05-20T22:48:32Z",
+      "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 4590,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318128",
+      "type": "pr",
+      "state": "merged",
+      "title": "Don't emit empty <customizationsUpdate> on terminal steering turns",
+      "url": "https://github.com/microsoft/vscode/pull/318128",
+      "number": 318128,
+      "merged_at": "2026-05-24T01:45:50Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 4970,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317617",
+      "type": "pr",
+      "state": "merged",
+      "title": "Add new VS Code theme for mermaid diagrams",
+      "url": "https://github.com/microsoft/vscode/pull/317617",
+      "number": 317617,
+      "merged_at": "2026-05-20T22:17:21Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 3830,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317107",
+      "type": "pr",
+      "state": "merged",
+      "title": "Disable normal webview context menu items in mermaid diagrams",
+      "url": "https://github.com/microsoft/vscode/pull/317107",
+      "number": 317107,
+      "merged_at": "2026-05-18T18:33:14Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 2770,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318132",
+      "type": "pr",
+      "state": "merged",
+      "title": "Honor /compact summary when auto-summarization is disabled",
+      "url": "https://github.com/microsoft/vscode/pull/318132",
+      "number": 318132,
+      "merged_at": "2026-05-31T21:46:22Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 6410,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317122",
+      "type": "pr",
+      "state": "merged",
+      "title": "Don't render pan/zoom controls for mermaid errors",
+      "url": "https://github.com/microsoft/vscode/pull/317122",
+      "number": 317122,
+      "merged_at": "2026-05-18T19:34:01Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 1630,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316107",
+      "type": "pr",
+      "state": "merged",
+      "title": "sessions: fix sticky header background",
+      "url": "https://github.com/microsoft/vscode/pull/316107",
+      "number": 316107,
+      "merged_at": "2026-05-12T20:54:15Z",
+      "labels": [],
+      "author": "hawkticehurst",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39639992?v=4",
+      "x": -570,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319181",
+      "type": "pr",
+      "state": "merged",
+      "title": "Retry with AllowNetwork option before retrying outside the sandbox.",
+      "url": "https://github.com/microsoft/vscode/pull/319181",
+      "number": 319181,
+      "merged_at": "2026-06-01T04:03:28Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 6790,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317646",
+      "type": "pr",
+      "state": "merged",
+      "title": "Chronicle: handle policy-blocked and rate-limited responses gracefully",
+      "url": "https://github.com/microsoft/vscode/pull/317646",
+      "number": 317646,
+      "merged_at": "2026-05-21T00:32:52Z",
+      "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
+      "x": 4210,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319183",
+      "type": "pr",
+      "state": "merged",
+      "title": "chat: recover from V8 max-string-length when persisting session state",
+      "url": "https://github.com/microsoft/vscode/pull/319183",
+      "number": 319183,
+      "merged_at": "2026-06-01T00:03:33Z",
+      "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 7170,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316115",
+      "type": "pr",
+      "state": "merged",
+      "title": "Emit strict: false on deferred tools in Responses API",
+      "url": "https://github.com/microsoft/vscode/pull/316115",
+      "number": 316115,
+      "merged_at": "2026-05-12T21:12:36Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": -190,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319190",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix BYOK models startup race",
+      "url": "https://github.com/microsoft/vscode/pull/319190",
+      "number": 319190,
+      "merged_at": "2026-06-01T17:39:34Z",
+      "labels": [
+        "model-byok",
+        "release-cherry-pick"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 6030,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317656",
+      "type": "pr",
+      "state": "merged",
+      "title": "Only surface \"sort imports\" and \"remove unused imports\" when TS client is running/useTsgo is not active",
+      "url": "https://github.com/microsoft/vscode/pull/317656",
+      "number": 317656,
+      "merged_at": "2026-05-21T00:32:30Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 4590,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316126",
+      "type": "pr",
+      "state": "merged",
+      "title": "Re-enable multifile-edit-claude stests with claude-sonnet-4.5",
+      "url": "https://github.com/microsoft/vscode/pull/316126",
+      "number": 316126,
+      "merged_at": "2026-05-12T23:07:57Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 190,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317663",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix(otel): deduplicate system prompt between gen_ai.system_instructions and gen_ai.input.messages",
+      "url": "https://github.com/microsoft/vscode/pull/317663",
+      "number": 317663,
+      "merged_at": "2026-05-21T06:00:15Z",
+      "labels": [],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 4970,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317669",
+      "type": "pr",
+      "state": "merged",
+      "title": "Integrating MXC for windows sandboxing",
+      "url": "https://github.com/microsoft/vscode/pull/317669",
+      "number": 317669,
+      "merged_at": "2026-05-21T20:17:10Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 3830,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317670",
+      "type": "pr",
+      "state": "merged",
+      "title": "Chronicle: Circuit breaker improvement and empty result hint",
+      "url": "https://github.com/microsoft/vscode/pull/317670",
+      "number": 317670,
+      "merged_at": "2026-05-21T01:56:07Z",
+      "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
+      "x": 4210,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316134",
+      "type": "pr",
+      "state": "merged",
+      "title": "run_in_terminal: fix zsh pitfalls with shell options and steering text",
+      "url": "https://github.com/microsoft/vscode/pull/316134",
+      "number": 316134,
+      "merged_at": "2026-05-13T18:11:47Z",
+      "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 2010,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317163",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix stale background compaction across model switches and /compact",
+      "url": "https://github.com/microsoft/vscode/pull/317163",
+      "number": 317163,
+      "merged_at": "2026-05-23T15:27:17Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 4590,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316147",
+      "type": "pr",
+      "state": "merged",
+      "title": "Add improved markdown front matter rendering",
+      "url": "https://github.com/microsoft/vscode/pull/316147",
+      "number": 316147,
+      "merged_at": "2026-05-13T17:34:54Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 2390,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319222",
+      "type": "pr",
+      "state": "merged",
+      "title": "Remove \"Local\" label from new agent host sessions",
+      "url": "https://github.com/microsoft/vscode/pull/319222",
+      "number": 319222,
+      "merged_at": "2026-06-01T00:04:04Z",
+      "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 6410,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319223",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: process leaks in extensionHostConnection",
+      "url": "https://github.com/microsoft/vscode/pull/319223",
+      "number": 319223,
+      "merged_at": "2026-06-01T17:50:46Z",
+      "labels": [],
+      "author": "SimonSiefke",
+      "author_avatar": "https://avatars.githubusercontent.com/u/23744935?v=4",
+      "x": 6790,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317186",
+      "type": "pr",
+      "state": "merged",
+      "title": "agentHost: support running tasks in remote workspaces",
+      "url": "https://github.com/microsoft/vscode/pull/317186",
+      "number": 317186,
+      "merged_at": "2026-05-18T22:32:49Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 2770,
+      "y": 880,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317198",
+      "type": "pr",
+      "state": "merged",
+      "title": "Handle sandbox path resolution across platforms",
+      "url": "https://github.com/microsoft/vscode/pull/317198",
+      "number": 317198,
+      "merged_at": "2026-05-19T08:07:01Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 1630,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317199",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Reverting fetch web tool changes for sandboxing",
+      "url": "https://github.com/microsoft/vscode/pull/317199",
+      "number": 317199,
+      "merged_at": "2026-05-21T20:34:51Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 4970,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316191",
+      "type": "pr",
+      "state": "merged",
+      "title": "Freeze customizations-index per conversation to stabilize system prompt cache",
+      "url": "https://github.com/microsoft/vscode/pull/316191",
+      "number": 316191,
+      "merged_at": "2026-05-13T07:07:16Z",
+      "labels": [],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 570,
+      "y": 400,
+      "metrics": {
+        "issues_closed": 2
+      }
+    },
+    {
+      "id": "pr-316706",
+      "type": "pr",
+      "state": "merged",
+      "title": "sessions: move IAgentHostFilterService out of providers layer",
+      "url": "https://github.com/microsoft/vscode/pull/316706",
+      "number": 316706,
+      "merged_at": "2026-05-15T21:57:19Z",
+      "labels": [],
+      "author": "osortega",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48293249?v=4",
+      "x": 2010,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318244",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix SSH remote agent host passphrase auth",
+      "url": "https://github.com/microsoft/vscode/pull/318244",
+      "number": 318244,
+      "merged_at": "2026-05-26T00:50:54Z",
+      "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 3830,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317227",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: don't rebuild tab model on EDITORS_SELECTION event",
+      "url": "https://github.com/microsoft/vscode/pull/317227",
+      "number": 317227,
+      "merged_at": "2026-05-20T12:20:32Z",
+      "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
+      "x": 4210,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317244",
+      "type": "pr",
+      "state": "merged",
+      "title": "Make sure we show full mermaid diagram when opened in new editor",
+      "url": "https://github.com/microsoft/vscode/pull/317244",
+      "number": 317244,
+      "merged_at": "2026-05-20T06:27:21Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 2390,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318789",
+      "type": "pr",
+      "state": "merged",
+      "title": "Restore editor.quickSuggestions.other default to 'on'",
+      "url": "https://github.com/microsoft/vscode/pull/318789",
+      "number": 318789,
+      "merged_at": "2026-05-28T16:51:01Z",
+      "labels": [
+        "snippets",
+        "suggest",
+        "editor-input-IME",
+        "release-cherry-pick"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 7170,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 8
+      }
+    },
+    {
+      "id": "pr-316745",
+      "type": "pr",
+      "state": "merged",
+      "title": "Stop injecting root install dir into PATH on Windows",
+      "url": "https://github.com/microsoft/vscode/pull/316745",
+      "number": 316745,
+      "merged_at": "2026-05-16T15:20:52Z",
+      "labels": [
+        "install-update",
+        "windows"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 2770,
+      "y": 1360,
+      "metrics": {
+        "issues_closed": 19
+      }
+    },
+    {
+      "id": "pr-317776",
+      "type": "pr",
+      "state": "merged",
+      "title": "Allow sending chat requests with attachments only",
+      "url": "https://github.com/microsoft/vscode/pull/317776",
+      "number": 317776,
+      "merged_at": "2026-05-28T16:28:46Z",
+      "labels": [],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
+      "x": 6030,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318809",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix HTTP 400 for BYOK Open Router reasoning models",
+      "url": "https://github.com/microsoft/vscode/pull/318809",
+      "number": 318809,
+      "merged_at": "2026-05-28T18:38:22Z",
+      "labels": [],
+      "author": "vritant24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
+      "x": 6410,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317791",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: guard _resize against disposed _resizeDebouncer (fixes #317787)",
+      "url": "https://github.com/microsoft/vscode/pull/317791",
+      "number": 317791,
+      "merged_at": "2026-05-21T17:21:29Z",
+      "labels": [
+        "errors-fix",
+        "*error-fix-driving"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 4590,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317792",
+      "type": "pr",
+      "state": "merged",
+      "title": "cli: skip bare top-level directory entries when extracting archives",
+      "url": "https://github.com/microsoft/vscode/pull/317792",
+      "number": 317792,
+      "merged_at": "2026-05-21T18:19:06Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 4970,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317286",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix BulkTextEdit to prevent applying edits when document version has advanced",
+      "url": "https://github.com/microsoft/vscode/pull/317286",
+      "number": 317286,
+      "merged_at": "2026-05-19T14:08:45Z",
+      "labels": [],
+      "author": "dbaeumer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1931590?v=4",
+      "x": 1630,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316267",
+      "type": "pr",
+      "state": "merged",
+      "title": "Set COPILOT_AGENT env var in agent terminals",
+      "url": "https://github.com/microsoft/vscode/pull/316267",
+      "number": 316267,
+      "merged_at": "2026-05-13T17:01:44Z",
+      "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 2010,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317292",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix BYOK invalid stateful marker retries",
+      "url": "https://github.com/microsoft/vscode/pull/317292",
+      "number": 317292,
+      "merged_at": "2026-05-27T04:43:24Z",
+      "labels": [],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
+      "x": 3830,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316269",
+      "type": "pr",
+      "state": "merged",
+      "title": "Suppress terminal-exited notifications during shutdown",
+      "url": "https://github.com/microsoft/vscode/pull/316269",
+      "number": 316269,
+      "merged_at": "2026-05-13T20:00:41Z",
+      "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 2390,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316278",
+      "type": "pr",
+      "state": "merged",
+      "title": "Dispose finished background terminals to prevent accumulation",
+      "url": "https://github.com/microsoft/vscode/pull/316278",
+      "number": 316278,
+      "merged_at": "2026-05-13T18:53:05Z",
+      "labels": [],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 2770,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317307",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix Copilot CLI sessions hanging on patch apply after stream close",
+      "url": "https://github.com/microsoft/vscode/pull/317307",
+      "number": 317307,
+      "merged_at": "2026-05-22T02:32:58Z",
+      "labels": [],
+      "author": "Chulong-Li",
+      "author_avatar": "https://avatars.githubusercontent.com/u/28891085?v=4",
+      "x": 4210,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317308",
+      "type": "pr",
+      "state": "merged",
+      "title": "Re-introduce model visibility control for chat window model picker",
+      "url": "https://github.com/microsoft/vscode/pull/317308",
+      "number": 317308,
+      "merged_at": "2026-05-19T18:54:25Z",
+      "labels": [],
+      "author": "vritant24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
+      "x": 1630,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318848",
+      "type": "pr",
+      "state": "merged",
+      "title": "Hide agent distractions in Zen mode",
+      "url": "https://github.com/microsoft/vscode/pull/318848",
+      "number": 318848,
+      "merged_at": "2026-05-28T22:04:22Z",
+      "labels": [
+        "workbench-zen"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 6790,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318340",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix: cross-file inline edit list never disposed (handleListEndOfLifetime not fired)",
+      "url": "https://github.com/microsoft/vscode/pull/318340",
+      "number": 318340,
+      "merged_at": "2026-05-26T20:57:13Z",
+      "labels": [
+        "release-cherry-pick"
+      ],
+      "author": "ulugbekna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
+      "x": 4590,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318862",
+      "type": "pr",
+      "state": "merged",
+      "title": "Throttle initial Git repository.status() across repositories",
+      "url": "https://github.com/microsoft/vscode/pull/318862",
+      "number": 318862,
+      "merged_at": "2026-05-30T01:23:22Z",
+      "labels": [
+        "git",
+        "perf"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 7170,
+      "y": 1840,
+      "metrics": {
+        "issues_closed": 2
+      }
+    },
+    {
+      "id": "pr-318869",
+      "type": "pr",
+      "state": "merged",
+      "title": "otel: normalize gen_ai.response.model to match request format",
+      "url": "https://github.com/microsoft/vscode/pull/318869",
+      "number": 318869,
+      "merged_at": "2026-05-29T06:52:51Z",
+      "labels": [],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 6030,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316822",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix snippet choice trapping Shift+Tab navigation",
+      "url": "https://github.com/microsoft/vscode/pull/316822",
+      "number": 316822,
+      "merged_at": "2026-05-17T10:25:20Z",
+      "labels": [
+        "snippets"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 2010,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316824",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix phantom cursor from deeply nested snippet merges (#279349)",
+      "url": "https://github.com/microsoft/vscode/pull/316824",
+      "number": 316824,
+      "merged_at": "2026-05-17T01:11:41Z",
+      "labels": [
+        "snippets"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 2390,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318880",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix WorktreeCreatedTaskDispatcher overfiring (#318241)",
+      "url": "https://github.com/microsoft/vscode/pull/318880",
+      "number": 318880,
+      "merged_at": "2026-05-29T05:57:48Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 6410,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316321",
+      "type": "pr",
+      "state": "merged",
+      "title": "Add element to chat via context menu",
+      "url": "https://github.com/microsoft/vscode/pull/316321",
+      "number": 316321,
+      "merged_at": "2026-05-13T22:44:46Z",
+      "labels": [],
+      "author": "kycutler",
+      "author_avatar": "https://avatars.githubusercontent.com/u/67761731?v=4",
+      "x": 2770,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316329",
+      "type": "pr",
+      "state": "merged",
+      "title": "Let markdown preview scripts mark themselves as modules",
+      "url": "https://github.com/microsoft/vscode/pull/316329",
+      "number": 316329,
+      "merged_at": "2026-05-13T23:09:59Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 1630,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316332",
+      "type": "pr",
+      "state": "merged",
+      "title": "Move bierner.markdown-mermaid into core",
+      "url": "https://github.com/microsoft/vscode/pull/316332",
+      "number": 316332,
+      "merged_at": "2026-05-15T20:12:01Z",
+      "labels": [],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 2010,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319408",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Fix BYOK models startup race",
+      "url": "https://github.com/microsoft/vscode/pull/319408",
+      "number": 319408,
+      "merged_at": "2026-06-01T23:37:20Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 6790,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319410",
+      "type": "pr",
+      "state": "merged",
+      "title": "Don't throw unhandled excepton in fire and forget telemetry",
+      "url": "https://github.com/microsoft/vscode/pull/319410",
+      "number": 319410,
+      "merged_at": "2026-06-01T18:17:37Z",
+      "labels": [],
+      "author": "vritant24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
+      "x": 7170,
+      "y": 2320,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317874",
+      "type": "pr",
+      "state": "merged",
+      "title": "cli: do not block control server startup on agent host supervisor",
+      "url": "https://github.com/microsoft/vscode/pull/317874",
+      "number": 317874,
+      "merged_at": "2026-05-21T23:06:18Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 4970,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317886",
+      "type": "pr",
+      "state": "merged",
+      "title": "Expose agent sandbox advanced runtime setting",
+      "url": "https://github.com/microsoft/vscode/pull/317886",
+      "number": 317886,
+      "merged_at": "2026-05-22T00:30:47Z",
+      "labels": [],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 3830,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318912",
+      "type": "pr",
+      "state": "merged",
+      "title": "Remove screen sources warmup on startup",
+      "url": "https://github.com/microsoft/vscode/pull/318912",
+      "number": 318912,
+      "merged_at": "2026-05-29T07:10:23Z",
+      "labels": [
+        "release-cherry-pick"
+      ],
+      "author": "Giuspepe",
+      "author_avatar": "https://avatars.githubusercontent.com/u/39117631?v=4",
+      "x": 6030,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317888",
+      "type": "pr",
+      "state": "merged",
+      "title": "Defer Copilot Steering Consumption Signals",
+      "url": "https://github.com/microsoft/vscode/pull/317888",
+      "number": 317888,
+      "merged_at": "2026-05-22T00:30:30Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 4210,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318916",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Remove screen sources warmup on startup",
+      "url": "https://github.com/microsoft/vscode/pull/318916",
+      "number": 318916,
+      "merged_at": "2026-05-29T08:12:06Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 6410,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317897",
+      "type": "pr",
+      "state": "merged",
+      "title": "BYOK custom endpoint:  Respect user-supplied api-key / Authorization header",
+      "url": "https://github.com/microsoft/vscode/pull/317897",
+      "number": 317897,
+      "merged_at": "2026-05-22T02:25:11Z",
+      "labels": [],
+      "author": "vijayupadya",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41652029?v=4",
+      "x": 4590,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318925",
+      "type": "pr",
+      "state": "merged",
+      "title": "Revert \"Agent Picker is not pre-selected when creating a new Agent Host session with specific Agent in Agent Window (#318506)\"",
+      "url": "https://github.com/microsoft/vscode/pull/318925",
+      "number": 318925,
+      "merged_at": "2026-05-29T09:40:16Z",
+      "labels": [],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 6790,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317904",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix `runTests` tool failing to find test files on remote environments",
+      "url": "https://github.com/microsoft/vscode/pull/317904",
+      "number": 317904,
+      "merged_at": "2026-05-23T01:04:33Z",
+      "labels": [],
+      "author": "felipecrs",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29582865?v=4",
+      "x": 4970,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317395",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: preserve gallery field in MCP protocol install fallback path",
+      "url": "https://github.com/microsoft/vscode/pull/317395",
+      "number": 317395,
+      "merged_at": "2026-05-22T13:15:33Z",
+      "labels": [],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
+      "x": 3830,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318935",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: add white-space: nowrap to browser-emulation-toolbar-label",
+      "url": "https://github.com/microsoft/vscode/pull/318935",
+      "number": 318935,
+      "merged_at": "2026-05-29T13:55:13Z",
+      "labels": [],
+      "author": "goingforstudying-ctrl",
+      "author_avatar": "https://avatars.githubusercontent.com/u/258847353?v=4",
+      "x": 7170,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319452",
+      "type": "pr",
+      "state": "merged",
+      "title": "agentHost: avoid rewriting attachment URIs that exist on the agent host",
+      "url": "https://github.com/microsoft/vscode/pull/319452",
+      "number": 319452,
+      "merged_at": "2026-06-01T21:38:11Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 6030,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318434",
+      "type": "pr",
+      "state": "merged",
+      "title": "[cherry-pick] Fix: cross-file inline edit list never disposed (handleListEndOfLifetime not fired)",
+      "url": "https://github.com/microsoft/vscode/pull/318434",
+      "number": 318434,
+      "merged_at": "2026-05-27T07:50:16Z",
+      "labels": [
+        "cherry-pick-artifact"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 4210,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316386",
+      "type": "pr",
+      "state": "merged",
+      "title": "fix: race activateByEvent with provider registration to prevent auth deadlock",
+      "url": "https://github.com/microsoft/vscode/pull/316386",
+      "number": 316386,
+      "merged_at": "2026-05-14T10:40:54Z",
+      "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
+      "x": 2390,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-316900",
+      "type": "pr",
+      "state": "merged",
+      "title": "Change the default for quickSuggestions to be offWhenInlineCompletions",
+      "url": "https://github.com/microsoft/vscode/pull/316900",
+      "number": 316900,
+      "merged_at": "2026-05-17T23:32:25Z",
+      "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
+      "x": 2770,
+      "y": 2800,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319464",
+      "type": "pr",
+      "state": "merged",
+      "title": "Suppress GitHubLoginFailed from unhandled-error telemetry",
+      "url": "https://github.com/microsoft/vscode/pull/319464",
+      "number": 319464,
+      "merged_at": "2026-06-01T22:54:39Z",
+      "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6410,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-317428",
+      "type": "pr",
+      "state": "merged",
+      "title": "Enable BYOK in air-gapped scenarios/without GitHub auth",
+      "url": "https://github.com/microsoft/vscode/pull/317428",
+      "number": 317428,
+      "merged_at": "2026-05-21T00:01:01Z",
+      "labels": [
+        "model-byok"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 4590,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 4
+      }
+    },
+    {
+      "id": "pr-316917",
+      "type": "pr",
+      "state": "merged",
+      "title": "Fix local chat session management issues",
+      "url": "https://github.com/microsoft/vscode/pull/316917",
+      "number": 316917,
+      "merged_at": "2026-05-17T23:41:18Z",
+      "labels": [],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
+      "x": 1630,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 3
+      }
+    },
+    {
+      "id": "pr-318456",
+      "type": "pr",
+      "state": "merged",
+      "title": "agentHost: surface steering messages as their own user turn",
+      "url": "https://github.com/microsoft/vscode/pull/318456",
+      "number": 318456,
+      "merged_at": "2026-05-26T23:29:42Z",
+      "labels": [],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 4970,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319105",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: enable tool_search for BYOK custom Responses endpoints",
+      "url": "https://github.com/microsoft/vscode/pull/319105",
+      "number": 319105,
+      "labels": [],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
+      "x": 6790,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319245",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: Add selection to next Find match does not work with Regex Find Mode",
+      "url": "https://github.com/microsoft/vscode/pull/319245",
+      "number": 319245,
+      "labels": [],
+      "author": "arnavnagzirkar",
+      "author_avatar": "https://avatars.githubusercontent.com/u/113314200?v=4",
+      "x": 7170,
+      "y": 3280,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318992",
+      "type": "pr",
+      "state": "open",
+      "title": "fix(terminal): track ligatures addon config for change detection",
+      "url": "https://github.com/microsoft/vscode/pull/318992",
+      "number": 318992,
+      "labels": [],
+      "author": "Tyriar",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2193314?v=4",
+      "x": 6030,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319123",
+      "type": "pr",
+      "state": "open",
+      "title": "Fix BYOK models disappearing during startup",
+      "url": "https://github.com/microsoft/vscode/pull/319123",
+      "number": 319123,
+      "labels": [],
+      "author": "EmirX3D",
+      "author_avatar": "https://avatars.githubusercontent.com/u/94228795?v=4",
+      "x": 6410,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319380",
+      "type": "pr",
+      "state": "open",
+      "title": "Fix agent session resume failing with virtual workspace folder",
+      "url": "https://github.com/microsoft/vscode/pull/319380",
+      "number": 319380,
+      "labels": [],
+      "author": "Monrother",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4018882?v=4",
+      "x": 6790,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319252",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: allow shell integration in PowerShell audit mode",
+      "url": "https://github.com/microsoft/vscode/pull/319252",
+      "number": 319252,
+      "labels": [],
+      "author": "arnavnagzirkar",
+      "author_avatar": "https://avatars.githubusercontent.com/u/113314200?v=4",
+      "x": 7170,
+      "y": 3760,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319257",
+      "type": "pr",
+      "state": "open",
+      "title": "Prune missing remote folder from Recently Opened (#319230)",
+      "url": "https://github.com/microsoft/vscode/pull/319257",
+      "number": 319257,
+      "labels": [
+        "WSL",
+        "remote",
+        "workbench-history"
+      ],
+      "author": "dmitrivMS",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9581278?v=4",
+      "x": 6030,
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 2
+      }
+    },
+    {
+      "id": "pr-318877",
+      "type": "pr",
+      "state": "open",
+      "title": "Propagate plugin format to Claude target resolution",
+      "url": "https://github.com/microsoft/vscode/pull/318877",
+      "number": 318877,
+      "labels": [],
+      "author": "brianpaden289",
+      "author_avatar": "https://avatars.githubusercontent.com/u/86446018?v=4",
+      "x": 6410,
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318750",
+      "type": "pr",
+      "state": "open",
+      "title": "agents: fix Mark as Done on cancelled new chat session",
+      "url": "https://github.com/microsoft/vscode/pull/318750",
+      "number": 318750,
+      "labels": [],
+      "author": "ulugbekna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
+      "x": 6790,
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318881",
+      "type": "pr",
+      "state": "open",
+      "title": "Feat/scm local only",
+      "url": "https://github.com/microsoft/vscode/pull/318881",
+      "number": 318881,
+      "labels": [],
+      "author": "br-robles",
+      "author_avatar": "https://avatars.githubusercontent.com/u/127208754?v=4",
+      "x": 7170,
+      "y": 4240,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318756",
+      "type": "pr",
+      "state": "open",
+      "title": "Fix terminal-editor shift-drop firing on detached instances",
+      "url": "https://github.com/microsoft/vscode/pull/318756",
+      "number": 318756,
+      "labels": [],
+      "author": "vladstudio",
+      "author_avatar": "https://avatars.githubusercontent.com/u/914320?v=4",
+      "x": 6030,
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319144",
+      "type": "pr",
+      "state": "open",
+      "title": "Fix default token metadata for high language IDs",
+      "url": "https://github.com/microsoft/vscode/pull/319144",
+      "number": 319144,
+      "labels": [],
+      "author": "EduardF1",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50618110?v=4",
+      "x": 6410,
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319405",
+      "type": "pr",
+      "state": "open",
+      "title": "editor: prevent duplicate block comment end symbol when converting bl\u2026",
+      "url": "https://github.com/microsoft/vscode/pull/319405",
+      "number": 319405,
+      "labels": [],
+      "author": "merahul22",
+      "author_avatar": "https://avatars.githubusercontent.com/u/130483145?v=4",
+      "x": 6790,
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319150",
+      "type": "pr",
+      "state": "open",
+      "title": "feat: add PromptExtensionInstallFailureAction to handle extension ins\u2026",
+      "url": "https://github.com/microsoft/vscode/pull/319150",
+      "number": 319150,
+      "labels": [],
+      "author": "vishalranaut",
+      "author_avatar": "https://avatars.githubusercontent.com/u/49563231?v=4",
+      "x": 7170,
+      "y": 4720,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319151",
+      "type": "pr",
+      "state": "open",
+      "title": "workbench: add configurable font size and font family settings (#519)",
+      "url": "https://github.com/microsoft/vscode/pull/319151",
+      "number": 319151,
+      "labels": [
+        "triage-needed"
+      ],
+      "author": "DisturbedSage5840C",
+      "author_avatar": "https://avatars.githubusercontent.com/u/238647609?v=4",
+      "x": 6030,
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319156",
+      "type": "pr",
+      "state": "open",
+      "title": "config: support variable substitution in settings values (#2809)",
+      "url": "https://github.com/microsoft/vscode/pull/319156",
+      "number": 319156,
+      "labels": [],
+      "author": "DisturbedSage5840C",
+      "author_avatar": "https://avatars.githubusercontent.com/u/238647609?v=4",
+      "x": 6410,
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319164",
+      "type": "pr",
+      "state": "open",
+      "title": "chat: support queue priority context actions for pending requests (#305683)",
+      "url": "https://github.com/microsoft/vscode/pull/319164",
+      "number": 319164,
+      "labels": [],
+      "author": "Neizan93",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2959591?v=4",
+      "x": 6790,
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318787",
+      "type": "pr",
+      "state": "open",
+      "title": "fix(server): robustly parse OS_ID from /etc/os-release",
+      "url": "https://github.com/microsoft/vscode/pull/318787",
+      "number": 318787,
+      "labels": [],
+      "author": "developers-universe-1",
+      "author_avatar": "https://avatars.githubusercontent.com/u/190018919?v=4",
+      "x": 7170,
+      "y": 5200,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318667",
+      "type": "pr",
+      "state": "open",
+      "title": "fix: session rename no longer requires reload (#318442)",
+      "url": "https://github.com/microsoft/vscode/pull/318667",
+      "number": 318667,
+      "labels": [],
+      "author": "katipally",
+      "author_avatar": "https://avatars.githubusercontent.com/u/101495385?v=4",
+      "x": 6030,
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319326",
+      "type": "pr",
+      "state": "open",
+      "title": "Clarify format error message for unsaved files",
+      "url": "https://github.com/microsoft/vscode/pull/319326",
+      "number": 319326,
+      "labels": [
+        "triage-needed"
+      ],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
+      "x": 6410,
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319327",
+      "type": "pr",
+      "state": "open",
+      "title": "Strip codicon glyphs from hover accessible view content",
+      "url": "https://github.com/microsoft/vscode/pull/319327",
+      "number": 319327,
+      "labels": [],
+      "author": "yogeshwaran-c",
+      "author_avatar": "https://avatars.githubusercontent.com/u/84272111?v=4",
+      "x": 6790,
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319455",
+      "type": "pr",
+      "state": "open",
+      "title": "agentHost: keep SSH connection registered after incompatible handshake",
+      "url": "https://github.com/microsoft/vscode/pull/319455",
+      "number": 319455,
+      "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 7170,
+      "y": 5680,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319202",
+      "type": "pr",
+      "state": "open",
+      "title": "Agents: Keep active Copilot CLI session during steering",
+      "url": "https://github.com/microsoft/vscode/pull/319202",
+      "number": 319202,
+      "labels": [],
+      "author": "Chulong-Li",
+      "author_avatar": "https://avatars.githubusercontent.com/u/28891085?v=4",
+      "x": 6030,
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-318825",
+      "type": "pr",
+      "state": "open",
+      "title": "Confirm before restarting to install an update",
+      "url": "https://github.com/microsoft/vscode/pull/318825",
+      "number": 318825,
+      "labels": [],
+      "author": "shriram-k",
+      "author_avatar": "https://avatars.githubusercontent.com/u/26056117?v=4",
+      "x": 6410,
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319214",
+      "type": "pr",
+      "state": "open",
+      "title": "feat: pin/unpin git branches in Git: Checkout",
+      "url": "https://github.com/microsoft/vscode/pull/319214",
+      "number": 319214,
+      "labels": [],
+      "author": "TomasMartinsFerreira",
+      "author_avatar": "https://avatars.githubusercontent.com/u/183621843?v=4",
+      "x": 6790,
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319345",
+      "type": "pr",
+      "state": "open",
+      "title": "Scope Agents Window chat input history per session",
+      "url": "https://github.com/microsoft/vscode/pull/319345",
+      "number": 319345,
+      "labels": [],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
+      "x": 7170,
+      "y": 6160,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319219",
+      "type": "pr",
+      "state": "open",
+      "title": "sessions: fix PR status icon flicker on session list updates",
+      "url": "https://github.com/microsoft/vscode/pull/319219",
+      "number": 319219,
+      "labels": [],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 6030,
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319482",
+      "type": "pr",
+      "state": "open",
+      "title": "git: use custom dialog for dirty checkout prompt",
+      "url": "https://github.com/microsoft/vscode/pull/319482",
+      "number": 319482,
+      "labels": [],
+      "author": "sarathfrancis90",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9289498?v=4",
+      "x": 6410,
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "pr-319484",
+      "type": "pr",
+      "state": "open",
+      "title": "Redact error callstacks per-line to avoid wiping the entire stack",
+      "url": "https://github.com/microsoft/vscode/pull/319484",
+      "number": 319484,
+      "labels": [],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6790,
+      "y": 6640,
+      "metrics": {
+        "issues_closed": 1
+      }
+    },
+    {
+      "id": "issue-299523",
+      "type": "issue",
+      "state": "closed",
+      "title": "Multiple VSCode instances launched",
+      "url": "https://github.com/microsoft/vscode/issues/299523",
+      "number": 299523,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows"
+      ],
+      "author": "SPE-PFAC01",
+      "author_avatar": "https://avatars.githubusercontent.com/u/108084488?v=4",
+      "x": 1650,
+      "y": 1640
+    },
+    {
+      "id": "issue-211462",
+      "type": "issue",
+      "state": "closed",
+      "title": "Number of processes increases every time remote window is reloaded",
+      "url": "https://github.com/microsoft/vscode/issues/211462",
+      "number": 211462,
+      "labels": [
+        "bug",
+        "important",
+        "freeze-slow-crash-leak",
+        "remote",
+        "confirmed",
+        "unreleased",
+        "ssh"
+      ],
+      "author": "jcready",
+      "author_avatar": "https://avatars.githubusercontent.com/u/358876?v=4",
+      "x": 6790,
+      "y": 1640
+    },
+    {
+      "id": "issue-519",
+      "type": "issue",
+      "state": "open",
+      "title": "Allow to change the font size and font of the workbench",
+      "url": "https://github.com/microsoft/vscode/issues/519",
+      "number": 519,
+      "labels": [
+        "feature-request",
+        "workbench-fonts"
+      ],
+      "author": "hsdk123",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4100142?v=4",
+      "x": 6030,
+      "y": 5480
+    },
+    {
+      "id": "issue-313098",
+      "type": "issue",
+      "state": "open",
+      "title": "Make CustomOAIProvider compatible with tool search",
+      "url": "https://github.com/microsoft/vscode/issues/313098",
+      "number": 313098,
+      "labels": [],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
+      "x": 6790,
+      "y": 3560
+    },
+    {
+      "id": "issue-62476",
+      "type": "issue",
+      "state": "closed",
+      "title": "Setup has detected that setup is currently running",
+      "url": "https://github.com/microsoft/vscode/issues/62476",
+      "number": 62476,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows",
+        "unreleased"
+      ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
+      "x": 6030,
+      "y": 680
+    },
+    {
+      "id": "issue-318735",
+      "type": "issue",
+      "state": "closed",
+      "title": "Code Snippets don't work with Copilot enabled",
+      "url": "https://github.com/microsoft/vscode/issues/318735",
+      "number": 318735,
+      "labels": [
+        "bug",
+        "important",
+        "verified",
+        "snippets"
+      ],
+      "author": "FloMiLe",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13892710?v=4",
+      "x": 7090,
+      "y": 1640
+    },
+    {
+      "id": "issue-315408",
+      "type": "issue",
+      "state": "closed",
+      "title": "Prompt-cache dip: system prompt mutates mid-conversation when async-gated skills (e.g. chronicle) become visible",
+      "url": "https://github.com/microsoft/vscode/issues/315408",
+      "number": 315408,
+      "labels": [
+        "bug",
+        "insiders-released"
+      ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 490,
+      "y": 680
+    },
+    {
+      "id": "issue-317711",
+      "type": "issue",
+      "state": "closed",
+      "title": "Enable sandboxing in windows using MXC SDK",
+      "url": "https://github.com/microsoft/vscode/issues/317711",
+      "number": 317711,
+      "labels": [
+        "insiders-released",
+        "agent-sandbox"
+      ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 3830,
+      "y": 2120
+    },
+    {
+      "id": "issue-317714",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remote `ssh` connection fails from Debian -> MacOS",
+      "url": "https://github.com/microsoft/vscode/issues/317714",
+      "number": 317714,
+      "labels": [
+        "bug",
+        "important",
+        "verified",
+        "insiders-released",
+        "ssh"
+      ],
+      "author": "RossBoylan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2514994?v=4",
+      "x": 4970,
+      "y": 3080
+    },
+    {
+      "id": "issue-319251",
+      "type": "issue",
+      "state": "closed",
+      "title": "[sandbox]Retry using allowNetwork option before retrying outside the sandbox",
+      "url": "https://github.com/microsoft/vscode/issues/319251",
+      "number": 319251,
+      "labels": [
+        "on-testplan",
+        "unreleased",
+        "agent-sandbox"
+      ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 6790,
+      "y": 1160
+    },
+    {
+      "id": "issue-300307",
+      "type": "issue",
+      "state": "open",
+      "title": "Fish shell integration is broken in 1.111.0 with MSYS2 environment",
+      "url": "https://github.com/microsoft/vscode/issues/300307",
+      "number": 300307,
+      "labels": [
+        "bug",
+        "windows"
+      ],
+      "author": "Bryan2333",
+      "author_avatar": "https://avatars.githubusercontent.com/u/31512600?v=4",
+      "x": 3570,
+      "y": 1640
+    },
+    {
+      "id": "issue-283151",
+      "type": "issue",
+      "state": "open",
+      "title": "Terminal Shell Integration requires update for newer PowerShell 7.4+ ConstrainedLanguage AUDIT mode",
+      "url": "https://github.com/microsoft/vscode/issues/283151",
+      "number": 283151,
+      "labels": [
+        "bug",
+        "help wanted",
+        "confirmation-pending",
+        "terminal-shell-integration",
+        "terminal-shell-pwsh"
+      ],
+      "author": "skbtwiz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/30232407?v=4",
+      "x": 7170,
+      "y": 4040
+    },
+    {
+      "id": "issue-316182",
+      "type": "issue",
+      "state": "closed",
+      "title": "Per-turn agent filtering busts the system prompt cache",
+      "url": "https://github.com/microsoft/vscode/issues/316182",
+      "number": 316182,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 650,
+      "y": 680
+    },
+    {
+      "id": "issue-246551",
+      "type": "issue",
+      "state": "closed",
+      "title": "Use copilot with local models completely offline",
+      "url": "https://github.com/microsoft/vscode/issues/246551",
+      "number": 246551,
+      "labels": [
+        "feature-request",
+        "on-testplan",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "Igorgro",
+      "author_avatar": "https://avatars.githubusercontent.com/u/22894169?v=4",
+      "x": 4350,
+      "y": 4040
+    },
+    {
+      "id": "issue-318993",
+      "type": "issue",
+      "state": "open",
+      "title": "Ligatures caching mechanism doesn't work",
+      "url": "https://github.com/microsoft/vscode/issues/318993",
+      "number": 318993,
+      "labels": [
+        "debt",
+        "terminal-ligatures"
+      ],
+      "author": "Tyriar",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2193314?v=4",
+      "x": 6030,
+      "y": 4040
+    },
+    {
+      "id": "issue-285972",
+      "type": "issue",
+      "state": "open",
+      "title": "Directory from last WSL install",
+      "url": "https://github.com/microsoft/vscode/issues/285972",
+      "number": 285972,
+      "labels": [
+        "bug",
+        "WSL",
+        "remote",
+        "workbench-history"
+      ],
+      "author": "Abdullah1728",
+      "author_avatar": "https://avatars.githubusercontent.com/u/153578546?v=4",
+      "x": 6110,
+      "y": 4520
+    },
+    {
+      "id": "issue-305683",
+      "type": "issue",
+      "state": "open",
+      "title": "Feature Request: Context menu for priority management in GitHub Copilot queued items",
+      "url": "https://github.com/microsoft/vscode/issues/305683",
+      "number": 305683,
+      "labels": [],
+      "author": "Neizan93",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2959591?v=4",
+      "x": 6790,
+      "y": 5480
+    },
+    {
+      "id": "issue-283165",
+      "type": "issue",
+      "state": "closed",
+      "title": "/doc adds Python docstrings before function definition ",
+      "url": "https://github.com/microsoft/vscode/issues/283165",
+      "number": 283165,
+      "labels": [
+        "bug",
+        "verified",
+        "unreleased"
+      ],
+      "author": "luabud",
+      "author_avatar": "https://avatars.githubusercontent.com/u/45497113?v=4",
+      "x": 7170,
+      "y": 680
+    },
+    {
+      "id": "issue-318749",
+      "type": "issue",
+      "state": "closed",
+      "title": "Calling vscode.lm.selectChatModels inside an extension results in resource spikes in Remote-SSH scenarios with Copilot Chat extension kind set to \"ui\"",
+      "url": "https://github.com/microsoft/vscode/issues/318749",
+      "number": 318749,
+      "labels": [],
+      "author": "AlexP0112",
+      "author_avatar": "https://avatars.githubusercontent.com/u/72802667?v=4",
+      "x": 6110,
+      "y": 1160
+    },
+    {
+      "id": "issue-319007",
+      "type": "issue",
+      "state": "closed",
+      "title": "[Error] [GitHub.copilot-chat] unhandlederror-Unable to resolve chat model with CAPI family selection: gpt-4o-mini",
+      "url": "https://github.com/microsoft/vscode/issues/319007",
+      "number": 319007,
+      "labels": [
+        "bug",
+        "error-telemetry",
+        "unreleased",
+        "recent-regression",
+        "extension",
+        "ai-generated",
+        "ai-analyzed"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 7170,
+      "y": 2600
+    },
+    {
+      "id": "issue-318753",
+      "type": "issue",
+      "state": "closed",
+      "title": "Custom Endpoint BYOK causes 100% CPU after configuration",
+      "url": "https://github.com/microsoft/vscode/issues/318753",
+      "number": 318753,
+      "labels": [
+        "bug",
+        "verified",
+        "unreleased",
+        "model-byok"
+      ],
+      "author": "N0SuchPerson",
+      "author_avatar": "https://avatars.githubusercontent.com/u/252689838?v=4",
+      "x": 5950,
+      "y": 1160
+    },
+    {
+      "id": "issue-318241",
+      "type": "issue",
+      "state": "closed",
+      "title": "AgentHost: \"Install & Watch\" runs on existing sessions",
+      "url": "https://github.com/microsoft/vscode/issues/318241",
+      "number": 318241,
+      "labels": [
+        "bug",
+        "important",
+        "unreleased",
+        "agent-host"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 6410,
+      "y": 2600
+    },
+    {
+      "id": "issue-316705",
+      "type": "issue",
+      "state": "closed",
+      "title": "`@vscode/sandbox-runtime` bwrap sandboxing incompatible with devcontainers (non-root Docker users have CapEff=0)",
+      "url": "https://github.com/microsoft/vscode/issues/316705",
+      "number": 316705,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "AlexVCaron",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9435962?v=4",
+      "x": 3830,
+      "y": 3560
+    },
+    {
+      "id": "issue-315940",
+      "type": "issue",
+      "state": "closed",
+      "title": "Re-enable multifile-edit-claude simulation tests with a supported Claude model",
+      "url": "https://github.com/microsoft/vscode/issues/315940",
+      "number": 315940,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "bhavyaus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25044782?v=4",
+      "x": 190,
+      "y": 680
+    },
+    {
+      "id": "issue-316968",
+      "type": "issue",
+      "state": "closed",
+      "title": "Diagrams don't respond to theme changes",
+      "url": "https://github.com/microsoft/vscode/issues/316968",
+      "number": 316968,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "mermaid"
+      ],
+      "author": "alexr00",
+      "author_avatar": "https://avatars.githubusercontent.com/u/38270282?v=4",
+      "x": 3830,
+      "y": 1640
+    },
+    {
+      "id": "issue-318764",
+      "type": "issue",
+      "state": "closed",
+      "title": "Extension host crash loop (exit code 5) on startup when Copilot Chat is enabled in a large multi-root workspace",
+      "url": "https://github.com/microsoft/vscode/issues/318764",
+      "number": 318764,
+      "labels": [
+        "bug",
+        "verified",
+        "freeze-slow-crash-leak",
+        "git",
+        "perf"
+      ],
+      "author": "oakif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48932412?v=4",
+      "x": 7250,
+      "y": 2120
+    },
+    {
+      "id": "issue-317490",
+      "type": "issue",
+      "state": "open",
+      "title": "Feature request: add setting to disable sensitive input detection in terminal agent tools",
+      "url": "https://github.com/microsoft/vscode/issues/317490",
+      "number": 317490,
+      "labels": [
+        "feature-request",
+        "verification-needed",
+        "author-verification-requested",
+        "chat-terminal"
+      ],
+      "author": "47494749",
+      "author_avatar": "https://avatars.githubusercontent.com/u/173000819?v=4",
+      "x": 3830,
+      "y": 1160
+    },
+    {
+      "id": "issue-279349",
+      "type": "issue",
+      "state": "closed",
+      "title": "Custom LaTeX snippets intermittently trigger multi-cursor mode",
+      "url": "https://github.com/microsoft/vscode/issues/279349",
+      "number": 279349,
+      "labels": [
+        "bug",
+        "verified",
+        "snippets",
+        "insiders-released"
+      ],
+      "author": "Xiaobaituchb",
+      "author_avatar": "https://avatars.githubusercontent.com/u/171814097?v=4",
+      "x": 2390,
+      "y": 2600
+    },
+    {
+      "id": "issue-305718",
+      "type": "issue",
+      "state": "closed",
+      "title": "Simple Browser: Add \"Add to Chat\" option to right-click context menu",
+      "url": "https://github.com/microsoft/vscode/issues/305718",
+      "number": 305718,
+      "labels": [
+        "feature-request",
+        "accessibility",
+        "on-testplan",
+        "insiders-released",
+        "browser-integration"
+      ],
+      "author": "anthonykim1",
+      "author_avatar": "https://avatars.githubusercontent.com/u/62267334?v=4",
+      "x": 2770,
+      "y": 2600
+    },
+    {
+      "id": "issue-318265",
+      "type": "issue",
+      "state": "closed",
+      "title": "AgentHost: Steering messages aren't rendered",
+      "url": "https://github.com/microsoft/vscode/issues/318265",
+      "number": 318265,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "agent-host"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 4970,
+      "y": 4040
+    },
+    {
+      "id": "issue-318522",
+      "type": "issue",
+      "state": "open",
+      "title": "ai\u63d0\u793a\u65f6\u952e\u76d8\u8f93\u5165\u65e0\u6cd5\u5f39\u51fa\uff0c\u65e0\u6cd5\u6b63\u5e38\u8f93\u5165\u4e2d\u6587",
+      "url": "https://github.com/microsoft/vscode/issues/318522",
+      "number": 318522,
+      "labels": [
+        "bug",
+        "editor-input-IME",
+        "ai-translated"
+      ],
+      "author": "rookie957",
+      "author_avatar": "https://avatars.githubusercontent.com/u/86840217?v=4",
+      "x": 7250,
+      "y": 1640
+    },
+    {
+      "id": "issue-315711",
+      "type": "issue",
+      "state": "closed",
+      "title": "Delete session does not do anything",
+      "url": "https://github.com/microsoft/vscode/issues/315711",
+      "number": 315711,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agents-window"
+      ],
+      "author": "karthiknadig",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3840081?v=4",
+      "x": 1790,
+      "y": 3560
+    },
+    {
+      "id": "issue-309315",
+      "type": "issue",
+      "state": "closed",
+      "title": "Integrated terminal: VS Code injects installation root into process PATH, code CLI resolves to Code.exe instead of code.cmd",
+      "url": "https://github.com/microsoft/vscode/issues/309315",
+      "number": 309315,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows",
+        "confirmation-pending",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "author": "scheilch",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19861673?v=4",
+      "x": 3090,
+      "y": 1640
+    },
+    {
+      "id": "issue-309316",
+      "type": "issue",
+      "state": "closed",
+      "title": "Integrated terminal: VS Code injects installation root into process PATH, code CLI resolves to Code.exe instead of code.cmd",
+      "url": "https://github.com/microsoft/vscode/issues/309316",
+      "number": 309316,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows"
+      ],
+      "author": "scheilch",
+      "author_avatar": "https://avatars.githubusercontent.com/u/19861673?v=4",
+      "x": 3250,
+      "y": 1640
+    },
+    {
+      "id": "issue-317763",
+      "type": "issue",
+      "state": "closed",
+      "title": "BYOK: Terminal steering request may not reuse frozen customizations-index",
+      "url": "https://github.com/microsoft/vscode/issues/317763",
+      "number": 317763,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "Vizards",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13443193?v=4",
+      "x": 4970,
+      "y": 1160
+    },
+    {
+      "id": "issue-275268",
+      "type": "issue",
+      "state": "closed",
+      "title": "`runTests` tool fails to run tests in specific file on SSH Remote",
+      "url": "https://github.com/microsoft/vscode/issues/275268",
+      "number": 275268,
+      "labels": [
+        "bug",
+        "info-needed",
+        "verified",
+        "python",
+        "chat"
+      ],
+      "author": "Aesonus",
+      "author_avatar": "https://avatars.githubusercontent.com/u/24643115?v=4",
+      "x": 4970,
+      "y": 3560
+    },
+    {
+      "id": "issue-318279",
+      "type": "issue",
+      "state": "closed",
+      "title": "Extension host repeatedly killed in large multi-root workspaces (vscode.git decoration storm)",
+      "url": "https://github.com/microsoft/vscode/issues/318279",
+      "number": 318279,
+      "labels": [
+        "bug",
+        "verified",
+        "freeze-slow-crash-leak",
+        "git",
+        "perf",
+        "unreleased"
+      ],
+      "author": "oakif",
+      "author_avatar": "https://avatars.githubusercontent.com/u/48932412?v=4",
+      "x": 7090,
+      "y": 2120
+    },
+    {
+      "id": "issue-316233",
+      "type": "issue",
+      "state": "closed",
+      "title": "sessions: move IAgentHostFilterService out of providers layer",
+      "url": "https://github.com/microsoft/vscode/issues/316233",
+      "number": 316233,
+      "labels": [
+        "debt",
+        "insiders-released",
+        "agents-window",
+        "agents-app"
+      ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 2010,
+      "y": 1640
+    },
+    {
+      "id": "issue-316747",
+      "type": "issue",
+      "state": "closed",
+      "title": "BYOK Responses retry for previous_response_not_found re-sends previous_response_id because OpenAIEndpoint overwrites ignoreStatefulMarker",
+      "url": "https://github.com/microsoft/vscode/issues/316747",
+      "number": 316747,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
+      "x": 3830,
+      "y": 3080
+    },
+    {
+      "id": "issue-299598",
+      "type": "issue",
+      "state": "closed",
+      "title": "Error \"Failed to delete the database: Database IO error\" mentioning service_worker_storage.cc, while writing a `git commit` message",
+      "url": "https://github.com/microsoft/vscode/issues/299598",
+      "number": 299598,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows",
+        "insiders-released"
+      ],
+      "author": "StephanTLavavej",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4231088?v=4",
+      "x": 1810,
+      "y": 1640
+    },
+    {
+      "id": "issue-317775",
+      "type": "issue",
+      "state": "closed",
+      "title": "Allow sending chat requests with attachments only",
+      "url": "https://github.com/microsoft/vscode/issues/317775",
+      "number": 317775,
+      "labels": [
+        "feature-request",
+        "verified",
+        "verification-needed",
+        "insiders-released",
+        "copilot-chat"
+      ],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
+      "x": 6030,
+      "y": 2120
+    },
+    {
+      "id": "issue-317520",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents: Session list reorders immediately on opening search, causing visual jump",
+      "url": "https://github.com/microsoft/vscode/issues/317520",
+      "number": 317520,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agents-window",
+        "agents-app"
+      ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 4590,
+      "y": 1160
+    },
+    {
+      "id": "issue-319314",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agent Host Copilot CLI asks for permission to edit",
+      "url": "https://github.com/microsoft/vscode/issues/319314",
+      "number": 319314,
+      "labels": [
+        "bug",
+        "unreleased",
+        "agent-host"
+      ],
+      "author": "benibenj",
+      "author_avatar": "https://avatars.githubusercontent.com/u/44439583?v=4",
+      "x": 6030,
+      "y": 3560
+    },
+    {
+      "id": "issue-107090",
+      "type": "issue",
+      "state": "open",
+      "title": "Add selection to next Find match does not work with Regex Find Mode",
+      "url": "https://github.com/microsoft/vscode/issues/107090",
+      "number": 107090,
+      "labels": [
+        "bug",
+        "help wanted",
+        "good first issue",
+        "editor-find",
+        "editor-multicursor"
+      ],
+      "author": "a-guy-on-the-internet",
+      "author_avatar": "https://avatars.githubusercontent.com/u/24993737?v=4",
+      "x": 7170,
+      "y": 3560
+    },
+    {
+      "id": "issue-318549",
+      "type": "issue",
+      "state": "closed",
+      "title": "Snippets no longer working on the latest VS Code",
+      "url": "https://github.com/microsoft/vscode/issues/318549",
+      "number": 318549,
+      "labels": [
+        "bug",
+        "snippets"
+      ],
+      "author": "jedrekdomanski",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5911945?v=4",
+      "x": 6930,
+      "y": 1640
+    },
+    {
+      "id": "issue-318038",
+      "type": "issue",
+      "state": "closed",
+      "title": "Windows agent sandbox setting uses incorrect ID",
+      "url": "https://github.com/microsoft/vscode/issues/318038",
+      "number": 318038,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 4590,
+      "y": 680
+    },
+    {
+      "id": "issue-318805",
+      "type": "issue",
+      "state": "closed",
+      "title": "Copilot OTel: gen_ai.request.model and gen_ai.response.model use inconsistent naming formats",
+      "url": "https://github.com/microsoft/vscode/issues/318805",
+      "number": 318805,
+      "labels": [
+        "unreleased",
+        "copilot"
+      ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
+      "x": 6030,
+      "y": 2600
+    },
+    {
+      "id": "issue-318550",
+      "type": "issue",
+      "state": "open",
+      "title": "\"Mark as done\" on an interrupted session doesn't work",
+      "url": "https://github.com/microsoft/vscode/issues/318550",
+      "number": 318550,
+      "labels": [],
+      "author": "ulugbekna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
+      "x": 6790,
+      "y": 4520
+    },
+    {
+      "id": "issue-317275",
+      "type": "issue",
+      "state": "closed",
+      "title": "BulkTextEdit applies edit although text document version has advanced.",
+      "url": "https://github.com/microsoft/vscode/issues/317275",
+      "number": 317275,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "dbaeumer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1931590?v=4",
+      "x": 1630,
+      "y": 2120
+    },
+    {
+      "id": "issue-316509",
+      "type": "issue",
+      "state": "closed",
+      "title": "[Error] unhandlederror-[DisposableResizeObserver(ChatInputPart.containerHeight)] ResizeObserver loop complet...",
+      "url": "https://github.com/microsoft/vscode/issues/316509",
+      "number": 316509,
+      "labels": [
+        "bug",
+        "error-telemetry",
+        "insiders-released",
+        "ai-analyzed"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 2010,
+      "y": 680
+    },
+    {
+      "id": "issue-293481",
+      "type": "issue",
+      "state": "closed",
+      "title": "MCP Server `gallery` Field Not Saved During Protocol Installation",
+      "url": "https://github.com/microsoft/vscode/issues/293481",
+      "number": 293481,
+      "labels": [
+        "feature-request",
+        "verified",
+        "verification-needed",
+        "insiders-released",
+        "chat-mcp-management"
+      ],
+      "author": "abhishekgupta-lab",
+      "author_avatar": "https://avatars.githubusercontent.com/u/11943434?v=4",
+      "x": 3830,
+      "y": 4040
+    },
+    {
+      "id": "issue-308843",
+      "type": "issue",
+      "state": "closed",
+      "title": "Error serializing chat session for storage.",
+      "url": "https://github.com/microsoft/vscode/issues/308843",
+      "number": 308843,
+      "labels": [
+        "bug",
+        "unreleased",
+        "chat"
+      ],
+      "author": "IkramKhemiri",
+      "author_avatar": "https://avatars.githubusercontent.com/u/153013410?v=4",
+      "x": 7170,
+      "y": 1160
+    },
+    {
+      "id": "issue-316779",
+      "type": "issue",
+      "state": "closed",
+      "title": "The target tool appears in the suggestions via toolSearch, but it cannot actually be used (GPT)",
+      "url": "https://github.com/microsoft/vscode/issues/316779",
+      "number": 316779,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "PenguinDOOM",
+      "author_avatar": "https://avatars.githubusercontent.com/u/50603637?v=4",
+      "x": 4210,
+      "y": 1160
+    },
+    {
+      "id": "issue-317549",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remote SSH in Agent Window missing key passphrase and IdentityAgent",
+      "url": "https://github.com/microsoft/vscode/issues/317549",
+      "number": 317549,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agent-host"
+      ],
+      "author": "chihweit",
+      "author_avatar": "https://avatars.githubusercontent.com/u/91598387?v=4",
+      "x": 3830,
+      "y": 2600
+    },
+    {
+      "id": "issue-314220",
+      "type": "issue",
+      "state": "closed",
+      "title": "Copilot Breaks Inline Completion (e.g. Snippets)",
+      "url": "https://github.com/microsoft/vscode/issues/314220",
+      "number": 314220,
+      "labels": [
+        "bug",
+        "snippets",
+        "suggest"
+      ],
+      "author": "ssigwart",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1426848?v=4",
+      "x": 7730,
+      "y": 1640
+    },
+    {
+      "id": "issue-319341",
+      "type": "issue",
+      "state": "open",
+      "title": "Agents Window chat input history is shared across sessions",
+      "url": "https://github.com/microsoft/vscode/issues/319341",
+      "number": 319341,
+      "labels": [
+        "feature-request"
+      ],
+      "author": "federicobrancasi",
+      "author_avatar": "https://avatars.githubusercontent.com/u/75954805?v=4",
+      "x": 7170,
+      "y": 6440
+    },
+    {
+      "id": "issue-316017",
+      "type": "issue",
+      "state": "closed",
+      "title": "Sessions app sticky scroll wrong color",
+      "url": "https://github.com/microsoft/vscode/issues/316017",
+      "number": 316017,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "benibenj",
+      "author_avatar": "https://avatars.githubusercontent.com/u/44439583?v=4",
+      "x": -570,
+      "y": 680
+    },
+    {
+      "id": "issue-312434",
+      "type": "issue",
+      "state": "closed",
+      "title": "run_in_terminal opens new empty VS Code window instead of running in current window",
+      "url": "https://github.com/microsoft/vscode/issues/312434",
+      "number": 312434,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows"
+      ],
+      "author": "Lrochefort",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5980343?v=4",
+      "x": 4050,
+      "y": 1640
+    },
+    {
+      "id": "issue-317810",
+      "type": "issue",
+      "state": "closed",
+      "title": "Custom Endpoint BYOK provider sends wrong auth header for Azure OpenAI-compatible endpoints behind APIM",
+      "url": "https://github.com/microsoft/vscode/issues/317810",
+      "number": 317810,
+      "labels": [
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "cf-rdegregory",
+      "author_avatar": "https://avatars.githubusercontent.com/u/159332727?v=4",
+      "x": 4590,
+      "y": 3560
+    },
+    {
+      "id": "issue-284532",
+      "type": "issue",
+      "state": "closed",
+      "title": "[Unhandled Error] [extension/GitHub.copilot-chat] GitHubLoginFailed",
+      "url": "https://github.com/microsoft/vscode/issues/284532",
+      "number": 284532,
+      "labels": [
+        "bug",
+        "error-telemetry",
+        "unreleased"
+      ],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6410,
+      "y": 3560
+    },
+    {
+      "id": "issue-313461",
+      "type": "issue",
+      "state": "closed",
+      "title": "Feature Request: Local AI in Offline Networks",
+      "url": "https://github.com/microsoft/vscode/issues/313461",
+      "number": 313461,
+      "labels": [
+        "on-testplan",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "w-xy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17586945?v=4",
+      "x": 4670,
+      "y": 4040
+    },
+    {
+      "id": "issue-217974",
+      "type": "issue",
+      "state": "open",
+      "title": "Hover accessible view shows icons as space",
+      "url": "https://github.com/microsoft/vscode/issues/217974",
+      "number": 217974,
+      "labels": [
+        "bug",
+        "help wanted",
+        "editor-hover"
+      ],
+      "author": "alexr00",
+      "author_avatar": "https://avatars.githubusercontent.com/u/38270282?v=4",
+      "x": 6790,
+      "y": 5960
+    },
+    {
+      "id": "issue-318844",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents: Selected model shown incorrectly for existing sessions",
+      "url": "https://github.com/microsoft/vscode/issues/318844",
+      "number": 318844,
+      "labels": [
+        "bug",
+        "verified",
+        "unreleased",
+        "agents-window",
+        "agents-app"
+      ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 6790,
+      "y": 3080
+    },
+    {
+      "id": "issue-311164",
+      "type": "issue",
+      "state": "open",
+      "title": "Dragging a file into one terminal editor while holding Shift inserts the path into other terminal editors as well",
+      "url": "https://github.com/microsoft/vscode/issues/311164",
+      "number": 311164,
+      "labels": [
+        "triage-needed",
+        "stale"
+      ],
+      "author": "AnlloXander",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29390217?v=4",
+      "x": 6030,
+      "y": 5000
+    },
+    {
+      "id": "issue-156031",
+      "type": "issue",
+      "state": "open",
+      "title": "Typing a star in a comment block will lead to an extra end symbol",
+      "url": "https://github.com/microsoft/vscode/issues/156031",
+      "number": 156031,
+      "labels": [
+        "bug",
+        "help wanted",
+        "editor-comments"
+      ],
+      "author": "bflatmajor",
+      "author_avatar": "https://avatars.githubusercontent.com/u/14685751?v=4",
+      "x": 6790,
+      "y": 5000
+    },
+    {
+      "id": "issue-318080",
+      "type": "issue",
+      "state": "closed",
+      "title": "Enable sandboxing only in default approvals permission flow",
+      "url": "https://github.com/microsoft/vscode/issues/318080",
+      "number": 318080,
+      "labels": [
+        "insiders-released",
+        "agent-sandbox"
+      ],
+      "author": "dileepyavan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52841896?v=4",
+      "x": 4970,
+      "y": 680
+    },
+    {
+      "id": "issue-318849",
+      "type": "issue",
+      "state": "closed",
+      "title": "Creating sub session is broken in Agents window",
+      "url": "https://github.com/microsoft/vscode/issues/318849",
+      "number": 318849,
+      "labels": [
+        "bug",
+        "verified",
+        "regression",
+        "unreleased",
+        "agents-window"
+      ],
+      "author": "sandy081",
+      "author_avatar": "https://avatars.githubusercontent.com/u/10746682?v=4",
+      "x": 6410,
+      "y": 680
+    },
+    {
+      "id": "issue-285828",
+      "type": "issue",
+      "state": "open",
+      "title": "Allow Pin or Favorite Branches in Git Checkout Panel",
+      "url": "https://github.com/microsoft/vscode/issues/285828",
+      "number": 285828,
+      "labels": [
+        "feature-request",
+        "git"
+      ],
+      "author": "erelcolak",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13097272?v=4",
+      "x": 6790,
+      "y": 6440
+    },
+    {
+      "id": "issue-318341",
+      "type": "issue",
+      "state": "closed",
+      "title": "Cross-file inline edit list never disposed; handleListEndOfLifetime not fired",
+      "url": "https://github.com/microsoft/vscode/issues/318341",
+      "number": 318341,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "NES",
+        "NES-ux"
+      ],
+      "author": "ulugbekna",
+      "author_avatar": "https://avatars.githubusercontent.com/u/16353531?v=4",
+      "x": 4210,
+      "y": 4040
+    },
+    {
+      "id": "issue-315526",
+      "type": "issue",
+      "state": "closed",
+      "title": "Deferred custom tools can be uncallable by agents (GPT 5.4)",
+      "url": "https://github.com/microsoft/vscode/issues/315526",
+      "number": 315526,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "Quicksaver",
+      "author_avatar": "https://avatars.githubusercontent.com/u/802086?v=4",
+      "x": -190,
+      "y": 680
+    },
+    {
+      "id": "issue-275591",
+      "type": "issue",
+      "state": "closed",
+      "title": "vscode.lm.selectChatModels call hangs when GitHub token is invalid",
+      "url": "https://github.com/microsoft/vscode/issues/275591",
+      "number": 275591,
+      "labels": [
+        "bug",
+        "api",
+        "on-testplan",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "AlexP0112",
+      "author_avatar": "https://avatars.githubusercontent.com/u/72802667?v=4",
+      "x": 4510,
+      "y": 4040
+    },
+    {
+      "id": "issue-314020",
+      "type": "issue",
+      "state": "open",
+      "title": "chat plugins: Claude-format plugin frontmatter (rules `paths`, agents `tools`/`model`) is not transformed when installed via marketplace or pluginLocations",
+      "url": "https://github.com/microsoft/vscode/issues/314020",
+      "number": 314020,
+      "labels": [],
+      "author": "mossgowild",
+      "author_avatar": "https://avatars.githubusercontent.com/u/45252670?v=4",
+      "x": 6410,
+      "y": 4520
+    },
+    {
+      "id": "issue-319118",
+      "type": "issue",
+      "state": "open",
+      "title": "Auto-completion disabled for languages with ID >= 256 due to LanguageID bits overlapping with TokenType bits",
+      "url": "https://github.com/microsoft/vscode/issues/319118",
+      "number": 319118,
+      "labels": [],
+      "author": "Smileslime47",
+      "author_avatar": "https://avatars.githubusercontent.com/u/77948910?v=4",
+      "x": 6410,
+      "y": 5000
+    },
+    {
+      "id": "issue-301200",
+      "type": "issue",
+      "state": "open",
+      "title": "[Unhandled Error] <REDACTED: URL>",
+      "url": "https://github.com/microsoft/vscode/issues/301200",
+      "number": 301200,
+      "labels": [
+        "bug",
+        "error-telemetry"
+      ],
+      "author": "bryanchen-d",
+      "author_avatar": "https://avatars.githubusercontent.com/u/41454397?v=4",
+      "x": 6790,
+      "y": 6920
+    },
+    {
+      "id": "issue-319121",
+      "type": "issue",
+      "state": "closed",
+      "title": "Custom Endpoint (BYOK) models disappear from model picker on VS Code restart - hasByokModels.lastKnown race condition",
+      "url": "https://github.com/microsoft/vscode/issues/319121",
+      "number": 319121,
+      "labels": [
+        "unreleased",
+        "model-byok",
+        "new release"
+      ],
+      "author": "tianda1",
+      "author_avatar": "https://avatars.githubusercontent.com/u/96298101?v=4",
+      "x": 6410,
+      "y": 4040
+    },
+    {
+      "id": "issue-315282",
+      "type": "issue",
+      "state": "closed",
+      "title": "[Regression] Cannot read properties of undefined (reading 'then') \u2014 terminalProcessManager.setDimensions",
+      "url": "https://github.com/microsoft/vscode/issues/315282",
+      "number": 315282,
+      "labels": [
+        "bug",
+        "error-telemetry",
+        "insiders-released",
+        "recent-regression",
+        "ai-generated",
+        "ai-analyzed"
+      ],
+      "author": "vs-code-engineering[bot]",
+      "author_avatar": "https://avatars.githubusercontent.com/in/281319?v=4",
+      "x": 4590,
+      "y": 2600
+    },
+    {
+      "id": "issue-317075",
+      "type": "issue",
+      "state": "closed",
+      "title": "Mermaid: hit the \"expand\" button (far right) and the diagram was cut off",
+      "url": "https://github.com/microsoft/vscode/issues/317075",
+      "number": 317075,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "mermaid"
+      ],
+      "author": "TylerLeonhardt",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2644648?v=4",
+      "x": 2390,
+      "y": 1640
+    },
+    {
+      "id": "issue-317330",
+      "type": "issue",
+      "state": "closed",
+      "title": "Chronicle cloud sync: circuit breaker never recovers within a session",
+      "url": "https://github.com/microsoft/vscode/issues/317330",
+      "number": 317330,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
+      "x": 4210,
+      "y": 2120
+    },
+    {
+      "id": "issue-316053",
+      "type": "issue",
+      "state": "closed",
+      "title": "Copilot CLI: GPT 5.5 sessions will sometimes get stuck on applying patches",
+      "url": "https://github.com/microsoft/vscode/issues/316053",
+      "number": 316053,
+      "labels": [
+        "insiders-released",
+        "agents-window",
+        "agents-app"
+      ],
+      "author": "lostintangent",
+      "author_avatar": "https://avatars.githubusercontent.com/u/116461?v=4",
+      "x": 4210,
+      "y": 3080
+    },
+    {
+      "id": "issue-317331",
+      "type": "issue",
+      "state": "closed",
+      "title": "Chronicle cloud sync: createCloudSession should gracefully handle policy-blocked users",
+      "url": "https://github.com/microsoft/vscode/issues/317331",
+      "number": 317331,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "digitarald",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8599?v=4",
+      "x": 4210,
+      "y": 1640
+    },
+    {
+      "id": "issue-311187",
+      "type": "issue",
+      "state": "closed",
+      "title": "Opening VS Code via PowerShell script (.ps1) launches two instances instead of one",
+      "url": "https://github.com/microsoft/vscode/issues/311187",
+      "number": 311187,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows"
+      ],
+      "author": "shhafiz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/55075894?v=4",
+      "x": 3730,
+      "y": 1640
+    },
+    {
+      "id": "issue-299416",
+      "type": "issue",
+      "state": "closed",
+      "title": "Multiple VSCode instances getting created while open an workspace file.",
+      "url": "https://github.com/microsoft/vscode/issues/299416",
+      "number": 299416,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows"
+      ],
+      "author": "flexdevguy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2757489?v=4",
+      "x": 1490,
+      "y": 1640
+    },
+    {
+      "id": "issue-319379",
+      "type": "issue",
+      "state": "open",
+      "title": "Agents view: session resume fails with \"Error during execution\" when no git repo",
+      "url": "https://github.com/microsoft/vscode/issues/319379",
+      "number": 319379,
+      "labels": [],
+      "author": "Monrother",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4018882?v=4",
+      "x": 6790,
+      "y": 4040
+    },
+    {
+      "id": "issue-319381",
+      "type": "issue",
+      "state": "open",
+      "title": "Remote AH server upgrade path not working for SSH",
+      "url": "https://github.com/microsoft/vscode/issues/319381",
+      "number": 319381,
+      "labels": [
+        "bug",
+        "candidate",
+        "agent-host"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 7170,
+      "y": 5960
+    },
+    {
+      "id": "issue-309659",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents: Can't find my private repos",
+      "url": "https://github.com/microsoft/vscode/issues/309659",
+      "number": 309659,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agents-window"
+      ],
+      "author": "bamurtaugh",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25310137?v=4",
+      "x": 1630,
+      "y": 680
+    },
+    {
+      "id": "issue-299932",
+      "type": "issue",
+      "state": "closed",
+      "title": "Copilot chat OTel includes system instruction in message JSON",
+      "url": "https://github.com/microsoft/vscode/issues/299932",
+      "number": 299932,
+      "labels": [
+        "bug",
+        "insiders-released",
+        "chat-agent"
+      ],
+      "author": "JamesNK",
+      "author_avatar": "https://avatars.githubusercontent.com/u/303201?v=4",
+      "x": 4970,
+      "y": 1640
+    },
+    {
+      "id": "issue-304797",
+      "type": "issue",
+      "state": "closed",
+      "title": "VS Code prepend PATH environment variable with its install directory, when started from start menu icon.",
+      "url": "https://github.com/microsoft/vscode/issues/304797",
+      "number": 304797,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows"
+      ],
+      "author": "PetSerAl",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17184058?v=4",
+      "x": 2770,
+      "y": 1640
+    },
+    {
+      "id": "issue-317090",
+      "type": "issue",
+      "state": "closed",
+      "title": "Mermaid Preview: zoom/pan widget shows up even in non-diagram view and with UI clones",
+      "url": "https://github.com/microsoft/vscode/issues/317090",
+      "number": 317090,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 1630,
+      "y": 1160
+    },
+    {
+      "id": "issue-293028",
+      "type": "issue",
+      "state": "closed",
+      "title": "Built-in Mermaid.js support for Markdown previews",
+      "url": "https://github.com/microsoft/vscode/issues/293028",
+      "number": 293028,
+      "labels": [
+        "feature-request",
+        "markdown-ext",
+        "verification-needed",
+        "on-testplan",
+        "insiders-released"
+      ],
+      "author": "JulianJvn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/128477611?v=4",
+      "x": 2010,
+      "y": 3080
+    },
+    {
+      "id": "issue-150948",
+      "type": "issue",
+      "state": "open",
+      "title": "False dialog text when formatters aren't registered",
+      "url": "https://github.com/microsoft/vscode/issues/150948",
+      "number": 150948,
+      "labels": [
+        "feature-request",
+        "polish",
+        "formatting"
+      ],
+      "author": "shieldfoss",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13908347?v=4",
+      "x": 6410,
+      "y": 5960
+    },
+    {
+      "id": "issue-317094",
+      "type": "issue",
+      "state": "closed",
+      "title": "Mermaid Preview: diagram view right-click menu cut/paste should be removed or fixed",
+      "url": "https://github.com/microsoft/vscode/issues/317094",
+      "number": 317094,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 2770,
+      "y": 680
+    },
+    {
+      "id": "issue-314278",
+      "type": "issue",
+      "state": "closed",
+      "title": "AgentHost: Local sessions show \"Local\" in the list detail for some reason",
+      "url": "https://github.com/microsoft/vscode/issues/314278",
+      "number": 314278,
+      "labels": [
+        "bug",
+        "verified",
+        "unreleased",
+        "agent-host"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 6410,
+      "y": 1640
+    },
+    {
+      "id": "issue-317863",
+      "type": "issue",
+      "state": "open",
+      "title": "Copilot Inline Suggestions completely block IntelliSense suggestions since newest release",
+      "url": "https://github.com/microsoft/vscode/issues/317863",
+      "number": 317863,
+      "labels": [
+        "suggest"
+      ],
+      "author": "iArxic",
+      "author_avatar": "https://avatars.githubusercontent.com/u/77511250?v=4",
+      "x": 7410,
+      "y": 1640
+    },
+    {
+      "id": "issue-316328",
+      "type": "issue",
+      "state": "closed",
+      "title": "Allow contributed markdown preview scripts to be marked as modules",
+      "url": "https://github.com/microsoft/vscode/issues/316328",
+      "number": 316328,
+      "labels": [
+        "feature-request",
+        "api",
+        "verified",
+        "markdown-ext",
+        "verification-needed",
+        "insiders-released"
+      ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 1630,
+      "y": 3080
+    },
+    {
+      "id": "issue-318377",
+      "type": "issue",
+      "state": "closed",
+      "title": "'Manage Language Models' menu item not seen when not signed in",
+      "url": "https://github.com/microsoft/vscode/issues/318377",
+      "number": 318377,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "vritant24",
+      "author_avatar": "https://avatars.githubusercontent.com/u/13074644?v=4",
+      "x": 4210,
+      "y": 680
+    },
+    {
+      "id": "issue-312746",
+      "type": "issue",
+      "state": "closed",
+      "title": "Bug: Copilot Chat drops reasoning_content field when using DeepSeek models (OpenRouter BYOK), causing 400 Error",
+      "url": "https://github.com/microsoft/vscode/issues/312746",
+      "number": 312746,
+      "labels": [
+        "bug",
+        "verified",
+        "unreleased",
+        "model-byok"
+      ],
+      "author": "DFVSQY",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8075421?v=4",
+      "x": 6410,
+      "y": 2120
+    },
+    {
+      "id": "issue-314791",
+      "type": "issue",
+      "state": "closed",
+      "title": "System notifications generated when closing vscode, but they never go away",
+      "url": "https://github.com/microsoft/vscode/issues/314791",
+      "number": 314791,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 2390,
+      "y": 2120
+    },
+    {
+      "id": "issue-318380",
+      "type": "issue",
+      "state": "open",
+      "title": "Github-Copilot slow suggestion preferedd over snippet autocomplete",
+      "url": "https://github.com/microsoft/vscode/issues/318380",
+      "number": 318380,
+      "labels": [
+        "bug",
+        "emmet"
+      ],
+      "author": "Arifursdev",
+      "author_avatar": "https://avatars.githubusercontent.com/u/52378239?v=4",
+      "x": 6770,
+      "y": 1640
+    },
+    {
+      "id": "issue-303020",
+      "type": "issue",
+      "state": "closed",
+      "title": "Shell integration fails in PowerShell terminal ",
+      "url": "https://github.com/microsoft/vscode/issues/303020",
+      "number": 303020,
+      "labels": [
+        "bug",
+        "install-update",
+        "terminal",
+        "windows",
+        "insiders-released"
+      ],
+      "author": "briansbrian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/152048932?v=4",
+      "x": 2290,
+      "y": 1640
+    },
+    {
+      "id": "issue-228270",
+      "type": "issue",
+      "state": "closed",
+      "title": "Tab list gets corrupted when a new webview is opened (extension API)",
+      "url": "https://github.com/microsoft/vscode/issues/228270",
+      "number": 228270,
+      "labels": [
+        "bug",
+        "verified",
+        "workbench-tabs",
+        "confirmed",
+        "regression",
+        "insiders-released"
+      ],
+      "author": "mmueller2012",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3102472?v=4",
+      "x": 4210,
+      "y": 2600
+    },
+    {
+      "id": "issue-303021",
+      "type": "issue",
+      "state": "closed",
+      "title": "(code --version) launches a new GUI window instead of returning CLI output when run as Administrator",
+      "url": "https://github.com/microsoft/vscode/issues/303021",
+      "number": 303021,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows"
+      ],
+      "author": "briansbrian",
+      "author_avatar": "https://avatars.githubusercontent.com/u/152048932?v=4",
+      "x": 2450,
+      "y": 1640
+    },
+    {
+      "id": "issue-318121",
+      "type": "issue",
+      "state": "open",
+      "title": "Update button is a destructive action that has no confirmation step",
+      "url": "https://github.com/microsoft/vscode/issues/318121",
+      "number": 318121,
+      "labels": [
+        "feature-request",
+        "install-update"
+      ],
+      "author": "tachyon-beep",
+      "author_avatar": "https://avatars.githubusercontent.com/u/544926?v=4",
+      "x": 6410,
+      "y": 6440
+    },
+    {
+      "id": "issue-244138",
+      "type": "issue",
+      "state": "open",
+      "title": "Disabled and enabled (workspace) extension Disable button dropdown contains both \"Disable\" and \"Disable (Workspace)\" items",
+      "url": "https://github.com/microsoft/vscode/issues/244138",
+      "number": 244138,
+      "labels": [
+        "bug",
+        "help wanted",
+        "good first issue",
+        "extensions"
+      ],
+      "author": "vvavrychuk",
+      "author_avatar": "https://avatars.githubusercontent.com/u/152563?v=4",
+      "x": 7170,
+      "y": 5000
+    },
+    {
+      "id": "issue-317877",
+      "type": "issue",
+      "state": "closed",
+      "title": "steering message disappears on AHP chat session",
+      "url": "https://github.com/microsoft/vscode/issues/317877",
+      "number": 317877,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "amunger",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2019016?v=4",
+      "x": 4210,
+      "y": 3560
+    },
+    {
+      "id": "issue-311734",
+      "type": "issue",
+      "state": "closed",
+      "title": "Feature Request: Set an environment variable (e.g. COPILOT_AGENT) when agent/subagent runs a terminal command",
+      "url": "https://github.com/microsoft/vscode/issues/311734",
+      "number": 311734,
+      "labels": [
+        "feature-request",
+        "verified",
+        "verification-needed",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "author": "rodrigoslayertech",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9668277?v=4",
+      "x": 2010,
+      "y": 2120
+    },
+    {
+      "id": "issue-313015",
+      "type": "issue",
+      "state": "closed",
+      "title": "git tag failed: unable to access .gitconfig",
+      "url": "https://github.com/microsoft/vscode/issues/313015",
+      "number": 313015,
+      "labels": [
+        "insiders-released",
+        "agent-sandbox"
+      ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
+      "x": 1630,
+      "y": 1640
+    },
+    {
+      "id": "issue-299703",
+      "type": "issue",
+      "state": "closed",
+      "title": "PWSH Terminal Integration startup failure",
+      "url": "https://github.com/microsoft/vscode/issues/299703",
+      "number": 299703,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows",
+        "regression",
+        "insiders-released",
+        "terminal-shell-pwsh"
+      ],
+      "author": "OldStarchy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/15243523?v=4",
+      "x": 1970,
+      "y": 1640
+    },
+    {
+      "id": "issue-314041",
+      "type": "issue",
+      "state": "open",
+      "title": "Linux: Cannot curl inside sandbox",
+      "url": "https://github.com/microsoft/vscode/issues/314041",
+      "number": 314041,
+      "labels": [
+        "bug",
+        "verification-found",
+        "agent-sandbox"
+      ],
+      "author": "chrmarti",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9205389?v=4",
+      "x": 6790,
+      "y": 680
+    },
+    {
+      "id": "issue-299962",
+      "type": "issue",
+      "state": "closed",
+      "title": "After Update: VS Code Opens Multiple Windows on Startup and Claude Latency Makes Models Unusable",
+      "url": "https://github.com/microsoft/vscode/issues/299962",
+      "number": 299962,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows",
+        "insiders-released"
+      ],
+      "author": "omraj-ekrazo",
+      "author_avatar": "https://avatars.githubusercontent.com/u/127827022?v=4",
+      "x": 4210,
+      "y": 1640
+    },
+    {
+      "id": "issue-315836",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents Local: delete forked session not working",
+      "url": "https://github.com/microsoft/vscode/issues/315836",
+      "number": 315836,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agents-window"
+      ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 1470,
+      "y": 3560
+    },
+    {
+      "id": "issue-315840",
+      "type": "issue",
+      "state": "closed",
+      "title": "Agents Local: forked session not instantly showing up and highlighted",
+      "url": "https://github.com/microsoft/vscode/issues/315840",
+      "number": 315840,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "agents-window"
+      ],
+      "author": "zhichli",
+      "author_avatar": "https://avatars.githubusercontent.com/u/57812115?v=4",
+      "x": 1630,
+      "y": 3560
+    },
+    {
+      "id": "issue-315841",
+      "type": "issue",
+      "state": "open",
+      "title": "Deadlock in extension host activation blocks tunnels auth",
+      "url": "https://github.com/microsoft/vscode/issues/315841",
+      "number": 315841,
+      "labels": [
+        "bug",
+        "important",
+        "extension-host"
+      ],
+      "author": "connor4312",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2230985?v=4",
+      "x": 2390,
+      "y": 3080
+    },
+    {
+      "id": "issue-300231",
+      "type": "issue",
+      "state": "closed",
+      "title": "git rebase --interactive in the terminal pops up a new window and reports errors when VS Code is started from a shortcut.",
+      "url": "https://github.com/microsoft/vscode/issues/300231",
+      "number": 300231,
+      "labels": [
+        "bug",
+        "install-update",
+        "windows",
+        "insiders-released"
+      ],
+      "author": "djohnst10",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2738319?v=4",
+      "x": 1330,
+      "y": 1640
+    },
+    {
+      "id": "issue-314825",
+      "type": "issue",
+      "state": "closed",
+      "title": "Not able to hide models from the Manage Models menu anymore",
+      "url": "https://github.com/microsoft/vscode/issues/314825",
+      "number": 314825,
+      "labels": [
+        "on-testplan",
+        "insiders-released",
+        "model-byok"
+      ],
+      "author": "cwebster-99",
+      "author_avatar": "https://avatars.githubusercontent.com/u/60238438?v=4",
+      "x": 1630,
+      "y": 2600
+    },
+    {
+      "id": "issue-236489",
+      "type": "issue",
+      "state": "closed",
+      "title": "Snippet Choice Traps Focus",
+      "url": "https://github.com/microsoft/vscode/issues/236489",
+      "number": 236489,
+      "labels": [
+        "bug",
+        "verified",
+        "snippets",
+        "insiders-released"
+      ],
+      "author": "brenapp",
+      "author_avatar": "https://avatars.githubusercontent.com/u/8839926?v=4",
+      "x": 2010,
+      "y": 2600
+    },
+    {
+      "id": "issue-272843",
+      "type": "issue",
+      "state": "closed",
+      "title": "BYOK internal server CAPI error 500",
+      "url": "https://github.com/microsoft/vscode/issues/272843",
+      "number": 272843,
+      "labels": [
+        "bug",
+        "on-testplan",
+        "insiders-released",
+        "model-byok",
+        "capi"
+      ],
+      "author": "isidorn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1926584?v=4",
+      "x": 4830,
+      "y": 4040
+    },
+    {
+      "id": "issue-302026",
+      "type": "issue",
+      "state": "closed",
+      "title": "On Windows, the integrated PowerShell terminal gets a PATH with broken vscode CLI when started using Code.exe",
+      "url": "https://github.com/microsoft/vscode/issues/302026",
+      "number": 302026,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows"
+      ],
+      "author": "mpapirkovskyy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2278972?v=4",
+      "x": 2130,
+      "y": 1640
+    },
+    {
+      "id": "issue-287177",
+      "type": "issue",
+      "state": "closed",
+      "title": "Make terminals ephemeral per turn",
+      "url": "https://github.com/microsoft/vscode/issues/287177",
+      "number": 287177,
+      "labels": [
+        "feature-request",
+        "on-testplan",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "author": "meganrogge",
+      "author_avatar": "https://avatars.githubusercontent.com/u/29464607?v=4",
+      "x": 2770,
+      "y": 2120
+    },
+    {
+      "id": "issue-311503",
+      "type": "issue",
+      "state": "closed",
+      "title": "GitHub Copilog `github.copilot.chat.summarizeAgentConversationHistory.enabled: false` fills context window in single round.",
+      "url": "https://github.com/microsoft/vscode/issues/311503",
+      "number": 311503,
+      "labels": [
+        "unreleased"
+      ],
+      "author": "garretwilson",
+      "author_avatar": "https://avatars.githubusercontent.com/u/627125?v=4",
+      "x": 6410,
+      "y": 1160
+    },
+    {
+      "id": "issue-316624",
+      "type": "issue",
+      "state": "closed",
+      "title": "Fetch tool broken in sandbox with no clear way to know it's because sandbox",
+      "url": "https://github.com/microsoft/vscode/issues/316624",
+      "number": 316624,
+      "labels": [
+        "insiders-released",
+        "agent-sandbox"
+      ],
+      "author": "pierceboggan",
+      "author_avatar": "https://avatars.githubusercontent.com/u/1091304?v=4",
+      "x": 4970,
+      "y": 2120
+    },
+    {
+      "id": "issue-318929",
+      "type": "issue",
+      "state": "closed",
+      "title": "`.browser-emulation-toolbar-label` missing `white-space: nowrap` causes layout issue in Chinese locale",
+      "url": "https://github.com/microsoft/vscode/issues/318929",
+      "number": 318929,
+      "labels": [
+        "unreleased"
+      ],
+      "author": "JakiChen",
+      "author_avatar": "https://avatars.githubusercontent.com/u/3423524?v=4",
+      "x": 7170,
+      "y": 3080
+    },
+    {
+      "id": "issue-316116",
+      "type": "issue",
+      "state": "closed",
+      "title": "GitHub Copilot suddenly compacting at around 50% in v1.119.1",
+      "url": "https://github.com/microsoft/vscode/issues/316116",
+      "number": 316116,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "garretwilson",
+      "author_avatar": "https://avatars.githubusercontent.com/u/627125?v=4",
+      "x": 4590,
+      "y": 2120
+    },
+    {
+      "id": "issue-239062",
+      "type": "issue",
+      "state": "open",
+      "title": "Keyboard Enter for \"Force Checkout\" not working",
+      "url": "https://github.com/microsoft/vscode/issues/239062",
+      "number": 239062,
+      "labels": [
+        "bug",
+        "help wanted",
+        "git"
+      ],
+      "author": "gowth2m",
+      "author_avatar": "https://avatars.githubusercontent.com/u/51103345?v=4",
+      "x": 6410,
+      "y": 6920
+    },
+    {
+      "id": "issue-318681",
+      "type": "issue",
+      "state": "open",
+      "title": "Add support for local-only tracked changes in Source Control",
+      "url": "https://github.com/microsoft/vscode/issues/318681",
+      "number": 318681,
+      "labels": [],
+      "author": "br-robles",
+      "author_avatar": "https://avatars.githubusercontent.com/u/127208754?v=4",
+      "x": 7170,
+      "y": 4520
+    },
+    {
+      "id": "issue-317660",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remote-SSH server install fails with \"extraction path resolves outside root\" after #317393",
+      "url": "https://github.com/microsoft/vscode/issues/317660",
+      "number": 317660,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "loekvangool",
+      "author_avatar": "https://avatars.githubusercontent.com/u/7300472?v=4",
+      "x": 4970,
+      "y": 2600
+    },
+    {
+      "id": "issue-317916",
+      "type": "issue",
+      "state": "closed",
+      "title": "Snippetswork once after window reload, then stop responding",
+      "url": "https://github.com/microsoft/vscode/issues/317916",
+      "number": 317916,
+      "labels": [
+        "bug",
+        "snippets",
+        "unreleased"
+      ],
+      "author": "j-statseeker",
+      "author_avatar": "https://avatars.githubusercontent.com/u/191314958?v=4",
+      "x": 6610,
+      "y": 1640
+    },
+    {
+      "id": "issue-304350",
+      "type": "issue",
+      "state": "closed",
+      "title": "VS Code keeps opening new instances",
+      "url": "https://github.com/microsoft/vscode/issues/304350",
+      "number": 304350,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows"
+      ],
+      "author": "greeksurfer",
+      "author_avatar": "https://avatars.githubusercontent.com/u/260123277?v=4",
+      "x": 2610,
+      "y": 1640
+    },
+    {
+      "id": "issue-232159",
+      "type": "issue",
+      "state": "open",
+      "title": "Devcontainer setup ad-hoc parsing fails on Rocky 8.5",
+      "url": "https://github.com/microsoft/vscode/issues/232159",
+      "number": 232159,
+      "labels": [
+        "bug",
+        "linux",
+        "good first issue",
+        "remote"
+      ],
+      "author": "gunnihinn",
+      "author_avatar": "https://avatars.githubusercontent.com/u/6123958?v=4",
+      "x": 7170,
+      "y": 5480
+    },
+    {
+      "id": "issue-316129",
+      "type": "issue",
+      "state": "closed",
+      "title": "Terminal tool zsh failures",
+      "url": "https://github.com/microsoft/vscode/issues/316129",
+      "number": 316129,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released",
+        "chat-terminal"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 2010,
+      "y": 1160
+    },
+    {
+      "id": "issue-308193",
+      "type": "issue",
+      "state": "closed",
+      "title": "Multiple instance of VS code is loaded when enabling powershell as default terminal in Windows",
+      "url": "https://github.com/microsoft/vscode/issues/308193",
+      "number": 308193,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows",
+        "confirmation-pending",
+        "insiders-released",
+        "terminal-shell-pwsh"
+      ],
+      "author": "flexdevguy",
+      "author_avatar": "https://avatars.githubusercontent.com/u/2757489?v=4",
+      "x": 2930,
+      "y": 1640
+    },
+    {
+      "id": "issue-316899",
+      "type": "issue",
+      "state": "closed",
+      "title": "Suggest widget oftentimes impedes high quality inline suggestions",
+      "url": "https://github.com/microsoft/vscode/issues/316899",
+      "number": 316899,
+      "labels": [
+        "feature-request",
+        "verified",
+        "verification-needed",
+        "suggest",
+        "insiders-released"
+      ],
+      "author": "alexdima",
+      "author_avatar": "https://avatars.githubusercontent.com/u/5047891?v=4",
+      "x": 2770,
+      "y": 3080
+    },
+    {
+      "id": "issue-311267",
+      "type": "issue",
+      "state": "closed",
+      "title": "VSCode no longer opens an editor properly when piping into \"code -\"",
+      "url": "https://github.com/microsoft/vscode/issues/311267",
+      "number": 311267,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows",
+        "confirmation-pending",
+        "insiders-released"
+      ],
+      "author": "TeamDman",
+      "author_avatar": "https://avatars.githubusercontent.com/u/9356891?v=4",
+      "x": 3410,
+      "y": 1640
+    },
+    {
+      "id": "issue-317413",
+      "type": "issue",
+      "state": "closed",
+      "title": "Only surface \"sort imports\" and \"remove unused imports\" when TS client is running/useTsgo is not active",
+      "url": "https://github.com/microsoft/vscode/issues/317413",
+      "number": 317413,
+      "labels": [
+        "bug",
+        "verified",
+        "insiders-released"
+      ],
+      "author": "DanielRosenwasser",
+      "author_avatar": "https://avatars.githubusercontent.com/u/972891?v=4",
+      "x": 4590,
+      "y": 1640
+    },
+    {
+      "id": "issue-318694",
+      "type": "issue",
+      "state": "closed",
+      "title": "Fuck this shit copilot inline suggest, alway wrong suggest and I forbid suggest list pop",
+      "url": "https://github.com/microsoft/vscode/issues/318694",
+      "number": 318694,
+      "labels": [
+        "bug",
+        "suggest"
+      ],
+      "author": "FalleverX",
+      "author_avatar": "https://avatars.githubusercontent.com/u/15180187?v=4",
+      "x": 7570,
+      "y": 1640
+    },
+    {
+      "id": "issue-318695",
+      "type": "issue",
+      "state": "closed",
+      "title": "Remove agent distractions in zen mode",
+      "url": "https://github.com/microsoft/vscode/issues/318695",
+      "number": 318695,
+      "labels": [
+        "workbench-zen",
+        "unreleased"
+      ],
+      "author": "aryzing",
+      "author_avatar": "https://avatars.githubusercontent.com/u/4924405?v=4",
+      "x": 6790,
+      "y": 2120
+    },
+    {
+      "id": "issue-318697",
+      "type": "issue",
+      "state": "closed",
+      "title": "Last update asks for screen sharing permission every time",
+      "url": "https://github.com/microsoft/vscode/issues/318697",
+      "number": 318697,
+      "labels": [
+        "bug",
+        "important",
+        "verified",
+        "linux",
+        "candidate",
+        "regression"
+      ],
+      "author": "NikPiermafrost",
+      "author_avatar": "https://avatars.githubusercontent.com/u/59047765?v=4",
+      "x": 6410,
+      "y": 3080
+    },
+    {
+      "id": "issue-318442",
+      "type": "issue",
+      "state": "open",
+      "title": "Renaming a session requires reload",
+      "url": "https://github.com/microsoft/vscode/issues/318442",
+      "number": 318442,
+      "labels": [],
+      "author": "bamurtaugh",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25310137?v=4",
+      "x": 6030,
+      "y": 5960
+    },
+    {
+      "id": "issue-316140",
+      "type": "issue",
+      "state": "closed",
+      "title": "Add basic built-in markdown yaml frontmatter/preamble rendering support",
+      "url": "https://github.com/microsoft/vscode/issues/316140",
+      "number": 316140,
+      "labels": [
+        "insiders-released"
+      ],
+      "author": "mjbvz",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12821956?v=4",
+      "x": 2390,
+      "y": 1160
+    },
+    {
+      "id": "issue-312052",
+      "type": "issue",
+      "state": "closed",
+      "title": "AgentHost: Support tasks",
+      "url": "https://github.com/microsoft/vscode/issues/312052",
+      "number": 312052,
+      "labels": [
+        "feature-request",
+        "verified",
+        "verification-needed",
+        "insiders-released",
+        "agent-host"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 2770,
+      "y": 1160
+    },
+    {
+      "id": "issue-319221",
+      "type": "issue",
+      "state": "open",
+      "title": "Fllickering icons in sessions list",
+      "url": "https://github.com/microsoft/vscode/issues/319221",
+      "number": 319221,
+      "labels": [
+        "bug",
+        "agents-window"
+      ],
+      "author": "roblourens",
+      "author_avatar": "https://avatars.githubusercontent.com/u/323878?v=4",
+      "x": 6030,
+      "y": 6920
+    },
+    {
+      "id": "issue-2809",
+      "type": "issue",
+      "state": "open",
+      "title": "Support variables when resolving values in settings",
+      "url": "https://github.com/microsoft/vscode/issues/2809",
+      "number": 2809,
+      "labels": [
+        "feature-request",
+        "config"
+      ],
+      "author": "OlsonDev",
+      "author_avatar": "https://avatars.githubusercontent.com/u/308072?v=4",
+      "x": 6410,
+      "y": 5480
+    },
+    {
+      "id": "issue-301050",
+      "type": "issue",
+      "state": "closed",
+      "title": "Command line `--install-extension` & `--list-extensions` options do not work within VSCode integrated terminal",
+      "url": "https://github.com/microsoft/vscode/issues/301050",
+      "number": 301050,
+      "labels": [
+        "bug",
+        "verified",
+        "install-update",
+        "windows",
+        "insiders-released",
+        "terminal-shell-pwsh"
+      ],
+      "author": "Supermanuu",
+      "author_avatar": "https://avatars.githubusercontent.com/u/17361561?v=4",
+      "x": 3890,
+      "y": 1640
+    },
+    {
+      "id": "issue-319230",
+      "type": "issue",
+      "state": "open",
+      "title": "Recently Opened: deleted remote (WSL/SSH) folders are never removed from the list",
+      "url": "https://github.com/microsoft/vscode/issues/319230",
+      "number": 319230,
+      "labels": [
+        "bug",
+        "WSL",
+        "remote",
+        "workbench-history"
+      ],
+      "author": "coezbek",
+      "author_avatar": "https://avatars.githubusercontent.com/u/12127567?v=4",
+      "x": 5950,
+      "y": 4520
+    },
+    {
+      "id": "issue-317183",
+      "type": "issue",
+      "state": "open",
+      "title": "Agents: Steering brings me to the new session screen",
+      "url": "https://github.com/microsoft/vscode/issues/317183",
+      "number": 317183,
+      "labels": [
+        "agents-window"
+      ],
+      "author": "bamurtaugh",
+      "author_avatar": "https://avatars.githubusercontent.com/u/25310137?v=4",
+      "x": 6030,
+      "y": 6440
+    }
+  ],
+  "edges": [
+    {
+      "from": "pr-318465",
+      "to": "issue-318377",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318486",
+      "to": "issue-62476",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319017",
+      "to": "issue-318849",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318529",
+      "to": "issue-318377",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316495",
+      "to": "issue-309659",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318035",
+      "to": "issue-318038",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319061",
+      "to": "issue-314041",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318571",
+      "to": "issue-283165",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316524",
+      "to": "issue-316509",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319097",
+      "to": "issue-318753",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319097",
+      "to": "issue-318749",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318079",
+      "to": "issue-318080",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317594",
+      "to": "issue-317490",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317095",
+      "to": "issue-316624",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318123",
+      "to": "issue-316779",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317615",
+      "to": "issue-317520",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318128",
+      "to": "issue-317763",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317617",
+      "to": "issue-316968",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317107",
+      "to": "issue-317094",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318132",
+      "to": "issue-311503",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317122",
+      "to": "issue-317090",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316107",
+      "to": "issue-316017",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319181",
+      "to": "issue-319251",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317646",
+      "to": "issue-317331",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319183",
+      "to": "issue-308843",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316115",
+      "to": "issue-315526",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319190",
+      "to": "issue-319121",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317656",
+      "to": "issue-317413",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316126",
+      "to": "issue-315940",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317663",
+      "to": "issue-299932",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317669",
+      "to": "issue-317711",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317670",
+      "to": "issue-317330",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316134",
+      "to": "issue-316129",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317163",
+      "to": "issue-316116",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316147",
+      "to": "issue-316140",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319222",
+      "to": "issue-314278",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319223",
+      "to": "issue-211462",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317186",
+      "to": "issue-312052",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317198",
+      "to": "issue-313015",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317199",
+      "to": "issue-316624",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316191",
+      "to": "issue-315408",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316191",
+      "to": "issue-316182",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316706",
+      "to": "issue-316233",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318244",
+      "to": "issue-317549",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317227",
+      "to": "issue-228270",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317244",
+      "to": "issue-317075",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-317916",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-318380",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-318549",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-318735",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-318522",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-317863",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-318694",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318789",
+      "to": "issue-314220",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-300231",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-299416",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-299523",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-299598",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-299703",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-302026",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-303020",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-303021",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-304350",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-304797",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-308193",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-309315",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-309316",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-311267",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-300307",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-311187",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-301050",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-312434",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316745",
+      "to": "issue-299962",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317776",
+      "to": "issue-317775",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318809",
+      "to": "issue-312746",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317791",
+      "to": "issue-315282",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317792",
+      "to": "issue-317660",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317286",
+      "to": "issue-317275",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316267",
+      "to": "issue-311734",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317292",
+      "to": "issue-316747",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316269",
+      "to": "issue-314791",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316278",
+      "to": "issue-287177",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317307",
+      "to": "issue-316053",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317308",
+      "to": "issue-314825",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318848",
+      "to": "issue-318695",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318340",
+      "to": "issue-318341",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318862",
+      "to": "issue-318279",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318862",
+      "to": "issue-318764",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318869",
+      "to": "issue-318805",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316822",
+      "to": "issue-236489",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316824",
+      "to": "issue-279349",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318880",
+      "to": "issue-318241",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316321",
+      "to": "issue-305718",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316329",
+      "to": "issue-316328",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316332",
+      "to": "issue-293028",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319408",
+      "to": "issue-319121",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319410",
+      "to": "issue-319007",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317874",
+      "to": "issue-317714",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317886",
+      "to": "issue-316705",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318912",
+      "to": "issue-318697",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317888",
+      "to": "issue-317877",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318916",
+      "to": "issue-318697",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317897",
+      "to": "issue-317810",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318925",
+      "to": "issue-318844",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317904",
+      "to": "issue-275268",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317395",
+      "to": "issue-293481",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318935",
+      "to": "issue-318929",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319452",
+      "to": "issue-319314",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318434",
+      "to": "issue-318341",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316386",
+      "to": "issue-315841",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316900",
+      "to": "issue-316899",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319464",
+      "to": "issue-284532",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-246551",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-275591",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-313461",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-317428",
+      "to": "issue-272843",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316917",
+      "to": "issue-315836",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316917",
+      "to": "issue-315840",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-316917",
+      "to": "issue-315711",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "pr-318456",
+      "to": "issue-318265",
+      "label": "resuelve",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318465",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318486",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319017",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318529",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316495",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318035",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319061",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318571",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316524",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319097",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318079",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317594",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317095",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318123",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317615",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318128",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317617",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317107",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318132",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317122",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-321722534",
+      "to": "pr-316107",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319181",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317646",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319183",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-321722534",
+      "to": "pr-316115",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319190",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317656",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-321722534",
+      "to": "pr-316126",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317663",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317669",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317670",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316134",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317163",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316147",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319222",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319223",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317186",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317198",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317199",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-321722534",
+      "to": "pr-316191",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316706",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318244",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317227",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317244",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318789",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316745",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-317776",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318809",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317791",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317792",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317286",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316267",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317292",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316269",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316278",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317307",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-317308",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318848",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318340",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318862",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318869",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316822",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316824",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318880",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316321",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316329",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316332",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319408",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319410",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317874",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317886",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318912",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317888",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318916",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317897",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318925",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317904",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317395",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318935",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319452",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318434",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316386",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316900",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319464",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-317428",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-325804905",
+      "to": "pr-316917",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "release-330727311",
+      "to": "pr-318456",
+      "label": "incluye",
+      "state": "merged"
+    },
+    {
+      "from": "pr-319105",
+      "to": "issue-313098",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319245",
+      "to": "issue-107090",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318992",
+      "to": "issue-318993",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319123",
+      "to": "issue-319121",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319380",
+      "to": "issue-319379",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319252",
+      "to": "issue-283151",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319257",
+      "to": "issue-319230",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319257",
+      "to": "issue-285972",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318877",
+      "to": "issue-314020",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318750",
+      "to": "issue-318550",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318881",
+      "to": "issue-318681",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318756",
+      "to": "issue-311164",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319144",
+      "to": "issue-319118",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319405",
+      "to": "issue-156031",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319150",
+      "to": "issue-244138",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319151",
+      "to": "issue-519",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319156",
+      "to": "issue-2809",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319164",
+      "to": "issue-305683",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318787",
+      "to": "issue-232159",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318667",
+      "to": "issue-318442",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319326",
+      "to": "issue-150948",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319327",
+      "to": "issue-217974",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319455",
+      "to": "issue-319381",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319202",
+      "to": "issue-317183",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-318825",
+      "to": "issue-318121",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319214",
+      "to": "issue-285828",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319345",
+      "to": "issue-319341",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319219",
+      "to": "issue-319221",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319482",
+      "to": "issue-239062",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "pr-319484",
+      "to": "issue-301200",
+      "label": "resuelve",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319105",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319245",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318992",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319123",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319380",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319252",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319257",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318877",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318750",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318881",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318756",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319144",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319405",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319150",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319151",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319156",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319164",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318787",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318667",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319326",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319327",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319455",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319202",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-318825",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319214",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319345",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319219",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319482",
+      "label": "pendiente",
+      "state": "open"
+    },
+    {
+      "from": "release-331516246",
+      "to": "pr-319484",
+      "label": "pendiente",
+      "state": "open"
+    }
+  ],
+  "stats": {
+    "total_releases": 4,
+    "total_prs_merged": 87,
+    "total_issues_closed": 115,
+    "total_prs_open": 29,
+    "total_issues_open": 30,
+    "avg_merge_days": 1,
+    "median_merge_days": 0,
+    "avg_issues_per_release": 28.8,
+    "avg_prs_per_release": 21.8
+  }
+}
