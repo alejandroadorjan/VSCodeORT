@@ -11,12 +11,15 @@ All feature files live under [`.github/pr-structure-check/`](./). GitHub require
 ├── pr-structure-check/
 │   ├── PR_STRUCTURE_CHECK.md      ← this document
 │   ├── config.json                ← versioned rules
+│   ├── pull_request_template.md   ← structure-check template (phase 5)
 │   ├── validate-pr-structure.mjs  ← validator (phase 2)
 │   └── validate-pr-structure.test.mjs  ← unit tests (phase 3)
 ├── workflows/
 │   └── pr-structure-check.yml     ← workflow (phase 4; must stay here)
-└── pull_request_template.md       ← aligned in phase 5
+└── pull_request_template.md       ← team template (not owned by this feature)
 ```
+
+GitHub auto-applies only `.github/pull_request_template.md`. The structure-check template lives in this folder so it does not conflict with the team template; copy its sections into the PR description (or paste the file contents) when opening a PR.
 
 ## Required sections
 
@@ -114,6 +117,6 @@ The workflow creates a GitHub Check named **PR Structure Check**. To block merge
 | 2 | `feat: add PR structure validator script` | `validate-pr-structure.mjs` |
 | 3 | `test: add PR structure validator unit tests` | `validate-pr-structure.test.mjs` |
 | 4 | `ci: add PR structure check workflow` | `../workflows/pr-structure-check.yml` |
-| 5 | `chore: align pull request template with structure check` | `../pull_request_template.md` |
+| 5 | `chore: align pull request template with structure check` | `pull_request_template.md` (this folder) |
 
 Work happens on branch `feature/pr-structure-check` from `development`.
