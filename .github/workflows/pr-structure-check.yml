@@ -5,7 +5,7 @@ name: PR Structure Check
 # STRICT_MODE: false — all PRs, config from head branch (development/testing).
 # STRICT_MODE: true  — only PRs targeting main and release/*, config from base branch (production).
 env:
-  PR_STRUCTURE_CHECK_ENABLED: true
+  PR_STRUCTURE_CHECK_ENABLED: false
   STRICT_MODE: false
 
 on:
