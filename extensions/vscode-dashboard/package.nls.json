@@ -1,5 +1,12 @@
 {
 	"vscode-dashboard.displayName": "vscode-dashboard",
 	"vscode-dashboard.description": "Engineering observability dashboard for GitHub repositories",
-	"dashboard.open.title": "Open Dashboard"
+	"dashboard.open.title": "Open Dashboard",
+	"dashboard.configuration.title": "Engineering Dashboard",
+	"dashboard.owner.description": "GitHub owner or organization used by the dashboard.",
+	"dashboard.repo.description": "GitHub repository name used by the dashboard.",
+	"dashboard.githubToken.description": "Optional GitHub token for private repositories or higher API limits.",
+	"dashboard.releaseSource.description": "Release source used for release and DORA-inspired metrics.",
+	"dashboard.releaseSource.tags.description": "Use GitHub Releases or versioned tags as the production release proxy.",
+	"dashboard.releaseSource.main.description": "Use main branch commit pipelines as the release proxy."
 }

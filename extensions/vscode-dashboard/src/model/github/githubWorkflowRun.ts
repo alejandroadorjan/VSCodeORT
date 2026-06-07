@@ -11,6 +11,7 @@ export interface GitHubWorkflowRun {
 	head_branch?: string;
 	head_sha?: string;
 	path?: string;
+	created_at?: string | null;
 	conclusion?: string | null;
 	status?: string;
 	run_started_at?: string | null;

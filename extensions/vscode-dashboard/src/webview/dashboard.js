@@ -8,8 +8,8 @@
 
 const hs = __healthScore__;
 const sr = __successRate__;
-const mttr = __mttr__;
-const cfr = __changeFailureRate__;
+const mttr = __ciRecoveryTime__;
+const cfr = __ciFailureRate__;
 const succ = __success__;
 const fail = __failed__;
 const inp = __inProgress__;
@@ -18,6 +18,9 @@ const fp = __failedPercent__;
 const ip = __inProgressPercent__;
 const op = __otherPercent__;
 const avgD = __avgDuration__;
+const releaseFrequency = __releaseFrequency__;
+const leadTimeDays = __leadTimeDays__;
+const correctionRate = __postReleaseCorrectionRate__;
 
 const dashboardText = __dashboardText__;
 
@@ -82,6 +85,24 @@ const dashboardText = __dashboardText__;
 		else {cb.className = 'badge badge-amber', cb.textContent = dashboardText.medium;}
 	}
 
+	setReleaseBadge(document.getElementById('release-frequency-badge'), releaseFrequency, [
+		{ limit: 1, className: 'badge badge-green', label: dashboardText.elite },
+		{ limit: 0.5, className: 'badge badge-blue', label: dashboardText.high },
+		{ limit: 0.1, className: 'badge badge-amber', label: dashboardText.medium },
+	], dashboardText.low, true);
+	setReleaseBadge(document.getElementById('lead-time-badge'), leadTimeDays, [
+		{ limit: 1, className: 'badge badge-green', label: dashboardText.elite },
+		{ limit: 7, className: 'badge badge-blue', label: dashboardText.high },
+		{ limit: 30, className: 'badge badge-amber', label: dashboardText.medium },
+	], dashboardText.low, false);
+	setReleaseBadge(document.getElementById('correction-rate-badge'), correctionRate, [
+		{ limit: 5, className: 'badge badge-green', label: dashboardText.elite },
+		{ limit: 15, className: 'badge badge-blue', label: dashboardText.high },
+		{ limit: 30, className: 'badge badge-amber', label: dashboardText.medium },
+	], dashboardText.low, false);
+	setupRunInsightsPagination();
+	setupWorkflowFailureToggles();
+
 	setOutcomeVisuals([sp, fp, op, ip], [cSuccess, cFailed, cOther, cBlue]);
 
 	// set success progress fill
@@ -111,6 +132,72 @@ const dashboardText = __dashboardText__;
 		});
 	}
 })();
+
+function setReleaseBadge(element, value, tiers, fallbackLabel, higherIsBetter) {
+	if (!element) {
+		return;
+	}
+
+	for (const tier of tiers) {
+		if ((higherIsBetter && value >= tier.limit) || (!higherIsBetter && value <= tier.limit)) {
+			element.className = tier.className;
+			element.textContent = tier.label;
+			return;
+		}
+	}
+
+	element.className = 'badge badge-red';
+	element.textContent = fallbackLabel;
+}
+
+function setupRunInsightsPagination() {
+	const pager = document.getElementById('runInsightsPager');
+	const previousButton = document.getElementById('runInsightsPrev');
+	const nextButton = document.getElementById('runInsightsNext');
+	const status = document.getElementById('runInsightsPageStatus');
+	if (!pager || !previousButton || !nextButton || !status) {
+		return;
+	}
+
+	const pageCount = Number(pager.dataset.pageCount || '1');
+	let currentPage = 0;
+
+	const updatePage = () => {
+		document.querySelectorAll('.run-insight[data-page]').forEach(item => {
+			item.classList.toggle('hidden', Number(item.getAttribute('data-page')) !== currentPage);
+		});
+		previousButton.disabled = currentPage === 0;
+		nextButton.disabled = currentPage >= pageCount - 1;
+		status.textContent = `${currentPage + 1} / ${pageCount}`;
+	};
+
+	previousButton.addEventListener('click', () => {
+		currentPage = Math.max(0, currentPage - 1);
+		updatePage();
+	});
+	nextButton.addEventListener('click', () => {
+		currentPage = Math.min(pageCount - 1, currentPage + 1);
+		updatePage();
+	});
+	updatePage();
+}
+
+function setupWorkflowFailureToggles() {
+	document.querySelectorAll('.workflow-failure-toggle').forEach(button => {
+		button.addEventListener('click', () => {
+			const detailsId = button.getAttribute('aria-controls');
+			const details = detailsId ? document.getElementById(detailsId) : null;
+			if (!details) {
+				return;
+			}
+
+			const expanded = button.getAttribute('aria-expanded') === 'true';
+			details.classList.toggle('hidden', expanded);
+			button.setAttribute('aria-expanded', String(!expanded));
+			button.textContent = expanded ? button.dataset.collapsed : button.dataset.expanded;
+		});
+	});
+}
 
 function setOutcomeVisuals(values, colors) {
 	const percentIds = ['success-pct', 'failed-pct', 'other-pct', 'inprogress-pct'];

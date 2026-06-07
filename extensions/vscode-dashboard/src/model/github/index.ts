@@ -3,10 +3,12 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-export type { GitHubCommit } from './GitHubCommit';
-export type { GitHubIssue } from './GitHubIssue';
-export type { GitHubLabel } from './GitHubLabel';
-export type { GitHubRepo } from './GitHubRepo';
-export type { GitHubSearchResult } from './GitHubSearchResult';
-export type { GitHubUser } from './GitHubUser';
-export type { GitHubWorkflowRun } from './GitHubWorkflowRun';
+export type { GitHubCommit } from './githubCommit';
+export type { GitHubIssue } from './githubIssue';
+export type { GitHubLabel } from './githubLabel';
+export type { GitHubRelease } from './githubRelease';
+export type { GitHubRepo } from './githubRepo';
+export type { GitHubSearchResult } from './githubSearchResult';
+export type { GitHubTag } from './githubTag';
+export type { GitHubUser } from './githubUser';
+export type { GitHubWorkflowRun } from './githubWorkflowRun';

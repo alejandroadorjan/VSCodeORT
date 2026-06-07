@@ -59,16 +59,27 @@ Workflow Health = (reliability * 0.65) + (build_speed * 0.35)
 - Cancelled, skipped, and in-progress runs are excluded from reliability because they do not represent a success/failure execution outcome.
 - Build speed normalizes average duration against a 900 second cap: `((900 - min(avg_duration_seconds, 900)) / 900) * 100`.
 
-### Workflow-Based Delivery Proxies
+### CI/CD and Release Metrics
 
-The DORA-style section uses workflow data as transparent proxies because the public GitHub APIs used here do not expose full production deployment, incident, and rollback traces.
+The dashboard separates CI/CD observability from release-based DORA-inspired metrics.
 
-- Deployment frequency proxy: successful workflow runs in the last 30 days divided by 4 weeks.
-- MTTR proxy: average minutes from a failed run's `updated_at` timestamp to the next successful run's `run_started_at` timestamp.
-- Change failure rate proxy: `failure_count / tracked_runs * 100`.
-- Lead time: currently displayed as a static approximation (`~2.1 days`) and should be treated as illustrative until commit-to-deployment tracing is implemented.
+CI/CD observability uses GitHub Actions workflow runs:
 
-These values are useful for CI/CD observability, but they should not be presented as exact production DORA measurements.
+- CI success rate: successful completed workflow runs divided by completed workflow runs.
+- CI failure rate: failed completed workflow runs divided by completed workflow runs.
+- Time to feedback: average workflow duration for completed runs.
+- Failure concentration: failures from the most failing workflow divided by all workflow failures.
+- CI recovery time: average time from a failed workflow run to the next successful run of the same workflow.
+
+Release and DORA-inspired metrics use GitHub Releases as the primary source and versioned tags as fallback:
+
+- Release frequency: versioned releases/tags in the last 30 days divided by 4 weeks.
+- Average days between releases: average gap between consecutive versioned releases.
+- Lead time for changes proxy: average and median `release_date - commit_date` for commits between `previousTag..currentTag`.
+- Post-release correction rate: stable releases followed by a patch release within 7 days divided by stable releases.
+- Service recovery metrics are shown as unavailable until a public incident source is configured.
+
+For VS Code, `main` is treated as CI integration, not production. Releases/tags are used as the production delivery proxy. These metrics are DORA-inspired, not strict DORA, and do not infer causality between releases and production incidents.
 
 Main command:
 
@@ -100,6 +111,7 @@ The extension reads these settings from `dashboard.*`:
 - `dashboard.owner`: GitHub org/user (default: `microsoft`)
 - `dashboard.repo`: repository name (default: `vscode`)
 - `dashboard.githubToken`: optional token
+- `dashboard.releaseSource`: release proxy for DORA-inspired metrics, either `tags` or `main` (default: `tags`)
 
 Example workspace settings:
 
@@ -107,7 +119,8 @@ Example workspace settings:
 {
 	"dashboard.owner": "microsoft",
 	"dashboard.repo": "vscode",
-	"dashboard.githubToken": "<your_token_optional>"
+	"dashboard.githubToken": "<your_token_optional>",
+	"dashboard.releaseSource": "tags"
 }
 ```
 

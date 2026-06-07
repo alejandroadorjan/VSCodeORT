@@ -8,6 +8,9 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 import type { DashboardViewModel } from '../model/dashboard';
 
+const RUN_INSIGHTS_PAGE_SIZE = 5;
+const TOP_FAILING_WORKFLOWS_LIMIT = 6;
+
 function renderIssueList(model: DashboardViewModel): string {
 	if (model.issueCards.length === 0) {
 		return `<li class="no-data">${vscode.l10n.t('No recent closed issues found.')}</li>`;
@@ -47,7 +50,8 @@ function renderRunInsights(model: DashboardViewModel): string {
 		return `<div class="no-data">${vscode.l10n.t('No recent runs need attention.')}</div>`;
 	}
 
-	return model.runInsights.map((run) => {
+	return model.runInsights.map((run, index) => {
+		const page = Math.floor(index / RUN_INSIGHTS_PAGE_SIZE);
 		const runLink = run.url ? `<a class="run-link" href="${run.url}">${vscode.l10n.t('Open run')}</a>` : '';
 		const duration = run.hasDuration ? run.duration : vscode.l10n.t('Duration unavailable');
 		const details = [
@@ -57,13 +61,84 @@ function renderRunInsights(model: DashboardViewModel): string {
 		].filter(Boolean).join(' · ');
 
 		return `
-			<div class="run-insight">
+			<div class="run-insight ${page > 0 ? 'hidden' : ''}" data-page="${page}">
 				<span class="status-dot ${run.dotClass}"></span>
 				<div class="run-insight-main">
 					<div class="run-insight-title">${run.name}</div>
 					<div class="run-insight-meta">${details}</div>
 				</div>
 				<span class="badge ${run.badgeClass}">${localizeRunStatus(run.statusLabel)}</span>
+				${runLink}
+			</div>`;
+	}).join('');
+}
+
+function renderRunInsightsPager(model: DashboardViewModel): string {
+	if (model.runInsights.length <= RUN_INSIGHTS_PAGE_SIZE) {
+		return '';
+	}
+
+	const pageCount = Math.ceil(model.runInsights.length / RUN_INSIGHTS_PAGE_SIZE);
+	return `
+		<div class="run-insights-pager" id="runInsightsPager" data-page-size="${RUN_INSIGHTS_PAGE_SIZE}" data-page-count="${pageCount}">
+			<button class="pager-button" id="runInsightsPrev" type="button" aria-label="${vscode.l10n.t('Previous page')}">‹</button>
+			<span class="pager-status" id="runInsightsPageStatus">${vscode.l10n.t('Page {0} of {1}', 1, pageCount)}</span>
+			<button class="pager-button" id="runInsightsNext" type="button" aria-label="${vscode.l10n.t('Next page')}">›</button>
+		</div>`;
+}
+
+function renderTopFailingWorkflows(model: DashboardViewModel): string {
+	const failingWorkflows = model.workflowSeries
+		.filter(workflow => workflow.failure > 0)
+		.slice(0, TOP_FAILING_WORKFLOWS_LIMIT);
+
+	if (failingWorkflows.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No failing workflows found in the current sample.')}</div>`;
+	}
+
+	const maxFailures = Math.max(...failingWorkflows.map(workflow => workflow.failure));
+	return failingWorkflows.map((workflow, index) => {
+		const width = Math.max(6, Math.round((workflow.failure / maxFailures) * 100));
+		const detailsId = `workflowFailures${index}`;
+		return `
+			<div class="workflow-failure-row">
+				<div class="workflow-failure-summary">
+					<div class="workflow-failure-name">${workflow.label}</div>
+					<div class="workflow-failure-actions">
+						<span class="workflow-failure-count">${vscode.l10n.t('{0} failed', workflow.failure)}</span>
+						<button class="workflow-failure-toggle" type="button" aria-expanded="false" aria-controls="${detailsId}" data-collapsed="${vscode.l10n.t('View failures')}" data-expanded="${vscode.l10n.t('Hide failures')}">${vscode.l10n.t('View failures')}</button>
+					</div>
+				</div>
+				<div class="workflow-failure-bar" aria-hidden="true">
+					<span class="workflow-failure-fill" style="--failure-width: ${width}%"></span>
+				</div>
+				<div class="workflow-failure-details hidden" id="${detailsId}">
+					${renderWorkflowFailureRuns(workflow)}
+				</div>
+			</div>`;
+	}).join('');
+}
+
+function renderWorkflowFailureRuns(workflow: DashboardViewModel['workflowSeries'][number]): string {
+	if (workflow.failures.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No direct run links available.')}</div>`;
+	}
+
+	return workflow.failures.map(failure => {
+		const runLink = failure.url ? `<a class="run-link" href="${failure.url}">${vscode.l10n.t('Open run')}</a>` : '';
+		const details = [
+			failure.date,
+			failure.branch ? vscode.l10n.t('branch {0}', failure.branch) : '',
+			failure.commit ? vscode.l10n.t('commit {0}', failure.commit) : '',
+			failure.duration || vscode.l10n.t('Duration unavailable'),
+		].filter(Boolean).join(' · ');
+
+		return `
+			<div class="workflow-failure-run">
+				<div class="workflow-failure-run-main">
+					<div class="workflow-failure-run-title">${failure.title}</div>
+					<div class="workflow-failure-run-meta">${details}</div>
+				</div>
 				${runLink}
 			</div>`;
 	}).join('');
@@ -195,6 +270,7 @@ function localizeRunStatus(status: string): string {
 
 function renderMetricPlaceholders(html: string, model: DashboardViewModel): string {
 	const metrics = model.metrics;
+	const formatSeconds = (seconds: number): string => seconds >= 60 ? vscode.l10n.t('{0}m {1}s', Math.floor(seconds / 60), seconds % 60) : vscode.l10n.t('{0}s', seconds);
 
 	return html
 		.replace(/__dashboardText__/g, JSON.stringify({
@@ -209,6 +285,8 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 			elite: vscode.l10n.t('Elite'),
 			high: vscode.l10n.t('High'),
 			medium: vscode.l10n.t('Medium'),
+			low: vscode.l10n.t('Low'),
+			notAvailable: vscode.l10n.t('N/A'),
 			success: vscode.l10n.t('Success'),
 			failed: vscode.l10n.t('Failed'),
 			other: vscode.l10n.t('Skipped / other'),
@@ -225,8 +303,18 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 		.replace(/__healthScore__/g, String(metrics.healthScore))
 		.replace(/__healthColor__/g, metrics.healthColor)
 		.replace(/__deploymentFrequency__/g, String(metrics.deploymentFrequency))
+		.replace(/__releaseFrequency__/g, String(metrics.deploymentFrequency))
+		.replace(/__leadTimeDays__/g, String(metrics.averageLeadTimeDays))
 		.replace(/__changeFailureRate__/g, String(metrics.changeFailureRate))
 		.replace(/__mttr__/g, String(metrics.mttrMinutes))
+		.replace(/__ciFailureRate__/g, String(metrics.ciFailureRate))
+		.replace(/__timeToFeedback__/g, formatSeconds(metrics.timeToFeedbackSeconds))
+		.replace(/__failureConcentration__/g, String(metrics.failureConcentrationRate))
+		.replace(/__ciRecoveryTime__/g, String(metrics.ciRecoveryTimeMinutes))
+		.replace(/__mostFailingWorkflow__/g, metrics.mostFailingWorkflow)
+		.replace(/__leadTimeAverage__/g, String(metrics.averageLeadTimeDays))
+		.replace(/__leadTimeMedian__/g, String(metrics.medianLeadTimeDays))
+		.replace(/__postReleaseCorrectionRate__/g, String(metrics.postReleaseCorrectionRate))
 		.replace(/__success__/g, String(metrics.successCount.toLocaleString()))
 		.replace(/__failed__/g, String(metrics.failureCount.toLocaleString()))
 		.replace(/__cancelled__/g, String(metrics.cancelledCount.toLocaleString()))
@@ -239,8 +327,11 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 		.replace(/__activeDevs__/g, String(metrics.activeDevs))
 		.replace(/__resolvedIssues__/g, renderIssueList(model))
 		.replace(/__recentRunsHtml__/g, renderRecentRuns(model))
+		.replace(/__topFailingWorkflowsHtml__/g, renderTopFailingWorkflows(model))
 		.replace(/__runDiagnosticsHtml__/g, renderRunDiagnostics(model))
 		.replace(/__runInsightsHtml__/g, renderRunInsights(model))
+		.replace(/__runInsightsPager__/g, renderRunInsightsPager(model))
+		.replace(/__runInsightsToggle__/g, renderRunInsightsPager(model))
 		.replace(/__mainAlertsHtml__/g, renderMainAlerts(model))
 		.replace(/__skippedRunsHtml__/g, renderSkippedRuns(model));
 }
@@ -288,24 +379,52 @@ function localizeDashboardHtml(html: string): string {
 		['Build speed', vscode.l10n.t('Build speed')],
 		['Build speed (35% weight)', vscode.l10n.t('Build speed (35% weight)')],
 		['Measures how fast your builds are, capped at 180s for scoring purposes.', vscode.l10n.t('Measures how fast your builds are, capped at 180s for scoring purposes.')],
+		['65% Reliability + 35% Build Speed', vscode.l10n.t('65% Reliability + 35% Build Speed')],
 		['Recent run diagnosis', vscode.l10n.t('Recent run diagnosis')],
 		['Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.', vscode.l10n.t('Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.')],
 		['Runs needing attention', vscode.l10n.t('Runs needing attention')],
-		['DORA metrics &amp; run detail', vscode.l10n.t('DORA metrics & run detail')],
-		['DORA metrics', vscode.l10n.t('DORA metrics')],
-		['Deployment frequency', vscode.l10n.t('Deployment frequency')],
-		['successful runs / week', vscode.l10n.t('successful runs / week')],
-		['Successful runs in the last 30 days divided by 4 weeks.', vscode.l10n.t('Successful runs in the last 30 days divided by 4 weeks.')],
-		['Lead time', vscode.l10n.t('Lead time')],
-		['commit → production', vscode.l10n.t('commit → production')],
-		['Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy tracking for real data.', vscode.l10n.t('Estimated time from commit to production. Static approximation (~2.1 days) — requires deeper commit/deploy tracking for real data.')],
-		['MTTR — Mean Time To Recovery', vscode.l10n.t('MTTR — Mean Time To Recovery')],
-		['failure → next success', vscode.l10n.t('failure → next success')],
-		['Average minutes from a failed run\'s end to the next successful run\'s start.', vscode.l10n.t('Average minutes from a failed run\'s end to the next successful run\'s start.')],
-		['Change failure rate', vscode.l10n.t('Change failure rate')],
-		['failed / total runs', vscode.l10n.t('failed / total runs')],
-		['Percentage of workflow runs that ended in failure.', vscode.l10n.t('Percentage of workflow runs that ended in failure.')],
+		['CI/CD &amp; release metrics', vscode.l10n.t('CI/CD & release metrics')],
+		['CI/CD Observability', vscode.l10n.t('CI/CD Observability')],
+		['GitHub Actions failures are CI failures, not production failures.', vscode.l10n.t('GitHub Actions failures are CI failures, not production failures.')],
+		['CI Failure Rate', vscode.l10n.t('CI Failure Rate')],
+		['Failed workflow runs divided by completed workflow runs.', vscode.l10n.t('Failed workflow runs divided by completed workflow runs.')],
+		['failed_completed_runs ÷ completed_runs × 100', vscode.l10n.t('failed_completed_runs ÷ completed_runs × 100')],
+		['workflow failures / completed runs', vscode.l10n.t('workflow failures / completed runs')],
+		['Time to Feedback', vscode.l10n.t('Time to Feedback')],
+		['Average time from workflow creation/start to completion for completed workflow runs.', vscode.l10n.t('Average time from workflow creation/start to completion for completed workflow runs.')],
+		['mean(completed_at - created_at)', vscode.l10n.t('mean(completed_at - created_at)')],
+		['average workflow duration', vscode.l10n.t('average workflow duration')],
+		['Failure Concentration', vscode.l10n.t('Failure Concentration')],
+		['Share of all CI failures caused by the most failing workflow.', vscode.l10n.t('Share of all CI failures caused by the most failing workflow.')],
+		['top_workflow_failures ÷ total_failures × 100', vscode.l10n.t('top_workflow_failures ÷ total_failures × 100')],
+		['top failing workflow: __mostFailingWorkflow__', vscode.l10n.t('top failing workflow: {0}', '__mostFailingWorkflow__')],
+		['CI Recovery Time', vscode.l10n.t('CI Recovery Time')],
+		['Average time between a failed workflow run and the next successful run of the same workflow.', vscode.l10n.t('Average time between a failed workflow run and the next successful run of the same workflow.')],
+		['failure → next same-workflow success', vscode.l10n.t('failure → next same-workflow success')],
+		['Release &amp; DORA-inspired', vscode.l10n.t('Release & DORA-inspired')],
+		['DORA-inspired, not strict DORA. Based on releases/tags, not production deployment telemetry.', vscode.l10n.t('DORA-inspired, not strict DORA. Based on releases/tags, not production deployment telemetry.')],
+		['Release Frequency', vscode.l10n.t('Release Frequency')],
+		['This approximates Deployment Frequency using GitHub Releases or versioned tags. It does not use merges to main because main is CI integration for VS Code.', vscode.l10n.t('This approximates Deployment Frequency using GitHub Releases or versioned tags. It does not use merges to main because main is CI integration for VS Code.')],
+		['releases_in_window ÷ weeks_in_window', vscode.l10n.t('releases_in_window ÷ weeks_in_window')],
+		['versioned releases / week', vscode.l10n.t('versioned releases / week')],
+		['Lead Time for Changes Proxy', vscode.l10n.t('Lead Time for Changes Proxy')],
+		['Approximates time from when a commit enters the repository until it is included in a release/tag. It does not guarantee real production deployment.', vscode.l10n.t('Approximates time from when a commit enters the repository until it is included in a release/tag. It does not guarantee real production deployment.')],
+		['mean(release_date - commit_date) for commits between previousTag..currentTag', vscode.l10n.t('mean(release_date - commit_date) for commits between previousTag..currentTag')],
+		['Lead Time Proxy', vscode.l10n.t('Lead Time Proxy')],
+		['avg __leadTimeAverage__d · median __leadTimeMedian__d', vscode.l10n.t('avg {0}d · median {1}d', '__leadTimeAverage__', '__leadTimeMedian__')],
+		['Post-release Correction Rate', vscode.l10n.t('Post-release Correction Rate')],
+		['Proxy for Change Failure Rate. It does not prove a release caused a production failure; it only detects nearby patch releases after stable releases.', vscode.l10n.t('Proxy for Change Failure Rate. It does not prove a release caused a production failure; it only detects nearby patch releases after stable releases.')],
+		['stable_releases_with_patch_within_7d ÷ stable_releases × 100', vscode.l10n.t('stable_releases_with_patch_within_7d ÷ stable_releases × 100')],
+		['nearby patch releases', vscode.l10n.t('nearby patch releases')],
+		['Service Recovery Time Proxy', vscode.l10n.t('Service Recovery Time Proxy')],
+		['This requires public incident start and resolution timestamps. GitHub Actions is not a valid production recovery source.', vscode.l10n.t('This requires public incident start and resolution timestamps. GitHub Actions is not a valid production recovery source.')],
+		['requires incident source', vscode.l10n.t('requires incident source')],
+		['Not available', vscode.l10n.t('Not available')],
+		['N/A', vscode.l10n.t('N/A')],
+		['CI', vscode.l10n.t('CI')],
 		['Recent workflow runs', vscode.l10n.t('Recent workflow runs')],
+		['Top failing workflows', vscode.l10n.t('Top failing workflows')],
+		['Most frequent workflow failures in the current GitHub Actions sample.', vscode.l10n.t('Most frequent workflow failures in the current GitHub Actions sample.')],
 		['Run outcomes', vscode.l10n.t('Run outcomes')],
 		['Scope: latest __totalRuns__ workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.', vscode.l10n.t('Scope: latest {0} workflow runs returned by GitHub Actions across all branches; this is not a fixed time window.', '__totalRuns__')],
 		['__success__ runs', vscode.l10n.t('{0} runs', '__success__')],
@@ -320,6 +439,7 @@ function localizeDashboardHtml(html: string): string {
 		['Recently closed issues', vscode.l10n.t('Recently closed issues')],
 		['Source: GitHub Issues API · excludes PRs', vscode.l10n.t('Source: GitHub Issues API · excludes PRs')],
 		['Issues &amp; repository signals', vscode.l10n.t('Issues & repository signals')],
+		['Issues &amp; workflow signals', vscode.l10n.t('Issues & workflow signals')],
 		['Repository signals', vscode.l10n.t('Repository signals')],
 		['Forks', vscode.l10n.t('Forks')],
 		['Watchers', vscode.l10n.t('Watchers')],

@@ -3,8 +3,11 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-export interface DashboardConfig {
+import type { DashboardReleaseSource } from '../config/dashboardConfig';
+
+export interface DashboardRequest {
 	owner: string;
 	repo: string;
 	token: string | null;
+	releaseSource: DashboardReleaseSource;
 }

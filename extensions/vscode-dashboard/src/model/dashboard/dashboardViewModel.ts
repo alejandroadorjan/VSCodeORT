@@ -3,13 +3,13 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { DashboardMetrics } from './DashboardMetrics';
-import type { IssueCard } from './IssueCard';
-import type { MainFailureAlert } from './MainFailureAlert';
-import type { RunCard } from './RunCard';
-import type { RunInsight } from './RunInsight';
-import type { SkippedRunInsight } from './SkippedRunInsight';
-import type { WorkflowHistogramItem } from './WorkflowHistogramItem';
+import type { DashboardMetrics } from './dashboardMetrics';
+import type { IssueCard } from './issueCard';
+import type { MainFailureAlert } from './mainFailureAlert';
+import type { RunCard } from './runCard';
+import type { RunInsight } from './runInsight';
+import type { SkippedRunInsight } from './skippedRunInsight';
+import type { WorkflowHistogramItem } from './workflowHistogramItem';
 
 export interface DashboardViewModel {
 	metrics: DashboardMetrics;

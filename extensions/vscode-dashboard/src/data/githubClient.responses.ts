@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { GitHubSearchResult, GitHubWorkflowRun } from '../model/github';
+import type { GitHubCommit, GitHubSearchResult, GitHubWorkflowRun } from '../model/github';
 
 export interface GitHubSearchResponse extends GitHubSearchResult {
 	items?: object[];
@@ -11,4 +11,8 @@ export interface GitHubSearchResponse extends GitHubSearchResult {
 
 export interface GitHubRunsResponse {
 	workflow_runs?: GitHubWorkflowRun[];
+}
+
+export interface GitHubCompareResponse {
+	commits?: GitHubCommit[];
 }

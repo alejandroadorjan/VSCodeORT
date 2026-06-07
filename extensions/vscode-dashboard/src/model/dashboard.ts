@@ -10,9 +10,11 @@ export type {
 	DashboardViewModel,
 	IssueCard,
 	MainFailureAlert,
+	ReleaseChange,
 	RunCard,
 	RunInsight,
 	SkippedRunInsight,
 	SkippedRunReasonKind,
+	WorkflowFailureRun,
 	WorkflowHistogramItem,
 } from './dashboard/index';

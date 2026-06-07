@@ -20,27 +20,39 @@
         "title": "%dashboard.open.title%"
       }
     ],
-      "configuration": {
-    "title": "Dashboard",
-    "properties": {
-      "dashboard.owner": {
-        "type": "string",
-        "default": "microsoft",
-        "description": "GitHub repository owner"
-      },
-      "dashboard.repo": {
-        "type": "string",
-        "default": "vscode",
-        "description": "GitHub repository name"
-      },
-      "dashboard.githubToken": {
-        "type": "string",
-        "default": "",
-        "description": "GitHub Personal Access Token"
+    "configuration": {
+      "title": "%dashboard.configuration.title%",
+      "properties": {
+        "dashboard.owner": {
+          "type": "string",
+          "default": "microsoft",
+          "description": "%dashboard.owner.description%"
+        },
+        "dashboard.repo": {
+          "type": "string",
+          "default": "vscode",
+          "description": "%dashboard.repo.description%"
+        },
+        "dashboard.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "%dashboard.githubToken.description%"
+        },
+        "dashboard.releaseSource": {
+          "type": "string",
+          "default": "tags",
+          "enum": [
+            "tags",
+            "main"
+          ],
+          "enumDescriptions": [
+            "%dashboard.releaseSource.tags.description%",
+            "%dashboard.releaseSource.main.description%"
+          ],
+          "description": "%dashboard.releaseSource.description%"
+        }
       }
     }
-  }
-
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

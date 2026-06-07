@@ -4,10 +4,15 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import type { DashboardConfig } from '../model/config/DashboardConfig';
+import type { DashboardConfig, DashboardReleaseSource } from '../model/config/dashboardConfig';
 
 const DEFAULT_OWNER = 'microsoft';
 const DEFAULT_REPO = 'vscode';
+const DEFAULT_RELEASE_SOURCE: DashboardReleaseSource = 'tags';
+
+function getReleaseSource(value: string | undefined): DashboardReleaseSource {
+	return value === 'main' || value === 'tags' ? value : DEFAULT_RELEASE_SOURCE;
+}
 
 export function getDashboardConfig(): DashboardConfig {
 	const configuration = vscode.workspace.getConfiguration('dashboard');
@@ -16,5 +21,6 @@ export function getDashboardConfig(): DashboardConfig {
 		owner: configuration.get<string>('owner') ?? DEFAULT_OWNER,
 		repo: configuration.get<string>('repo') ?? DEFAULT_REPO,
 		token: configuration.get<string>('githubToken') ?? null,
+		releaseSource: getReleaseSource(configuration.get<string>('releaseSource')),
 	};
 }
