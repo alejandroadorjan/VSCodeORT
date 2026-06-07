@@ -10,25 +10,18 @@ import { AnthropicAiClient } from './ai/aiClient';
 import { clearApiKey, promptAndStoreApiKey } from './ai/apiKey';
 import { evaluate } from './engine/placeholder';
 import { getGitApi, pickRepository, readRepoContext } from './git/gitContext';
-import { ReadinessTreeProvider } from './ui/treeView';
+import { presentEvaluation } from './ui/present';
+import { registerReadinessUi } from './ui/register';
 import type { AiClient } from './types';
 
 export function activate(context: vscode.ExtensionContext): void {
 	const ai: AiClient = new AnthropicAiClient(context);
-	const tree = new ReadinessTreeProvider();
+	const { tree, statusBar } = registerReadinessUi(context);
 	const output = vscode.window.createOutputChannel('PR Readiness');
-
-	const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-	statusBar.command = 'prReadiness.evaluate';
-	statusBar.text = '$(rocket) PR Readiness';
-	statusBar.tooltip = 'Evaluar qué tan listo está el cambio para un PR';
-	statusBar.show();
 
 	context.subscriptions.push(
 		output,
-		statusBar,
-		vscode.window.registerTreeDataProvider('prReadiness.panel', tree),
-		vscode.commands.registerCommand('prReadiness.evaluate', () => runEvaluate(ai, tree, statusBar, output)),
+		vscode.commands.registerCommand('prReadiness.evaluate', () => runEvaluate(context, ai, tree, statusBar, output)),
 		vscode.commands.registerCommand('prReadiness.setApiKey', async () => {
 			if (await promptAndStoreApiKey(context)) {
 				vscode.window.showInformationMessage('Anthropic API key guardada de forma segura.');
@@ -42,8 +35,9 @@ export function activate(context: vscode.ExtensionContext): void {
 }
 
 async function runEvaluate(
+	extensionContext: vscode.ExtensionContext,
 	ai: AiClient,
-	tree: ReadinessTreeProvider,
+	tree: ReturnType<typeof registerReadinessUi>['tree'],
 	statusBar: vscode.StatusBarItem,
 	output: vscode.OutputChannel
 ): Promise<void> {
@@ -58,9 +52,9 @@ async function runEvaluate(
 		return;
 	}
 
-	const context = await readRepoContext(repo);
+	const repoContext = await readRepoContext(repo);
 	output.appendLine('=== RepoContext ===');
-	output.appendLine(JSON.stringify({ ...context, diff: `${context.diff.length} chars` }, null, 2));
+	output.appendLine(JSON.stringify({ ...repoContext, diff: `${repoContext.diff.length} chars` }, null, 2));
 
 	if (!(await ai.isAvailable())) {
 		vscode.window
@@ -75,9 +69,9 @@ async function runEvaluate(
 			});
 	}
 
-	const result = await evaluate(context, ai);
-	tree.update(result);
-	statusBar.text = `$(rocket) PR Readiness: ${result.score}/100`;
+	const result = await evaluate(repoContext, ai);
+	presentEvaluation(extensionContext, tree, statusBar, repoContext, result);
+
 	output.appendLine('=== ReadinessResult ===');
 	output.appendLine(JSON.stringify(result, null, 2));
 }

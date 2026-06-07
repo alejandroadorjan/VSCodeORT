@@ -50,6 +50,11 @@
         "command": "prReadiness.clearApiKey",
         "title": "PR Readiness: Borrar Anthropic API Key",
         "category": "PR Readiness"
+      },
+      {
+        "command": "prReadiness.openIssue",
+        "title": "PR Readiness: Abrir issue en GitHub",
+        "category": "PR Readiness"
       }
     ],
     "configuration": {
@@ -79,6 +84,11 @@
           "type": "string",
           "default": "",
           "markdownDescription": "**Desaconsejado.** API key de Anthropic en texto plano. Preferí el comando `PR Readiness: Configurar Anthropic API Key` (la guarda cifrada en SecretStorage) o la variable de entorno `ANTHROPIC_API_KEY`. Si la ponés acá, NO commitees tu settings.json."
+        },
+        "prReadiness.githubRepo": {
+          "type": "string",
+          "default": "microsoft/vscode",
+          "description": "Repositorio para buscar good-first-issues (formato owner/repo). Sin token de GitHub; sujeto a rate limit."
         }
       }
     }
