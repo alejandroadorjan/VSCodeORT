@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import type { GitHubWorkflowRun } from '../model/github';
-import type { WorkflowHistogramItem } from '../model/dashboard';
+import type { WorkflowFailureRun, WorkflowHistogramItem } from '../model/dashboard';
 import { BUILD_DURATION_CAP_SECONDS, DEPLOYMENT_WINDOW_DAYS } from './dashboardMetrics.constants';
 
 export function isCompletedRun(run: GitHubWorkflowRun): boolean {
@@ -80,5 +80,42 @@ export function buildWorkflowHistogram(runs: GitHubWorkflowRun[]): WorkflowHisto
 		success: workflowRuns.filter(run => run.conclusion === 'success').length,
 		failure: workflowRuns.filter(run => run.conclusion === 'failure').length,
 		durationSeconds: Math.round(workflowRuns.filter(run => isCompletedRun(run)).reduce((total, run) => total + runDurationSeconds(run), 0) / Math.max(1, workflowRuns.filter(run => isCompletedRun(run)).length)),
+		failures: createWorkflowFailures(workflowRuns),
 	})).sort((left, right) => right.failure - left.failure || right.durationSeconds - left.durationSeconds);
+}
+
+function createWorkflowFailures(runs: GitHubWorkflowRun[]): WorkflowFailureRun[] {
+	return runs
+		.filter(run => run.conclusion === 'failure')
+		.sort((left, right) => getRunTimestamp(right) - getRunTimestamp(left))
+		.map(run => ({
+			title: run.display_title ?? run.name ?? run.workflow_name ?? 'Workflow run',
+			branch: run.head_branch ?? '',
+			commit: run.head_sha ? run.head_sha.slice(0, 7) : '',
+			date: formatRunDate(run),
+			duration: formatRunDuration(run),
+			url: run.html_url ?? '',
+		}));
+}
+
+function getRunTimestamp(run: GitHubWorkflowRun): number {
+	return new Date(run.updated_at ?? run.run_started_at ?? run.created_at ?? '').getTime();
+}
+
+function formatRunDate(run: GitHubWorkflowRun): string {
+	const timestamp = run.updated_at ?? run.run_started_at ?? run.created_at;
+	if (!timestamp) {
+		return '';
+	}
+
+	return new Date(timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function formatRunDuration(run: GitHubWorkflowRun): string {
+	if (!run.run_started_at || !run.updated_at) {
+		return '';
+	}
+
+	const seconds = runDurationSeconds(run);
+	return seconds >= 60 ? `${Math.floor(seconds / 60)}m ${seconds % 60}s` : `${seconds}s`;
 }

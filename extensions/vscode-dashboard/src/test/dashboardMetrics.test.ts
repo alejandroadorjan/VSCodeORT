@@ -5,7 +5,8 @@
 
 import * as assert from 'assert';
 import type { DashboardViewModel } from '../model/dashboard';
-import type { GitHubWorkflowRun } from '../model/github';
+import type { DashboardReleaseSource } from '../model/config/dashboardConfig';
+import type { GitHubRelease, GitHubTag, GitHubWorkflowRun } from '../model/github';
 import { buildDashboardViewModel } from '../transformers/dashboardMetrics';
 
 export async function runDashboardMetricsTests() {
@@ -19,12 +20,17 @@ export async function runDashboardMetricsTests() {
 	await testConfigSkippedRunsDoNotLowerHealthScore();
 	await testNonConfigSkippedRunsLowerHealthScore();
 	await testHealthScoreNormalizesDurationBeforeApplyingCap();
+	await testReleaseDoraInspiredMetricsUseReleasesAndTags();
 }
 
-function buildViewModel(workflowRuns: GitHubWorkflowRun[]): DashboardViewModel {
+function buildViewModel(workflowRuns: GitHubWorkflowRun[], releaseSource: DashboardReleaseSource = 'tags', releases: GitHubRelease[] = [], releaseTags: GitHubTag[] = []): DashboardViewModel {
 	return buildDashboardViewModel({
 		repo: {},
 		workflowRuns,
+		releaseSource,
+		releases,
+		releaseTags,
+		releaseChanges: [],
 		closedIssues: [],
 		openIssuesCount: 0,
 		openPullRequestsCount: 0,
@@ -34,7 +40,7 @@ function buildViewModel(workflowRuns: GitHubWorkflowRun[]): DashboardViewModel {
 
 async function testViewModelBuildsWorkflowConcentration() {
 	const workflowRuns: GitHubWorkflowRun[] = [
-		{ name: 'CI', workflow_name: 'CI', conclusion: 'failure', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:10:00Z' },
+		{ name: 'CI', workflow_name: 'CI', head_branch: 'main', head_sha: 'abcdef123456', conclusion: 'failure', run_started_at: '2026-05-01T10:00:00Z', updated_at: '2026-05-01T10:10:00Z', html_url: 'https://github.com/microsoft/vscode/actions/runs/1' },
 		{ name: 'CI', workflow_name: 'CI', conclusion: 'success', run_started_at: '2026-05-01T11:00:00Z', updated_at: '2026-05-01T11:08:00Z' },
 		{ name: 'Tests', workflow_name: 'Tests', conclusion: 'failure', run_started_at: '2026-05-01T12:00:00Z', updated_at: '2026-05-01T12:05:00Z' },
 	];
@@ -42,6 +48,10 @@ async function testViewModelBuildsWorkflowConcentration() {
 	const viewModel = buildDashboardViewModel({
 		repo: { stargazers_count: 25, forks_count: 3, subscribers_count: 2, watchers_count: 4 },
 		workflowRuns,
+		releaseSource: 'tags',
+		releases: [],
+		releaseTags: [],
+		releaseChanges: [],
 		closedIssues: [],
 		openIssuesCount: 4,
 		openPullRequestsCount: 2,
@@ -54,12 +64,24 @@ async function testViewModelBuildsWorkflowConcentration() {
 		activeDevs: viewModel.metrics.activeDevs,
 		topWorkflow: viewModel.workflowSeries[0].label,
 		topWorkflowFailures: viewModel.workflowSeries[0].failure,
+		topWorkflowFailureUrl: viewModel.workflowSeries[0].failures[0].url,
+		topWorkflowFailureBranch: viewModel.workflowSeries[0].failures[0].branch,
+		topWorkflowFailureCommit: viewModel.workflowSeries[0].failures[0].commit,
+		slowestRunName: viewModel.workflowDurationInsights[0].name,
+		slowestRunDuration: viewModel.workflowDurationInsights[0].duration,
+		slowestRunUrl: viewModel.workflowDurationInsights[0].url,
 	}, {
 		totalRuns: 3,
 		failureCount: 2,
 		activeDevs: 2,
 		topWorkflow: 'CI',
 		topWorkflowFailures: 1,
+		topWorkflowFailureUrl: 'https://github.com/microsoft/vscode/actions/runs/1',
+		topWorkflowFailureBranch: 'main',
+		topWorkflowFailureCommit: 'abcdef1',
+		slowestRunName: 'CI',
+		slowestRunDuration: '10m 0s',
+		slowestRunUrl: 'https://github.com/microsoft/vscode/actions/runs/1',
 	});
 }
 
@@ -286,7 +308,7 @@ async function testConfigSkippedRunsDoNotLowerHealthScore() {
 	}, {
 		skipReason: 'configOrEvent',
 		visibleSuccessRate: 50,
-		healthScore: 98,
+		healthScore: 100,
 	});
 }
 
@@ -321,7 +343,7 @@ async function testNonConfigSkippedRunsLowerHealthScore() {
 	}, {
 		skipReason: 'sameCommitFailure',
 		visibleFailedRate: 50,
-		healthScore: 34,
+		healthScore: 35,
 	});
 }
 
@@ -346,6 +368,92 @@ async function testHealthScoreNormalizesDurationBeforeApplyingCap() {
 	}, {
 		averageDurationSeconds: 300,
 		successRate: 100,
-		healthScore: 65,
+		healthScore: 88,
+	});
+}
+
+async function testReleaseDoraInspiredMetricsUseReleasesAndTags() {
+	const workflowRuns: GitHubWorkflowRun[] = [
+		{
+			name: 'Release pipeline',
+			head_branch: '1.0.0',
+			head_sha: 'release-100',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2099-01-01T10:00:00Z',
+			updated_at: '2099-01-01T10:10:00Z',
+		},
+		{
+			name: 'Release pipeline',
+			head_branch: '1.1.0',
+			head_sha: 'release-110',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2099-01-11T10:00:00Z',
+			updated_at: '2099-01-11T10:10:00Z',
+		},
+		{
+			name: 'Release pipeline',
+			head_branch: '1.1.1',
+			head_sha: 'release-111',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2099-01-15T10:00:00Z',
+			updated_at: '2099-01-15T10:10:00Z',
+		},
+		{
+			name: 'Main CI',
+			head_branch: 'main',
+			head_sha: 'main-only',
+			conclusion: 'success',
+			status: 'completed',
+			run_started_at: '2099-01-20T10:00:00Z',
+			updated_at: '2099-01-20T10:10:00Z',
+		},
+	];
+	const releases: GitHubRelease[] = [
+		{ tag_name: '1.0.0', published_at: '2099-01-01T12:00:00Z' },
+		{ tag_name: '1.1.0', published_at: '2099-01-11T12:00:00Z' },
+		{ tag_name: '1.1.1', published_at: '2099-01-15T12:00:00Z' },
+	];
+	const releaseTags: GitHubTag[] = [
+		{ name: '1.0.0' },
+		{ name: '1.1.0' },
+		{ name: '1.1.1' },
+	];
+
+	const viewModel = buildDashboardViewModel({
+		repo: {},
+		workflowRuns,
+		releaseSource: 'tags',
+		releases,
+		releaseTags,
+		releaseChanges: [
+			{
+				releaseName: '1.1.0',
+				releaseDate: '2099-01-11T12:00:00Z',
+				commitDates: ['2099-01-09T12:00:00Z', '2099-01-10T12:00:00Z'],
+			},
+		],
+		closedIssues: [],
+		openIssuesCount: 0,
+		openPullRequestsCount: 0,
+		commits: [],
+	});
+
+	assert.deepStrictEqual({
+		recentSuccessfulReleases: viewModel.metrics.recentSuccessCount,
+		releaseFrequency: viewModel.metrics.deploymentFrequency,
+		averageDaysBetweenReleases: viewModel.metrics.averageDaysBetweenReleases,
+		averageLeadTimeDays: viewModel.metrics.averageLeadTimeDays,
+		medianLeadTimeDays: viewModel.metrics.medianLeadTimeDays,
+		postReleaseCorrectionRate: viewModel.metrics.postReleaseCorrectionRate,
+	}, {
+		recentSuccessfulReleases: 3,
+		releaseFrequency: 0.8,
+		averageDaysBetweenReleases: 7,
+		averageLeadTimeDays: 1.5,
+		medianLeadTimeDays: 1.5,
+		postReleaseCorrectionRate: 50,
 	});
 }

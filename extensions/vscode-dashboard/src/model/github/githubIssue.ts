@@ -3,11 +3,15 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-export interface GitHubRepo {
-	open_issues_count?: number;
-	forks_count?: number;
-	subscribers_count?: number;
-	watchers_count?: number;
-	stargazers_count?: number;
-	full_name?: string;
+import type { GitHubLabel } from './githubLabel';
+import type { GitHubUser } from './githubUser';
+
+export interface GitHubIssue {
+	number: number;
+	title: string;
+	closed_at?: string | null;
+	comments?: number;
+	labels?: GitHubLabel[];
+	closed_by?: GitHubUser | null;
+	pull_request?: object;
 }

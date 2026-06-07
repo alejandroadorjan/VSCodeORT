@@ -3,8 +3,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { GitHubCommit, GitHubIssue, GitHubRepo, GitHubWorkflowRun } from '../model/github';
-import type { GitHubRunsResponse, GitHubSearchResponse } from './githubClient.responses';
+import type { GitHubCommit, GitHubIssue, GitHubRelease, GitHubRepo, GitHubTag, GitHubWorkflowRun } from '../model/github';
+import type { GitHubCompareResponse, GitHubRunsResponse, GitHubSearchResponse } from './githubClient.responses';
 import type { GitHubClientOptions, GitHubFetchLike } from './githubClient.types';
 
 export type { GitHubClientOptions, GitHubFetchLike } from './githubClient.types';
@@ -84,14 +84,37 @@ export async function getCommits(options: GitHubClientOptions): Promise<GitHubCo
 	);
 }
 
-export async function getWorkflowRuns(options: GitHubClientOptions): Promise<GitHubWorkflowRun[]> {
+export async function getReleases(options: GitHubClientOptions): Promise<GitHubRelease[]> {
+	return requestJson<GitHubRelease[]>(
+		buildRepoUrl(options.owner, options.repo, '/releases?per_page=20'),
+		options
+	);
+}
+
+export async function getTags(options: GitHubClientOptions): Promise<GitHubTag[]> {
+	return requestJson<GitHubTag[]>(
+		buildRepoUrl(options.owner, options.repo, '/tags?per_page=100'),
+		options
+	);
+}
+
+export async function getCompareCommits(options: GitHubClientOptions, base: string, head: string): Promise<GitHubCommit[]> {
+	const compare = await requestJson<GitHubCompareResponse>(
+		buildRepoUrl(options.owner, options.repo, `/compare/${encodeURIComponent(base)}...${encodeURIComponent(head)}`),
+		options
+	);
+
+	return compare.commits ?? [];
+}
+
+async function getWorkflowRunsFromSuffix(options: GitHubClientOptions, suffix: string): Promise<GitHubWorkflowRun[]> {
 	const perPage = options.perPage ?? DEFAULT_PER_PAGE;
 	const maxPages = options.maxPages ?? 3;
 	const runs: GitHubWorkflowRun[] = [];
 
 	for (let page = 1; page <= maxPages; page++) {
 		const response = await requestJson<GitHubRunsResponse>(
-			buildRepoUrl(options.owner, options.repo, `/actions/runs?per_page=${perPage}&page=${page}`),
+			buildRepoUrl(options.owner, options.repo, `${suffix}&per_page=${perPage}&page=${page}`),
 			options
 		);
 		const pageRuns = response.workflow_runs ?? [];
@@ -108,4 +131,12 @@ export async function getWorkflowRuns(options: GitHubClientOptions): Promise<Git
 	}
 
 	return runs;
+}
+
+export async function getWorkflowRuns(options: GitHubClientOptions): Promise<GitHubWorkflowRun[]> {
+	return getWorkflowRunsFromSuffix(options, '/actions/runs?');
+}
+
+export async function getWorkflowRunsForBranch(options: GitHubClientOptions, branch: string): Promise<GitHubWorkflowRun[]> {
+	return getWorkflowRunsFromSuffix(options, `/actions/runs?branch=${encodeURIComponent(branch)}`);
 }

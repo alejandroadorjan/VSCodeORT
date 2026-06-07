@@ -3,15 +3,11 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { GitHubLabel } from './GitHubLabel';
-import type { GitHubUser } from './GitHubUser';
+export type DashboardReleaseSource = 'main' | 'tags';
 
-export interface GitHubIssue {
-	number: number;
-	title: string;
-	closed_at?: string | null;
-	comments?: number;
-	labels?: GitHubLabel[];
-	closed_by?: GitHubUser | null;
-	pull_request?: object;
+export interface DashboardConfig {
+	owner: string;
+	repo: string;
+	token: string | null;
+	releaseSource: DashboardReleaseSource;
 }

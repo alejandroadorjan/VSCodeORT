@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import type { IssueCard, RunCard, RunInsight } from '../model/dashboard';
+import type { IssueCard, RunCard, RunInsight, WorkflowDurationInsight } from '../model/dashboard';
 import type { GitHubIssue, GitHubWorkflowRun } from '../model/github';
 import { createLabelMarkup, formatClosedDate, formatDuration } from './dashboardMetrics.formatters';
 import { isCompletedRun, runDurationSeconds } from './dashboardMetrics.compute';
@@ -58,6 +58,19 @@ export function createRunInsight(run: GitHubWorkflowRun): RunInsight {
 		commit: run.head_sha?.slice(0, 7) ?? '',
 		duration: formatDuration(durationSeconds),
 		hasDuration: isCompletedRun(run),
+		url: run.html_url ?? '',
+	};
+}
+
+export function createWorkflowDurationInsight(run: GitHubWorkflowRun): WorkflowDurationInsight {
+	const durationSeconds = runDurationSeconds(run);
+
+	return {
+		name: getWorkflowDisplayName(run),
+		branch: run.head_branch ?? '',
+		commit: run.head_sha?.slice(0, 7) ?? '',
+		duration: formatDuration(durationSeconds),
+		durationSeconds,
 		url: run.html_url ?? '',
 	};
 }

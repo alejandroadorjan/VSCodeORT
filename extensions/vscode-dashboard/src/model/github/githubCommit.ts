@@ -3,9 +3,17 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-export interface WorkflowHistogramItem {
-	label: string;
-	success: number;
-	failure: number;
-	durationSeconds: number;
+import type { GitHubUser } from './githubUser';
+
+export interface GitHubCommit {
+	sha?: string;
+	author?: GitHubUser | null;
+	commit?: {
+		author?: {
+			date?: string | null;
+		};
+		committer?: {
+			date?: string | null;
+		};
+	};
 }
