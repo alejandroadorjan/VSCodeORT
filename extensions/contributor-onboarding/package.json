@@ -20,6 +20,10 @@
 			"supported": true
 		}
 	},
+	"activationEvents": [
+		"onCommand:contributor-onboarding.openContributing"
+	],
+	"main": "./extension.js",
 	"contributes": {
 		"walkthroughs": [
 			{
@@ -27,6 +31,17 @@
 				"title": "%walkthrough.title%",
 				"description": "%walkthrough.description%",
 				"steps": [
+					{
+						"id": "vscodeContributorJourney.contributing",
+						"title": "%walkthrough.contributing.title%",
+						"description": "%walkthrough.contributing.description%",
+						"media": {
+							"markdown": "media/contributing.md"
+						},
+						"completionEvents": [
+							"onCommand:contributor-onboarding.openContributing"
+						]
+					},
 					{
 						"id": "vscodeContributorJourney.chooseWork",
 						"title": "%walkthrough.chooseWork.title%",

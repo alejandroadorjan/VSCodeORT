@@ -3,6 +3,8 @@
 	"description": "Interactive onboarding for new VS Code contributors.",
 	"walkthrough.title": "Contribute to VS Code",
 	"walkthrough.description": "Follow the contributor journey from choosing an issue to opening a pull request.",
+	"walkthrough.contributing.title": "Open the local contributor guide",
+	"walkthrough.contributing.description": "Start with the repository's CONTRIBUTING.md to see the full contributor journey in this workspace.\n[Open CONTRIBUTING.md](command:contributor-onboarding.openContributing)",
 	"walkthrough.chooseWork.title": "Choose the right work",
 	"walkthrough.chooseWork.description": "Start with a suitable issue, check for duplicates, and comment when you decide to work on it.\n[Browse good first issues](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A%22good%20first%20issue%22)",
 	"walkthrough.discussFirst.title": "Know when to discuss first",
