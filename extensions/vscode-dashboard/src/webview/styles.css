@@ -499,9 +499,8 @@ li.no-data   { font-size: 12px; opacity: .4; padding: 6px 0; list-style: none; }
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px; margin-bottom: 0;
 }
-.top-signals-grid { grid-template-columns: repeat(9, minmax(0, 1fr)); }
-.top-signals-grid .signal-item { grid-column: span 2; }
-.top-signals-grid .signal-item:nth-child(-n + 5) { grid-column: span 1; }
+.top-signals-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.top-signals-grid .signal-item:nth-child(5) { grid-row: span 2; }
 .signal-item {
   position: relative;
   background: var(--vscode-editor-background, #1e1e1e);
@@ -509,10 +508,10 @@ li.no-data   { font-size: 12px; opacity: .4; padding: 6px 0; list-style: none; }
   min-width: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .top-signals-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
   .top-signals-grid .signal-item,
-  .top-signals-grid .signal-item:nth-child(-n + 5) { grid-column: auto; }
+  .top-signals-grid .signal-item:nth-child(5) { grid-column: auto; grid-row: auto; }
 }
 
 /* ── MAIN ALERTS ─────────────────────────────────────────────────────── */
