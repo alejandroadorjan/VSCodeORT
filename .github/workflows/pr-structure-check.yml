@@ -1,13 +1,16 @@
 name: PR Structure Check
 
+# PR_STRUCTURE_CHECK_ENABLED: false — skip validation entirely (job succeeds, no check on PRs).
+# PR_STRUCTURE_CHECK_ENABLED: true  — run validation (default).
 # STRICT_MODE: false — all PRs, config from head branch (development/testing).
 # STRICT_MODE: true  — only PRs targeting main and release/*, config from base branch (production).
 env:
+  PR_STRUCTURE_CHECK_ENABLED: true
   STRICT_MODE: false
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled, ready_for_review]
 
 permissions:
   contents: read
@@ -25,8 +28,19 @@ jobs:
       !github.event.pull_request.draft &&
       !endsWith(github.event.pull_request.user.login, '[bot]')
     steps:
+      - name: Check if PR structure check is enabled
+        id: enabled
+        run: |
+          if [ "$PR_STRUCTURE_CHECK_ENABLED" = "true" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "PR Structure Check is disabled (PR_STRUCTURE_CHECK_ENABLED=$PR_STRUCTURE_CHECK_ENABLED)."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Apply STRICT_MODE branch filter
         id: strict_mode
+        if: steps.enabled.outputs.enabled == 'true'
         run: |
           if [ "$STRICT_MODE" = "true" ]; then
             BASE="${{ github.event.pull_request.base.ref }}"
@@ -42,7 +56,7 @@ jobs:
 
       - name: Pass when bypass label is present
         id: bypass
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true'
+        if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true'
         run: |
           if [ "${{ contains(github.event.pull_request.labels.*.name, 'skip-pr-check') }}" = "true" ]; then
             echo "Bypass label skip-pr-check present; skipping validation."
@@ -52,14 +66,14 @@ jobs:
           fi
 
       - name: Checkout repository
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
+        if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
         uses: actions/checkout@v6
         with:
           ref: ${{ env.STRICT_MODE == 'true' && github.event.pull_request.base.sha || github.event.pull_request.head.sha }}
 
       - name: Validate PR structure
         id: validate
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
+        if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
         continue-on-error: true
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
@@ -90,7 +104,7 @@ jobs:
           exit "$exit_code"
 
       - name: Update PR comment
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && (steps.validate.outcome == 'success' || steps.validate.outcome == 'failure')
+        if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && (steps.validate.outcome == 'success' || steps.validate.outcome == 'failure')
         uses: actions/github-script@v9
         env:
           VALIDATION_ERRORS: ${{ steps.validate.outputs.errors }}
@@ -163,5 +177,5 @@ jobs:
             }
 
       - name: Fail if validation failed
-        if: steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && steps.validate.outcome == 'failure'
+        if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true' && steps.validate.outcome == 'failure'
         run: exit 1
