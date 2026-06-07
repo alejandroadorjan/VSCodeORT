@@ -1,7 +1,19 @@
-<!-- Thank you for submitting a Pull Request. Please:
-* Read our Pull Request guidelines:
-  https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests
-* Associate an issue with the Pull Request.
-* Ensure that the code is up-to-date with the `main` branch.
-* Include a description of the proposed changes and how to test them.
+<!-- Thank you for submitting a Pull Request. Please read our guidelines:
+https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests
 -->
+
+## Context
+
+<!-- Problem or need motivating the change; link to issue or discussion when applicable. -->
+
+## Solution
+
+<!-- Approach taken; files or subsystems affected at a high level. -->
+
+## Impact
+
+<!-- Risks for users, backwards compatibility, or visible behavior changes. -->
+
+## Testing
+
+<!-- How the change was validated (automated, manual, environment). -->
