@@ -70,6 +70,9 @@ async function testViewModelBuildsWorkflowConcentration() {
 		topWorkflowFailureUrl: viewModel.workflowSeries[0].failures[0].url,
 		topWorkflowFailureBranch: viewModel.workflowSeries[0].failures[0].branch,
 		topWorkflowFailureCommit: viewModel.workflowSeries[0].failures[0].commit,
+		slowestRunName: viewModel.workflowDurationInsights[0].name,
+		slowestRunDuration: viewModel.workflowDurationInsights[0].duration,
+		slowestRunUrl: viewModel.workflowDurationInsights[0].url,
 	}, {
 		totalRuns: 3,
 		failureCount: 2,
@@ -79,6 +82,9 @@ async function testViewModelBuildsWorkflowConcentration() {
 		topWorkflowFailureUrl: 'https://github.com/microsoft/vscode/actions/runs/1',
 		topWorkflowFailureBranch: 'main',
 		topWorkflowFailureCommit: 'abcdef1',
+		slowestRunName: 'CI',
+		slowestRunDuration: '10m 0s',
+		slowestRunUrl: 'https://github.com/microsoft/vscode/actions/runs/1',
 	});
 }
 

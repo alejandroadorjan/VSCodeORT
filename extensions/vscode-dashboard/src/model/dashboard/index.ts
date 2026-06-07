@@ -13,4 +13,5 @@ export type { ReleaseChange } from './releaseChange';
 export type { RunCard } from './runCard';
 export type { RunInsight } from './runInsight';
 export type { SkippedRunInsight, SkippedRunReasonKind } from './skippedRunInsight';
+export type { WorkflowDurationInsight } from './workflowDurationInsight';
 export type { WorkflowFailureRun, WorkflowHistogramItem } from './workflowHistogramItem';

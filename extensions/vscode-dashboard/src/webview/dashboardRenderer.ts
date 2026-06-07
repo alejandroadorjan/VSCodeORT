@@ -11,6 +11,37 @@ import type { DashboardViewModel } from '../model/dashboard';
 const RUN_INSIGHTS_PAGE_SIZE = 5;
 const TOP_FAILING_WORKFLOWS_LIMIT = 6;
 
+function renderWorkflowDurationInsights(model: DashboardViewModel): string {
+	if (model.workflowDurationInsights.length === 0) {
+		return `<div class="no-data">${vscode.l10n.t('No completed workflow durations found.')}</div>`;
+	}
+
+	const maxDurationSeconds = Math.max(...model.workflowDurationInsights.map(run => run.durationSeconds));
+	return model.workflowDurationInsights.map(run => {
+		const width = Math.max(6, Math.round((run.durationSeconds / maxDurationSeconds) * 100));
+		const runLink = run.url ? `<a class="run-link" href="${run.url}">${vscode.l10n.t('Open run')}</a>` : '';
+		const details = [
+			run.branch ? vscode.l10n.t('branch {0}', run.branch) : '',
+			run.commit ? vscode.l10n.t('commit {0}', run.commit) : '',
+		].filter(Boolean).join(' · ');
+
+		return `
+			<div class="duration-insight-row">
+				<div class="duration-insight-main">
+					<div class="duration-insight-title">${run.name}</div>
+					<div class="duration-insight-meta">${details || vscode.l10n.t('No branch or commit available')}</div>
+				</div>
+				<div class="duration-insight-right">
+					<span>${run.duration}</span>
+					${runLink}
+				</div>
+				<div class="duration-insight-bar" title="${vscode.l10n.t('{0} execution time', run.duration)}">
+					<span class="duration-insight-fill" style="--duration-width: ${width}%"></span>
+				</div>
+			</div>`;
+	}).join('');
+}
+
 function renderIssueList(model: DashboardViewModel): string {
 	if (model.issueCards.length === 0) {
 		return `<li class="no-data">${vscode.l10n.t('No recent closed issues found.')}</li>`;
@@ -326,6 +357,7 @@ function renderMetricPlaceholders(html: string, model: DashboardViewModel): stri
 		.replace(/__otherPercent__/g, String(metrics.otherRate))
 		.replace(/__activeDevs__/g, String(metrics.activeDevs))
 		.replace(/__resolvedIssues__/g, renderIssueList(model))
+		.replace(/__workflowDurationInsightsHtml__/g, renderWorkflowDurationInsights(model))
 		.replace(/__recentRunsHtml__/g, renderRecentRuns(model))
 		.replace(/__topFailingWorkflowsHtml__/g, renderTopFailingWorkflows(model))
 		.replace(/__runDiagnosticsHtml__/g, renderRunDiagnostics(model))
@@ -380,6 +412,8 @@ function localizeDashboardHtml(html: string): string {
 		['Build speed (35% weight)', vscode.l10n.t('Build speed (35% weight)')],
 		['Measures how fast your builds are, capped at 180s for scoring purposes.', vscode.l10n.t('Measures how fast your builds are, capped at 180s for scoring purposes.')],
 		['65% Reliability + 35% Build Speed', vscode.l10n.t('65% Reliability + 35% Build Speed')],
+		['Workflow execution time', vscode.l10n.t('Workflow execution time')],
+		['Slowest completed workflow runs in the current GitHub Actions sample. Use links to inspect the exact run.', vscode.l10n.t('Slowest completed workflow runs in the current GitHub Actions sample. Use links to inspect the exact run.')],
 		['Recent run diagnosis', vscode.l10n.t('Recent run diagnosis')],
 		['Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.', vscode.l10n.t('Each tile is one recent workflow run. Use status, commit, duration, and the GitHub link to jump to the exact run when something needs attention.')],
 		['Runs needing attention', vscode.l10n.t('Runs needing attention')],

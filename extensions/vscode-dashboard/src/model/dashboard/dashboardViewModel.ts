@@ -9,6 +9,7 @@ import type { MainFailureAlert } from './mainFailureAlert';
 import type { RunCard } from './runCard';
 import type { RunInsight } from './runInsight';
 import type { SkippedRunInsight } from './skippedRunInsight';
+import type { WorkflowDurationInsight } from './workflowDurationInsight';
 import type { WorkflowHistogramItem } from './workflowHistogramItem';
 
 export interface DashboardViewModel {
@@ -19,5 +20,6 @@ export interface DashboardViewModel {
 	runInsights: RunInsight[];
 	mainFailureAlerts: MainFailureAlert[];
 	skippedRunInsights: SkippedRunInsight[];
+	workflowDurationInsights: WorkflowDurationInsight[];
 	workflowSeries: WorkflowHistogramItem[];
 }

@@ -109,58 +109,70 @@
 		<div class="section-label">Pipeline overview</div>
 		<div class="row2">
 
-			<div class="card health-card">
-				<div class="card-title">Workflow Health</div>
-				<div class="gauge-wrap">
-					<canvas id="gauge" width="180" height="100"></canvas>
-					<div class="gauge-score">__healthScore__<span class="gauge-unit">/ 100</span></div>
-				</div>
-				<div class="centered">
-					<span class="badge" id="health-badge"></span>
-				</div>
-
-				<!-- Health breakdown with tooltips -->
-				<div class="health-breakdown">
-					<div class="hb-row has-tooltip">
-						<span>
-							Workflow reliability
-							<span class="info-icon-sm">?</span>
-							<div class="tooltip-box tooltip-box-sm">
-								<strong>Workflow reliability (65% weight)</strong><br>
-								Based only on successful and failed workflow executions.<br><br>
-
-								Skipped, cancelled and in-progress runs are excluded because they do not represent a completed execution
-								outcome.<br><br>
-
-								<em>Formula:</em>
-
-								successful_workflows
-								÷
-								(successful_workflows + failed_workflows)
-
-								× 0.65
-							</div>
-						</span>
-						<span>65%</span>
+			<div class="pipeline-side-col">
+				<div class="card health-card">
+					<div class="card-title">Workflow Health</div>
+					<div class="gauge-wrap">
+						<canvas id="gauge" width="180" height="100"></canvas>
+						<div class="gauge-score">__healthScore__<span class="gauge-unit">/ 100</span></div>
 					</div>
-					<div class="hb-row has-tooltip">
-						<span>
-							Build speed
-							<span class="info-icon-sm">?</span>
-							<div class="tooltip-box tooltip-box-sm">
-								<strong>Build speed (35% weight)</strong><br>
-								Measures how fast your builds are, capped at 180s for scoring purposes.<br><br>
-								<em>Formula:</em> (100 - min(avg_duration_s, 180)) × 0.35<br>
-								A 60s avg build → (100-60)×0.35 = 14 pts. A 180s+ build → 0 pts.
-							</div>
-						</span>
-						<span>35%</span>
+					<div class="centered">
+						<span class="badge" id="health-badge"></span>
+					</div>
+
+					<!-- Health breakdown with tooltips -->
+					<div class="health-breakdown">
+						<div class="hb-row has-tooltip">
+							<span>
+								Workflow reliability
+								<span class="info-icon-sm">?</span>
+								<div class="tooltip-box tooltip-box-sm">
+									<strong>Workflow reliability (65% weight)</strong><br>
+									Based only on successful and failed workflow executions.<br><br>
+
+									Skipped, cancelled and in-progress runs are excluded because they do not represent a completed execution
+									outcome.<br><br>
+
+									<em>Formula:</em>
+
+									successful_workflows
+									÷
+									(successful_workflows + failed_workflows)
+
+									× 0.65
+								</div>
+							</span>
+							<span>65%</span>
+						</div>
+						<div class="hb-row has-tooltip">
+							<span>
+								Build speed
+								<span class="info-icon-sm">?</span>
+								<div class="tooltip-box tooltip-box-sm">
+									<strong>Build speed (35% weight)</strong><br>
+									Measures how fast your builds are, capped at 180s for scoring purposes.<br><br>
+									<em>Formula:</em> (100 - min(avg_duration_s, 180)) × 0.35<br>
+									A 60s avg build → (100-60)×0.35 = 14 pts. A 180s+ build → 0 pts.
+								</div>
+							</span>
+							<span>35%</span>
+						</div>
+					</div>
+
+					<!-- Health score formula note -->
+					<div class="health-formula">
+						65% Reliability + 35% Build Speed
 					</div>
 				</div>
 
-				<!-- Health score formula note -->
-				<div class="health-formula">
-					65% Reliability + 35% Build Speed
+				<div class="card duration-card has-tooltip">
+					<div class="info-icon" aria-label="Info">?</div>
+					<div class="tooltip-box tooltip-box-sm">
+						<strong>Workflow execution time</strong><br>
+						Slowest completed workflow runs in the current GitHub Actions sample. Use links to inspect the exact run.
+					</div>
+					<div class="card-title">Workflow execution time</div>
+					<div class="duration-insights">__workflowDurationInsightsHtml__</div>
 				</div>
 			</div>
 

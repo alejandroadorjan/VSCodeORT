@@ -7,12 +7,13 @@ import type { DashboardViewModel, MainFailureAlert, ReleaseChange, SkippedRunIns
 import type { DashboardReleaseSource } from '../model/config/dashboardConfig';
 import type { GitHubCommit, GitHubIssue, GitHubRelease, GitHubRepo, GitHubTag, GitHubWorkflowRun } from '../model/github';
 import { DEPLOYMENT_WEEKS_ESTIMATE, DEPLOYMENT_WINDOW_DAYS, RECENT_RUN_COUNT } from './dashboardMetrics.constants';
-import { createIssueCard, createRecentRunCard, createRunInsight } from './dashboardMetrics.cards';
+import { createIssueCard, createRecentRunCard, createRunInsight, createWorkflowDurationInsight } from './dashboardMetrics.cards';
 import { buildWorkflowHistogram, calculateHealthScore, isCompletedRun, runDurationSeconds, sortByStartDate } from './dashboardMetrics.compute';
 
 const MAIN_BRANCH = 'main';
 const MAIN_ALERT_COUNT = 5;
 const SKIPPED_INSIGHT_COUNT = 5;
+const WORKFLOW_DURATION_INSIGHT_COUNT = 4;
 const POST_RELEASE_CORRECTION_DAYS = 7;
 
 interface DeploymentAttempt {
@@ -408,6 +409,10 @@ export function buildDashboardViewModel(input: {
 	const activeDevs = new Set(input.commits.map((commit) => commit.author?.login).filter((login): login is string => Boolean(login))).size;
 	const recentRuns = sortedRuns.slice(-RECENT_RUN_COUNT).reverse();
 	const workflowSeries = buildWorkflowHistogram(sortedRuns);
+	const workflowDurationInsights = [...completedRuns]
+		.sort((left, right) => runDurationSeconds(right) - runDurationSeconds(left))
+		.slice(0, WORKFLOW_DURATION_INSIGHT_COUNT)
+		.map(createWorkflowDurationInsight);
 
 	return {
 		metrics: {
@@ -457,6 +462,7 @@ export function buildDashboardViewModel(input: {
 			.map(createRunInsight),
 		mainFailureAlerts: buildMainFailureAlerts(sortedRuns),
 		skippedRunInsights: buildSkippedRunInsights(sortedRuns, runsByCommit),
+		workflowDurationInsights,
 		workflowSeries,
 	};
 }
