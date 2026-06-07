@@ -420,11 +420,11 @@ function App() {
 					<div className='verdict-options'>
 						<label>
 							<input type='radio' name='verdict' value='good' checked={state.selectedVerdict === 'good'} onChange={onVerdictChange} disabled={state.busy} />
-							<span>Good / verde</span>
+							<span>Good / green</span>
 						</label>
 						<label>
 							<input type='radio' name='verdict' value='bad' checked={state.selectedVerdict === 'bad'} onChange={onVerdictChange} disabled={state.busy} />
-							<span>Bad / rojo</span>
+							<span>Bad / red</span>
 						</label>
 					</div>
 
