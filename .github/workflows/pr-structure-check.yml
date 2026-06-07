@@ -1,0 +1,154 @@
+name: PR Structure Check
+
+# STRICT_MODE: false — all PRs, config from head branch (development/testing).
+# STRICT_MODE: true  — only PRs targeting main and release/*, config from base branch (production).
+env:
+  STRICT_MODE: false
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-structure-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  pr-structure-check:
+    name: PR Structure Check
+    runs-on: ubuntu-latest
+    if: |
+      !github.event.pull_request.draft &&
+      !endsWith(github.event.pull_request.user.login, '[bot]') &&
+      (env.STRICT_MODE != 'true' ||
+        github.event.pull_request.base.ref == 'main' ||
+        startsWith(github.event.pull_request.base.ref, 'release/'))
+    steps:
+      - name: Pass when bypass label is present
+        id: bypass
+        run: |
+          if [ "${{ contains(github.event.pull_request.labels.*.name, 'skip-pr-check') }}" = "true" ]; then
+            echo "Bypass label skip-pr-check present; skipping validation."
+            echo "bypass=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "bypass=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout repository
+        if: steps.bypass.outputs.bypass != 'true'
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ env.STRICT_MODE == 'true' && github.event.pull_request.base.sha || github.event.pull_request.head.sha }}
+
+      - name: Validate PR structure
+        id: validate
+        if: steps.bypass.outputs.bypass != 'true'
+        continue-on-error: true
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set +e
+          output=$(node .github/pr-structure-check/validate-pr-structure.mjs \
+            --config .github/pr-structure-check/config.json \
+            --github-actions \
+            --body "$PR_BODY" 2>&1)
+          exit_code=$?
+          printf '%s\n' "$output"
+
+          errors=$(printf '%s\n' "$output" | grep '^::error::' | sed 's/^::error:://' || true)
+          if [ -n "$errors" ]; then
+            {
+              echo 'errors<<EOF'
+              printf '%s\n' "$errors"
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+          if [ "$exit_code" -eq 0 ]; then
+            echo "valid=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "valid=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          exit "$exit_code"
+
+      - name: Update PR comment
+        if: steps.bypass.outputs.bypass != 'true' && always() && steps.validate.outcome != 'skipped'
+        uses: actions/github-script@v9
+        env:
+          VALIDATION_ERRORS: ${{ steps.validate.outputs.errors }}
+        with:
+          script: |
+            const marker = '<!-- pr-structure-check -->';
+            const prNumber = context.payload.pull_request.number;
+            const valid = '${{ steps.validate.outputs.valid }}' === 'true';
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+
+            const existingComment = comments.find(comment => comment.body.includes(marker));
+
+            if (valid) {
+              if (!existingComment) {
+                console.log('Validation passed; no existing comment to update.');
+                return;
+              }
+
+              const body = `${marker}
+            ## ✅ PR Structure Check Resolved
+
+            The pull request description now meets all structure requirements.`;
+
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body
+              });
+              console.log('Updated existing comment to resolved.');
+              return;
+            }
+
+            const errors = (process.env.VALIDATION_ERRORS ?? '')
+              .split('\n')
+              .map(line => line.trim())
+              .filter(Boolean);
+            const errorList = errors.map(error => `- ${error}`).join('\n');
+
+            const body = `${marker}
+            ## PR Structure Check Failed
+
+            The pull request description is missing required sections or content.
+
+            ${errorList}
+
+            Please update the PR description to include all required sections. See \`.github/pr-structure-check/PR_STRUCTURE_CHECK.md\` for details.`;
+
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body
+              });
+              console.log('Updated existing failure comment.');
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body
+              });
+              console.log('Posted new failure comment.');
+            }
+
+      - name: Fail if validation failed
+        if: steps.bypass.outputs.bypass != 'true' && steps.validate.outputs.valid != 'true'
+        run: exit 1
