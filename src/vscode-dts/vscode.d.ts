@@ -5,6 +5,8 @@
 
 declare module 'vscode' {
 
+	// risk-scoring smoke test: high-risk public API (.d.ts) change
+
 	/**
 	 * The version of the editor.
 	 */
