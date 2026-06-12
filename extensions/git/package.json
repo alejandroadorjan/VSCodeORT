@@ -761,6 +761,11 @@
         "category": "Git"
       },
       {
+        "command": "git.bisect",
+        "title": "%command.bisect%",
+        "category": "Git"
+      },
+      {
         "command": "git.ignore",
         "title": "%command.ignore%",
         "category": "Git",
@@ -1625,6 +1630,10 @@
           "when": "config.git.enabled"
         },
         {
+          "command": "git.bisect",
+          "when": "config.git.enabled && !git.missing && gitOpenRepositoryCount != 0"
+        },
+        {
           "command": "git.ignore",
           "when": "config.git.enabled && !git.missing && gitOpenRepositoryCount != 0 && resourceScheme == file && scmActiveResourceRepository"
         },
@@ -1998,8 +2007,13 @@
           "when": "scmProvider == git"
         },
         {
+          "command": "git.bisect",
+          "group": "3_footer@1",
+          "when": "scmProvider == git"
+        },
+        {
           "command": "git.showOutput",
-          "group": "3_footer",
+          "group": "3_footer@2",
           "when": "scmProvider == git"
         }
       ],
@@ -2077,8 +2091,13 @@
           "when": "scmProvider == git"
         },
         {
+          "command": "git.bisect",
+          "group": "3_footer@1",
+          "when": "scmProvider == git"
+        },
+        {
           "command": "git.showOutput",
-          "group": "3_footer",
+          "group": "3_footer@2",
           "when": "scmProvider == git"
         }
       ],
