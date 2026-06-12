@@ -7,8 +7,9 @@ import { app, Details, GPUFeatureStatus, powerMonitor, protocol, session, Sessio
 import { addUNCHostToAllowlist, disableUNCAccessRestrictions } from '../../base/node/unc.js';
 import { validatedIpcMain } from '../../base/parts/ipc/electron-main/ipcMain.js';
 import { execFile } from 'child_process';
-import { hostname, release } from 'os';
+// hostname/release imports removed (unused after telemetry changes)
 import { initWindowsVersionInfo } from '../../base/node/windowsVersion.js';
+import { NullTelemetryService } from '../../platform/telemetry/common/telemetryUtils.js';
 import { VSBuffer } from '../../base/common/buffer.js';
 import { toErrorMessage } from '../../base/common/errorMessage.js';
 import { Event } from '../../base/common/event.js';
@@ -21,6 +22,7 @@ import { INodeProcess, IProcessEnvironment, isLinux, isLinuxSnap, isMacintosh, i
 import { assertType } from '../../base/common/types.js';
 import { URI } from '../../base/common/uri.js';
 import { generateUuid } from '../../base/common/uuid.js';
+import { ITelemetryService, TelemetryLevel } from '../../platform/telemetry/common/telemetry.js';
 import { registerContextMenuListener } from '../../base/parts/contextmenu/electron-main/contextmenu.js';
 import { getDelayedChannel, ProxyChannel, StaticRouter } from '../../base/parts/ipc/common/ipc.js';
 import { Server as ElectronIPCServer } from '../../base/parts/ipc/electron-main/ipc.electron.js';
@@ -76,11 +78,7 @@ import { ISignService } from '../../platform/sign/common/sign.js';
 import { IStateService } from '../../platform/state/node/state.js';
 import { StorageDatabaseChannel } from '../../platform/storage/electron-main/storageIpc.js';
 import { ApplicationStorageMainService, IApplicationStorageMainService, IStorageMainService, StorageMainService } from '../../platform/storage/electron-main/storageMainService.js';
-import { resolveCommonProperties } from '../../platform/telemetry/common/commonProperties.js';
-import { ITelemetryService, TelemetryLevel } from '../../platform/telemetry/common/telemetry.js';
-import { TelemetryAppenderClient } from '../../platform/telemetry/common/telemetryIpc.js';
-import { ITelemetryServiceConfig, TelemetryService } from '../../platform/telemetry/common/telemetryService.js';
-import { getPiiPathsFromEnvironment, getTelemetryLevel, isInternalTelemetry, NullTelemetryService, supportsTelemetry } from '../../platform/telemetry/common/telemetryUtils.js';
+// Telemetry intentionally disabled in this fork: imports removed
 import { IUpdateService } from '../../platform/update/common/update.js';
 import { UpdateChannel } from '../../platform/update/common/updateIpc.js';
 import { AbstractUpdateService } from '../../platform/update/electron-main/abstractUpdateService.js';
@@ -1170,19 +1168,8 @@ export class CodeApplication extends Disposable {
 		// URL handling
 		services.set(IURLService, new SyncDescriptor(NativeURLService, undefined, false /* proxied to other processes */));
 
-		// Telemetry
-		if (supportsTelemetry(this.productService, this.environmentMainService)) {
-			const isInternal = isInternalTelemetry(this.productService, this.configurationService);
-			const channel = getDelayedChannel(sharedProcessReady.then(client => client.getChannel('telemetryAppender')));
-			const appender = new TelemetryAppenderClient(channel);
-			const commonProperties = resolveCommonProperties(release(), hostname(), process.arch, this.productService.commit, this.productService.version, machineId, sqmId, devDeviceId, isInternal, this.productService.date, this.productService.telemetryAppName);
-			const piiPaths = getPiiPathsFromEnvironment(this.environmentMainService);
-			const config: ITelemetryServiceConfig = { appenders: [appender], commonProperties, piiPaths, sendErrorTelemetry: true };
-
-			services.set(ITelemetryService, new SyncDescriptor(TelemetryService, [config], false));
-		} else {
-			services.set(ITelemetryService, NullTelemetryService);
-		}
+		// Telemetry (academic fork: disabled)
+		services.set(ITelemetryService, NullTelemetryService);
 
 		// Default Extensions Profile Init
 		services.set(IExtensionsProfileScannerService, new SyncDescriptor(ExtensionsProfileScannerService, undefined, true));
@@ -1732,7 +1719,7 @@ export class CodeApplication extends Disposable {
 			const argvContent = await this.fileService.readFile(this.environmentMainService.argvResource);
 			const argvString = argvContent.value.toString();
 			const argvJSON = parse<{ 'enable-crash-reporter'?: boolean }>(argvString);
-			const telemetryLevel = getTelemetryLevel(this.configurationService);
+			const telemetryLevel = TelemetryLevel.NONE;
 			const enableCrashReporter = telemetryLevel >= TelemetryLevel.CRASH;
 
 			// Initial startup

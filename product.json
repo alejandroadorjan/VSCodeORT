@@ -1,6 +1,7 @@
 {
 	"nameShort": "Code - OSS",
 	"nameLong": "Code - OSS",
+	"enableTelemetry": false,
 	"applicationName": "code-oss",
 	"dataFolderName": ".vscode-oss",
 	"sharedDataFolderName": ".vscode-oss-shared",
