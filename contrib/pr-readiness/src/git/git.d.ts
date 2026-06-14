@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 /**
  * Subconjunto de las typings de la Git Extension API de VS Code
  * (extensión `vscode.git`). La API completa NO está en `@types/vscode`;

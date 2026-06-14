@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 /**
  * Capa 1 — Implementación de `AiClient` sobre la Claude API (Anthropic SDK).
  *
@@ -39,7 +43,7 @@ export class AnthropicAiClient implements AiClient {
 
 		const client = new Anthropic({ apiKey });
 
-		const response = await client.messages.create({
+		const params: Anthropic.MessageCreateParamsNonStreaming = {
 			model,
 			max_tokens: opts.maxTokens ?? 4096,
 			thinking: { type: 'adaptive' },
@@ -50,7 +54,9 @@ export class AnthropicAiClient implements AiClient {
 			// El system prompt es constante entre llamadas → se cachea.
 			system: [{ type: 'text', text: opts.system, cache_control: { type: 'ephemeral' } }],
 			messages: [{ role: 'user', content: opts.user }]
-		} as Anthropic.MessageCreateParamsNonStreaming);
+		};
+
+		const response = await client.messages.create(params);
 
 		const text = response.content.find((b) => b.type === 'text')?.text;
 		if (!text) {
