@@ -1,0 +1,127 @@
+{
+	"name": "contributor-onboarding",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"version": "0.0.1",
+	"publisher": "vscode",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.119.0"
+	},
+	"enabledApiProposals": [
+		"chatPromptFiles"
+	],
+	"categories": [
+		"Other"
+	],
+	"capabilities": {
+		"virtualWorkspaces": true,
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"activationEvents": [
+		"onCommand:contributor-onboarding.openContributing"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"walkthroughs": [
+			{
+				"id": "vscodeContributorJourney",
+				"title": "%walkthrough.title%",
+				"description": "%walkthrough.description%",
+				"steps": [
+					{
+						"id": "vscodeContributorJourney.contributing",
+						"title": "%walkthrough.contributing.title%",
+						"description": "%walkthrough.contributing.description%",
+						"media": {
+							"markdown": "media/contributing.md"
+						},
+						"completionEvents": [
+							"onCommand:contributor-onboarding.openContributing"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.chooseWork",
+						"title": "%walkthrough.chooseWork.title%",
+						"description": "%walkthrough.chooseWork.description%",
+						"media": {
+							"markdown": "media/choose-work.md"
+						},
+						"completionEvents": [
+							"onLink:https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A%22good%20first%20issue%22"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.discussFirst",
+						"title": "%walkthrough.discussFirst.title%",
+						"description": "%walkthrough.discussFirst.description%",
+						"media": {
+							"markdown": "media/discuss-first.md"
+						},
+						"completionEvents": [
+							"onLink:https://github.com/microsoft/vscode/wiki/Issues-Triaging"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.architecture",
+						"title": "%walkthrough.architecture.title%",
+						"description": "%walkthrough.architecture.description%",
+						"media": {
+							"markdown": "media/architecture-map.md"
+						},
+						"completionEvents": [
+							"onLink:https://github.com/microsoft/vscode/wiki/source-code-organization"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.localSetup",
+						"title": "%walkthrough.localSetup.title%",
+						"description": "%walkthrough.localSetup.description%",
+						"media": {
+							"markdown": "media/local-setup.md"
+						},
+						"completionEvents": [
+							"onLink:https://github.com/microsoft/vscode/wiki/How-to-Contribute"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.aiWorkflow",
+						"title": "%walkthrough.aiWorkflow.title%",
+						"description": "%walkthrough.aiWorkflow.description%",
+						"media": {
+							"markdown": "media/ai-workflow.md"
+						},
+						"completionEvents": [
+							"onCommand:workbench.action.chat.open"
+						]
+					},
+					{
+						"id": "vscodeContributorJourney.validateAndPr",
+						"title": "%walkthrough.validateAndPr.title%",
+						"description": "%walkthrough.validateAndPr.description%",
+						"media": {
+							"markdown": "media/validate-and-pr.md"
+						},
+						"completionEvents": [
+							"onLink:https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests"
+						]
+					}
+				]
+			}
+		],
+		"chatPromptFiles": [
+			{
+				"path": "./prompts/contributor-journey.prompt.md",
+				"sessionTypes": [
+					"local"
+				]
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/vscode.git"
+	}
+}
