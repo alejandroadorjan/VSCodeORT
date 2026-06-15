@@ -11,7 +11,7 @@ import { IProductService } from '../../../../platform/product/common/productServ
 import { IStorageService } from '../../../../platform/storage/common/storage.js';
 import { ClassifiedEvent, IGDPRProperty, OmitMetadata, StrictPropertyCheck } from '../../../../platform/telemetry/common/gdprTypings.js';
 import { ITelemetryData, ITelemetryService, TelemetryLevel } from '../../../../platform/telemetry/common/telemetry.js';
-import { NullTelemetryService } from '../../../../platform/telemetry/common/telemetryUtils.js';
+import { NullTelemetryService, NullTelemetryServiceShape } from '../../../../platform/telemetry/common/telemetryUtils.js';
 import { IBrowserWorkbenchEnvironmentService } from '../../environment/browser/environmentService.js';
 import { IRemoteAgentService } from '../../remote/common/remoteAgentService.js';
 import { IMeteredConnectionService } from '../../../../platform/meteredConnection/common/meteredConnection.js';
@@ -97,5 +97,4 @@ export class TelemetryService extends Disposable implements ITelemetryService {
 		this.publicLogError(eventName, data as ITelemetryData);
 	}
 }
-// eslint-disable-next-line local/code-no-any-casts, @typescript-eslint/no-explicit-any
-registerSingleton(ITelemetryService, NullTelemetryService as any, InstantiationType.Delayed);
+registerSingleton(ITelemetryService, NullTelemetryServiceShape, InstantiationType.Delayed);
