@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { ITelemetryService, ITelemetryData, TelemetryLevel } from '../../../../platform/telemetry/common/telemetry.js';
-import { NullTelemetryService } from '../../../../platform/telemetry/common/telemetryUtils.js';
+import { NullTelemetryService, NullTelemetryServiceShape } from '../../../../platform/telemetry/common/telemetryUtils.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import { INativeWorkbenchEnvironmentService } from '../../environment/electron-browser/environmentService.js';
@@ -95,5 +95,4 @@ export class TelemetryService extends Disposable implements ITelemetryService {
 		this.publicLogError(eventName, data as ITelemetryData);
 	}
 }
-// eslint-disable-next-line local/code-no-any-casts, @typescript-eslint/no-explicit-any
-registerSingleton(ITelemetryService, NullTelemetryService as any, InstantiationType.Delayed);
+registerSingleton(ITelemetryService, NullTelemetryServiceShape, InstantiationType.Delayed);
