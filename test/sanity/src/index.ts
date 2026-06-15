@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import fs from 'fs';
-import minimist from 'minimist';
+import minimist = require('minimist');
 import Mocha, { MochaOptions } from 'mocha';
 import path from 'path';
 import { fileURLToPath } from 'url';

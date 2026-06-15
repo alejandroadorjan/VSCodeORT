@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { promises as fs } from 'fs';
-import minimist from 'minimist';
+import minimist = require('minimist');
 import * as path from 'path';
 
 const fixturesRootsFolder = path.join(__dirname, '../../src/extension/test/node/fixtures/patch');

@@ -10,7 +10,7 @@ import { performance } from 'node:perf_hooks';
 import { configurePortable } from './bootstrap-node.js';
 import { bootstrapESM } from './bootstrap-esm.js';
 import { app, protocol, crashReporter, Menu, contentTracing } from 'electron';
-import minimist from 'minimist';
+import minimist = require('minimist');
 import { product } from './bootstrap-meta.js';
 import { parse } from './vs/base/common/jsonc.js';
 import { getUserDataPath } from './vs/platform/environment/node/userDataPath.js';
