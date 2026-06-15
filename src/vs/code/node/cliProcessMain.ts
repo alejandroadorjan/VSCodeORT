@@ -2,6 +2,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+/* eslint-disable local/code-no-unexternalized-strings */
 
 import { setDefaultResultOrder } from "dns";
 import * as fs from "fs";
@@ -76,8 +77,7 @@ import {
 	StateReadonlyService,
 } from "../../platform/state/node/stateService.js";
 import { ITelemetryService } from "../../platform/telemetry/common/telemetry.js";
-import { ITelemetryAppender } from "../../platform/telemetry/common/telemetryUtils.js";
-import { NullTelemetryService } from "../../platform/telemetry/common/telemetryUtils.js";
+import { ITelemetryAppender, NullTelemetryService } from "../../platform/telemetry/common/telemetryUtils.js";
 import { buildTelemetryMessage } from "../../platform/telemetry/node/telemetry.js";
 import { IUriIdentityService } from "../../platform/uriIdentity/common/uriIdentity.js";
 import { UriIdentityService } from "../../platform/uriIdentity/common/uriIdentityService.js";

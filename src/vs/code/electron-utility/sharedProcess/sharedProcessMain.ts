@@ -316,7 +316,7 @@ class SharedProcessMain extends Disposable implements IClientConnectionFilter {
 		services.set(IExtensionRecommendationNotificationService, new ExtensionRecommendationNotificationServiceChannelClient(this.server.getChannel('extensionRecommendationNotification', activeWindowRouter)));
 
 		// Telemetry
-		let telemetryService: ITelemetryService = NullTelemetryService;
+		const telemetryService: ITelemetryService = NullTelemetryService;
 		const appenders: ITelemetryAppender[] = [];
 		const nullAppender = NullAppender;
 		appenders.push(nullAppender);

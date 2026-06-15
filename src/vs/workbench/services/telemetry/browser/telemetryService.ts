@@ -97,5 +97,5 @@ export class TelemetryService extends Disposable implements ITelemetryService {
 		this.publicLogError(eventName, data as ITelemetryData);
 	}
 }
-
+// eslint-disable-next-line local/code-no-any-casts, @typescript-eslint/no-explicit-any
 registerSingleton(ITelemetryService, NullTelemetryService as any, InstantiationType.Delayed);
