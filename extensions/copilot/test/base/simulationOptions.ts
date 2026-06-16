@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import minimist = require('minimist');
+import minimist from 'minimist';
 import { EmbeddingType } from '../../src/platform/embeddings/common/embeddingsComputer';
 import { CacheMode } from './simulationContext';
 

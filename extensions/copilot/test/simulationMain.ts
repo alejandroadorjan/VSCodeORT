@@ -11,7 +11,7 @@ import 'source-map-support/register';
 
 // Load other imports
 import * as fs from 'fs';
-import minimist = require('minimist');
+import minimist from 'minimist';
 import { createConnection } from 'net';
 import * as path from 'path';
 import * as v8 from 'v8';

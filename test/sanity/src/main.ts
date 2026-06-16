@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import minimist = require('minimist');
+import minimist from 'minimist';
 import os from 'os';
 import { setup as setupCliTests } from './cli.test.js';
 import { TestContext } from './context.js';

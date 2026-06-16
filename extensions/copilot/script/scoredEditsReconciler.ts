@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 import { execSync } from 'child_process';
 import * as fs from 'fs';
-import minimist = require('minimist');
+import minimist from 'minimist';
 import * as path from 'path';
 
 async function main() {

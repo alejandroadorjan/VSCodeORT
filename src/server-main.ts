@@ -10,7 +10,7 @@ import type { AddressInfo } from 'node:net';
 import * as os from 'node:os';
 import * as readline from 'node:readline';
 import { performance } from 'node:perf_hooks';
-import minimist = require('minimist');
+import minimist from 'minimist';
 import { devInjectNodeModuleLookupPath, removeGlobalNodeJsModuleLookupPaths } from './bootstrap-node.js';
 import { bootstrapESM } from './bootstrap-esm.js';
 import { resolveNLSConfiguration } from './vs/base/node/nls.js';

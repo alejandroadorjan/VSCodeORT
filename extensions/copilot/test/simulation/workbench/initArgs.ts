@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import minimist = require('minimist');
+import minimist from 'minimist';
 
 export type InitArgs = {
 	runOutputDirName?: string;

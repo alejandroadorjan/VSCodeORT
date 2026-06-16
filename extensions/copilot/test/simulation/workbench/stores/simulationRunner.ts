@@ -5,7 +5,7 @@
 
 import { ipcRenderer } from 'electron';
 import * as fs from 'fs';
-import minimist = require('minimist');
+import minimist from 'minimist';
 import * as mobx from 'mobx';
 import * as path from 'path';
 import { Result } from '../../../../src/util/common/result';
