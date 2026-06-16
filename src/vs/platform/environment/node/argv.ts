@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import minimist = require('minimist');
+import minimist from 'minimist';
 import { isWindows } from '../../../base/common/platform.js';
 import { localize } from '../../../nls.js';
 import { NativeParsedArgs } from '../common/argv.js';
