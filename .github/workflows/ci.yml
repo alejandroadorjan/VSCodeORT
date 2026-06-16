@@ -81,6 +81,8 @@ jobs:
           node build/lib/preLaunch.ts
           sudo chown root .build/electron/chrome-sandbox
           sudo chmod 4755 .build/electron/chrome-sandbox
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run unit tests node.js
         run: npm run test-node
@@ -143,7 +145,8 @@ jobs:
           cd test/smoke
           npm run compile
           xvfb-run node test/index.js --tracing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run smoke tests Browser Chromium
         run: npm run smoketest -- --web --browser chromium --headless --tracing
-

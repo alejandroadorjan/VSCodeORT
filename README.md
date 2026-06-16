@@ -28,10 +28,11 @@ There are many ways in which you can participate in this project, for example:
 * Review the [documentation](https://github.com/microsoft/vscode-docs) and make pull requests for anything from typos to additional and new content
 
 If you are interested in fixing issues and contributing directly to the code base,
-please see the document [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute), which covers the following:
+start with the [Contributor Journey](CONTRIBUTING.md#contributor-journey), which outlines the end-to-end process from choosing an issue through pull request review, including repository architecture, AI-assisted workflow, coding standards, validation, and the monthly iteration cycle. The same journey is also available as the **Contribute to VS Code** walkthrough on the Getting Started page. For detailed setup and development instructions, see [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute), which covers the following:
 
 * [How to build and run from source](https://github.com/microsoft/vscode/wiki/How-to-Contribute)
 * [The development workflow, including debugging and running tests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#debugging)
+* [Source code organization and architectural layers](https://github.com/microsoft/vscode/wiki/source-code-organization)
 * [Coding guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines)
 * [Submitting pull requests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests)
 * [Finding an issue to work on](https://github.com/microsoft/vscode/wiki/How-to-Contribute#where-to-contribute)
