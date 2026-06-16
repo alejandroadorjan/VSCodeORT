@@ -1,11 +1,15 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 /**
  * Markdown report builder — pure function, no I/O.
  * Takes the output of scorePRs() and produces a formatted Markdown string.
  */
 
 import type { NormalizedPR, Snapshot } from './types.js';
-import type { RankedPR, FilteredPR } from './score.js';
-import { WEIGHTS } from './score.js';
+import { WEIGHTS, type RankedPR, type FilteredPR } from './score.js';
 
 export interface ReportOptions {
 	/** Maximum ranked PRs to include in the main table (default: 25) */

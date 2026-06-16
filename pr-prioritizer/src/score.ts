@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 /**
  * Scoring engine — pure functions, no I/O.
  *
@@ -12,8 +17,7 @@
  */
 
 import type { NormalizedPR } from './types.js';
-import { extractSignals } from './signals.js';
-import type { Signals } from './signals.js';
+import { extractSignals, type Signals } from './signals.js';
 
 /**
  * Scoring weights.
@@ -110,7 +114,7 @@ export function computeBreakdown(signals: Signals, weights: typeof WEIGHTS = WEI
  * @param prs       Array of normalized PRs from the snapshot
  * @param weights   Weight table (defaults to `WEIGHTS`)
  * @param now       Reference date for age calculation (injectable for tests)
- * @returns         { ranked, filtered, internal } — ranked is sorted desc by score
+ * @returns ranked, filtered, and internal PR lists — ranked is sorted desc by score
  */
 export function scorePRs(
 	prs: NormalizedPR[],

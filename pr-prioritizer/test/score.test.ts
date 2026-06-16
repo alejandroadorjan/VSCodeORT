@@ -1,3 +1,8 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 /**
  * Tests for score.ts — covers hard filters, ranking order, and score formulas.
  * Uses the sample-prs.json fixture for deterministic, network-free results.
