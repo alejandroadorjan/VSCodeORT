@@ -1,0 +1,218 @@
+{
+	"repo": "microsoft/vscode",
+	"fetched_at": "2026-01-15T12:00:00.000Z",
+	"total_open": 10,
+	"prs": [
+		{
+			"number": 100,
+			"title": "Fix: editor cursor blink on retina displays",
+			"url": "https://github.com/microsoft/vscode/pull/100",
+			"author": "external-alice",
+			"author_association": "CONTRIBUTOR",
+			"created_at": "2025-10-17T12:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 45,
+			"deletions": 12,
+			"changed_files": 3,
+			"labels": ["bug"],
+			"milestone": "November 2025",
+			"body": "Fixes #88 by adjusting the blink interval for retina displays.\n\nTested on macOS 14 with VSCode dev build.",
+			"reviews": [
+				{ "state": "APPROVED", "user": { "login": "maintainer-bob" }, "submitted_at": "2025-10-20T10:00:00.000Z" }
+			],
+			"files": [
+				{ "filename": "src/vs/editor/browser/viewParts/cursor/cursor.ts" },
+				{ "filename": "src/vs/editor/browser/viewParts/cursor/cursor.test.ts" },
+				{ "filename": "src/vs/editor/test/browser/cursor.test.ts" }
+			]
+		},
+		{
+			"number": 101,
+			"title": "Add keyboard shortcut to toggle minimap",
+			"url": "https://github.com/microsoft/vscode/pull/101",
+			"author": "external-carlos",
+			"author_association": "FIRST_TIME_CONTRIBUTOR",
+			"created_at": "2025-07-01T08:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 10,
+			"deletions": 2,
+			"changed_files": 2,
+			"labels": ["feature-request", "good first issue"],
+			"milestone": null,
+			"body": "Resolves #42.\n\nAdds a new keybinding workbench.action.toggleMinimap.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/contrib/minimap/browser/minimapActions.ts" },
+				{ "filename": "package.json" }
+			]
+		},
+		{
+			"number": 102,
+			"title": "WIP: Refactor terminal renderer",
+			"url": "https://github.com/microsoft/vscode/pull/102",
+			"author": "external-diana",
+			"author_association": "NONE",
+			"created_at": "2026-01-10T09:00:00.000Z",
+			"draft": true,
+			"mergeable_state": "clean",
+			"additions": 800,
+			"deletions": 600,
+			"changed_files": 20,
+			"labels": [],
+			"milestone": null,
+			"body": "Work in progress — do not review yet.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/contrib/terminal/browser/terminalRenderer.ts" }
+			]
+		},
+		{
+			"number": 103,
+			"title": "Fix typo in README",
+			"url": "https://github.com/microsoft/vscode/pull/103",
+			"author": "external-eve",
+			"author_association": "CONTRIBUTOR",
+			"created_at": "2025-12-01T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "dirty",
+			"additions": 1,
+			"deletions": 1,
+			"changed_files": 1,
+			"labels": ["documentation"],
+			"milestone": null,
+			"body": "Fixes a typo in the contributing guide.",
+			"reviews": [],
+			"files": [
+				{ "filename": "CONTRIBUTING.md" }
+			]
+		},
+		{
+			"number": 104,
+			"title": "Improve extension host startup telemetry",
+			"url": "https://github.com/microsoft/vscode/pull/104",
+			"author": "internal-frank",
+			"author_association": "MEMBER",
+			"created_at": "2025-11-01T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 200,
+			"deletions": 50,
+			"changed_files": 8,
+			"labels": ["telemetry"],
+			"milestone": "November 2025",
+			"body": "Improves telemetry for extension host startup.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/services/extensions/node/extensionHostProcessManager.ts" }
+			]
+		},
+		{
+			"number": 105,
+			"title": "Add support for multi-cursor paste",
+			"url": "https://github.com/microsoft/vscode/pull/105",
+			"author": "external-grace",
+			"author_association": "CONTRIBUTOR",
+			"created_at": "2025-09-01T08:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 300,
+			"deletions": 100,
+			"changed_files": 5,
+			"labels": ["editor-core"],
+			"milestone": "October 2025",
+			"body": "Closes #55.\n\nThis PR adds multi-cursor paste behaviour matching the user's expectation.",
+			"reviews": [
+				{ "state": "CHANGES_REQUESTED", "user": { "login": "maintainer-bob" }, "submitted_at": "2025-09-10T10:00:00.000Z" }
+			],
+			"files": [
+				{ "filename": "src/vs/editor/contrib/multicursor/browser/multicursor.ts" },
+				{ "filename": "src/vs/editor/contrib/multicursor/test/browser/multicursor.test.ts" }
+			]
+		},
+		{
+			"number": 106,
+			"title": "Improve settings search ranking",
+			"url": "https://github.com/microsoft/vscode/pull/106",
+			"author": "external-henry",
+			"author_association": "NONE",
+			"created_at": "2025-06-01T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 80,
+			"deletions": 30,
+			"changed_files": 4,
+			"labels": ["settings"],
+			"milestone": "July 2025",
+			"body": "Improves the ranking algorithm for settings search.\n\nSee also issue #77.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/contrib/preferences/browser/settingsEditor2.ts" },
+				{ "filename": "src/vs/workbench/contrib/preferences/test/browser/settingsEditor2.test.ts" }
+			]
+		},
+		{
+			"number": 107,
+			"title": "Add dark mode for walkthrough pages",
+			"url": "https://github.com/microsoft/vscode/pull/107",
+			"author": "external-iris",
+			"author_association": "FIRST_TIME_CONTRIBUTOR",
+			"created_at": "2026-01-14T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 5,
+			"deletions": 2,
+			"changed_files": 1,
+			"labels": [],
+			"milestone": null,
+			"body": "Small styling fix for walkthrough pages in dark mode.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/contrib/walkThrough/browser/walkThrough.css" }
+			]
+		},
+		{
+			"number": 108,
+			"title": "Fix search panel not closing on Escape",
+			"url": "https://github.com/microsoft/vscode/pull/108",
+			"author": "external-jake",
+			"author_association": "CONTRIBUTOR",
+			"created_at": "2025-11-20T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "conflicting",
+			"additions": 15,
+			"deletions": 5,
+			"changed_files": 2,
+			"labels": ["bug"],
+			"milestone": null,
+			"body": "Fixes #99 where pressing Escape in the search panel does not close it.",
+			"reviews": [],
+			"files": [
+				{ "filename": "src/vs/workbench/contrib/search/browser/searchPanel.ts" }
+			]
+		},
+		{
+			"number": 109,
+			"title": "Remove deprecated API usages in git extension",
+			"url": "https://github.com/microsoft/vscode/pull/109",
+			"author": "external-kate",
+			"author_association": "CONTRIBUTOR",
+			"created_at": "2025-08-01T10:00:00.000Z",
+			"draft": false,
+			"mergeable_state": "clean",
+			"additions": 120,
+			"deletions": 200,
+			"changed_files": 10,
+			"labels": ["git", "refactor"],
+			"milestone": "September 2025",
+			"body": "Resolves #33.\n\nRemoves deprecated API usage and adds spec coverage.",
+			"reviews": [],
+			"files": [
+				{ "filename": "extensions/git/src/api/api1.ts" },
+				{ "filename": "extensions/git/src/repository.ts" },
+				{ "filename": "extensions/git/src/test/git.test.ts" }
+			]
+		}
+	]
+}
