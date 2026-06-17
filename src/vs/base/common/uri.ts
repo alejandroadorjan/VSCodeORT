@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+// risk-scoring smoke test: high-risk PR also touches src/vs/ implementation without tests (S4)
 import { CharCode } from './charCode.js';
 import { MarshalledId } from './marshallingIds.js';
 import * as paths from './path.js';
