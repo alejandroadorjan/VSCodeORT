@@ -5,9 +5,9 @@
 
 import { Server } from '../../../../base/parts/ipc/node/ipc.cp.js';
 import { TelemetryAppenderChannel } from '../../../../platform/telemetry/common/telemetryIpc.js';
-import { OneDataSystemAppender } from '../../../../platform/telemetry/node/1dsAppender.js';
+import { NullAppender } from '../../../../platform/telemetry/common/telemetryUtils.js';
 
-const appender = new OneDataSystemAppender(undefined, false, process.argv[2], JSON.parse(process.argv[3]), process.argv[4]);
+const appender = NullAppender;
 process.once('exit', () => appender.flush());
 
 const channel = new TelemetryAppenderChannel([appender]);

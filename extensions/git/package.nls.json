@@ -108,6 +108,7 @@
 	"command.syncRebase": "Sync (Rebase)",
 	"command.publish": "Publish Branch...",
 	"command.showOutput": "Show Git Output",
+	"command.bisect": "Git Bisect",
 	"command.ignore": "Add to .gitignore",
 	"command.revealInExplorer": "Reveal in Explorer View",
 	"command.revealFileInOS.linux": "Open Containing Folder",

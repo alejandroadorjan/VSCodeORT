@@ -144,7 +144,7 @@ function createTestPicker(
 	instantiationService.stub(IPreferencesService, {});
 	instantiationService.stub(IOutputService, {});
 	instantiationService.stub(IConfigurationService, { getValue: () => undefined });
-	instantiationService.stub(ICommandService, { executeCommand: async () => { } });
+	instantiationService.stub(ICommandService, { executeCommand: async <R = unknown>(_commandId: string, ..._args: unknown[]) => undefined as R | undefined });
 	instantiationService.stub(IWorkspacesService, {
 		getRecentlyOpened: async () => ({ workspaces: [], files: [] }),
 		onDidChangeRecentlyOpened: Event.None,
