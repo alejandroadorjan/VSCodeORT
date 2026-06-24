@@ -67,7 +67,7 @@ jobs:
 
       - name: Checkout repository
         if: steps.enabled.outputs.enabled == 'true' && steps.strict_mode.outputs.strict_mode_pass == 'true' && steps.bypass.outputs.bypass != 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.STRICT_MODE == 'true' && github.event.pull_request.base.sha || github.event.pull_request.head.sha }}
 
