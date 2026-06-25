@@ -1,0 +1,118 @@
+{
+	"name": "git-risk-analyzer",
+	"displayName": "Git Risk Analyzer",
+	"description": "Analyzes risk of staged and untracked git changes in the current workspace.",
+	"version": "0.1.0",
+	"publisher": "mateogiraz",
+	"private": true,
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.100.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "gitRiskAnalyzer",
+					"title": "Risk Analysis",
+					"icon": "media/icon.svg"
+				}
+			]
+		},
+		"views": {
+			"gitRiskAnalyzer": [
+				{
+					"type": "webview",
+					"id": "gitRisk.riskView",
+					"name": "Risk Analysis"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "gitRisk.refresh",
+				"title": "Refresh",
+				"icon": "$(refresh)"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "gitRisk.refresh",
+					"when": "view == gitRisk.riskView",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Git Risk Analyzer",
+			"properties": {
+				"gitRiskAnalyzer.pathScores": {
+					"type": "object",
+					"default": {
+						"src/vscode-dts/": 3,
+						"src/vs/code/electron-main/": 2,
+						"src/vs/workbench/": 1,
+						"src/vs/base/": 0
+					},
+					"description": "Risk score per path pattern. Keys are path prefixes or globs; values are integer scores. The highest matching score is used as S1."
+				},
+				"gitRiskAnalyzer.lines": {
+					"type": "object",
+					"default": {
+						"minor": 200,
+						"major": 500
+					},
+					"description": "Line-count thresholds for size scoring (S2). Changes above 'major' add 2 points; above 'minor' add 1 point.",
+					"properties": {
+						"minor": { "type": "number" },
+						"major": { "type": "number" }
+					}
+				},
+				"gitRiskAnalyzer.thresholds": {
+					"type": "object",
+					"default": {
+						"medium": 3,
+						"high": 5
+					},
+					"description": "Total score thresholds for risk classification. Scores >= 'high' are high risk; >= 'medium' are medium risk.",
+					"properties": {
+						"medium": { "type": "number" },
+						"high": { "type": "number" }
+					}
+				},
+				"gitRiskAnalyzer.labels": {
+					"type": "object",
+					"default": {
+						"low": "risk:low",
+						"medium": "risk:medium",
+						"high": "risk:high"
+					},
+					"description": "Display label names for each risk level.",
+					"properties": {
+						"low": { "type": "string" },
+						"medium": { "type": "string" },
+						"high": { "type": "string" }
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -w -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^22",
+		"@types/vscode": "^1.100.0",
+		"typescript": "^5.9.2"
+	}
+}
