@@ -72,8 +72,12 @@
 					},
 					"description": "Line-count thresholds for size scoring (S2). Changes above 'major' add 2 points; above 'minor' add 1 point.",
 					"properties": {
-						"minor": { "type": "number" },
-						"major": { "type": "number" }
+						"minor": {
+							"type": "number"
+						},
+						"major": {
+							"type": "number"
+						}
 					}
 				},
 				"gitRiskAnalyzer.thresholds": {
@@ -84,8 +88,12 @@
 					},
 					"description": "Total score thresholds for risk classification. Scores >= 'high' are high risk; >= 'medium' are medium risk.",
 					"properties": {
-						"medium": { "type": "number" },
-						"high": { "type": "number" }
+						"medium": {
+							"type": "number"
+						},
+						"high": {
+							"type": "number"
+						}
 					}
 				},
 				"gitRiskAnalyzer.labels": {
@@ -97,9 +105,15 @@
 					},
 					"description": "Display label names for each risk level.",
 					"properties": {
-						"low": { "type": "string" },
-						"medium": { "type": "string" },
-						"high": { "type": "string" }
+						"low": {
+							"type": "string"
+						},
+						"medium": {
+							"type": "string"
+						},
+						"high": {
+							"type": "string"
+						}
 					}
 				}
 			}
@@ -108,11 +122,13 @@
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
-		"watch": "tsc -w -p ./"
+		"watch": "tsc -w -p ./",
+		"test": "vitest run"
 	},
 	"devDependencies": {
 		"@types/node": "^22",
 		"@types/vscode": "^1.100.0",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.2",
+		"vitest": "^4.1.9"
 	}
 }
