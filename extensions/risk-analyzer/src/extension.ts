@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { RiskViewProvider } from './riskViewProvider';
-import { RiskConfig, RiskResult } from './gitAnalyzer';
+import { RiskConfig, RiskResult } from './types';
 
 function getConfig(): RiskConfig {
 	const cfg = vscode.workspace.getConfiguration('gitRiskAnalyzer');

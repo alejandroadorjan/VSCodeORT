@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import { analyzeRisk, RiskResult, RiskConfig } from './gitAnalyzer';
+import { analyzeRisk } from './riskAnalyzer';
+import { RiskConfig, RiskResult } from './types';
 
 function getNonce(): string {
 	let text = '';
