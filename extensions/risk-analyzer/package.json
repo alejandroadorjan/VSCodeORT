@@ -1,11 +1,15 @@
 {
 	"name": "git-risk-analyzer",
-	"displayName": "Git Risk Analyzer",
+	"displayName": "VSCode Risk Analyzer",
 	"description": "Analyzes risk of staged and untracked git changes in the current workspace.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "mateogiraz",
-	"private": true,
 	"license": "MIT",
+	"icon": "media/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alejandroadorjan/VSCodeORT"
+	},
 	"engines": {
 		"vscode": "^1.100.0"
 	},
