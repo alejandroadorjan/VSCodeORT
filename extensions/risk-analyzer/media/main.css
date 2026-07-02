@@ -142,6 +142,46 @@ body {
 	line-height: 1.5;
 }
 
+/* ---- Info button & tooltip ---- */
+.signal-info-btn {
+	background: none;
+	border: 1px solid var(--vscode-descriptionForeground);
+	border-radius: 50%;
+	color: var(--vscode-descriptionForeground);
+	cursor: pointer;
+	font-family: serif;
+	font-style: italic;
+	font-weight: 700;
+	font-size: 0.7em;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	line-height: 1;
+	opacity: 0.5;
+	transition: opacity 0.15s;
+	flex-shrink: 0;
+}
+.signal-info-btn:hover {
+	opacity: 1;
+}
+.signal-tooltip {
+	display: none;
+	font-size: 0.83em;
+	line-height: 1.5;
+	color: var(--vscode-editorWidget-foreground);
+	background: var(--vscode-editorWidget-background);
+	border: 1px solid var(--vscode-widget-border);
+	border-radius: 4px;
+	padding: 8px 10px;
+	margin: 0 8px 6px;
+}
+.signal-tooltip.visible {
+	display: block;
+}
+
 /* ---- File list ---- */
 .file-list {
 	display: flex;

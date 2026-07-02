@@ -166,16 +166,25 @@ export class RiskViewProvider implements vscode.WebviewViewProvider {
 </div>`;
 
 		// --- Signals ---
+		const signalTooltips: Record<string, string> = {
+			S1: 'Some parts of the code are riskier to change than others. Touching core files can break the whole app. This signal checks if your changes affect any of those sensitive areas.',
+			S2: 'The more lines you change, the more things can go wrong. Large edits are harder to review and more likely to introduce bugs.',
+			S3: 'Files that needed a lot of fixes lately may still have lingering issues. This signal checks how many times your changed files have been patched in the last 3 months.',
+			S4: 'If you change source code without updating the tests, bugs can slip through unnoticed. This signal checks whether you modified source files without touching any test files.',
+		};
 		const signalsHtml = result.signals.map(s => {
 			const activeClass = s.score > 0 ? 'signal-active' : '';
 			const detailLines = s.detail.split('\n').map(l => `<div>${escapeHtml(l)}</div>`).join('');
+			const tip = escapeHtml(signalTooltips[s.id] ?? '');
 			return `
 <div class="signal ${activeClass}">
 	<div class="signal-header">
 		<span class="signal-id">${escapeHtml(s.id)}</span>
 		<span class="signal-name">${escapeHtml(s.description)}</span>
+		<button class="signal-info-btn" data-signal="${escapeHtml(s.id)}" aria-label="What does this mean?">i</button>
 		<span class="signal-score ${activeClass}">${s.score}</span>
 	</div>
+	<div class="signal-tooltip" id="tooltip-${escapeHtml(s.id)}">${tip}</div>
 	<div class="signal-detail">${detailLines}</div>
 </div>`;
 		}).join('');

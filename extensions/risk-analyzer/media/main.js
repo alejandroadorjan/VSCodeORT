@@ -12,6 +12,20 @@
 		});
 	});
 
+	// ---- Signal info tooltips ----
+	document.querySelectorAll('.signal-info-btn').forEach(btn => {
+		btn.addEventListener('click', e => {
+			e.stopPropagation();
+			const signalId = btn.getAttribute('data-signal');
+			document.getElementById('tooltip-' + signalId)?.classList.toggle('visible');
+		});
+	});
+	document.addEventListener('click', e => {
+		if (!e.target.closest('.signal-tooltip') && !e.target.closest('.signal-info-btn')) {
+			document.querySelectorAll('.signal-tooltip.visible').forEach(t => t.classList.remove('visible'));
+		}
+	});
+
 	// ---- Settings panel ----
 	const config = window.__config;
 	if (!config) { return; }
