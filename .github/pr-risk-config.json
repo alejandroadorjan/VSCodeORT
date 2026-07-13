@@ -1,0 +1,21 @@
+{
+  "pathScores": {
+    "src/vscode-dts/": 3,
+    "src/vs/code/electron-main/": 2,
+    "src/vs/workbench/": 1,
+    "src/vs/base/": 0
+  },
+  "lines": {
+    "minor": 200,
+    "major": 500
+  },
+  "labels": {
+    "low": "risk:low",
+    "medium": "risk:medium",
+    "high": "risk:high"
+  },
+  "thresholds": {
+    "medium": 3,
+    "high": 5
+  }
+}
