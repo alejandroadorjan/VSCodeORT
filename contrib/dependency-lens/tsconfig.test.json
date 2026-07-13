@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "outDir": "out-test",
+    "rootDir": "src",
+    "sourceMap": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
+  },
+  "comment": "Compila solo la lógica pura (grafo + scanner + tests). Los módulos que dependen de 'vscode' (extension.ts, ui/, vscodeFileSystem.ts) se excluyen: los tests corren en Node puro sin el host de VS Code.",
+  "include": [
+    "src/graph/**/*.ts",
+    "src/scanner/graphBuilder.ts",
+    "src/scanner/importParser.ts",
+    "src/test/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "out-test"]
+}

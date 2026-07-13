@@ -1,0 +1,82 @@
+{
+  "name": "dependency-lens",
+  "displayName": "Dependency Lens",
+  "description": "Detecta dependencias circulares en el grafo de imports del workspace usando el algoritmo de Tarjan (SCC). Caso de estudio: el core de microsoft/vscode.",
+  "version": "0.1.0",
+  "publisher": "ort-vscode-team",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Linters",
+    "Visualization",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "dependencyLens",
+          "title": "Dependency Lens",
+          "icon": "$(graph)"
+        }
+      ]
+    },
+    "views": {
+      "dependencyLens": [
+        {
+          "id": "dependencyLens.panel",
+          "name": "Ciclos de dependencias"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "dependencyLens.analyze",
+        "title": "Dependency Lens: Analizar workspace",
+        "category": "Dependency Lens",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "dependencyLens.analyze",
+          "when": "view == dependencyLens.panel",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Dependency Lens",
+      "properties": {
+        "dependencyLens.include": {
+          "type": "string",
+          "default": "src/vs/**/*.ts",
+          "description": "Glob de archivos a incluir en el análisis del grafo (relativo a la raíz del workspace)."
+        },
+        "dependencyLens.exclude": {
+          "type": "string",
+          "default": "**/{node_modules,test,*.test.ts,*.d.ts}/**",
+          "description": "Glob de archivos a excluir del análisis (tests, node_modules, declaraciones)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "npm run build -- --sourcemap --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test \"out-test/test/*.test.js\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.0"
+  }
+}
