@@ -1,10 +1,15 @@
 {
-  "name": "dependency-lens",
+  "name": "vscode-dependency-lens-tarjan",
   "displayName": "Dependency Lens",
   "description": "Detecta dependencias circulares en el grafo de imports del workspace usando el algoritmo de Tarjan (SCC). Caso de estudio: el core de microsoft/vscode.",
   "version": "0.1.0",
-  "publisher": "ort-vscode-team",
+  "publisher": "NicolasPinto",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alejandroadorjan/VSCodeORT.git",
+    "directory": "contrib/dependency-lens"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },

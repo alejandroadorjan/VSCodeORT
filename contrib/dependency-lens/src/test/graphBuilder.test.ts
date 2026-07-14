@@ -21,7 +21,7 @@ class MemoryFileSystem implements FileSystem {
 		return this.files[absPath] ?? '';
 	}
 	async fileExists(absPath: string): Promise<boolean> {
-		return absPath in this.files;
+		return Object.hasOwn(this.files, absPath);
 	}
 }
 
