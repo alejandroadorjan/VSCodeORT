@@ -25,7 +25,9 @@ class NodeFileSystem {
 			for (const entry of await readdir(dir, { withFileTypes: true })) {
 				const full = join(dir, entry.name);
 				if (entry.isDirectory()) {
-					if (entry.name === 'node_modules' || entry.name === 'test') continue;
+					if (entry.name === 'node_modules' || entry.name === 'test') {
+						continue;
+					}
 					await walk(full);
 				} else if (entry.name.endsWith('.ts') && !entry.name.endsWith('.d.ts') && !entry.name.endsWith('.test.ts')) {
 					out.push(full);
